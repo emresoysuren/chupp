@@ -1,4 +1,0 @@
-# chupp
-
-Chupp App
-# deneme
