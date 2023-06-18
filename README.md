@@ -1,17 +1,15 @@
 <!-- App Heading START -->
-<img alt="chupp-cover.png" src="https://github.com/emresoysuren/chupp/blob/readme-assets/chupp-cover.png?raw=true" data-hpc="true" class="Box-sc-g0xbh4-0 kzRgrI">
+<img alt="chupp-cover" src="https://github.com/emresoysuren/chupp/blob/readme-assets/chupp-cover.png?raw=true">
 
-<p style="font-size: 36px; font-weight: bold; text-align: center; color: #574AE2; margin-bottom: 16px;">chupp <span style="color: white;">App</span></p>
-
-<div style="display: flex; justify-content: center;">
-    <a style="padding-right: 24px;" href="">
+<div align=center>
+    <a href="">
         <img src="https://img.shields.io/badge/Download App (.apk)-%23574AE2?style=flat&logo=android">
     </a>
     <a href="">
         <img src="https://img.shields.io/badge/App Trailer Video-%23ff0000?style=flat&logo=youtube">
     </a>
 </div>
-<hr style="margin: 24px 0;">
+<hr>
 <!-- App Heading END -->
 
 # Takım
