@@ -1,9 +1,11 @@
 import 'package:chupp/config/color_palette.dart';
 import 'package:chupp/config/styles.dart';
 import 'package:chupp/config/texts.dart';
+import 'package:chupp/firebase_options.dart';
 import 'package:chupp/pages/main/home.dart';
 import 'package:chupp/routes/non_animated.dart';
 import 'package:chupp/widgets/title_loading.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatefulWidget {
@@ -38,8 +40,12 @@ class _SplashPageState extends State<SplashPage> {
 
   Future<void> load() async {
     // Load something in here
-    // TODO: Load the Firebase Here
-    await Future.delayed(const Duration(seconds: 3));
+    final Future minWaittingDuration =
+        Future.delayed(const Duration(seconds: 3));
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    await minWaittingDuration;
     // Direct to somewhere
     // TODO: Change this after the Auto Router
     if (mounted) {

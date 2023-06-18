@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "977624219918",
+    "project_id": "chupp-firebase",
+    "storage_bucket": "chupp-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:977624219918:android:f603aaa4d55334f59ad75f",
+        "android_client_info": {
+          "package_name": "com.example.chupp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "977624219918-p0fnvhkmhogbibiff5mud1fi4uipoace.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCp1yAqAkZ8dwCNIW4mvmAL43H9wcm8l-s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "977624219918-p0fnvhkmhogbibiff5mud1fi4uipoace.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -10,4 +10,11 @@ class Styles {
     fontWeight: FontWeight.bold,
     fontSize: 36,
   );
+
+  // TODO: Configure the "text" TextStyle
+  static const text = TextStyle(
+    fontSize: 16,
+  );
+
+  // TODO: Add styles For the headings
 }

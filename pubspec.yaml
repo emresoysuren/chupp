@@ -7,11 +7,15 @@ environment:
   sdk: '>=3.0.2 <4.0.0'
 
 dependencies:
+  another_flushbar: ^1.12.30
   auto_route: ^7.4.0
   draggable_menu: ^4.0.1
+  firebase_core: ^2.14.0
   flutter:
     sdk: flutter
   flutter_launcher_icons: ^0.13.1
+  flutter_riverpod: ^2.3.6
+  google_fonts: ^5.0.0
 
 dev_dependencies:
   flutter_test:
