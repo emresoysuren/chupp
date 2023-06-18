@@ -3,10 +3,13 @@
 
 <div align=center>
     <a href="">
+        <img src="https://img.shields.io/badge/App Trailer Video-%23ff0000?style=flat&logo=youtube">
+    </a>
+    <a href="">
         <img src="https://img.shields.io/badge/Download App (.apk)-%23574AE2?style=flat&logo=android">
     </a>
     <a href="">
-        <img src="https://img.shields.io/badge/App Trailer Video-%23ff0000?style=flat&logo=youtube">
+        <img src="https://img.shields.io/badge/Miro Backlog Board-%23050038?style=flat&logo=miro">
     </a>
 </div>
 <hr>
@@ -89,6 +92,10 @@ Kısaca hangi filmi izleyeceğinize veya hangi bilgisiyarı alacağınıza karar
 
 - **Hot Topics sayfasında reklam olarak öne çıkarılacak reklamlarla gelir elde edilmesi.**
 
+# Proje Yönetimi
+
+## Miro
+[Miro Backlog Board](https://miro.com/app/board/uXjVM9p4DIU=/)
 
 # Sprintler
 

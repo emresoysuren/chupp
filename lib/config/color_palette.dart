@@ -1,5 +1,8 @@
 import 'package:flutter/painting.dart';
 
+/// Store All The Colors Here
+///
+/// Note: DO NOT store the values have specific usage here, like "primary, dark_background etc.".
 class ColorPalette {
   ColorPalette._();
 
