@@ -112,22 +112,26 @@ Kısaca hangi filmi izleyeceğinize veya hangi bilgisiyarı alacağınıza karar
 
 **Daily Scrum:** Daily Scrum toplantılarında iletişimin daha kolay bir şekilde kurulabilceği ve uygulama içi araçlarındanda yararlanılabilceği göz önünde bulunarak **Discord** kullanılmaya karar verilmiştir. [Sprint 1 Daily Scrum Chats](https://docs.google.com/document/d/1nqhShhX6hKnaqVP-vc60lZqyV0rj3C0QnJLZZhjDu80/edit)
 
-**Sprint Board Durumu:**
-
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-1/kanban.jpg?raw=true" width= 920>
-
-**Algoritma Flow Chartı:**
-
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-1/algoritma-photo.jpg?raw=true" width= 920>
-
-
-**Uygulama Durumu Ekran Görüntüleri:**
-
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-1/chupp-splash.gif?raw=true" width="360">
-
 **Sprint Review:** Ortak bir doğrultu sağlamak için uygulamanın hedefleri belirlendi, uygulama genel tasarımı, uygulamanın kodunun genel yapısı, sayfa geçişleri, splash sayfası ve firebase bağlantısı yapıldı. Proje yönetimi için gerekli araçlar, planlamalar yapıldı, uygulandı ve takip edilce. İlerdeki sprintler için yapılacaklar planlandı.
 
 **Sprint Retrospective:**
 - Takım içinde daha iyi koordinasyonun kurulması için iletişimin arttırılması gerektirilmesine karar verildi.
 - Daha planlı hareket edilmesi gerektiğine karar verildi.
 - Sprint sürelerine dikkat çekerek zamanın daha verimli kullanılmasına karar verildi.
+
+**Sprint Board Durumu:**
+
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-1/kanban.png?raw=true" width= 920>
+
+**Algoritma Flow Chartı:**
+
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-1/algoritma-photo.jpg?raw=true" width= 920>
+
+**Figma Ekran Görüntüleri:**
+
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-1/figma-pages.png?raw=true" width= 920>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-1/figma-components.png?raw=true" width= 920>
+
+**Uygulama Durumu Ekran Görüntüleri:**
+
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-1/chupp-splash.gif?raw=true" width="360">
