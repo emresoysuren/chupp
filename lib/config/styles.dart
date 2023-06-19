@@ -1,20 +1,22 @@
-import 'package:chupp/config/color_palette.dart';
+import 'package:chupp/utils/theme/repo/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 /// Store All The Text Styles Here
 class Styles {
   Styles._();
 
-  static const titleLoading = TextStyle(
-    color: ColorPalette.blue,
-    fontWeight: FontWeight.bold,
-    fontSize: 36,
-  );
+  // TODO: Can we do this without get?
+  static TextStyle get titleLoading => GoogleFonts.ubuntu(
+        color: AppTheme.current.appTitle,
+        fontWeight: FontWeight.bold,
+        fontSize: 36,
+      );
 
-  // TODO: Configure the "text" TextStyle
-  static const text = TextStyle(
-    fontSize: 16,
-  );
+  static TextStyle get text => GoogleFonts.ubuntu(
+        color: AppTheme.current.text,
+        fontSize: 16,
+      );
 
   // TODO: Add styles For the headings
 }

@@ -26,7 +26,7 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       // TODO: Change the black color usage after implementing a theme management system
       backgroundColor: ColorPalette.black,
       body: Center(
