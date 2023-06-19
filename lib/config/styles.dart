@@ -15,7 +15,19 @@ class Styles {
 
   static TextStyle get title => GoogleFonts.ubuntu(
         color: AppTheme.current.title,
+        fontSize: 32,
+        fontWeight: FontWeight.bold,
+      );
+
+  static TextStyle get title2 => GoogleFonts.ubuntu(
+        color: AppTheme.current.title,
         fontSize: 24,
+        fontWeight: FontWeight.bold,
+      );
+
+  static TextStyle get title3 => GoogleFonts.ubuntu(
+        color: AppTheme.current.title,
+        fontSize: 20,
         fontWeight: FontWeight.bold,
       );
 

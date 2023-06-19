@@ -12,92 +12,121 @@ class MiniPost extends StatelessWidget {
       color: Colors.transparent,
       child: Padding(
         padding: const EdgeInsets.all(16),
-        child: Row(
+        child: Column(
           children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        "username",
-                        style: Styles.text,
-                      ),
-                      const SizedBox(width: 4),
-                      Text(
-                        "5/30/14 19:26",
-                        style: Styles.subText,
-                      )
-                    ],
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    "Which one is sth?",
-                    style: Styles.title,
-                  ),
-                  const SizedBox(height: 4),
-                  SizedBox(
-                    height: 18,
-                    child: ListView.separated(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 10,
-                      itemBuilder: (BuildContext context, int index) =>
-                          const HashtagChip(tag: "text"),
-                      separatorBuilder: (BuildContext context, int index) =>
-                          const SizedBox(width: 8),
+            Row(
+              children: [
+                Expanded(
+                  flex: 7,
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 4),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              "username",
+                              style: Styles.text,
+                            ),
+                            const SizedBox(width: 4),
+                            Text(
+                              "5/30/14 19:26",
+                              style: Styles.subText,
+                            )
+                          ],
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          "Which character is more likely to die next?",
+                          style: Styles.title3,
+                        ),
+                        const SizedBox(height: 8),
+                        SizedBox(
+                          height: 18,
+                          child: ListView.separated(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: 3,
+                            itemBuilder: (BuildContext context, int index) =>
+                                const HashtagChip(tag: "text"),
+                            separatorBuilder:
+                                (BuildContext context, int index) =>
+                                    const SizedBox(width: 8),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  const SizedBox(height: 4),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      SinglePlainTextButton(
-                        icon: Icons.water_drop_rounded,
-                        label: "4.6k",
-                        gap: 4,
-                        onPressed: () {},
+                ),
+                Expanded(
+                  flex: 3,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 4),
+                    child: Center(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Flexible(
+                                child: Text(
+                                  "idk anything",
+                                  style: Styles.textImp,
+                                  maxLines: 1,
+                                  softWrap: false,
+                                  textAlign: TextAlign.end,
+                                  overflow: TextOverflow.fade,
+                                ),
+                              )
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Flexible(
+                                child: Text(
+                                  "Option 2",
+                                  style: Styles.textImp,
+                                  maxLines: 1,
+                                  softWrap: false,
+                                  textAlign: TextAlign.end,
+                                  overflow: TextOverflow.fade,
+                                ),
+                              )
+                            ],
+                          ),
+                        ],
                       ),
-                      SinglePlainTextButton(
-                        icon: Icons.comment_rounded,
-                        label: "308",
-                        gap: 4,
-                        onPressed: () {},
-                      ),
-                      SinglePlainTextButton(
-                        icon: Icons.favorite_rounded,
-                        label: "1.2k",
-                        gap: 4,
-                        onPressed: () {},
-                      ),
-                    ],
+                    ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            const SizedBox(width: 16),
-            Center(
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        "Option 1",
-                        style: Styles.textImp,
-                      )
-                    ],
-                  ),
-                  const SizedBox(height: 8),
-                  Row(
-                    children: [
-                      Text(
-                        "Option 1",
-                        style: Styles.textImp,
-                      )
-                    ],
-                  ),
-                ],
-              ),
+            const SizedBox(height: 4),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                SinglePlainTextButton(
+                  icon: Icons.water_drop_rounded,
+                  label: "4.6k",
+                  gap: 4,
+                  onPressed: () {},
+                ),
+                SinglePlainTextButton(
+                  icon: Icons.comment_rounded,
+                  label: "308",
+                  gap: 4,
+                  onPressed: () {},
+                ),
+                SinglePlainTextButton(
+                  icon: Icons.favorite_rounded,
+                  label: "1.2k",
+                  gap: 4,
+                  onPressed: () {},
+                ),
+              ],
             ),
           ],
         ),
