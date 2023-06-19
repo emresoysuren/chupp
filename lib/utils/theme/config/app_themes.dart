@@ -20,8 +20,10 @@ class AppThemes {
         itemTitle: ColorPalette.white,
         text: ColorPalette.black,
         itemText: ColorPalette.white,
+
+        // Color can change if you think it should change
         subText: ColorPalette.offBlack,
-        itemSubText: ColorPalette.offWhite,
+        itemSubText: ColorPalette.lightGrey,
       );
 
   static AppThemeModel get dark => AppThemeModel(
@@ -34,7 +36,9 @@ class AppThemes {
         itemTitle: ColorPalette.black,
         text: ColorPalette.white,
         itemText: ColorPalette.black,
-        subText: ColorPalette.offWhite,
+        subText: ColorPalette.lightGrey,
+
+        // Color can change if you think it should change
         itemSubText: ColorPalette.offBlack,
       );
 }

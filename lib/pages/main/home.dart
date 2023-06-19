@@ -23,7 +23,7 @@ class HomePage extends StatelessWidget {
         ],
       ),
       body: ListView.builder(
-        itemCount: 20,
+        itemCount: 5,
         itemBuilder: (context, index) => const MiniPost(),
       ),
       bottomNavigationBar: const AppNavBar(current: 0),

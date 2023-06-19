@@ -24,9 +24,21 @@ class Styles {
         fontSize: 16,
       );
 
+  static TextStyle get textImp => GoogleFonts.ubuntu(
+        color: AppTheme.current.text,
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
+      );
+
   static TextStyle get itemText => GoogleFonts.ubuntu(
         color: AppTheme.current.itemText,
         fontSize: 16,
+      );
+
+  static TextStyle get itemTextImp => GoogleFonts.ubuntu(
+        color: AppTheme.current.itemText,
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
       );
 
   static TextStyle get subText => GoogleFonts.ubuntu(
