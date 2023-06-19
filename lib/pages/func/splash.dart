@@ -32,7 +32,7 @@ class _SplashPageState extends State<SplashPage> {
       body: Center(
         child: TitleLoading(
           title: Texts.title,
-          style: Styles.titleLoading,
+          style: Styles.appTitle,
         ),
       ),
     );

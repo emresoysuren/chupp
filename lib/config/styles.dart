@@ -7,10 +7,16 @@ class Styles {
   Styles._();
 
   // TODO: Can we do this without get?
-  static TextStyle get titleLoading => GoogleFonts.ubuntu(
+  static TextStyle get appTitle => GoogleFonts.ubuntu(
         color: AppTheme.current.appTitle,
+        fontSize: 32,
         fontWeight: FontWeight.bold,
-        fontSize: 36,
+      );
+
+  static TextStyle get title => GoogleFonts.ubuntu(
+        color: AppTheme.current.title,
+        fontSize: 24,
+        fontWeight: FontWeight.bold,
       );
 
   static TextStyle get text => GoogleFonts.ubuntu(
@@ -18,5 +24,18 @@ class Styles {
         fontSize: 16,
       );
 
-  // TODO: Add styles For the headings
+  static TextStyle get itemText => GoogleFonts.ubuntu(
+        color: AppTheme.current.itemText,
+        fontSize: 16,
+      );
+
+  static TextStyle get subText => GoogleFonts.ubuntu(
+        color: AppTheme.current.subText,
+        fontSize: 16,
+      );
+
+  static TextStyle get itemSubText => GoogleFonts.ubuntu(
+        color: AppTheme.current.subText,
+        fontSize: 16,
+      );
 }

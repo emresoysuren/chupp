@@ -14,27 +14,27 @@ class AppThemes {
         primaryBg: ColorPalette.white,
         secondaryBg: ColorPalette.offWhite,
         primaryItem: ColorPalette.black,
-        secondaryItem: ColorPalette.offBlack,
+        secondaryItem: ColorPalette.grey,
         appTitle: ColorPalette.blue,
         title: ColorPalette.black,
         itemTitle: ColorPalette.white,
         text: ColorPalette.black,
         itemText: ColorPalette.white,
-        subText: ColorPalette.grey,
-        itemSubText: ColorPalette.grey,
+        subText: ColorPalette.offBlack,
+        itemSubText: ColorPalette.offWhite,
       );
 
   static AppThemeModel get dark => AppThemeModel(
         primaryBg: ColorPalette.black,
         secondaryBg: ColorPalette.offBlack,
         primaryItem: ColorPalette.white,
-        secondaryItem: ColorPalette.offWhite,
+        secondaryItem: ColorPalette.grey,
         appTitle: ColorPalette.blue,
         title: ColorPalette.white,
         itemTitle: ColorPalette.black,
         text: ColorPalette.white,
         itemText: ColorPalette.black,
-        subText: ColorPalette.grey,
-        itemSubText: ColorPalette.grey,
+        subText: ColorPalette.offWhite,
+        itemSubText: ColorPalette.offBlack,
       );
 }

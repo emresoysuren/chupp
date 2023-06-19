@@ -12,6 +12,6 @@ class ColorPalette {
   static const Color blue = Color(0xff574AE2);
   static const Color offBlack = Color(0xff1f1f1f);
   static const Color offWhite = Color(0xffEDEDED);
-  static const Color grey = Color(0xffBBBBBB);
+  static const Color grey = Color(0xff5A5A5A);
   static const Color black = Color(0xff000000);
 }
