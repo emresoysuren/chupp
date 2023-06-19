@@ -7,8 +7,15 @@ import 'package:chupp/widgets/navbar/app_navbar.dart';
 import 'package:chupp/widgets/posts/mini_post.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final ScrollController _controller = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +32,19 @@ class HomePage extends StatelessWidget {
       ),
       body: DisableScrollBehavior(
         child: ListView.builder(
+          controller: _controller,
           itemCount: 5,
           itemBuilder: (context, index) => const MiniPost(),
         ),
       ),
-      bottomNavigationBar: const AppNavBar(current: 0),
+      bottomNavigationBar: AppNavBar(
+        current: 0,
+        activeTap: () => _controller.animateTo(
+          0,
+          duration: const Duration(milliseconds: 320),
+          curve: Curves.ease,
+        ),
+      ),
     );
   }
 }

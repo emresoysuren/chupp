@@ -25,8 +25,9 @@ class NavItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: GestureDetector(
-        onTap: () => active == true ? activeTap : passiveTap,
-        onLongPress: () => active == true
+        behavior: HitTestBehavior.opaque,
+        onTap: active == true ? activeTap : passiveTap,
+        onLongPress: active == true
             ? activeLPress ?? activeTap
             : passiveLPress ?? passiveTap,
         child: Center(
