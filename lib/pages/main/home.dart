@@ -1,7 +1,7 @@
 import 'package:chupp/config/styles.dart';
 import 'package:chupp/config/texts.dart';
 import 'package:chupp/config/utils.dart';
-import 'package:chupp/widgets/bar.dart';
+import 'package:chupp/widgets/bars/bar.dart';
 import 'package:chupp/widgets/disable_scroll_behavior.dart';
 import 'package:chupp/widgets/navbar/app_navbar.dart';
 import 'package:chupp/widgets/posts/mini_post.dart';

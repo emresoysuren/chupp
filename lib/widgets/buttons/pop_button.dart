@@ -1,6 +1,7 @@
 import 'package:chupp/config/utils.dart';
 import 'package:chupp/widgets/buttons/single_button.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PopButton extends StatelessWidget {
   final Color? color;
@@ -25,8 +26,8 @@ class PopButton extends StatelessWidget {
       onPressed: () => Navigator.of(context).pop(),
       padding: padding != null ? EdgeInsets.all(padding!) : null,
       child: Icon(
-        icon ?? Icons.arrow_back_ios_new_rounded,
-        size: size ?? 20,
+        icon ?? const FaIcon(FontAwesomeIcons.angleLeft).icon,
+        size: size ?? 24,
         color: color ?? Utils.theme.current.primaryItem,
       ),
     );

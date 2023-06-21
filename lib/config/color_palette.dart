@@ -10,6 +10,7 @@ class ColorPalette {
   static const Color yellow = Color(0xffffff00);
   static const Color white = Color(0xffffffff);
   static const Color blue = Color(0xff574AE2);
+  static const Color pink = Color(0xffDA4BE3);
   static const Color offBlack = Color(0xff1f1f1f);
   static const Color offWhite = Color(0xffEDEDED);
   static const Color lightGrey = Color(0xffAAAAAA);

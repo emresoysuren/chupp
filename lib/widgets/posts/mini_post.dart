@@ -1,4 +1,6 @@
 import 'package:chupp/config/styles.dart';
+import 'package:chupp/pages/side/post.dart';
+import 'package:chupp/routes/basic.dart';
 import 'package:chupp/widgets/buttons/single_plain_text_button.dart';
 import 'package:chupp/widgets/tag_chip.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +16,13 @@ class MiniPost extends StatelessWidget {
       child: InkWell(
         enableFeedback: false,
         splashColor: Colors.transparent,
-        onTap: () {},
+        onTap: () => Navigator.push(
+          context,
+          BasicPageRoute(
+            start: Start.left,
+            child: const PostPage(),
+          ),
+        ),
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(

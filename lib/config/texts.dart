@@ -5,4 +5,5 @@ class Texts {
   Texts._();
 
   static const String title = "chupp";
+  static const String postOpinionsTitle = "Opinions:";
 }
