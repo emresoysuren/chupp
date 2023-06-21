@@ -12,7 +12,8 @@ class AppTheme extends ChangeNotifier {
     notifyListeners();
   }
 
-  void changeMode(AppThemeMode mode) {
+  Future<void> changeMode(AppThemeMode mode) async {
+    await LocalData.changeTheme(mode);
     switch (mode) {
       case AppThemeMode.system:
         current = AppThemes.system;
