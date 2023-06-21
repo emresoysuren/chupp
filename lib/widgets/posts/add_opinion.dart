@@ -14,8 +14,36 @@ class AddOpinion extends StatefulWidget implements PreferredSizeWidget {
   State<AddOpinion> createState() => _AddOpinionState();
 }
 
-class _AddOpinionState extends State<AddOpinion> {
+class _AddOpinionState extends State<AddOpinion> with WidgetsBindingObserver {
   String text = "";
+  final FocusNode focusNode = FocusNode();
+  bool showing = false;
+
+  @override
+  void initState() {
+    WidgetsBinding.instance.addObserver(this);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    focusNode.dispose();
+    super.dispose();
+  }
+
+  @override
+  void didChangeMetrics() {
+    super.didChangeMetrics();
+    final value = MediaQuery.of(context).viewInsets.bottom;
+    if (value != 0 && !showing) {
+      showing = true;
+    }
+    if (showing && value == 0) {
+      showing = false;
+      focusNode.unfocus();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,29 +60,41 @@ class _AddOpinionState extends State<AddOpinion> {
           child: Row(
             children: [
               Expanded(
-                child: TextField(
-                  onChanged: (value) {
-                    setState(() {
-                      text = value;
-                    });
-                  },
-                  style: Styles.text,
-                  decoration: InputDecoration(
-                    hintText: "Add your opinion...",
-                    hintStyle: Styles.subText,
-                    border: InputBorder.none,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 14),
+                  child: TextField(
+                    focusNode: focusNode,
+                    onChanged: (value) {
+                      setState(() {
+                        text = value;
+                      });
+                    },
+                    keyboardType: TextInputType.multiline,
+                    minLines: 1,
+                    maxLines: 3,
+                    style: Styles.text,
+                    decoration: InputDecoration(
+                      hintText: "Add your opinion...",
+                      hintStyle: Styles.subText,
+                      border: InputBorder.none,
+                      isDense: true,
+                      contentPadding: const EdgeInsets.all(0),
+                    ),
                   ),
                 ),
               ),
-              if (text.isNotEmpty)
-                SingleButton(
+              AnimatedOpacity(
+                opacity: text.isNotEmpty ? 1 : 0,
+                duration: const Duration(milliseconds: 120),
+                child: SingleButton(
+                  onPressed: text.isEmpty ? null : () {},
                   child: FaIcon(
                     FontAwesomeIcons.solidPaperPlane,
                     color: Utils.theme.current.primaryItem,
                     size: 22,
                   ),
-                  onPressed: () {},
                 ),
+              ),
             ],
           ),
         ),
