@@ -19,7 +19,7 @@ class Poll extends StatelessWidget {
         children: [
           PollItem(tag: tag1, vote: vote1),
           SizedBox(height: gap),
-          PollItem(tag: tag2, vote: vote2),
+          PollItem(tag: tag2, vote: vote2, second: true),
         ],
       );
     } else {
@@ -30,7 +30,11 @@ class Poll extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.only(right: gap / 2),
               child: IntrinsicWidth(
-                child: PollItem(tag: tag1, vote: vote1),
+                child: PollItem(
+                  tag: tag1,
+                  vote: vote1,
+                  minimize: true,
+                ),
               ),
             ),
           ),
@@ -38,7 +42,13 @@ class Poll extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.only(left: gap / 2),
               child: IntrinsicWidth(
-                child: PollItem(tag: tag2, vote: vote2, reversed: true),
+                child: PollItem(
+                  tag: tag2,
+                  vote: vote2,
+                  reversed: true,
+                  second: true,
+                  minimize: true,
+                ),
               ),
             ),
           ),

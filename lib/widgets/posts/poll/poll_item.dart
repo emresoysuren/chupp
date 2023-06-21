@@ -1,3 +1,4 @@
+import 'package:chupp/config/color_palette.dart';
 import 'package:chupp/config/styles.dart';
 import 'package:chupp/config/utils.dart';
 import 'package:flutter/material.dart';
@@ -6,12 +7,16 @@ class PollItem extends StatefulWidget {
   final String tag;
   final int vote;
   final bool reversed;
+  final bool second;
+  final bool minimize;
 
   const PollItem({
     super.key,
     required this.tag,
     required this.vote,
     this.reversed = false,
+    this.second = false,
+    this.minimize = false,
   });
 
   @override
@@ -29,7 +34,9 @@ class _PollItemState extends State<PollItem> {
 
   get animationDuration => const Duration(milliseconds: 120);
 
-  EdgeInsets get _padding => const EdgeInsets.all(8);
+  EdgeInsets get _padding => widget.minimize
+      ? const EdgeInsets.symmetric(vertical: 10, horizontal: 8)
+      : const EdgeInsets.symmetric(vertical: 10, horizontal: 16);
 
   @override
   Widget build(BuildContext context) {
@@ -73,15 +80,18 @@ class _PollItemState extends State<PollItem> {
             overflow: TextOverflow.fade,
           ),
         ),
-        ColoredBox(
-          color: Utils.theme.current.appTitle,
+        Ink(
+          decoration: BoxDecoration(
+            gradient:
+                widget.second ? ColorPalette.orangeRed : ColorPalette.bluePink,
+          ),
           child: Padding(
             padding: _padding,
             child: Center(
               child: Text(
                 widget.vote.toString(),
                 maxLines: 1,
-                style: Styles.textImp,
+                style: Styles.textImp.copyWith(color: ColorPalette.white),
               ),
             ),
           ),

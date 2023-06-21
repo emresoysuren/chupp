@@ -19,7 +19,7 @@ class MiniPost extends StatelessWidget {
         onTap: () => Navigator.push(
           context,
           BasicPageRoute(
-            start: Start.left,
+            start: Start.right,
             child: const PostPage(),
           ),
         ),
