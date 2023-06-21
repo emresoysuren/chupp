@@ -5,6 +5,7 @@ import 'package:chupp/widgets/bars/custom/content_bar.dart';
 import 'package:chupp/widgets/buttons/single_plain_text_button.dart';
 import 'package:chupp/widgets/disable_scroll_behavior.dart';
 import 'package:chupp/widgets/posts/poll/poll.dart';
+import 'package:chupp/widgets/posts/user_opinion.dart';
 import 'package:chupp/widgets/tag_chip.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -104,7 +105,12 @@ class PostPage extends StatelessWidget {
                         Texts.postOpinionsTitle,
                         style: Styles.title3,
                       ),
-                      for (int i = 0; i < 6; i++) const SizedBox(),
+                      const SizedBox(height: 8),
+                      for (int i = 0; i < 6; i++)
+                        const Padding(
+                          padding: EdgeInsets.all(8),
+                          child: UserOpinion(),
+                        ),
                     ],
                   ),
                 ),
