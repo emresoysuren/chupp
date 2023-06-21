@@ -4,6 +4,7 @@ import 'package:chupp/config/utils.dart';
 import 'package:chupp/widgets/bars/custom/content_bar.dart';
 import 'package:chupp/widgets/buttons/single_plain_text_button.dart';
 import 'package:chupp/widgets/disable_scroll_behavior.dart';
+import 'package:chupp/widgets/posts/add_opinion.dart';
 import 'package:chupp/widgets/posts/poll/poll.dart';
 import 'package:chupp/widgets/posts/user_opinion.dart';
 import 'package:chupp/widgets/tag_chip.dart';
@@ -21,7 +22,7 @@ class PostPage extends StatelessWidget {
       body: DisableScrollBehavior(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -120,6 +121,7 @@ class PostPage extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: const AddOpinion(),
     );
   }
 }
