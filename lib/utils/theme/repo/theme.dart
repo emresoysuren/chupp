@@ -5,6 +5,10 @@ import '../config/app_themes.dart';
 import '../model/app_theme.dart';
 
 class AppTheme extends ChangeNotifier {
+  static final instance = AppTheme._();
+
+  AppTheme._();
+
   AppThemeModel current = AppThemes.system;
 
   Future<void> init() async {
