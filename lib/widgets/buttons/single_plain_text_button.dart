@@ -17,6 +17,7 @@ class SinglePlainTextButton extends StatelessWidget {
   final BorderRadius? borderRadius;
   final Color? backgroundColor;
   final double? gap;
+  final double? iconSize;
 
   const SinglePlainTextButton({
     super.key,
@@ -31,6 +32,7 @@ class SinglePlainTextButton extends StatelessWidget {
     this.borderRadius,
     this.backgroundColor,
     this.gap,
+    this.iconSize,
   });
 
   @override
@@ -39,7 +41,7 @@ class SinglePlainTextButton extends StatelessWidget {
       if (icon != null)
         Icon(
           icon,
-          size: 20,
+          size: iconSize ?? 20,
           color: color ?? Utils.theme.current.primaryItem,
         ),
       if (icon != null) SizedBox(width: gap ?? 8),

@@ -2,6 +2,7 @@ import 'package:chupp/config/styles.dart';
 import 'package:chupp/widgets/buttons/single_plain_text_button.dart';
 import 'package:chupp/widgets/tag_chip.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MiniPost extends StatelessWidget {
   const MiniPost({super.key});
@@ -61,19 +62,21 @@ class MiniPost extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   SinglePlainTextButton(
-                    icon: Icons.water_drop_rounded,
+                    icon: const FaIcon(FontAwesomeIcons.droplet).icon,
+                    iconSize: 16,
                     label: "4.6k",
                     gap: 4,
                     onPressed: () {},
                   ),
                   SinglePlainTextButton(
-                    icon: Icons.comment_rounded,
+                    icon: const FaIcon(FontAwesomeIcons.solidMessage).icon,
+                    iconSize: 16,
                     label: "308",
-                    gap: 4,
                     onPressed: () {},
                   ),
                   SinglePlainTextButton(
-                    icon: Icons.favorite_rounded,
+                    icon: const FaIcon(FontAwesomeIcons.solidHeart).icon,
+                    iconSize: 18,
                     label: "1.2k",
                     gap: 4,
                     onPressed: () {},

@@ -9,6 +9,7 @@ class NavItem extends StatelessWidget {
   final Function()? passiveTap;
   final Function()? activeLPress;
   final Function()? passiveLPress;
+  final double? size;
 
   const NavItem({
     super.key,
@@ -19,6 +20,7 @@ class NavItem extends StatelessWidget {
     this.passiveTap,
     this.activeLPress,
     this.passiveLPress,
+    this.size,
   });
 
   @override
@@ -37,7 +39,7 @@ class NavItem extends StatelessWidget {
                 color: active != true
                     ? Utils.theme.current.secondaryItem
                     : Utils.theme.current.primaryItem,
-                size: 30,
+                size: size,
               ),
         ),
       ),
