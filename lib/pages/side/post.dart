@@ -12,22 +12,38 @@ import 'package:chupp/widgets/tag_chip.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class PostPage extends StatelessWidget {
+class PostPage extends StatefulWidget {
   const PostPage({super.key});
+
+  @override
+  State<PostPage> createState() => _PostPageState();
+}
+
+class _PostPageState extends State<PostPage> {
+  final GlobalKey _contentKey = GlobalKey();
+  final ScrollController _controller = ScrollController();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Utils.theme.current.primaryBg,
-      appBar: const ContentBar(),
+      appBar: ContentBar(controller: _controller, contentKey: _contentKey),
       body: DisableScrollBehavior(
         child: SingleChildScrollView(
+          controller: _controller,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Column(
+                  key: _contentKey,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
