@@ -11,7 +11,7 @@ class PostMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DraggableMenu(
-      ui: SoftModernDraggableMenu(
+      ui: ClassicDraggableMenu(
         color: Utils.theme.current.secondaryBg,
       ),
       allowToShrink: true,
