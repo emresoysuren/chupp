@@ -4,6 +4,8 @@
 class Texts {
   Texts._();
 
+  static const postMenuShare = "Share";
+  static const postMenuReport = "Report";
   static const String title = "chupp";
   static const String postOpinionsTitle = "Opinions:";
 }

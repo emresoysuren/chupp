@@ -2,6 +2,8 @@ import 'package:chupp/config/styles.dart';
 import 'package:chupp/config/utils.dart';
 import 'package:chupp/widgets/bars/bar.dart';
 import 'package:chupp/widgets/buttons/single_button.dart';
+import 'package:chupp/widgets/draggable_menu/post_menu.dart';
+import 'package:draggable_menu/draggable_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -49,7 +51,10 @@ class ContentBar extends Bar {
           ),
         ),
         SingleButton(
-          onPressed: () {},
+          onPressed: () => DraggableMenu.open(
+            context,
+            const PostMenu(),
+          ),
           child: FaIcon(
             FontAwesomeIcons.ellipsis,
             color: Utils.theme.current.primaryItem,

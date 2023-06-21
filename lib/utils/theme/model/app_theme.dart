@@ -34,6 +34,9 @@ class AppThemeModel {
   /// Sub Text Color for the item colors.
   final Color itemSubText;
 
+  /// Color for important stuff
+  final Color important;
+
   AppThemeModel({
     required this.primaryBg,
     required this.secondaryBg,
@@ -46,5 +49,6 @@ class AppThemeModel {
     required this.itemText,
     required this.subText,
     required this.itemSubText,
+    required this.important,
   });
 }

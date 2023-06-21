@@ -4,6 +4,7 @@ import 'package:chupp/config/utils.dart';
 import 'package:chupp/widgets/bars/custom/content_bar.dart';
 import 'package:chupp/widgets/buttons/single_plain_text_button.dart';
 import 'package:chupp/widgets/disable_scroll_behavior.dart';
+import 'package:chupp/widgets/expandable_text.dart';
 import 'package:chupp/widgets/posts/add_opinion.dart';
 import 'package:chupp/widgets/posts/poll/poll.dart';
 import 'package:chupp/widgets/posts/user_opinion.dart';
@@ -85,8 +86,8 @@ class PostPage extends StatelessWidget {
                     ),
                     const SizedBox(height: 8),
                     // TODO: Make it expandable
-                    Text(
-                      "Cupidatat deserunt nisi nulla Lorem Lorem Lorem pariatur irure cupidatat elit est exercitation sint.",
+                    ExpandableText(
+                      "Cupidatat deserunt nisi nulla Lorem Lorem Lorem pariatur irure cupidatat elit est exercitation sint. Cupidatat deserunt nisi nulla Lorem Lorem Lorem pariatur irure cupidatat elit est exercitation sint.",
                       style: Styles.text,
                     ),
                     const SizedBox(height: 8),
