@@ -1,4 +1,4 @@
-import 'package:chupp/utils/theme/repo/theme.dart';
+import 'package:chupp/config/utils.dart';
 import 'package:flutter/material.dart';
 
 import 'navitem.dart';
@@ -11,7 +11,7 @@ class NavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ColoredBox(
-      color: AppTheme.current.primaryBg,
+      color: Utils.theme.current.primaryBg,
       child: SizedBox(
         height: 64,
         width: double.infinity,

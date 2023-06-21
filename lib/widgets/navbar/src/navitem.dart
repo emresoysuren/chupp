@@ -1,4 +1,4 @@
-import 'package:chupp/utils/theme/repo/theme.dart';
+import 'package:chupp/config/utils.dart';
 import 'package:flutter/material.dart';
 
 class NavItem extends StatelessWidget {
@@ -35,8 +35,8 @@ class NavItem extends StatelessWidget {
               Icon(
                 icon,
                 color: active != true
-                    ? AppTheme.current.secondaryItem
-                    : AppTheme.current.primaryItem,
+                    ? Utils.theme.current.secondaryItem
+                    : Utils.theme.current.primaryItem,
                 size: 30,
               ),
         ),

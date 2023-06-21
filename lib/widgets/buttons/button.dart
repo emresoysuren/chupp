@@ -1,5 +1,5 @@
 import 'package:chupp/config/styles.dart';
-import 'package:chupp/utils/theme/repo/theme.dart';
+import 'package:chupp/config/utils.dart';
 import 'package:flutter/material.dart';
 
 class Button extends StatelessWidget {
@@ -38,8 +38,8 @@ class Button extends StatelessWidget {
               ? Colors.transparent
               : onPressed == null
                   // Default Passive Color will be added later
-                  ? passiveColor ?? color ?? AppTheme.current.primaryItem
-                  : color ?? AppTheme.current.primaryItem,
+                  ? passiveColor ?? color ?? Utils.theme.current.primaryItem
+                  : color ?? Utils.theme.current.primaryItem,
         ),
         alignment: alignment,
         shape: MaterialStatePropertyAll(
@@ -49,8 +49,10 @@ class Button extends StatelessWidget {
                   side: BorderSide(
                     color: onPressed == null
                         // Default Passive Color will be added later
-                        ? passiveColor ?? color ?? AppTheme.current.primaryItem
-                        : color ?? AppTheme.current.primaryItem,
+                        ? passiveColor ??
+                            color ??
+                            Utils.theme.current.primaryItem
+                        : color ?? Utils.theme.current.primaryItem,
                     width: 2,
                   ),
                 ),

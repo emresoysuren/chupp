@@ -1,6 +1,6 @@
 import 'package:chupp/config/styles.dart';
 import 'package:chupp/config/texts.dart';
-import 'package:chupp/utils/theme/repo/theme.dart';
+import 'package:chupp/config/utils.dart';
 import 'package:chupp/widgets/bar.dart';
 import 'package:chupp/widgets/disable_scroll_behavior.dart';
 import 'package:chupp/widgets/navbar/app_navbar.dart';
@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.current.primaryBg,
+      backgroundColor: Utils.theme.current.primaryBg,
       appBar: Bar(
         center: true,
         children: [

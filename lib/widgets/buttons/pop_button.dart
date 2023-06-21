@@ -1,4 +1,4 @@
-import 'package:chupp/utils/theme/repo/theme.dart';
+import 'package:chupp/config/utils.dart';
 import 'package:chupp/widgets/buttons/single_button.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +27,7 @@ class PopButton extends StatelessWidget {
       child: Icon(
         icon ?? Icons.arrow_back_ios_new_rounded,
         size: size ?? 20,
-        color: color ?? AppTheme.current.primaryItem,
+        color: color ?? Utils.theme.current.primaryItem,
       ),
     );
   }

@@ -1,8 +1,10 @@
-import 'package:chupp/utils/theme/repo/theme.dart';
+import 'package:chupp/config/utils.dart';
 import 'package:flutter/material.dart';
 
 class AppUtils extends StatefulWidget {
-  const AppUtils({super.key});
+  final Widget child;
+
+  const AppUtils({super.key, required this.child});
 
   @override
   State<AppUtils> createState() => _AppUtilsState();
@@ -11,14 +13,19 @@ class AppUtils extends StatefulWidget {
 class _AppUtilsState extends State<AppUtils> {
   @override
   void initState() {
-    AppTheme().addListener(() {
-      setState(() {});
-    });
+    _themeInit();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return widget.child;
+  }
+
+  void _themeInit() {
+    Utils.theme.addListener(() {
+      setState(() {});
+    });
+    Utils.theme.init();
   }
 }

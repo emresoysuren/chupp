@@ -1,6 +1,6 @@
-import 'package:chupp/config/color_palette.dart';
 import 'package:chupp/config/styles.dart';
 import 'package:chupp/config/texts.dart';
+import 'package:chupp/config/utils.dart';
 import 'package:chupp/firebase_options.dart';
 import 'package:chupp/pages/main/home.dart';
 import 'package:chupp/routes/non_animated.dart';
@@ -27,8 +27,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // TODO: Change the black color usage after implementing a theme management system
-      backgroundColor: ColorPalette.black,
+      backgroundColor: Utils.theme.current.primaryBg,
       body: Center(
         child: TitleLoading(
           title: Texts.title,

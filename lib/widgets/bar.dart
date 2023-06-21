@@ -1,4 +1,4 @@
-import 'package:chupp/utils/theme/repo/theme.dart';
+import 'package:chupp/config/utils.dart';
 import 'package:flutter/material.dart';
 
 class Bar extends StatelessWidget implements PreferredSizeWidget {
@@ -10,7 +10,7 @@ class Bar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return ColoredBox(
-      color: AppTheme.current.primaryBg,
+      color: Utils.theme.current.primaryBg,
       child: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
