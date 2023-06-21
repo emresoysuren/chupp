@@ -10,7 +10,7 @@ class LDS {
 
   LDS._();
 
-  static const _fileName = 'app_settings.txt';
+  static const _fileName = 'app_data.json';
 
   Future<File> get _getFile async {
     if (_file != null) return _file!;

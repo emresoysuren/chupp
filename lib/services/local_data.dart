@@ -5,17 +5,19 @@ class LocalData {
   static Future<AppThemeMode> getTheme() async {
     final Map? data = await LDS.instance.read();
     if (data != null) {
-      return data["theme"];
+      return AppThemeMode.values
+          .where((element) => element.name == data["theme"])
+          .first;
     }
     return AppThemeMode.system;
   }
 
-  static Future<void> changeTheme(AppThemeMode theme) async {
+  static Future<void> changeTheme(AppThemeMode mode) async {
     Map? data = await LDS.instance.read();
     if (data != null) {
-      data["theme"] = theme;
+      data["theme"] = mode.name;
     } else {
-      data = {"theme": theme};
+      data = {"theme": mode.name};
     }
     await LDS.instance.write(data);
   }
