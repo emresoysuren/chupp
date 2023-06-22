@@ -17,21 +17,21 @@ class PostMenu extends StatelessWidget {
       allowToShrink: true,
       child: Column(
         children: [
-          DraggableButton(
+          ListButton(
             title: Texts.postMenuViewProfile,
             icon: const FaIcon(FontAwesomeIcons.solidUser).icon,
             iconSize: 20,
             color: Utils.theme.current.text,
             onTap: () {},
           ),
-          DraggableButton(
+          ListButton(
             title: Texts.postMenuShare,
             icon: const FaIcon(FontAwesomeIcons.arrowUpRightFromSquare).icon,
             iconSize: 20,
             color: Utils.theme.current.text,
             onTap: () {},
           ),
-          DraggableButton(
+          ListButton(
             title: Texts.postMenuReport,
             icon: const FaIcon(FontAwesomeIcons.solidFlag).icon,
             iconSize: 20,

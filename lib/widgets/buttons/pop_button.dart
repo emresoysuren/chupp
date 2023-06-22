@@ -25,7 +25,7 @@ class PopButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleButton(
       color: backgroundColor,
-      onPressed: () => Navigator.of(context).pop(),
+      onPressed: () => Navigator.of(context).maybePop(),
       padding: padding != null ? EdgeInsets.all(padding!) : null,
       child: Icon(
         icon ??
