@@ -1,5 +1,6 @@
 import 'package:chupp/config/texts.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
+import 'package:chupp/widgets/add_hastags.dart/add_hastags_chip.dart';
 import 'package:flutter/material.dart';
 
 class AddHastags extends StatefulWidget {
@@ -12,7 +13,9 @@ class AddHastags extends StatefulWidget {
 }
 
 class _AddHastagsState extends State<AddHastags> with WidgetsBindingObserver {
+  final _controller = TextEditingController();
   final FocusNode focusNode = FocusNode();
+  final GlobalKey _fieldKey = GlobalKey();
   String text = "";
   bool showing = false;
 
@@ -55,34 +58,80 @@ class _AddHastagsState extends State<AddHastags> with WidgetsBindingObserver {
     return Material(
       color: context.theme.current.secondaryBg,
       borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
+      clipBehavior: Clip.hardEdge,
       child: SafeArea(
         child: Padding(
-          padding: EdgeInsets.fromLTRB(
-            16,
-            4,
-            16,
-            MediaQuery.of(context).viewInsets.bottom + 4,
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 14),
-            child: TextField(
-              focusNode: focusNode,
-              onChanged: (value) {
-                setState(() {
-                  text = value;
-                });
-              },
-              keyboardType: TextInputType.text,
-              maxLines: 1,
-              style: context.styles.text,
-              decoration: InputDecoration(
-                hintText: Texts.addHastagsField,
-                hintStyle: context.styles.subText,
-                border: InputBorder.none,
-                isDense: true,
-                contentPadding: const EdgeInsets.all(0),
+          padding:
+              EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              if (text.isNotEmpty)
+                Padding(
+                  padding: const EdgeInsets.only(top: 16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        child: Text(
+                          Texts.addHastagsFieldLabel,
+                          style: context.styles.textImp.copyWith(
+                            color: context.theme.current.notice,
+                          ),
+                        ),
+                      ),
+                      // ListButton(
+                      //   title: "#$text",
+                      //   showIcon: false,
+                      //   onTap: () {},
+                      // ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 12,
+                        ),
+                        child: AddHastagsChip(tag: text),
+                      ),
+                      ColoredBox(
+                        color: context.theme.current.secondaryItem,
+                        child: const SizedBox(
+                          width: double.infinity,
+                          height: 0.5,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 14),
+                  child: TextField(
+                    key: _fieldKey,
+                    controller: _controller,
+                    focusNode: focusNode,
+                    onChanged: (value) {
+                      setState(() {
+                        text = value;
+                      });
+                    },
+                    keyboardType: TextInputType.text,
+                    maxLines: 1,
+                    style: context.styles.text,
+                    decoration: InputDecoration(
+                      hintText: Texts.addHastagsField,
+                      hintStyle: context.styles.subText,
+                      border: InputBorder.none,
+                      isDense: true,
+                      contentPadding: const EdgeInsets.all(0),
+                    ),
+                  ),
+                ),
               ),
-            ),
+            ],
           ),
         ),
       ),

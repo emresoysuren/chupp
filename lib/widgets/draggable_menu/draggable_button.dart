@@ -7,6 +7,7 @@ class ListButton extends StatelessWidget {
   final IconData? icon;
   final Color? color;
   final double? iconSize;
+  final bool showIcon;
 
   const ListButton({
     super.key,
@@ -15,6 +16,7 @@ class ListButton extends StatelessWidget {
     this.icon,
     this.color,
     this.iconSize,
+    this.showIcon = true,
   });
 
   @override
@@ -27,11 +29,13 @@ class ListButton extends StatelessWidget {
         style: context.styles.textImp
             .copyWith(color: color ?? context.theme.current.primaryItem),
       ),
-      leading: Icon(
-        icon,
-        color: color ?? context.theme.current.primaryItem,
-        size: iconSize,
-      ),
+      leading: !showIcon
+          ? null
+          : Icon(
+              icon,
+              color: color ?? context.theme.current.primaryItem,
+              size: iconSize,
+            ),
     );
   }
 }

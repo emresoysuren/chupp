@@ -25,7 +25,7 @@ class AppThemes {
         subText: ColorPalette.offBlack,
         itemSubText: ColorPalette.lightGrey,
         important: ColorPalette.red,
-        notice: ColorPalette.yellow,
+        notice: ColorPalette.blue,
       );
 
   static AppThemeModel get dark => AppThemeModel(

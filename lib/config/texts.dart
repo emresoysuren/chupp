@@ -26,6 +26,7 @@ class Texts {
   static const String createPostwriteDescription =
       "Write a description for your post...";
   static const String addHastagsField = "Add hashtags (First two are options.)";
+  static String addHastagsFieldLabel = "Choose to add:";
   static const String createPostCardTitle = "Discard Changes";
   static const String createPostCardDS =
       "All changes that you make will be lost. Are you still want to proceed with this progress?";
