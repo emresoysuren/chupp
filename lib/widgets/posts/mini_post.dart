@@ -2,7 +2,8 @@ import 'package:chupp/pages/side/post.dart';
 import 'package:chupp/routes/basic.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/single_plain_text_button.dart';
-import 'package:chupp/widgets/tag_chip.dart';
+import 'package:chupp/widgets/expandable_text.dart';
+import 'package:chupp/widgets/posts/poll/poll.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -54,22 +55,22 @@ class MiniPost extends StatelessWidget {
                         )
                       ],
                     ),
-                    const SizedBox(height: 4),
+                    const SizedBox(height: 8),
                     Text(
                       "Which character is more likely to die next?",
                       style: context.styles.title3,
                     ),
                     const SizedBox(height: 8),
-                    const Wrap(
-                      spacing: 8,
-                      runSpacing: 8,
-                      children: [
-                        HashtagChip(tag: "hashtags"),
-                        HashtagChip(tag: "are"),
-                        HashtagChip(tag: "great"),
-                        HashtagChip(tag: "!"),
-                      ],
-                    )
+                    ExpandableText(
+                      "Cupidatat deserunt nisi nulla Lorem Lorem Lorem pariatur irure cupidatat elit est exercitation sint. Cupidatat deserunt nisi nulla Lorem Lorem Lorem pariatur irure cupidatat elit est exercitation sint.",
+                      style: context.styles.text,
+                      active: false,
+                    ),
+                    const SizedBox(height: 8),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 16),
+                      child: Poll(),
+                    ),
                   ],
                 ),
               ),
@@ -82,13 +83,25 @@ class MiniPost extends StatelessWidget {
                     iconSize: 16,
                     label: "4.6k",
                     gap: 4,
-                    onPressed: () {},
+                    onPressed: () => Navigator.push(
+                      context,
+                      BasicPageRoute(
+                        start: Start.right,
+                        child: const PostPage(),
+                      ),
+                    ),
                   ),
                   SinglePlainTextButton(
                     icon: const FaIcon(FontAwesomeIcons.solidMessage).icon,
                     iconSize: 16,
                     label: "308",
-                    onPressed: () {},
+                    onPressed: () => Navigator.push(
+                      context,
+                      BasicPageRoute(
+                        start: Start.right,
+                        child: const PostPage(openOpinion: true),
+                      ),
+                    ),
                   ),
                   SinglePlainTextButton(
                     icon: const FaIcon(FontAwesomeIcons.solidHeart).icon,

@@ -7,11 +7,13 @@ class ExpandableText extends StatefulWidget {
   final String text;
   final TextStyle? style;
   final bool expanded = false;
+  final bool active;
 
   const ExpandableText(
     this.text, {
     super.key,
     this.style,
+    this.active = true,
   });
 
   @override
@@ -27,7 +29,7 @@ class _ExpandableTextState extends State<ExpandableText> {
   Widget build(BuildContext context) {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
-      onTap: () => setState(() => expanded = !expanded),
+      onTap: !widget.active ? null : () => setState(() => expanded = !expanded),
       child: RichText(
         text: TextSpan(
           children: [

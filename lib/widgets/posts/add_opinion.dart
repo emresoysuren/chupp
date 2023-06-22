@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class AddOpinion extends StatefulWidget implements PreferredSizeWidget {
-  const AddOpinion({super.key});
+  final bool autofocus;
+
+  const AddOpinion({super.key, this.autofocus = false});
 
   @override
   Size get preferredSize => const Size.fromHeight(64);
@@ -64,6 +66,7 @@ class _AddOpinionState extends State<AddOpinion> with WidgetsBindingObserver {
                   padding: const EdgeInsets.symmetric(vertical: 14),
                   child: TextField(
                     focusNode: focusNode,
+                    autofocus: widget.autofocus,
                     onChanged: (value) {
                       setState(() {
                         text = value;

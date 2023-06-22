@@ -12,7 +12,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PostPage extends StatefulWidget {
-  const PostPage({super.key});
+  const PostPage({super.key, this.openOpinion = false});
+
+  final bool openOpinion;
 
   @override
   State<PostPage> createState() => _PostPageState();
@@ -143,7 +145,7 @@ class _PostPageState extends State<PostPage> {
           ),
         ),
       ),
-      bottomNavigationBar: const AddOpinion(),
+      bottomNavigationBar: AddOpinion(autofocus: widget.openOpinion),
     );
   }
 }
