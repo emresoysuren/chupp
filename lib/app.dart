@@ -1,16 +1,18 @@
-import 'package:chupp/pages/func/splash.dart';
+import 'package:chupp/utils/router/app_router.dart';
 import 'package:chupp/widgets/app_utils.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
-  const App({super.key});
+  final _appRouter = AppRouter();
+
+  App({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const AppUtils(
-      child: MaterialApp(
+    return AppUtils(
+      child: MaterialApp.router(
         title: "chupp",
-        home: SplashPage(),
+        routerConfig: _appRouter.config(),
       ),
     );
   }

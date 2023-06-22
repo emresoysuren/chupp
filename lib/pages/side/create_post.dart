@@ -23,12 +23,16 @@ class CreatePostPage extends StatefulWidget implements PreferredSizeWidget {
 class _CreatePostPageState extends State<CreatePostPage> {
   String title = "";
   String description = "";
+  List<String> hastags = [];
   bool showHashtags = false;
 
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
+        if (title.isEmpty && description.isEmpty && hastags.isEmpty) {
+          return true;
+        }
         final bool? result = await Navigator.push<bool>(
           context,
           CardRoute(

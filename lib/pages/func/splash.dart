@@ -1,13 +1,15 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:chupp/config/styles.dart';
 import 'package:chupp/config/texts.dart';
 import 'package:chupp/config/utils.dart';
 import 'package:chupp/firebase_options.dart';
-import 'package:chupp/pages/main/home.dart';
-import 'package:chupp/routes/non_animated.dart';
 import 'package:chupp/widgets/title_loading.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
+import '../../utils/router/app_router.gr.dart';
+
+@RoutePage()
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
 
@@ -46,10 +48,8 @@ class _SplashPageState extends State<SplashPage> {
     );
     await minWaittingDuration;
     // Direct to somewhere
-    // TODO: Change this after the Auto Router
     if (mounted) {
-      Navigator.pushReplacement(
-          context, NonAnimatedPageRoute(child: const HomePage()));
+      context.router.replace(const HomePage());
     }
   }
 }
