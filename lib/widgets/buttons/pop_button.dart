@@ -9,6 +9,7 @@ class PopButton extends StatelessWidget {
   final double? size;
   final Color? backgroundColor;
   final double? padding;
+  final bool xmark;
 
   const PopButton({
     super.key,
@@ -17,6 +18,7 @@ class PopButton extends StatelessWidget {
     this.size,
     this.backgroundColor,
     this.padding,
+    this.xmark = false,
   });
 
   @override
@@ -26,7 +28,10 @@ class PopButton extends StatelessWidget {
       onPressed: () => Navigator.of(context).pop(),
       padding: padding != null ? EdgeInsets.all(padding!) : null,
       child: Icon(
-        icon ?? const FaIcon(FontAwesomeIcons.angleLeft).icon,
+        icon ??
+            (xmark
+                ? const FaIcon(FontAwesomeIcons.xmark).icon
+                : const FaIcon(FontAwesomeIcons.angleLeft).icon),
         size: size ?? 24,
         color: color ?? Utils.theme.current.primaryItem,
       ),

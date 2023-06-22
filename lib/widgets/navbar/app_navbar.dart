@@ -1,3 +1,5 @@
+import 'package:chupp/pages/side/create_post.dart';
+import 'package:chupp/routes/basic.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -32,7 +34,13 @@ class AppNavBar extends StatelessWidget {
           icon: const FaIcon(FontAwesomeIcons.solidSquarePlus).icon,
           size: 26,
           active: current == 2,
-          passiveTap: () {},
+          passiveTap: () => Navigator.push(
+            context,
+            BasicPageRoute(
+              start: Start.bottom,
+              child: const CreatePostPage(),
+            ),
+          ),
           activeTap: activeTap,
         ),
         NavItem(

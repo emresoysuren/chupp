@@ -4,14 +4,16 @@ import 'package:flutter/material.dart';
 
 class Bar extends StatelessWidget implements PreferredSizeWidget {
   final List<Widget>? children;
-  final bool? center;
-  final bool? pop;
+  final bool center;
+  final bool pop;
+  final bool popXmark;
 
   const Bar({
     super.key,
     this.children,
-    this.center,
-    this.pop,
+    this.center = false,
+    this.pop = false,
+    this.popXmark = false,
   });
 
   @override
@@ -26,11 +28,13 @@ class Bar extends StatelessWidget implements PreferredSizeWidget {
           child: Center(
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: center == true
-                  ? MainAxisAlignment.center
-                  : MainAxisAlignment.start,
+              mainAxisAlignment:
+                  center ? MainAxisAlignment.center : MainAxisAlignment.start,
               children: [
-                if (pop == true) const PopButton(),
+                if (pop)
+                  PopButton(
+                    xmark: popXmark,
+                  ),
                 if (children != null) ...children!,
               ],
             ),

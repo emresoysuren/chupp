@@ -8,6 +8,7 @@ class ColorPalette {
 
   static const Color red = Color(0xffE84855);
   static const Color orange = Color(0xffE26F4B);
+  static const Color green = Color(0xff57E949);
   static const Color yellow = Color(0xffffff00);
   static const Color white = Color(0xffffffff);
   static const Color blue = Color(0xff574AE2);

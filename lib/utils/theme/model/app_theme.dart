@@ -37,6 +37,9 @@ class AppThemeModel {
   /// Color for important stuff
   final Color important;
 
+  /// Color for not important but should be noticed
+  final Color notice;
+
   AppThemeModel({
     required this.primaryBg,
     required this.secondaryBg,
@@ -50,5 +53,6 @@ class AppThemeModel {
     required this.subText,
     required this.itemSubText,
     required this.important,
+    required this.notice,
   });
 }

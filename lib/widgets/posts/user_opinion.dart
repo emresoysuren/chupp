@@ -1,6 +1,7 @@
 import 'package:chupp/config/styles.dart';
 import 'package:chupp/config/texts.dart';
 import 'package:chupp/widgets/buttons/single_plain_text_button.dart';
+import 'package:chupp/widgets/expandable_text.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -46,8 +47,8 @@ class UserOpinion extends StatelessWidget {
                   style: Styles.subText,
                 ),
                 const SizedBox(height: 8),
-                Text(
-                  "Cupidatat deserunt nisi nulla Lorem Lorem Lorem pariatur irure cupidatat elit est exercitation sint.",
+                ExpandableText(
+                  "Cupidatat deserunt nisi nulla Lorem Lorem Lorem pariatur irure cupidatat elit est exercitation sint. Cupidatat deserunt nisi nulla Lorem Lorem Lorem pariatur irure cupidatat elit est exercitation sint.",
                   style: Styles.text,
                 ),
                 const SizedBox(height: 4),
