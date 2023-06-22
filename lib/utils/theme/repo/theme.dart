@@ -4,7 +4,7 @@ import '../config/app_theme_mode.dart';
 import '../config/app_themes.dart';
 import '../model/app_theme.dart';
 
-class AppTheme extends ChangeNotifier {
+class AppTheme extends ChangeNotifier with WidgetsBindingObserver {
   static final instance = AppTheme._();
 
   AppTheme._();
@@ -12,8 +12,22 @@ class AppTheme extends ChangeNotifier {
   AppThemeModel current = AppThemes.system;
 
   Future<void> init() async {
-    changeMode(await LocalData.getTheme());
+    WidgetsBinding.instance.addObserver(this);
+    await changeMode(await LocalData.getTheme());
     notifyListeners();
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  didChangePlatformBrightness() async {
+    await changeMode(await LocalData.getTheme());
+    notifyListeners();
+    super.didChangePlatformBrightness();
   }
 
   Future<void> changeMode(AppThemeMode mode) async {

@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:chupp/utils/styles.dart';
 import 'package:chupp/utils/theme/repo/theme.dart';
 import 'package:chupp/utils/utils/inherited.dart';
@@ -20,11 +18,6 @@ class UtilsScope extends StatefulWidget {
 class _UtilsScopeState extends State<UtilsScope> {
   @override
   void initState() {
-    PlatformDispatcher.instance.onPlatformBrightnessChanged =
-        () => setState(() {
-              AppTheme.instance.init();
-            });
-
     _themeInit();
     super.initState();
   }
