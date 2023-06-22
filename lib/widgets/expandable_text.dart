@@ -6,14 +6,17 @@ import 'package:flutter/material.dart';
 class ExpandableText extends StatefulWidget {
   final String text;
   final TextStyle? style;
-  final bool expanded = false;
+  final bool expanded;
   final bool active;
+  final Function()? onTap;
 
   const ExpandableText(
     this.text, {
     super.key,
     this.style,
     this.active = true,
+    this.onTap,
+    this.expanded = false,
   });
 
   @override
@@ -29,7 +32,8 @@ class _ExpandableTextState extends State<ExpandableText> {
   Widget build(BuildContext context) {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
-      onTap: !widget.active ? null : () => setState(() => expanded = !expanded),
+      onTap: widget.onTap ??
+          (!widget.active ? null : () => setState(() => expanded = !expanded)),
       child: RichText(
         text: TextSpan(
           children: [

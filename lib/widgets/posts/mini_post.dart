@@ -64,7 +64,13 @@ class MiniPost extends StatelessWidget {
                     ExpandableText(
                       "Cupidatat deserunt nisi nulla Lorem Lorem Lorem pariatur irure cupidatat elit est exercitation sint. Cupidatat deserunt nisi nulla Lorem Lorem Lorem pariatur irure cupidatat elit est exercitation sint.",
                       style: context.styles.text,
-                      active: false,
+                      onTap: () => Navigator.push(
+                        context,
+                        BasicPageRoute(
+                          start: Start.right,
+                          child: const PostPage(openDescription: true),
+                        ),
+                      ),
                     ),
                     const SizedBox(height: 8),
                     const Padding(

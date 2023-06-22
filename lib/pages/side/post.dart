@@ -12,8 +12,13 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PostPage extends StatefulWidget {
-  const PostPage({super.key, this.openOpinion = false});
+  const PostPage({
+    super.key,
+    this.openOpinion = false,
+    this.openDescription = false,
+  });
 
+  final bool openDescription;
   final bool openOpinion;
 
   @override
@@ -112,6 +117,7 @@ class _PostPageState extends State<PostPage> {
                     ExpandableText(
                       "Cupidatat deserunt nisi nulla Lorem Lorem Lorem pariatur irure cupidatat elit est exercitation sint. Cupidatat deserunt nisi nulla Lorem Lorem Lorem pariatur irure cupidatat elit est exercitation sint.",
                       style: context.styles.text,
+                      expanded: widget.openDescription,
                     ),
                     const SizedBox(height: 8),
                     const Padding(
