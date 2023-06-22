@@ -1,7 +1,6 @@
 import 'dart:math';
-
-import 'package:chupp/config/styles.dart';
 import 'package:chupp/config/texts.dart';
+import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:flutter/material.dart';
 
 class ExpandableText extends StatefulWidget {
@@ -37,12 +36,12 @@ class _ExpandableTextState extends State<ExpandableText> {
                   ? widget.text
                   : widget.text
                       .substring(0, min(widget.text.length, maxCharacters)),
-              style: widget.style ?? Styles.text,
+              style: widget.style ?? context.styles.text,
             ),
             if (!expanded)
               TextSpan(
                 text: " ${Texts.expandableTextMore}",
-                style: Styles.subText,
+                style: context.styles.subText,
               ),
           ],
         ),

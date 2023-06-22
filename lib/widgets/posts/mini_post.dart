@@ -1,6 +1,6 @@
-import 'package:chupp/config/styles.dart';
 import 'package:chupp/pages/side/post.dart';
 import 'package:chupp/routes/basic.dart';
+import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/single_plain_text_button.dart';
 import 'package:chupp/widgets/tag_chip.dart';
 import 'package:flutter/material.dart';
@@ -36,19 +36,19 @@ class MiniPost extends StatelessWidget {
                       children: [
                         Text(
                           "username",
-                          style: Styles.text,
+                          style: context.styles.text,
                         ),
                         const SizedBox(width: 4),
                         Text(
                           "5/30/14 19:26",
-                          style: Styles.subText,
+                          style: context.styles.subText,
                         )
                       ],
                     ),
                     const SizedBox(height: 4),
                     Text(
                       "Which character is more likely to die next?",
-                      style: Styles.title3,
+                      style: context.styles.title3,
                     ),
                     const SizedBox(height: 8),
                     SizedBox(

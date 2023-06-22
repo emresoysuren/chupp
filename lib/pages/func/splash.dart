@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:chupp/config/styles.dart';
 import 'package:chupp/config/texts.dart';
-import 'package:chupp/config/utils.dart';
+import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/firebase_options.dart';
 import 'package:chupp/widgets/title_loading.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -29,11 +28,11 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Utils.theme.current.primaryBg,
+      backgroundColor: context.theme.current.primaryBg,
       body: Center(
         child: TitleLoading(
           title: Texts.title,
-          style: Styles.appTitle,
+          style: context.styles.appTitle,
         ),
       ),
     );

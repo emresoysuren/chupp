@@ -1,5 +1,4 @@
-import 'package:chupp/config/styles.dart';
-import 'package:chupp/config/utils.dart';
+import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/single_button.dart';
 import 'package:flutter/material.dart';
 
@@ -42,7 +41,7 @@ class SinglePlainTextButton extends StatelessWidget {
         Icon(
           icon,
           size: iconSize ?? 20,
-          color: color ?? Utils.theme.current.primaryItem,
+          color: color ?? context.theme.current.primaryItem,
         ),
       if (icon != null) SizedBox(width: gap ?? 8),
       Text(
@@ -50,8 +49,8 @@ class SinglePlainTextButton extends StatelessWidget {
         textWidthBasis: TextWidthBasis.longestLine,
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
-        style: (textStyle ?? Styles.textImp)
-            .copyWith(color: color ?? Utils.theme.current.primaryItem),
+        style: (textStyle ?? context.styles.textImp)
+            .copyWith(color: color ?? context.theme.current.primaryItem),
       ),
     ];
     return SingleButton(

@@ -1,6 +1,5 @@
-import 'package:chupp/config/styles.dart';
 import 'package:chupp/config/texts.dart';
-import 'package:chupp/config/utils.dart';
+import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/bars/custom/content_bar.dart';
 import 'package:chupp/widgets/buttons/single_plain_text_button.dart';
 import 'package:chupp/widgets/disable_scroll_behavior.dart';
@@ -32,7 +31,7 @@ class _PostPageState extends State<PostPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Utils.theme.current.primaryBg,
+      backgroundColor: context.theme.current.primaryBg,
       appBar: ContentBar(controller: _controller, contentKey: _contentKey),
       body: DisableScrollBehavior(
         child: SingleChildScrollView(
@@ -71,11 +70,11 @@ class _PostPageState extends State<PostPage> {
                                 children: [
                                   Text(
                                     "username",
-                                    style: Styles.text,
+                                    style: context.styles.text,
                                   ),
                                   Text(
                                     "5/30/14 19:26",
-                                    style: Styles.subText,
+                                    style: context.styles.subText,
                                   ),
                                 ],
                               ),
@@ -108,12 +107,12 @@ class _PostPageState extends State<PostPage> {
                     const SizedBox(height: 8),
                     Text(
                       "Which character is more likely to die next?",
-                      style: Styles.title2,
+                      style: context.styles.title2,
                     ),
                     const SizedBox(height: 8),
                     ExpandableText(
                       "Cupidatat deserunt nisi nulla Lorem Lorem Lorem pariatur irure cupidatat elit est exercitation sint. Cupidatat deserunt nisi nulla Lorem Lorem Lorem pariatur irure cupidatat elit est exercitation sint.",
-                      style: Styles.text,
+                      style: context.styles.text,
                     ),
                     const SizedBox(height: 8),
                     const Padding(
@@ -130,7 +129,7 @@ class _PostPageState extends State<PostPage> {
                     children: [
                       Text(
                         Texts.postOpinionsTitle,
-                        style: Styles.title3,
+                        style: context.styles.title3,
                       ),
                       const SizedBox(height: 8),
                       for (int i = 0; i < 6; i++)

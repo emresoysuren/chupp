@@ -1,5 +1,4 @@
-import 'package:chupp/config/styles.dart';
-import 'package:chupp/config/utils.dart';
+import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:flutter/material.dart';
 
 class ListButton extends StatelessWidget {
@@ -25,12 +24,12 @@ class ListButton extends StatelessWidget {
       horizontalTitleGap: 0,
       title: Text(
         title,
-        style: Styles.textImp
-            .copyWith(color: color ?? Utils.theme.current.primaryItem),
+        style: context.styles.textImp
+            .copyWith(color: color ?? context.theme.current.primaryItem),
       ),
       leading: Icon(
         icon,
-        color: color ?? Utils.theme.current.primaryItem,
+        color: color ?? context.theme.current.primaryItem,
         size: iconSize,
       ),
     );

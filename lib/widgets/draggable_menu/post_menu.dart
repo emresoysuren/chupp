@@ -1,5 +1,5 @@
 import 'package:chupp/config/texts.dart';
-import 'package:chupp/config/utils.dart';
+import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/draggable_menu/draggable_button.dart';
 import 'package:draggable_menu/draggable_menu.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +12,7 @@ class PostMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return DraggableMenu(
       ui: ClassicDraggableMenu(
-        color: Utils.theme.current.secondaryBg,
+        color: context.theme.current.secondaryBg,
       ),
       allowToShrink: true,
       child: Column(
@@ -21,21 +21,21 @@ class PostMenu extends StatelessWidget {
             title: Texts.postMenuViewProfile,
             icon: const FaIcon(FontAwesomeIcons.solidUser).icon,
             iconSize: 20,
-            color: Utils.theme.current.text,
+            color: context.theme.current.text,
             onTap: () {},
           ),
           ListButton(
             title: Texts.postMenuShare,
             icon: const FaIcon(FontAwesomeIcons.arrowUpRightFromSquare).icon,
             iconSize: 20,
-            color: Utils.theme.current.text,
+            color: context.theme.current.text,
             onTap: () {},
           ),
           ListButton(
             title: Texts.postMenuReport,
             icon: const FaIcon(FontAwesomeIcons.solidFlag).icon,
             iconSize: 20,
-            color: Utils.theme.current.important,
+            color: context.theme.current.important,
             onTap: () {},
           ),
         ],

@@ -1,7 +1,6 @@
-import 'package:chupp/config/styles.dart';
 import 'package:chupp/config/texts.dart';
-import 'package:chupp/config/utils.dart';
 import 'package:chupp/routes/card.dart';
+import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/add_hastags.dart/add_hastags.dart';
 import 'package:chupp/widgets/bars/bar.dart';
 import 'package:chupp/widgets/buttons/single_plain_text_button.dart';
@@ -42,20 +41,20 @@ class _CreatePostPageState extends State<CreatePostPage> {
         return result == true;
       },
       child: Scaffold(
-        backgroundColor: Utils.theme.current.primaryBg,
+        backgroundColor: context.theme.current.primaryBg,
         appBar: Bar(
           pop: true,
           popXmark: true,
           children: [
             Text(
               Texts.createPostTitle,
-              style: Styles.title2,
+              style: context.styles.title2,
             ),
             const Spacer(),
             SinglePlainTextButton(
               icon: const FaIcon(FontAwesomeIcons.hashtag).icon,
               label: Texts.createPostAddHashtag,
-              color: Utils.theme.current.notice,
+              color: context.theme.current.notice,
               onPressed: () {
                 setState(() {
                   showHashtags = true;
@@ -66,7 +65,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
               icon: const FaIcon(FontAwesomeIcons.solidPaperPlane).icon,
               iconSize: 18,
               label: Texts.createPostPublish,
-              color: Utils.theme.current.important,
+              color: context.theme.current.important,
               onPressed: () {},
             )
           ],
@@ -87,11 +86,11 @@ class _CreatePostPageState extends State<CreatePostPage> {
                 inputFormatters: [LengthLimitingTextInputFormatter(64)],
                 autofocus: true,
                 maxLines: null,
-                style: Styles.title2,
+                style: context.styles.title2,
                 decoration: InputDecoration(
                   hintText: Texts.createTitle,
-                  hintStyle: Styles.title2.copyWith(
-                    color: Utils.theme.current.subText,
+                  hintStyle: context.styles.title2.copyWith(
+                    color: context.theme.current.subText,
                   ),
                   border: InputBorder.none,
                   isDense: true,
@@ -110,10 +109,10 @@ class _CreatePostPageState extends State<CreatePostPage> {
                   keyboardType: TextInputType.multiline,
                   expands: true,
                   maxLines: null,
-                  style: Styles.text,
+                  style: context.styles.text,
                   decoration: InputDecoration(
                     hintText: Texts.createPostwriteDescription,
-                    hintStyle: Styles.subText,
+                    hintStyle: context.styles.subText,
                     border: InputBorder.none,
                     isDense: true,
                     contentPadding: const EdgeInsets.all(0),

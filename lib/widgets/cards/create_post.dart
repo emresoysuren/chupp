@@ -1,5 +1,5 @@
 import 'package:chupp/config/texts.dart';
-import 'package:chupp/config/utils.dart';
+import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/cards/app_card.dart';
 import 'package:chupp/widgets/draggable_menu/draggable_button.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +17,7 @@ class CreatePostCard extends StatelessWidget {
         ListButton(
           title: Texts.createPostCardDiscardButton,
           icon: const FaIcon(FontAwesomeIcons.trash).icon,
-          color: Utils.theme.current.important,
+          color: context.theme.current.important,
           iconSize: 22,
           onTap: () => Navigator.pop<bool>(context, true),
         ),

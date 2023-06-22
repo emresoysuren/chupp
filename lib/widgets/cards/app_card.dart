@@ -1,5 +1,4 @@
-import 'package:chupp/config/styles.dart';
-import 'package:chupp/config/utils.dart';
+import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/draggable_menu/draggable_button.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +22,7 @@ class AppCard extends StatelessWidget {
         child: Material(
           borderRadius: BorderRadius.circular(16),
           clipBehavior: Clip.hardEdge,
-          color: Utils.theme.current.secondaryBg,
+          color: context.theme.current.secondaryBg,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.min,
@@ -35,12 +34,12 @@ class AppCard extends StatelessWidget {
                   children: [
                     Text(
                       title,
-                      style: Styles.title2,
+                      style: context.styles.title2,
                     ),
                     const SizedBox(height: 8),
                     Text(
                       description,
-                      style: Styles.text,
+                      style: context.styles.text,
                     ),
                   ],
                 ),

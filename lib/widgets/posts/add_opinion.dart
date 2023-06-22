@@ -1,6 +1,5 @@
-import 'package:chupp/config/styles.dart';
 import 'package:chupp/config/texts.dart';
-import 'package:chupp/config/utils.dart';
+import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/single_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -49,7 +48,7 @@ class _AddOpinionState extends State<AddOpinion> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Utils.theme.current.primaryBg,
+      color: context.theme.current.primaryBg,
       child: SafeArea(
         child: Padding(
           padding: EdgeInsets.fromLTRB(
@@ -73,10 +72,10 @@ class _AddOpinionState extends State<AddOpinion> with WidgetsBindingObserver {
                     keyboardType: TextInputType.multiline,
                     minLines: 1,
                     maxLines: 3,
-                    style: Styles.text,
+                    style: context.styles.text,
                     decoration: InputDecoration(
                       hintText: Texts.postAddYourOpinion,
-                      hintStyle: Styles.subText,
+                      hintStyle: context.styles.subText,
                       border: InputBorder.none,
                       isDense: true,
                       contentPadding: const EdgeInsets.all(0),
@@ -91,7 +90,7 @@ class _AddOpinionState extends State<AddOpinion> with WidgetsBindingObserver {
                   onPressed: text.isEmpty ? null : () {},
                   child: FaIcon(
                     FontAwesomeIcons.solidPaperPlane,
-                    color: Utils.theme.current.primaryItem,
+                    color: context.theme.current.primaryItem,
                     size: 22,
                   ),
                 ),

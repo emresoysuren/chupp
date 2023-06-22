@@ -1,4 +1,4 @@
-import 'package:chupp/config/utils.dart';
+import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/single_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -33,7 +33,7 @@ class PopButton extends StatelessWidget {
                 ? const FaIcon(FontAwesomeIcons.xmark).icon
                 : const FaIcon(FontAwesomeIcons.angleLeft).icon),
         size: size ?? 24,
-        color: color ?? Utils.theme.current.primaryItem,
+        color: color ?? context.theme.current.primaryItem,
       ),
     );
   }

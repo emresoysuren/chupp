@@ -1,4 +1,4 @@
-import 'package:chupp/config/utils.dart';
+import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/pop_button.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +19,7 @@ class Bar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return ColoredBox(
-      color: Utils.theme.current.primaryBg,
+      color: context.theme.current.primaryBg,
       child: SafeArea(
         child: Padding(
           padding: pop == true

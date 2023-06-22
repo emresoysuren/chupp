@@ -1,6 +1,5 @@
 import 'package:chupp/config/color_palette.dart';
-import 'package:chupp/config/styles.dart';
-import 'package:chupp/config/utils.dart';
+import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:flutter/material.dart';
 
 class PollItem extends StatefulWidget {
@@ -44,7 +43,7 @@ class _PollItemState extends State<PollItem> {
       scale: scale,
       duration: animationDuration,
       child: Material(
-        color: Utils.theme.current.primaryItem,
+        color: context.theme.current.primaryItem,
         clipBehavior: Clip.hardEdge,
         shape: const StadiumBorder(),
         child: InkWell(
@@ -74,7 +73,7 @@ class _PollItemState extends State<PollItem> {
           padding: _padding,
           child: Text(
             "#${widget.tag}",
-            style: Styles.itemTextImp,
+            style: context.styles.itemTextImp,
             maxLines: 1,
             softWrap: false,
             overflow: TextOverflow.fade,
@@ -91,7 +90,8 @@ class _PollItemState extends State<PollItem> {
               child: Text(
                 widget.vote.toString(),
                 maxLines: 1,
-                style: Styles.textImp.copyWith(color: ColorPalette.white),
+                style:
+                    context.styles.textImp.copyWith(color: ColorPalette.white),
               ),
             ),
           ),

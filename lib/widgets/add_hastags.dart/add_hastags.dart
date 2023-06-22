@@ -1,6 +1,5 @@
-import 'package:chupp/config/styles.dart';
 import 'package:chupp/config/texts.dart';
-import 'package:chupp/config/utils.dart';
+import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:flutter/material.dart';
 
 class AddHastags extends StatefulWidget {
@@ -54,7 +53,7 @@ class _AddHastagsState extends State<AddHastags> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Utils.theme.current.secondaryBg,
+      color: context.theme.current.secondaryBg,
       borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
       child: SafeArea(
         child: Padding(
@@ -75,10 +74,10 @@ class _AddHastagsState extends State<AddHastags> with WidgetsBindingObserver {
               },
               keyboardType: TextInputType.text,
               maxLines: 1,
-              style: Styles.text,
+              style: context.styles.text,
               decoration: InputDecoration(
                 hintText: Texts.addHastagsField,
-                hintStyle: Styles.subText,
+                hintStyle: context.styles.subText,
                 border: InputBorder.none,
                 isDense: true,
                 contentPadding: const EdgeInsets.all(0),

@@ -1,5 +1,5 @@
-import 'package:chupp/config/styles.dart';
 import 'package:chupp/config/texts.dart';
+import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/single_plain_text_button.dart';
 import 'package:chupp/widgets/expandable_text.dart';
 import 'package:flutter/material.dart';
@@ -30,12 +30,12 @@ class UserOpinion extends StatelessWidget {
               children: [
                 RichText(
                   text: TextSpan(
-                    style: Styles.text,
+                    style: context.styles.text,
                     children: [
                       const TextSpan(text: "username"),
                       TextSpan(
                         text: " ${Texts.postUserOpinionFor} ",
-                        style: Styles.subText,
+                        style: context.styles.subText,
                       ),
                       const TextSpan(text: "#option"),
                     ],
@@ -44,12 +44,12 @@ class UserOpinion extends StatelessWidget {
                 const SizedBox(height: 4),
                 Text(
                   "5/30/14 19:26",
-                  style: Styles.subText,
+                  style: context.styles.subText,
                 ),
                 const SizedBox(height: 8),
                 ExpandableText(
                   "Cupidatat deserunt nisi nulla Lorem Lorem Lorem pariatur irure cupidatat elit est exercitation sint. Cupidatat deserunt nisi nulla Lorem Lorem Lorem pariatur irure cupidatat elit est exercitation sint.",
-                  style: Styles.text,
+                  style: context.styles.text,
                 ),
                 const SizedBox(height: 4),
                 SinglePlainTextButton(

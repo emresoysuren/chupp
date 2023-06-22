@@ -1,5 +1,4 @@
-import 'package:chupp/config/styles.dart';
-import 'package:chupp/config/utils.dart';
+import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/bars/bar.dart';
 import 'package:chupp/widgets/buttons/single_button.dart';
 import 'package:chupp/widgets/draggable_menu/post_menu.dart';
@@ -73,7 +72,7 @@ class _ContentBarState extends State<ContentBar> {
                 children: [
                   Text(
                     "Which character is more likely to die next?",
-                    style: Styles.title3,
+                    style: context.styles.title3,
                     overflow: TextOverflow.fade,
                     softWrap: false,
                     maxLines: 1,
@@ -83,18 +82,18 @@ class _ContentBarState extends State<ContentBar> {
                     children: [
                       FaIcon(
                         FontAwesomeIcons.droplet,
-                        color: Utils.theme.current.text,
+                        color: context.theme.current.text,
                         size: 16,
                       ),
                       const SizedBox(width: 4),
                       Text(
                         "4.6k",
-                        style: Styles.text,
+                        style: context.styles.text,
                       ),
                       const SizedBox(width: 8),
                       Text(
                         "5/30/14 19:26",
-                        style: Styles.subText,
+                        style: context.styles.subText,
                       ),
                     ],
                   ),
@@ -110,7 +109,7 @@ class _ContentBarState extends State<ContentBar> {
           ),
           child: FaIcon(
             FontAwesomeIcons.ellipsis,
-            color: Utils.theme.current.primaryItem,
+            color: context.theme.current.primaryItem,
           ),
         )
       ],
