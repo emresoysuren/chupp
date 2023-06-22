@@ -34,11 +34,20 @@ class MiniPost extends StatelessWidget {
                   children: [
                     Row(
                       children: [
+                        Container(
+                          height: 16,
+                          width: 16,
+                          decoration: const BoxDecoration(
+                            color: Colors.yellow,
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                        const SizedBox(width: 4),
                         Text(
                           "username",
                           style: context.styles.text,
                         ),
-                        const SizedBox(width: 4),
+                        const SizedBox(width: 8),
                         Text(
                           "5/30/14 19:26",
                           style: context.styles.subText,
