@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:chupp/utils/styles.dart';
 import 'package:chupp/utils/theme/repo/theme.dart';
 import 'package:chupp/utils/utils/inherited.dart';
@@ -15,30 +17,20 @@ class UtilsScope extends StatefulWidget {
   State<UtilsScope> createState() => _UtilsScopeState();
 }
 
-class _UtilsScopeState extends State<UtilsScope> with WidgetsBindingObserver {
+class _UtilsScopeState extends State<UtilsScope> {
   @override
   void initState() {
-    WidgetsBinding.instance.addObserver(this);
+    PlatformDispatcher.instance.onPlatformBrightnessChanged =
+        () => setState(() {
+              AppTheme.instance.init();
+            });
+
     _themeInit();
     super.initState();
   }
 
-  @override
-  void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
-    super.dispose();
-  }
-
-  @override
-  void didChangePlatformBrightness() {
-    if (mounted) setState(() {});
-    super.didChangePlatformBrightness();
-  }
-
   void _themeInit() {
-    AppTheme.instance.addListener(() {
-      setState(() {});
-    });
+    AppTheme.instance.addListener(() => setState(() {}));
     AppTheme.instance.init();
   }
 
