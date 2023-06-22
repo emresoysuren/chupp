@@ -6,7 +6,6 @@ import 'package:google_fonts/google_fonts.dart';
 class Styles {
   Styles._();
 
-  // TODO: Can we do this without get?
   static TextStyle get appTitle => GoogleFonts.ubuntu(
         color: Utils.theme.current.appTitle,
         fontSize: 32,

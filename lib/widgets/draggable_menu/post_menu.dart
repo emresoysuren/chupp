@@ -18,6 +18,13 @@ class PostMenu extends StatelessWidget {
       child: Column(
         children: [
           DraggableButton(
+            title: Texts.postMenuViewProfile,
+            icon: const FaIcon(FontAwesomeIcons.solidUser).icon,
+            iconSize: 20,
+            color: Utils.theme.current.text,
+            onTap: () {},
+          ),
+          DraggableButton(
             title: Texts.postMenuShare,
             icon: const FaIcon(FontAwesomeIcons.arrowUpRightFromSquare).icon,
             iconSize: 20,

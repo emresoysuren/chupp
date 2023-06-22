@@ -4,8 +4,17 @@
 class Texts {
   Texts._();
 
-  static const postMenuShare = "Share";
-  static const postMenuReport = "Report";
+  // Main
   static const String title = "chupp";
+  static const String expandableTextMore = "See More";
+
+  // Post Content
   static const String postOpinionsTitle = "Opinions:";
+  static const String postUserOpinionFor = "for";
+  static const String postAddYourOpinion = "Add your opinion...";
+
+  // Post Content | Menu
+  static const String postMenuViewProfile = "View Creator Profile";
+  static const String postMenuShare = "Share";
+  static const String postMenuReport = "Report";
 }

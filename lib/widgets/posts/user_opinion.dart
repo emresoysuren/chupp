@@ -1,4 +1,5 @@
 import 'package:chupp/config/styles.dart';
+import 'package:chupp/config/texts.dart';
 import 'package:chupp/widgets/buttons/single_plain_text_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -31,7 +32,10 @@ class UserOpinion extends StatelessWidget {
                     style: Styles.text,
                     children: [
                       const TextSpan(text: "username"),
-                      TextSpan(text: " for ", style: Styles.subText),
+                      TextSpan(
+                        text: " ${Texts.postUserOpinionFor} ",
+                        style: Styles.subText,
+                      ),
                       const TextSpan(text: "#option"),
                     ],
                   ),

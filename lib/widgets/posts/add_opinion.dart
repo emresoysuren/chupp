@@ -1,4 +1,5 @@
 import 'package:chupp/config/styles.dart';
+import 'package:chupp/config/texts.dart';
 import 'package:chupp/config/utils.dart';
 import 'package:chupp/widgets/buttons/single_button.dart';
 import 'package:flutter/material.dart';
@@ -74,7 +75,7 @@ class _AddOpinionState extends State<AddOpinion> with WidgetsBindingObserver {
                     maxLines: 3,
                     style: Styles.text,
                     decoration: InputDecoration(
-                      hintText: "Add your opinion...",
+                      hintText: Texts.postAddYourOpinion,
                       hintStyle: Styles.subText,
                       border: InputBorder.none,
                       isDense: true,

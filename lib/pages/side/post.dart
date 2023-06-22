@@ -48,31 +48,41 @@ class _PostPageState extends State<PostPage> {
                   children: [
                     Row(
                       children: [
-                        Container(
-                          height: 36,
-                          width: 36,
-                          decoration: const BoxDecoration(
-                            color: Colors.yellow,
-                            shape: BoxShape.circle,
-                          ),
-                        ),
-                        const SizedBox(width: 16),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        GestureDetector(
+                          behavior: HitTestBehavior.opaque,
+                          onTap: () {
+                            // Direct to user's profile
+                          },
+                          child: Row(
                             children: [
-                              Text(
-                                "username",
-                                style: Styles.text,
+                              Container(
+                                height: 36,
+                                width: 36,
+                                decoration: const BoxDecoration(
+                                  color: Colors.yellow,
+                                  shape: BoxShape.circle,
+                                ),
                               ),
-                              Text(
-                                "5/30/14 19:26",
-                                style: Styles.subText,
+                              const SizedBox(width: 16),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Text(
+                                    "username",
+                                    style: Styles.text,
+                                  ),
+                                  Text(
+                                    "5/30/14 19:26",
+                                    style: Styles.subText,
+                                  ),
+                                ],
                               ),
                             ],
                           ),
                         ),
+                        const Spacer(),
                         SinglePlainTextButton(
                           icon: const FaIcon(FontAwesomeIcons.solidHeart).icon,
                           iconSize: 16,
@@ -101,7 +111,6 @@ class _PostPageState extends State<PostPage> {
                       style: Styles.title2,
                     ),
                     const SizedBox(height: 8),
-                    // TODO: Make it expandable
                     ExpandableText(
                       "Cupidatat deserunt nisi nulla Lorem Lorem Lorem pariatur irure cupidatat elit est exercitation sint. Cupidatat deserunt nisi nulla Lorem Lorem Lorem pariatur irure cupidatat elit est exercitation sint.",
                       style: Styles.text,
