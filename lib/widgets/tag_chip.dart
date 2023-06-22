@@ -4,14 +4,22 @@ import 'package:flutter/material.dart';
 
 class HashtagChip extends StatelessWidget {
   final String tag;
+  final bool large;
 
-  const HashtagChip({super.key, required this.tag});
+  const HashtagChip({
+    super.key,
+    required this.tag,
+    this.large = false,
+  });
 
   @override
   Widget build(BuildContext context) {
     return SinglePlainTextButton(
       label: "#$tag",
-      padding: const EdgeInsets.symmetric(horizontal: 8),
+      textStyle: context.styles.textImp,
+      padding: large
+          ? const EdgeInsets.symmetric(vertical: 6, horizontal: 12)
+          : const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
       color: context.theme.current.itemText,
       backgroundColor: context.theme.current.primaryItem,
       onPressed: () {},

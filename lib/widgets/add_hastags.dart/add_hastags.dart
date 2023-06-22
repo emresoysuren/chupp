@@ -1,6 +1,6 @@
 import 'package:chupp/config/texts.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
-import 'package:chupp/widgets/add_hastags.dart/add_hastags_chip.dart';
+import 'package:chupp/widgets/tag_chip.dart';
 import 'package:flutter/material.dart';
 
 class AddHastags extends StatefulWidget {
@@ -82,17 +82,21 @@ class _AddHastagsState extends State<AddHastags> with WidgetsBindingObserver {
                           ),
                         ),
                       ),
-                      // ListButton(
-                      //   title: "#$text",
-                      //   showIcon: false,
-                      //   onTap: () {},
-                      // ),
                       Padding(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 16,
                           vertical: 12,
                         ),
-                        child: AddHastagsChip(tag: text),
+                        child: Wrap(
+                          spacing: 8,
+                          runSpacing: 8,
+                          children: [
+                            HashtagChip(
+                              tag: text,
+                              large: true,
+                            ),
+                          ],
+                        ),
                       ),
                       ColoredBox(
                         color: context.theme.current.secondaryItem,

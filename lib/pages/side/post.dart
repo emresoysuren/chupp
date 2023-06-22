@@ -92,16 +92,13 @@ class _PostPageState extends State<PostPage> {
                     ),
                     const SizedBox(height: 16),
                     // Hashtags - START
-                    SizedBox(
-                      height: 18,
-                      child: ListView.separated(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: 2,
-                        itemBuilder: (BuildContext context, int index) =>
-                            const HashtagChip(tag: "anime"),
-                        separatorBuilder: (BuildContext context, int index) =>
-                            const SizedBox(width: 8),
-                      ),
+                    const Wrap(
+                      runSpacing: 8,
+                      spacing: 8,
+                      children: [
+                        HashtagChip(tag: "anime"),
+                        HashtagChip(tag: "theory"),
+                      ],
                     ),
                     // Hashtags - END
                     const SizedBox(height: 8),

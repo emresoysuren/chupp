@@ -51,17 +51,16 @@ class MiniPost extends StatelessWidget {
                       style: context.styles.title3,
                     ),
                     const SizedBox(height: 8),
-                    SizedBox(
-                      height: 18,
-                      child: ListView.separated(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: 3,
-                        itemBuilder: (BuildContext context, int index) =>
-                            const HashtagChip(tag: "text"),
-                        separatorBuilder: (BuildContext context, int index) =>
-                            const SizedBox(width: 8),
-                      ),
-                    ),
+                    const Wrap(
+                      spacing: 8,
+                      runSpacing: 8,
+                      children: [
+                        HashtagChip(tag: "hashtags"),
+                        HashtagChip(tag: "are"),
+                        HashtagChip(tag: "great"),
+                        HashtagChip(tag: "!"),
+                      ],
+                    )
                   ],
                 ),
               ),
