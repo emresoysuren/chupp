@@ -1,12 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:chupp/config/texts.dart';
+import 'package:chupp/utils/router/app_router.gr.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/firebase_options.dart';
 import 'package:chupp/widgets/title_loading.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
-import '../../utils/router/app_router.gr.dart';
 
 @RoutePage()
 class SplashPage extends StatefulWidget {
@@ -48,7 +47,7 @@ class _SplashPageState extends State<SplashPage> {
     await minWaittingDuration;
     // Direct to somewhere
     if (mounted) {
-      context.router.replace(const HomePage());
+      context.router.replace(const HomeRoute());
     }
   }
 }

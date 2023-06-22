@@ -63,7 +63,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '977624219918',
     projectId: 'chupp-firebase',
     storageBucket: 'chupp-firebase.appspot.com',
-    iosClientId: '977624219918-6j5qe560mmtpi7tnfhaeq825nt6l0o6v.apps.googleusercontent.com',
+    iosClientId:
+        '977624219918-6j5qe560mmtpi7tnfhaeq825nt6l0o6v.apps.googleusercontent.com',
     iosBundleId: 'com.example.chupp',
   );
 }
