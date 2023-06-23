@@ -63,79 +63,83 @@ class _AddHastagsState extends State<AddHastags> with WidgetsBindingObserver {
         child: Padding(
           padding:
               EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              if (text.isNotEmpty)
-                Padding(
-                  padding: const EdgeInsets.only(top: 16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                        child: Text(
-                          Texts.addHastagsFieldLabel,
-                          style: context.styles.textImp.copyWith(
-                            color: context.theme.current.notice,
+          child: AnimatedSize(
+            duration: const Duration(milliseconds: 120),
+            alignment: Alignment.bottomLeft,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                if (text.isNotEmpty)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          child: Text(
+                            Texts.addHastagsFieldLabel,
+                            style: context.styles.textImp.copyWith(
+                              color: context.theme.current.notice,
+                            ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 12,
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 12,
+                          ),
+                          child: Wrap(
+                            spacing: 8,
+                            runSpacing: 8,
+                            children: [
+                              HashtagChip(
+                                tag: text,
+                                large: true,
+                              ),
+                            ],
+                          ),
                         ),
-                        child: Wrap(
-                          spacing: 8,
-                          runSpacing: 8,
-                          children: [
-                            HashtagChip(
-                              tag: text,
-                              large: true,
-                            ),
-                          ],
+                        ColoredBox(
+                          color: context.theme.current.secondaryItem,
+                          child: const SizedBox(
+                            width: double.infinity,
+                            height: 0.5,
+                          ),
                         ),
-                      ),
-                      ColoredBox(
-                        color: context.theme.current.secondaryItem,
-                        child: const SizedBox(
-                          width: double.infinity,
-                          height: 0.5,
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 14),
-                  child: TextField(
-                    key: _fieldKey,
-                    controller: _controller,
-                    focusNode: focusNode,
-                    onChanged: (value) {
-                      setState(() {
-                        text = value;
-                      });
-                    },
-                    keyboardType: TextInputType.text,
-                    maxLines: 1,
-                    style: context.styles.text,
-                    decoration: InputDecoration(
-                      hintText: Texts.addHastagsField,
-                      hintStyle: context.styles.subText,
-                      border: InputBorder.none,
-                      isDense: true,
-                      contentPadding: const EdgeInsets.all(0),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    child: TextField(
+                      key: _fieldKey,
+                      controller: _controller,
+                      focusNode: focusNode,
+                      onChanged: (value) {
+                        setState(() {
+                          text = value;
+                        });
+                      },
+                      keyboardType: TextInputType.text,
+                      maxLines: 1,
+                      style: context.styles.text,
+                      decoration: InputDecoration(
+                        hintText: Texts.addHastagsField,
+                        hintStyle: context.styles.subText,
+                        border: InputBorder.none,
+                        isDense: true,
+                        contentPadding: const EdgeInsets.all(0),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

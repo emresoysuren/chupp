@@ -16,7 +16,7 @@ class MiniPost extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         enableFeedback: false,
-        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
         onTap: () => Navigator.push(
           context,
           BasicPageRoute(

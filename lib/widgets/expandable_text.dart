@@ -32,26 +32,32 @@ class _ExpandableTextState extends State<ExpandableText> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
-      onTap: widget.onTap ??
-          (!widget.active ? null : () => setState(() => expanded = !expanded)),
-      child: RichText(
-        text: TextSpan(
-          children: [
-            TextSpan(
-              text: expanded
-                  ? widget.text
-                  : widget.text
-                      .substring(0, min(widget.text.length, maxCharacters)),
-              style: widget.style ?? context.styles.text,
-            ),
-            if (!expanded)
+    return AnimatedSize(
+      duration: const Duration(milliseconds: 120),
+      alignment: Alignment.topLeft,
+      child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: widget.onTap ??
+            (!widget.active
+                ? null
+                : () => setState(() => expanded = !expanded)),
+        child: RichText(
+          text: TextSpan(
+            children: [
               TextSpan(
-                text: " ${Texts.expandableTextMore}",
-                style: context.styles.subText,
+                text: expanded
+                    ? widget.text
+                    : widget.text
+                        .substring(0, min(widget.text.length, maxCharacters)),
+                style: widget.style ?? context.styles.text,
               ),
-          ],
+              if (!expanded)
+                TextSpan(
+                  text: " ${Texts.expandableTextMore}",
+                  style: context.styles.subText,
+                ),
+            ],
+          ),
         ),
       ),
     );
