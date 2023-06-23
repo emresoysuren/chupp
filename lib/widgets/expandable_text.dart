@@ -9,6 +9,7 @@ class ExpandableText extends StatefulWidget {
   final bool expanded;
   final bool active;
   final Function()? onTap;
+  final int? characterThresold;
 
   const ExpandableText(
     this.text, {
@@ -17,6 +18,7 @@ class ExpandableText extends StatefulWidget {
     this.active = true,
     this.onTap,
     this.expanded = false,
+    this.characterThresold,
   });
 
   @override
@@ -26,7 +28,7 @@ class ExpandableText extends StatefulWidget {
 class _ExpandableTextState extends State<ExpandableText> {
   late bool expanded = widget.expanded;
 
-  int get maxCharacters => 100;
+  int get maxCharacters => widget.characterThresold ?? 100;
 
   @override
   Widget build(BuildContext context) {
