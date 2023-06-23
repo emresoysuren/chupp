@@ -25,6 +25,11 @@ class _SplashPageState extends State<SplashPage> {
     super.initState();
   }
 
+  String get riveAnimation =>
+      context.theme.current.splashItem == ColorPalette.white
+          ? "assets/chupp.riv"
+          : "assets/chupp-blue.riv";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,11 +39,7 @@ class _SplashPageState extends State<SplashPage> {
           Center(
             child: SizedBox(
               height: 92,
-              child: RiveAnimation.asset(
-                context.theme.current.splashItem == ColorPalette.white
-                    ? "assets/chupp.riv"
-                    : "assets/chupp-blue.riv",
-              ),
+              child: RiveAnimation.asset(riveAnimation),
             ),
           ),
           Positioned(
