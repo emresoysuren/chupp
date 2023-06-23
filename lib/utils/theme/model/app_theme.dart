@@ -19,6 +19,12 @@ class AppThemeModel {
   /// Secondary Item Color
   final Color secondaryItem;
 
+  /// Primary Button Color
+  final Color primaryBtn;
+
+  /// Secondary Button Color
+  final Color secondaryBtn;
+
   /// App Title Color
   final Color appTitle;
 
@@ -33,6 +39,9 @@ class AppThemeModel {
 
   /// Text Color for the item colors.
   final Color itemText;
+
+  /// Text Color for the button colors.
+  final Color btnText;
 
   /// Sub Text Color for the background colors.
   final Color subText;
@@ -52,12 +61,15 @@ class AppThemeModel {
     required this.splashBg,
     required this.primaryItem,
     required this.secondaryItem,
+    required this.primaryBtn,
+    required this.secondaryBtn,
     required this.splashItem,
     required this.appTitle,
     required this.title,
     required this.itemTitle,
     required this.text,
     required this.itemText,
+    required this.btnText,
     required this.subText,
     required this.itemSubText,
     required this.important,

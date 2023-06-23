@@ -43,7 +43,7 @@ class _PollItemState extends State<PollItem> {
       scale: scale,
       duration: animationDuration,
       child: Material(
-        color: context.theme.current.primaryItem,
+        color: context.theme.current.primaryBtn,
         clipBehavior: Clip.hardEdge,
         shape: const StadiumBorder(),
         child: InkWell(
@@ -73,7 +73,7 @@ class _PollItemState extends State<PollItem> {
           padding: _padding,
           child: Text(
             "#${widget.tag}",
-            style: context.styles.itemTextImp,
+            style: context.styles.button,
             maxLines: 1,
             softWrap: false,
             overflow: TextOverflow.fade,
@@ -91,7 +91,7 @@ class _PollItemState extends State<PollItem> {
                 widget.vote.toString(),
                 maxLines: 1,
                 style:
-                    context.styles.textImp.copyWith(color: ColorPalette.white),
+                    context.styles.button.copyWith(color: ColorPalette.white),
               ),
             ),
           ),

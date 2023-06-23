@@ -1,10 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:chupp/config/color_palette.dart';
 import 'package:chupp/utils/router/app_router.gr.dart';
+import 'package:chupp/utils/theme/repo/theme.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:rive/rive.dart';
 
@@ -17,6 +19,8 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
+  late AppTheme theme;
+
   @override
   void initState() {
     // Using the load method due to initState can't work with async
@@ -25,15 +29,29 @@ class _SplashPageState extends State<SplashPage> {
     super.initState();
   }
 
-  String get riveAnimation =>
-      context.theme.current.splashItem == ColorPalette.white
-          ? "assets/chupp.riv"
-          : "assets/chupp-blue.riv";
+  String get riveAnimation => theme.current.splashItem == ColorPalette.white
+      ? "assets/chupp.riv"
+      : "assets/chupp-blue.riv";
+
+  @override
+  void didChangeDependencies() {
+    theme = context.theme;
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(systemNavigationBarColor: theme.current.splashBg),
+    );
+    super.didChangeDependencies();
+  }
+
+  @override
+  void dispose() {
+    theme.resetNavColor();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: context.theme.current.splashBg,
+      backgroundColor: theme.current.splashBg,
       body: Stack(
         children: [
           Center(
@@ -48,7 +66,7 @@ class _SplashPageState extends State<SplashPage> {
             right: 0,
             child: Center(
               child: LoadingAnimationWidget.horizontalRotatingDots(
-                color: context.theme.current.splashItem,
+                color: theme.current.splashItem,
                 size: 36,
               ),
             ),

@@ -54,6 +54,12 @@ class Styles {
         fontWeight: FontWeight.bold,
       );
 
+  TextStyle get button => GoogleFonts.ubuntu(
+        color: theme.current.btnText,
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
+      );
+
   TextStyle get subText => GoogleFonts.ubuntu(
         color: theme.current.subText,
         fontSize: 16,

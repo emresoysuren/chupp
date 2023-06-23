@@ -16,12 +16,12 @@ class HashtagChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return SinglePlainTextButton(
       label: "#$tag",
-      textStyle: context.styles.textImp,
+      textStyle: context.styles.button,
       padding: large
           ? const EdgeInsets.symmetric(vertical: 6, horizontal: 12)
           : const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-      color: context.theme.current.itemText,
-      backgroundColor: context.theme.current.primaryItem,
+      color: context.theme.current.btnText,
+      backgroundColor: context.theme.current.primaryBtn,
       onPressed: () {},
     );
   }

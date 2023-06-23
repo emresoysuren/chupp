@@ -16,12 +16,15 @@ class AppThemes {
         splashBg: ColorPalette.blue,
         primaryItem: ColorPalette.black,
         secondaryItem: ColorPalette.grey,
+        primaryBtn: ColorPalette.offWhite,
+        secondaryBtn: ColorPalette.grey,
         splashItem: ColorPalette.white,
         appTitle: ColorPalette.blue,
         title: ColorPalette.black,
         itemTitle: ColorPalette.white,
         text: ColorPalette.black,
         itemText: ColorPalette.white,
+        btnText: ColorPalette.black,
 
         // Color can change if you think it should change
         subText: ColorPalette.offBlack,
@@ -36,12 +39,15 @@ class AppThemes {
         splashBg: ColorPalette.black,
         primaryItem: ColorPalette.white,
         secondaryItem: ColorPalette.grey,
+        primaryBtn: ColorPalette.white,
+        secondaryBtn: ColorPalette.grey,
         splashItem: ColorPalette.blue,
         appTitle: ColorPalette.blue,
         title: ColorPalette.white,
         itemTitle: ColorPalette.black,
         text: ColorPalette.white,
         itemText: ColorPalette.black,
+        btnText: ColorPalette.black,
         subText: ColorPalette.lightGrey,
 
         // Color can change if you think it should change

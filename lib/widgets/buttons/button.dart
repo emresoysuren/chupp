@@ -37,8 +37,8 @@ class Button extends StatelessWidget {
               ? Colors.transparent
               : onPressed == null
                   // Default Passive Color will be added later
-                  ? passiveColor ?? color ?? context.theme.current.primaryItem
-                  : color ?? context.theme.current.primaryItem,
+                  ? passiveColor ?? color ?? context.theme.current.primaryBtn
+                  : color ?? context.theme.current.primaryBtn,
         ),
         alignment: alignment,
         shape: MaterialStatePropertyAll(
@@ -62,7 +62,7 @@ class Button extends StatelessWidget {
         label,
         style: labelStyle ??
             (secondary != true
-                ? context.styles.itemTextImp
+                ? context.styles.button
                 : context.styles.textImp),
       ),
     );

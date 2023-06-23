@@ -1,5 +1,6 @@
 import 'package:chupp/services/local_data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../config/app_theme_mode.dart';
 import '../config/app_themes.dart';
 import '../model/app_theme.dart';
@@ -16,6 +17,7 @@ class AppTheme extends ChangeNotifier with WidgetsBindingObserver {
   Future<void> init() async {
     WidgetsBinding.instance.addObserver(this);
     await changeMode(await LocalData.getTheme());
+    resetNavColor();
     notifyListeners();
   }
 
@@ -28,8 +30,15 @@ class AppTheme extends ChangeNotifier with WidgetsBindingObserver {
   @override
   didChangePlatformBrightness() async {
     await changeMode(await LocalData.getTheme());
+    resetNavColor();
     notifyListeners();
     super.didChangePlatformBrightness();
+  }
+
+  void resetNavColor() {
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(systemNavigationBarColor: current.primaryBg),
+    );
   }
 
   Future<void> changeMode(AppThemeMode mode) async {
