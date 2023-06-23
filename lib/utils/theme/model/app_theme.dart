@@ -7,6 +7,12 @@ class AppThemeModel {
   /// Secondary Background Color
   final Color secondaryBg;
 
+  /// Background Color for the splash page
+  final Color splashBg;
+
+  /// Item Color for the splash page
+  final Color splashItem;
+
   /// Primary Item Color
   final Color primaryItem;
 
@@ -43,8 +49,10 @@ class AppThemeModel {
   AppThemeModel({
     required this.primaryBg,
     required this.secondaryBg,
+    required this.splashBg,
     required this.primaryItem,
     required this.secondaryItem,
+    required this.splashItem,
     required this.appTitle,
     required this.title,
     required this.itemTitle,

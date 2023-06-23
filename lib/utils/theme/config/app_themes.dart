@@ -13,8 +13,10 @@ class AppThemes {
   static AppThemeModel get light => AppThemeModel(
         primaryBg: ColorPalette.white,
         secondaryBg: ColorPalette.offWhite,
+        splashBg: ColorPalette.blue,
         primaryItem: ColorPalette.black,
         secondaryItem: ColorPalette.grey,
+        splashItem: ColorPalette.white,
         appTitle: ColorPalette.blue,
         title: ColorPalette.black,
         itemTitle: ColorPalette.white,
@@ -31,8 +33,10 @@ class AppThemes {
   static AppThemeModel get dark => AppThemeModel(
         primaryBg: ColorPalette.black,
         secondaryBg: ColorPalette.offBlack,
+        splashBg: ColorPalette.black,
         primaryItem: ColorPalette.white,
         secondaryItem: ColorPalette.grey,
+        splashItem: ColorPalette.blue,
         appTitle: ColorPalette.blue,
         title: ColorPalette.white,
         itemTitle: ColorPalette.black,

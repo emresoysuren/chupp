@@ -1,11 +1,12 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:chupp/config/texts.dart';
+import 'package:chupp/config/color_palette.dart';
 import 'package:chupp/utils/router/app_router.gr.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/firebase_options.dart';
-import 'package:chupp/widgets/title_loading.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:rive/rive.dart';
 
 @RoutePage()
 class SplashPage extends StatefulWidget {
@@ -27,12 +28,31 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: context.theme.current.primaryBg,
-      body: Center(
-        child: TitleLoading(
-          title: Texts.title,
-          style: context.styles.appTitle,
-        ),
+      backgroundColor: context.theme.current.splashBg,
+      body: Stack(
+        children: [
+          Center(
+            child: SizedBox(
+              height: 92,
+              child: RiveAnimation.asset(
+                context.theme.current.splashItem == ColorPalette.white
+                    ? "assets/chupp.riv"
+                    : "assets/chupp-blue.riv",
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 32,
+            left: 0,
+            right: 0,
+            child: Center(
+              child: LoadingAnimationWidget.horizontalRotatingDots(
+                color: context.theme.current.splashItem,
+                size: 36,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

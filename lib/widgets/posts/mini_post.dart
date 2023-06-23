@@ -28,57 +28,54 @@ class MiniPost extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 4),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          height: 16,
-                          width: 16,
-                          decoration: const BoxDecoration(
-                            color: Colors.yellow,
-                            shape: BoxShape.circle,
-                          ),
-                        ),
-                        const SizedBox(width: 4),
-                        Text(
-                          "username",
-                          style: context.styles.text,
-                        ),
-                        const SizedBox(width: 8),
-                        Text(
-                          "5/30/14 19:26",
-                          style: context.styles.subText,
-                        )
-                      ],
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      "Which character is more likely to die next?",
-                      style: context.styles.title3,
-                    ),
-                    const SizedBox(height: 8),
-                    ExpandableText(
-                      "Cupidatat deserunt nisi nulla Lorem Lorem Lorem pariatur irure cupidatat elit est exercitation sint. Cupidatat deserunt nisi nulla Lorem Lorem Lorem pariatur irure cupidatat elit est exercitation sint.",
-                      style: context.styles.text,
-                      onTap: () => Navigator.push(
-                        context,
-                        BasicPageRoute(
-                          start: Start.right,
-                          child: const PostPage(openDescription: true),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        height: 16,
+                        width: 16,
+                        decoration: const BoxDecoration(
+                          color: Colors.yellow,
+                          shape: BoxShape.circle,
                         ),
                       ),
+                      const SizedBox(width: 4),
+                      Text(
+                        "username",
+                        style: context.styles.text,
+                      ),
+                      const SizedBox(width: 8),
+                      Text(
+                        "5/30/14 19:26",
+                        style: context.styles.subText,
+                      )
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    "Which character is more likely to die next?",
+                    style: context.styles.title3,
+                  ),
+                  const SizedBox(height: 8),
+                  ExpandableText(
+                    "Cupidatat deserunt nisi nulla Lorem Lorem Lorem pariatur irure cupidatat elit est exercitation sint. Cupidatat deserunt nisi nulla Lorem Lorem Lorem pariatur irure cupidatat elit est exercitation sint.",
+                    style: context.styles.text,
+                    onTap: () => Navigator.push(
+                      context,
+                      BasicPageRoute(
+                        start: Start.right,
+                        child: const PostPage(openDescription: true),
+                      ),
                     ),
-                    const SizedBox(height: 8),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 16),
-                      child: Poll(),
-                    ),
-                  ],
-                ),
+                  ),
+                  const SizedBox(height: 8),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 16),
+                    child: Poll(),
+                  ),
+                ],
               ),
               const SizedBox(height: 4),
               Row(
