@@ -1,6 +1,6 @@
 import 'package:chupp/utils/utils/context_extension.dart';
+import 'package:chupp/widgets/buttons/custom/ink.dart';
 import 'package:chupp/widgets/buttons/single_button.dart';
-import 'package:chupp/widgets/buttons/single_plain_text_button.dart';
 import 'package:chupp/widgets/draggable_menu/opinion_menu.dart';
 import 'package:chupp/widgets/posts/content_widgets/content_header.dart';
 import 'package:draggable_menu/draggable_menu.dart';
@@ -43,13 +43,7 @@ class OpinionWidget extends StatelessWidget {
           style: context.styles.text,
         ),
         const SizedBox(height: 4),
-        SinglePlainTextButton(
-          icon: const FaIcon(FontAwesomeIcons.droplet).icon,
-          iconSize: 16,
-          label: "4.6k",
-          gap: 4,
-          onPressed: () {},
-        ),
+        const InkButton(amount: 460),
       ],
     );
   }

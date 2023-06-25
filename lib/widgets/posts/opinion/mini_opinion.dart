@@ -1,11 +1,11 @@
 import 'package:chupp/utils/utils/context_extension.dart';
-import 'package:chupp/widgets/buttons/single_plain_text_button.dart';
+import 'package:chupp/widgets/buttons/custom/comment.dart';
+import 'package:chupp/widgets/buttons/custom/ink.dart';
 import 'package:chupp/widgets/draggable_menu/opinion_page.dart';
 import 'package:chupp/widgets/expandable_text.dart';
 import 'package:chupp/widgets/posts/content_widgets/content_header.dart';
 import 'package:draggable_menu/draggable_menu.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MiniOpinion extends StatelessWidget {
   final double? layoutMaxHeight;
@@ -39,12 +39,12 @@ class MiniOpinion extends StatelessWidget {
                 style: context.styles.text,
               ),
               const SizedBox(height: 4),
-              SinglePlainTextButton(
-                icon: const FaIcon(FontAwesomeIcons.droplet).icon,
-                iconSize: 16,
-                label: "4.6k",
-                gap: 4,
-                onPressed: () {},
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  InkButton(amount: 460),
+                  CommentButton(amount: 24),
+                ],
               ),
             ],
           ),

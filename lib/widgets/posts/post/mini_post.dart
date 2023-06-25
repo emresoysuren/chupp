@@ -1,12 +1,13 @@
 import 'package:chupp/pages/side/post.dart';
 import 'package:chupp/routes/basic.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
-import 'package:chupp/widgets/buttons/single_plain_text_button.dart';
+import 'package:chupp/widgets/buttons/custom/comment.dart';
+import 'package:chupp/widgets/buttons/custom/ink.dart';
+import 'package:chupp/widgets/buttons/custom/like.dart';
 import 'package:chupp/widgets/expandable_text.dart';
 import 'package:chupp/widgets/posts/content_widgets/mini_content_header.dart';
 import 'package:chupp/widgets/posts/poll/poll.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MiniPost extends StatelessWidget {
   const MiniPost({super.key});
@@ -62,11 +63,8 @@ class MiniPost extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  SinglePlainTextButton(
-                    icon: const FaIcon(FontAwesomeIcons.droplet).icon,
-                    iconSize: 16,
-                    label: "4.6k",
-                    gap: 4,
+                  InkButton(
+                    amount: 460,
                     onPressed: () => Navigator.push(
                       context,
                       BasicPageRoute(
@@ -75,10 +73,8 @@ class MiniPost extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SinglePlainTextButton(
-                    icon: const FaIcon(FontAwesomeIcons.solidMessage).icon,
-                    iconSize: 16,
-                    label: "308",
+                  CommentButton(
+                    amount: 308,
                     onPressed: () => Navigator.push(
                       context,
                       BasicPageRoute(
@@ -87,13 +83,7 @@ class MiniPost extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SinglePlainTextButton(
-                    icon: const FaIcon(FontAwesomeIcons.solidHeart).icon,
-                    iconSize: 18,
-                    label: "1.2k",
-                    gap: 4,
-                    onPressed: () {},
-                  ),
+                  const LikeButton(amount: 120),
                 ],
               ),
             ],

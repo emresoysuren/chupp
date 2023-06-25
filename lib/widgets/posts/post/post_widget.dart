@@ -1,11 +1,10 @@
 import 'package:chupp/utils/utils/context_extension.dart';
-import 'package:chupp/widgets/buttons/single_plain_text_button.dart';
+import 'package:chupp/widgets/buttons/custom/like.dart';
 import 'package:chupp/widgets/expandable_text.dart';
 import 'package:chupp/widgets/posts/content_widgets/content_header.dart';
 import 'package:chupp/widgets/posts/poll/poll.dart';
 import 'package:chupp/widgets/tag_chip.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PostWidget extends StatelessWidget {
   final bool openDescription;
@@ -25,16 +24,11 @@ class PostWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // Header - START
-        ContentHeader(
+        const ContentHeader(
           username: "username",
           time: "5/30/14 19:26",
           children: [
-            SinglePlainTextButton(
-              icon: const FaIcon(FontAwesomeIcons.solidHeart).icon,
-              iconSize: 16,
-              label: "1.2k",
-              onPressed: () {},
-            ),
+            LikeButton(amount: 120),
           ],
         ),
         // Header - END

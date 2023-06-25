@@ -1,9 +1,8 @@
 import 'package:chupp/utils/utils/context_extension.dart';
-import 'package:chupp/widgets/buttons/single_plain_text_button.dart';
+import 'package:chupp/widgets/buttons/custom/like.dart';
 import 'package:chupp/widgets/expandable_text.dart';
 import 'package:chupp/widgets/posts/content_widgets/mini_content_header.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CommentWidget extends StatelessWidget {
   const CommentWidget({super.key});
@@ -27,13 +26,7 @@ class CommentWidget extends StatelessWidget {
               style: context.styles.text,
             ),
             const SizedBox(height: 4),
-            SinglePlainTextButton(
-              icon: const FaIcon(FontAwesomeIcons.droplet).icon,
-              iconSize: 16,
-              label: "4.6k",
-              gap: 4,
-              onPressed: () {},
-            ),
+            const LikeButton(amount: 12),
           ],
         ),
       ),
