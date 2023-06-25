@@ -1,11 +1,7 @@
-import 'package:chupp/config/texts.dart';
+import 'package:chupp/pages/side/post/post_content.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/bars/custom/content_bar.dart';
-import 'package:chupp/widgets/disable_scroll_behavior.dart';
 import 'package:chupp/widgets/draggable_menu/post_menu.dart';
-import 'package:chupp/widgets/posts/functional/add_opinion.dart';
-import 'package:chupp/widgets/posts/post/post_widget.dart';
-import 'package:chupp/widgets/posts/opinion/mini_opinion.dart';
 import 'package:draggable_menu/draggable_menu.dart';
 import 'package:flutter/material.dart';
 
@@ -48,44 +44,18 @@ class _PostPageState extends State<PostPage> {
           const PostMenu(),
         ),
       ),
-      body: DisableScrollBehavior(
-        child: SingleChildScrollView(
-          controller: _controller,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-                child: PostWidget(
-                  openDescription: widget.openDescription,
-                  contentKey: _contentKey,
-                ),
-              ),
-              // Opinions - START
-              Padding(
-                padding: const EdgeInsets.only(top: 32),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 16),
-                      child: Text(
-                        Texts.postOpinionsTitle,
-                        style: context.styles.title3,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    for (int i = 0; i < 6; i++) const MiniOpinion(),
-                  ],
-                ),
-              ),
-              // Opinions - END
-            ],
+      body: Navigator(
+        pages: [
+          MaterialPage(
+            child: PostContent(
+              contentKey: _contentKey,
+              controller: _controller,
+              openDescription: widget.openDescription,
+              openOpinion: widget.openOpinion,
+            ),
           ),
-        ),
+        ],
       ),
-      bottomNavigationBar: AddOpinion(autofocus: widget.openOpinion),
     );
   }
 }

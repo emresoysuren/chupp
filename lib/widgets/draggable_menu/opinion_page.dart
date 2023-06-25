@@ -7,7 +7,9 @@ import 'package:draggable_menu/draggable_menu.dart';
 import 'package:flutter/material.dart';
 
 class OpinionPageDraggable extends StatefulWidget {
-  const OpinionPageDraggable({super.key});
+  final double? maxHeight;
+
+  const OpinionPageDraggable({super.key, this.maxHeight});
 
   @override
   State<OpinionPageDraggable> createState() => _OpinionPageDraggableState();
@@ -24,8 +26,14 @@ class _OpinionPageDraggableState extends State<OpinionPageDraggable> {
         color: context.theme.current.secondaryBg,
       ),
       levels: [
-        DraggableMenuLevel.ratio(ratio: 0.4),
-        DraggableMenuLevel.ratio(ratio: 1),
+        if (widget.maxHeight != null)
+          DraggableMenuLevel(height: widget.maxHeight! * 0.4)
+        else
+          DraggableMenuLevel.ratio(ratio: 0.4),
+        if (widget.maxHeight != null)
+          DraggableMenuLevel(height: widget.maxHeight! * 1)
+        else
+          DraggableMenuLevel.ratio(ratio: 1),
       ],
       child: ScrollableManager(
         enableExpandedScroll: true,

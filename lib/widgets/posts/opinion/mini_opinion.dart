@@ -8,7 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MiniOpinion extends StatelessWidget {
-  const MiniOpinion({super.key});
+  final double? layoutMaxHeight;
+
+  const MiniOpinion({super.key, this.layoutMaxHeight});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,10 @@ class MiniOpinion extends StatelessWidget {
       child: InkWell(
         enableFeedback: false,
         highlightColor: Colors.transparent,
-        onTap: () => DraggableMenu.open(context, const OpinionPageDraggable()),
+        onTap: () => DraggableMenu.open(
+          context,
+          OpinionPageDraggable(maxHeight: layoutMaxHeight),
+        ),
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(

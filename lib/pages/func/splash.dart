@@ -30,6 +30,8 @@ class _SplashPageState extends State<SplashPage> {
     super.initState();
   }
 
+  Duration get _minWaittingDuration => const Duration(seconds: 3);
+
   String get riveAnimation => theme.current.splashItem == ColorPalette.white
       ? "assets/chupp.riv"
       : "assets/chupp-blue.riv";
@@ -79,13 +81,12 @@ class _SplashPageState extends State<SplashPage> {
 
   Future<void> load() async {
     // Load something in here
-    final Future minWaittingDuration =
-        Future.delayed(const Duration(seconds: 3));
+    final Future waitMin = Future.delayed(_minWaittingDuration);
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
     AuthStateNotifier.instance.init();
-    await minWaittingDuration;
+    await waitMin;
     // Direct to somewhere
     if (mounted) {
       context.router.replace(const HomeRoute());
