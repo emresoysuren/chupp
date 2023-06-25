@@ -1,12 +1,16 @@
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/single_button.dart';
 import 'package:chupp/widgets/buttons/single_plain_text_button.dart';
+import 'package:chupp/widgets/draggable_menu/opinion_menu.dart';
 import 'package:chupp/widgets/posts/content_widgets/content_header.dart';
+import 'package:draggable_menu/draggable_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class OpinionWidget extends StatelessWidget {
-  const OpinionWidget({super.key});
+  final DraggableMenuController? draggableMenuController;
+
+  const OpinionWidget({super.key, this.draggableMenuController});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +23,13 @@ class OpinionWidget extends StatelessWidget {
           option: "#option",
           children: [
             SingleButton(
-              onPressed: () {},
+              onPressed: () {
+                draggableMenuController?.animateTo(1);
+                return DraggableMenu.open(
+                  context,
+                  const OpinionMenu(),
+                );
+              },
               child: FaIcon(
                 FontAwesomeIcons.ellipsis,
                 color: context.theme.current.primaryItem,

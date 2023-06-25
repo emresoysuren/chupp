@@ -6,12 +6,20 @@ import 'package:chupp/widgets/posts/opinion/opinion_widget.dart';
 import 'package:draggable_menu/draggable_menu.dart';
 import 'package:flutter/material.dart';
 
-class OpinionPageDraggable extends StatelessWidget {
+class OpinionPageDraggable extends StatefulWidget {
   const OpinionPageDraggable({super.key});
+
+  @override
+  State<OpinionPageDraggable> createState() => _OpinionPageDraggableState();
+}
+
+class _OpinionPageDraggableState extends State<OpinionPageDraggable> {
+  final DraggableMenuController _controller = DraggableMenuController();
 
   @override
   Widget build(BuildContext context) {
     return DraggableMenu(
+      controller: _controller,
       ui: ClassicDraggableMenu(
         color: context.theme.current.secondaryBg,
       ),
@@ -27,9 +35,12 @@ class OpinionPageDraggable extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-                  child: OpinionWidget(),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                  child: OpinionWidget(
+                    draggableMenuController: _controller,
+                  ),
                 ),
                 // Comments - START
                 Padding(
