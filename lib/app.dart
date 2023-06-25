@@ -1,4 +1,5 @@
 import 'package:chupp/utils/router/app_router.dart';
+import 'package:chupp/utils/router/guards/auth_state_notifier.dart';
 import 'package:chupp/utils/utils/scope.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,9 @@ class App extends StatelessWidget {
     return UtilsScope(
       child: MaterialApp.router(
         title: "chupp",
-        routerConfig: _appRouter.config(),
+        routerConfig: _appRouter.config(
+          reevaluateListenable: AuthStateNotifier.instance,
+        ),
       ),
     );
   }

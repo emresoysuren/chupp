@@ -9,7 +9,7 @@ environment:
 dependencies:
   another_flushbar: ^1.12.30
   auto_route: ^7.4.0
-  draggable_menu: ^4.0.1
+  draggable_menu: ^4.1.0
   firebase_core: ^2.14.0
   flutter:
     sdk: flutter
@@ -20,6 +20,7 @@ dependencies:
   font_awesome_flutter: ^10.4.0
   rive: ^0.7.16
   loading_animation_widget: ^1.2.0+4
+  firebase_auth: ^4.6.3
 
 dev_dependencies:
   flutter_test:

@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:chupp/config/color_palette.dart';
 import 'package:chupp/utils/router/app_router.gr.dart';
+import 'package:chupp/utils/router/guards/auth_state_notifier.dart';
 import 'package:chupp/utils/theme/repo/theme.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/firebase_options.dart';
@@ -83,6 +84,7 @@ class _SplashPageState extends State<SplashPage> {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
+    AuthStateNotifier.instance.init();
     await minWaittingDuration;
     // Direct to somewhere
     if (mounted) {
