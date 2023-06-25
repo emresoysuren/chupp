@@ -59,7 +59,7 @@ class ContentBar extends StatelessWidget implements PreferredSizeWidget {
               FontAwesomeIcons.ellipsis,
               color: context.theme.current.primaryItem,
             ),
-          )
+          ),
       ],
     );
   }

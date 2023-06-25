@@ -10,6 +10,7 @@ class ExpandableText extends StatefulWidget {
   final bool active;
   final Function()? onTap;
   final int? characterThresold;
+  final bool oneWay;
 
   const ExpandableText(
     this.text, {
@@ -19,6 +20,7 @@ class ExpandableText extends StatefulWidget {
     this.onTap,
     this.expanded = false,
     this.characterThresold,
+    this.oneWay = false,
   });
 
   @override
@@ -40,7 +42,8 @@ class _ExpandableTextState extends State<ExpandableText> {
         onTap: widget.onTap ??
             (!widget.active
                 ? null
-                : () => setState(() => expanded = !expanded)),
+                : () => setState(() =>
+                    expanded = widget.oneWay ? !widget.expanded : !expanded)),
         child: RichText(
           text: TextSpan(
             children: [

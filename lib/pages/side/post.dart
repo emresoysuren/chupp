@@ -56,12 +56,13 @@ class _PostPageState extends State<PostPage> {
       body: DisableScrollBehavior(
         child: SingleChildScrollView(
           controller: _controller,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Column(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                child: Column(
                   key: _contentKey,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -75,7 +76,7 @@ class _PostPageState extends State<PostPage> {
                           iconSize: 16,
                           label: "1.2k",
                           onPressed: () {},
-                        )
+                        ),
                       ],
                     ),
                     // Header - END
@@ -100,7 +101,9 @@ class _PostPageState extends State<PostPage> {
                       "Cupidatat deserunt nisi nulla Lorem Lorem Lorem pariatur irure cupidatat elit est exercitation sint. Cupidatat deserunt nisi nulla Lorem Lorem Lorem pariatur irure cupidatat elit est exercitation sint.",
                       style: context.styles.text,
                       expanded: widget.openDescription,
+                      active: !widget.openDescription,
                       characterThresold: 140,
+                      oneWay: true,
                     ),
                     const SizedBox(height: 8),
                     const Padding(
@@ -109,28 +112,27 @@ class _PostPageState extends State<PostPage> {
                     ),
                   ],
                 ),
-                // Opinions - START
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 32),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
+              ),
+              // Opinions - START
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 32),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 16),
+                      child: Text(
                         Texts.postOpinionsTitle,
                         style: context.styles.title3,
                       ),
-                      const SizedBox(height: 8),
-                      for (int i = 0; i < 6; i++)
-                        const Padding(
-                          padding: EdgeInsets.all(8),
-                          child: UserOpinion(),
-                        ),
-                    ],
-                  ),
+                    ),
+                    const SizedBox(height: 8),
+                    for (int i = 0; i < 6; i++) const UserOpinion(),
+                  ],
                 ),
-                // Opinions - END
-              ],
-            ),
+              ),
+              // Opinions - END
+            ],
           ),
         ),
       ),

@@ -1,38 +1,45 @@
 import 'package:chupp/utils/utils/context_extension.dart';
+import 'package:chupp/widgets/buttons/single_button.dart';
 import 'package:chupp/widgets/buttons/single_plain_text_button.dart';
-import 'package:chupp/widgets/draggable_menu/opinion.dart';
-import 'package:chupp/widgets/expandable_text.dart';
 import 'package:chupp/widgets/posts/content_header.dart';
 import 'package:draggable_menu/draggable_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class UserOpinion extends StatelessWidget {
-  const UserOpinion({super.key});
+class OpinionDraggable extends StatelessWidget {
+  const OpinionDraggable({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Colors.transparent,
-      child: InkWell(
-        enableFeedback: false,
-        highlightColor: Colors.transparent,
-        onTap: () => DraggableMenu.open(context, const OpinionDraggable()),
+    return DraggableMenu(
+      levels: [
+        DraggableMenuLevel.ratio(ratio: 0.4),
+        DraggableMenuLevel.ratio(ratio: 1),
+      ],
+      child: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const ContentHeader(
+              ContentHeader(
                 username: "username",
                 time: "5/30/14 19:26",
                 option: "#option",
+                children: [
+                  SingleButton(
+                    onPressed: () {},
+                    child: FaIcon(
+                      FontAwesomeIcons.ellipsis,
+                      color: context.theme.current.primaryItem,
+                    ),
+                  ),
+                ],
               ),
               const SizedBox(height: 8),
-              ExpandableText(
+              Text(
                 "Cupidatat deserunt nisi nulla Lorem Lorem Lorem pariatur irure cupidatat elit est exercitation sint. Cupidatat deserunt nisi nulla Lorem Lorem Lorem pariatur irure cupidatat elit est exercitation sint.",
                 style: context.styles.text,
-                active: false,
               ),
               const SizedBox(height: 4),
               SinglePlainTextButton(
