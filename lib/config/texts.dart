@@ -10,6 +10,7 @@ class Texts {
 
   // Post Content
   static const String postOpinionsTitle = "Opinions:";
+  static const String opinionCommentsTitle = "Comments:";
   static const String postUserOpinionFor = "for";
   static const String postAddYourOpinion = "Add your opinion...";
 

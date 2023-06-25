@@ -3,7 +3,7 @@ import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/bars/bar.dart';
 import 'package:chupp/widgets/disable_scroll_behavior.dart';
 import 'package:chupp/widgets/navbar/app_navbar.dart';
-import 'package:chupp/widgets/posts/mini_post.dart';
+import 'package:chupp/widgets/posts/post/mini_post.dart';
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 

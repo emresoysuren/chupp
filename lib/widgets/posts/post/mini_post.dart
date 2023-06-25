@@ -3,6 +3,7 @@ import 'package:chupp/routes/basic.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/single_plain_text_button.dart';
 import 'package:chupp/widgets/expandable_text.dart';
+import 'package:chupp/widgets/posts/content_widgets/mini_content_header.dart';
 import 'package:chupp/widgets/posts/poll/poll.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -31,28 +32,8 @@ class MiniPost extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    children: [
-                      Container(
-                        height: 16,
-                        width: 16,
-                        decoration: const BoxDecoration(
-                          color: Colors.yellow,
-                          shape: BoxShape.circle,
-                        ),
-                      ),
-                      const SizedBox(width: 4),
-                      Text(
-                        "username",
-                        style: context.styles.text,
-                      ),
-                      const SizedBox(width: 8),
-                      Text(
-                        "5/30/14 19:26",
-                        style: context.styles.subText,
-                      )
-                    ],
-                  ),
+                  const MiniContentHeader(
+                      username: "username", time: "5/30/14 19:26"),
                   const SizedBox(height: 8),
                   Text(
                     "Which character is more likely to die next?",

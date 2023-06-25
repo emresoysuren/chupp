@@ -10,7 +10,7 @@ class ExpandableText extends StatefulWidget {
   final bool active;
   final Function()? onTap;
   final int? characterThresold;
-  final bool oneWay;
+  final bool reuseable;
 
   const ExpandableText(
     this.text, {
@@ -20,7 +20,7 @@ class ExpandableText extends StatefulWidget {
     this.onTap,
     this.expanded = false,
     this.characterThresold,
-    this.oneWay = false,
+    this.reuseable = false,
   });
 
   @override
@@ -40,10 +40,10 @@ class _ExpandableTextState extends State<ExpandableText> {
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: widget.onTap ??
-            (!widget.active
+            ((!widget.active ||
+                    (!widget.reuseable && expanded == !widget.expanded))
                 ? null
-                : () => setState(() =>
-                    expanded = widget.oneWay ? !widget.expanded : !expanded)),
+                : () => setState(() => expanded = !expanded)),
         child: RichText(
           text: TextSpan(
             children: [
