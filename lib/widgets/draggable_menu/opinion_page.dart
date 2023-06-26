@@ -1,4 +1,5 @@
 import 'package:chupp/config/texts.dart';
+import 'package:chupp/pages/side/post/post_inherited.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/disable_scroll_behavior.dart';
 import 'package:chupp/widgets/posts/comment/comment.dart';
@@ -21,6 +22,7 @@ class OpinionPageDraggable extends StatefulWidget {
 
 class _OpinionPageDraggableState extends State<OpinionPageDraggable> {
   final DraggableMenuController _controller = DraggableMenuController();
+  bool _closing = false;
 
   @override
   void dispose() {
@@ -42,6 +44,17 @@ class _OpinionPageDraggableState extends State<OpinionPageDraggable> {
           DraggableMenuLevel(height: c.maxHeight * 0.5),
           DraggableMenuLevel(height: c.maxHeight),
         ],
+        addValueListener: (menuValue, raw, levelValue) {
+          if (!_closing) {
+            PostInherited.of(context)?.changeOffset(menuValue);
+          }
+        },
+        addStatusListener: (status, level) {
+          if (status == DraggableMenuStatus.closing) {
+            _closing = true;
+            PostInherited.of(context)?.changeOffset(0);
+          }
+        },
         child: Padding(
           padding:
               EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),

@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/bars/bar.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,7 @@ class ScrollAnimatedBar extends StatefulWidget implements PreferredSizeWidget {
   final String? title;
   final List<Widget>? bottom;
   final List<Widget>? aside;
+  final double? offset;
 
   const ScrollAnimatedBar({
     super.key,
@@ -16,6 +18,7 @@ class ScrollAnimatedBar extends StatefulWidget implements PreferredSizeWidget {
     this.title,
     this.bottom,
     this.aside,
+    this.offset,
   });
 
   @override
@@ -40,7 +43,7 @@ class _ScrollAnimatedBarState extends State<ScrollAnimatedBar> {
     super.initState();
   }
 
-  double get offsetValue {
+  double get _controllerOffsetValue {
     if (widget.controller?.hasClients != true ||
         contentHeight == null ||
         barHeight == null) {
@@ -57,6 +60,10 @@ class _ScrollAnimatedBarState extends State<ScrollAnimatedBar> {
     }
   }
 
+  double get offset => widget.offset == null
+      ? _controllerOffsetValue
+      : max<double>(widget.offset!, _controllerOffsetValue);
+
   @override
   Widget build(BuildContext context) {
     return Bar(
@@ -66,7 +73,7 @@ class _ScrollAnimatedBarState extends State<ScrollAnimatedBar> {
         Expanded(
           child: ClipRect(
             child: AnimatedSlide(
-              offset: Offset(0, 1 - offsetValue),
+              offset: Offset(0, 1 - offset),
               duration: Duration.zero,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

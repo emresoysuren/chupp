@@ -1,4 +1,5 @@
 import 'package:chupp/pages/side/post/post_content.dart';
+import 'package:chupp/pages/side/post/post_inherited.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/bars/custom/content_bar.dart';
 import 'package:chupp/widgets/draggable_menu/post_menu.dart';
@@ -23,6 +24,10 @@ class _PostPageState extends State<PostPage> {
   final GlobalKey _contentKey = GlobalKey();
   final ScrollController _controller = ScrollController();
   final GlobalKey _navigatorKey = GlobalKey();
+  double _offset = 0;
+
+  void changeOffset(double value) =>
+      setState(() => _offset = value < 0 ? 0 : value);
 
   @override
   void dispose() {
@@ -32,41 +37,46 @@ class _PostPageState extends State<PostPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: context.theme.current.primaryBg,
-      resizeToAvoidBottomInset: false,
-      appBar: ContentBar(
-        title: "Which character is more likely to die next?",
-        controller: _controller,
-        contentKey: _contentKey,
-        ink: "4.6k",
-        time: "5/30/14 19:26",
-        onButtonTap: () => DraggableMenu.open(
-          context,
-          const PostMenu(),
+    return PostInherited(
+      offset: _offset,
+      changeOffset: changeOffset,
+      child: Scaffold(
+        backgroundColor: context.theme.current.primaryBg,
+        resizeToAvoidBottomInset: false,
+        appBar: ContentBar(
+          title: "Which character is more likely to die next?",
+          controller: _controller,
+          contentKey: _contentKey,
+          offset: _offset,
+          ink: "4.6k",
+          time: "5/30/14 19:26",
+          onButtonTap: () => DraggableMenu.open(
+            context,
+            const PostMenu(),
+          ),
         ),
-      ),
-      body: WillPopScope(
-        onWillPop: () async {
-          if (Navigator.of(_navigatorKey.currentContext!).canPop()) {
-            await Navigator.of(_navigatorKey.currentContext!).maybePop();
-            return false;
-          }
-          return true;
-        },
-        child: Navigator(
-          key: _navigatorKey,
-          pages: [
-            MaterialPage(
-              child: PostContent(
-                contentKey: _contentKey,
-                controller: _controller,
-                openDescription: widget.openDescription,
-                openOpinion: widget.openOpinion,
+        body: WillPopScope(
+          onWillPop: () async {
+            if (Navigator.of(_navigatorKey.currentContext!).canPop()) {
+              await Navigator.of(_navigatorKey.currentContext!).maybePop();
+              return false;
+            }
+            return true;
+          },
+          child: Navigator(
+            key: _navigatorKey,
+            pages: [
+              MaterialPage(
+                child: PostContent(
+                  contentKey: _contentKey,
+                  controller: _controller,
+                  openDescription: widget.openDescription,
+                  openOpinion: widget.openOpinion,
+                ),
               ),
-            ),
-          ],
-          onPopPage: (route, result) => route.didPop(result),
+            ],
+            onPopPage: (route, result) => route.didPop(result),
+          ),
         ),
       ),
     );

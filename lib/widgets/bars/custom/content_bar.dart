@@ -11,6 +11,7 @@ class ContentBar extends StatelessWidget implements PreferredSizeWidget {
   final String? time;
   final String? ink;
   final Function()? onButtonTap;
+  final double? offset;
 
   const ContentBar({
     super.key,
@@ -20,6 +21,7 @@ class ContentBar extends StatelessWidget implements PreferredSizeWidget {
     this.time,
     this.ink,
     this.onButtonTap,
+    this.offset,
   });
 
   @override
@@ -28,6 +30,7 @@ class ContentBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return ScrollAnimatedBar(
+      offset: offset,
       title: title,
       contentKey: contentKey,
       controller: controller,
