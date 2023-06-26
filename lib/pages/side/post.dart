@@ -22,6 +22,7 @@ class PostPage extends StatefulWidget {
 class _PostPageState extends State<PostPage> {
   final GlobalKey _contentKey = GlobalKey();
   final ScrollController _controller = ScrollController();
+  final GlobalKey _navigatorKey = GlobalKey();
 
   @override
   void dispose() {
@@ -45,17 +46,28 @@ class _PostPageState extends State<PostPage> {
           const PostMenu(),
         ),
       ),
-      body: Navigator(
-        pages: [
-          MaterialPage(
-            child: PostContent(
-              contentKey: _contentKey,
-              controller: _controller,
-              openDescription: widget.openDescription,
-              openOpinion: widget.openOpinion,
+      body: WillPopScope(
+        onWillPop: () async {
+          if (Navigator.of(_navigatorKey.currentContext!).canPop()) {
+            await Navigator.of(_navigatorKey.currentContext!).maybePop();
+            return false;
+          }
+          return true;
+        },
+        child: Navigator(
+          key: _navigatorKey,
+          pages: [
+            MaterialPage(
+              child: PostContent(
+                contentKey: _contentKey,
+                controller: _controller,
+                openDescription: widget.openDescription,
+                openOpinion: widget.openOpinion,
+              ),
             ),
-          ),
-        ],
+          ],
+          onPopPage: (route, result) => route.didPop(result),
+        ),
       ),
     );
   }
