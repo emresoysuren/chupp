@@ -33,6 +33,7 @@ class _PostPageState extends State<PostPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: context.theme.current.primaryBg,
+      resizeToAvoidBottomInset: false,
       appBar: ContentBar(
         title: "Which character is more likely to die next?",
         controller: _controller,

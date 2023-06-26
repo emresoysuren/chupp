@@ -8,9 +8,7 @@ import 'package:draggable_menu/draggable_menu.dart';
 import 'package:flutter/material.dart';
 
 class MiniOpinion extends StatelessWidget {
-  final double? layoutMaxHeight;
-
-  const MiniOpinion({super.key, this.layoutMaxHeight});
+  const MiniOpinion({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +17,7 @@ class MiniOpinion extends StatelessWidget {
       child: InkWell(
         enableFeedback: false,
         highlightColor: Colors.transparent,
-        onTap: () => DraggableMenu.open(
-          context,
-          OpinionPageDraggable(maxHeight: layoutMaxHeight),
-        ),
+        onTap: () => DraggableMenu.open(context, const OpinionPageDraggable()),
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
@@ -47,10 +42,7 @@ class MiniOpinion extends StatelessWidget {
                     amount: 24,
                     onPressed: () => DraggableMenu.open(
                       context,
-                      OpinionPageDraggable(
-                        maxHeight: layoutMaxHeight,
-                        openComment: true,
-                      ),
+                      const OpinionPageDraggable(openComment: true),
                     ),
                   ),
                 ],

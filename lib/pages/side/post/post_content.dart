@@ -22,8 +22,10 @@ class PostContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, c) {
-      return Column(
+    return Padding(
+      padding:
+          EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+      child: Column(
         children: [
           Expanded(
             child: DisableScrollBehavior(
@@ -54,8 +56,7 @@ class PostContent extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(height: 8),
-                          for (int i = 0; i < 6; i++)
-                            MiniOpinion(layoutMaxHeight: c.maxHeight),
+                          for (int i = 0; i < 6; i++) const MiniOpinion(),
                         ],
                       ),
                     ),
@@ -67,7 +68,7 @@ class PostContent extends StatelessWidget {
           ),
           AddComment(autofocus: openOpinion),
         ],
-      );
-    });
+      ),
+    );
   }
 }

@@ -7,11 +7,13 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class AddComment extends StatefulWidget implements PreferredSizeWidget {
   final bool autofocus;
   final Color? backgroundColor;
+  final FocusNode? focusNode;
 
   const AddComment({
     super.key,
     this.autofocus = false,
     this.backgroundColor,
+    this.focusNode,
   });
 
   @override
@@ -22,8 +24,8 @@ class AddComment extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _AddCommentState extends State<AddComment> with WidgetsBindingObserver {
+  late final FocusNode focusNode = widget.focusNode ?? FocusNode();
   String text = "";
-  final FocusNode focusNode = FocusNode();
   bool showing = false;
 
   @override
@@ -58,12 +60,7 @@ class _AddCommentState extends State<AddComment> with WidgetsBindingObserver {
       color: widget.backgroundColor ?? context.theme.current.primaryBg,
       child: SafeArea(
         child: Padding(
-          padding: EdgeInsets.fromLTRB(
-            16,
-            4,
-            16,
-            MediaQuery.of(context).viewInsets.bottom + 4,
-          ),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
           child: Row(
             children: [
               Expanded(

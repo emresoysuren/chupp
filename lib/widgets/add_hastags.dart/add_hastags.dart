@@ -36,6 +36,7 @@ class _AddHastagsState extends State<AddHastags> with WidgetsBindingObserver {
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
     focusNode.dispose();
+    _controller.dispose();
     super.dispose();
   }
 

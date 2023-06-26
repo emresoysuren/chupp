@@ -8,12 +8,10 @@ import 'package:draggable_menu/draggable_menu.dart';
 import 'package:flutter/material.dart';
 
 class OpinionPageDraggable extends StatefulWidget {
-  final double? maxHeight;
   final bool openComment;
 
   const OpinionPageDraggable({
     super.key,
-    this.maxHeight,
     this.openComment = false,
   });
 
@@ -25,71 +23,90 @@ class _OpinionPageDraggableState extends State<OpinionPageDraggable> {
   final DraggableMenuController _controller = DraggableMenuController();
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return DraggableMenu(
-      controller: _controller,
-      ui: ClassicDraggableMenu(
-        color: context.theme.current.secondaryBg,
-      ),
-      levels: [
-        if (widget.maxHeight != null)
-          DraggableMenuLevel(height: widget.maxHeight! * 0.5)
-        else
-          DraggableMenuLevel.ratio(ratio: 0.4),
-        if (widget.maxHeight != null)
-          DraggableMenuLevel(height: widget.maxHeight! * 1)
-        else
-          DraggableMenuLevel.ratio(ratio: 1),
-      ],
-      child: Column(
-        children: [
-          Expanded(
-            child: ScrollableManager(
-              enableExpandedScroll: true,
-              child: DisableScrollBehavior(
-                child: SingleChildScrollView(
-                  physics: const NeverScrollableScrollPhysics(),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 16, vertical: 4),
-                        child: OpinionWidget(
-                          draggableMenuController: _controller,
-                        ),
-                      ),
-                      // Comments - START
-                      Padding(
-                        padding: const EdgeInsets.only(top: 32),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 16),
-                              child: Text(
-                                Texts.opinionCommentsTitle,
-                                style: context.styles.title3,
-                              ),
+    return LayoutBuilder(builder: (context, c) {
+      return DraggableMenu(
+        controller: _controller,
+        ui: ClassicDraggableMenu(
+          color: context.theme.current.secondaryBg,
+        ),
+        levels: [
+          // DO NOT DELETE ANY LEVEL
+          // IT WILL THROW AN EXCEPTION IF IT CAN'T ANIMATE TO LEVEL 1
+          DraggableMenuLevel(height: c.maxHeight * 0.5),
+          DraggableMenuLevel(height: c.maxHeight),
+        ],
+        child: Padding(
+          padding:
+              EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          child: Column(
+            children: [
+              Expanded(
+                child: ScrollableManager(
+                  enableExpandedScroll: true,
+                  child: DisableScrollBehavior(
+                    child: SingleChildScrollView(
+                      physics: const NeverScrollableScrollPhysics(),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 16,
+                              vertical: 4,
                             ),
-                            const SizedBox(height: 8),
-                            for (int i = 0; i < 6; i++) const CommentWidget(),
-                          ],
-                        ),
+                            child: OpinionWidget(
+                              draggableMenuController: _controller,
+                            ),
+                          ),
+                          // Comments - START
+                          Padding(
+                            padding: const EdgeInsets.only(top: 32),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16),
+                                  child: Text(
+                                    Texts.opinionCommentsTitle,
+                                    style: context.styles.title3,
+                                  ),
+                                ),
+                                const SizedBox(height: 8),
+                                for (int i = 0; i < 6; i++)
+                                  const CommentWidget(),
+                              ],
+                            ),
+                          ),
+                          // Comments - END
+                        ],
                       ),
-                      // Comments - END
-                    ],
+                    ),
                   ),
                 ),
               ),
-            ),
+              Container(
+                decoration: BoxDecoration(
+                  border: Border(
+                    top: BorderSide(
+                      color: context.theme.current.secondaryItem,
+                    ),
+                  ),
+                ),
+                child: AddComment(
+                  backgroundColor: context.theme.current.secondaryBg,
+                ),
+              ),
+            ],
           ),
-          AddComment(
-            backgroundColor: context.theme.current.secondaryBg,
-            autofocus: widget.openComment,
-          ),
-        ],
-      ),
-    );
+        ),
+      );
+    });
   }
 }
