@@ -40,10 +40,7 @@ class _PostPageState extends State<PostPage> with TickerProviderStateMixin {
         final double offset = value < 0 ? 0 : value;
 
         final animation = Tween<double>(begin: _offset, end: offset)
-            .animate(_animationController)
-            .drive(
-              CurveTween(curve: Curves.ease),
-            );
+            .animate(_animationController);
 
         void callback() => setState(() => _offset = animation.value);
         _removeLastAnimation = () => animation.removeListener(callback);

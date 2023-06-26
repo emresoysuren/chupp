@@ -22,7 +22,9 @@ class OpinionPageDraggable extends StatefulWidget {
 
 class _OpinionPageDraggableState extends State<OpinionPageDraggable> {
   final DraggableMenuController _controller = DraggableMenuController();
+  final FocusNode _fieldFocus = FocusNode();
   bool _closing = false;
+  DraggableMenuStatus? _status;
 
   @override
   void dispose() {
@@ -50,6 +52,12 @@ class _OpinionPageDraggableState extends State<OpinionPageDraggable> {
           }
         },
         addStatusListener: (status, level) {
+          setState(() => _status = status);
+          if (_fieldFocus.hasPrimaryFocus &&
+              _status != DraggableMenuStatus.expanding &&
+              _status != DraggableMenuStatus.expanded) {
+            _fieldFocus.unfocus();
+          }
           if (status == DraggableMenuStatus.closing) {
             _closing = true;
             PostInherited.of(context)?.animateOffset(0);
@@ -112,8 +120,16 @@ class _OpinionPageDraggableState extends State<OpinionPageDraggable> {
                     ),
                   ),
                 ),
-                child: AddComment(
-                  backgroundColor: context.theme.current.secondaryBg,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTap: _focusToField,
+                  child: AbsorbPointer(
+                    absorbing: !_fieldFocus.hasPrimaryFocus,
+                    child: AddComment(
+                      backgroundColor: context.theme.current.secondaryBg,
+                      focusNode: _fieldFocus,
+                    ),
+                  ),
                 ),
               ),
             ],
@@ -121,5 +137,15 @@ class _OpinionPageDraggableState extends State<OpinionPageDraggable> {
         ),
       );
     });
+  }
+
+  void _focusToField() {
+    if (_status != DraggableMenuStatus.expanded) {
+      _controller.animateTo(1);
+    }
+    if (_status == DraggableMenuStatus.expanding ||
+        _status == DraggableMenuStatus.expanded) {
+      _fieldFocus.requestFocus();
+    }
   }
 }
