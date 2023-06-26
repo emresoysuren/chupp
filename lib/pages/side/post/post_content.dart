@@ -1,7 +1,7 @@
 import 'package:chupp/config/texts.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/disable_scroll_behavior.dart';
-import 'package:chupp/widgets/posts/functional/add_opinion.dart';
+import 'package:chupp/widgets/posts/functional/add_comment.dart';
 import 'package:chupp/widgets/posts/opinion/mini_opinion.dart';
 import 'package:chupp/widgets/posts/post/post_widget.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +65,7 @@ class PostContent extends StatelessWidget {
               ),
             ),
           ),
-          AddOpinion(autofocus: openOpinion),
+          AddComment(autofocus: openOpinion),
         ],
       );
     });

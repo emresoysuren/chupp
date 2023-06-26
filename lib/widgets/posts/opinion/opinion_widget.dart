@@ -8,9 +8,13 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class OpinionWidget extends StatelessWidget {
+  /// Needs this parameter to expand the draggable menu automaticly
   final DraggableMenuController? draggableMenuController;
 
-  const OpinionWidget({super.key, this.draggableMenuController});
+  const OpinionWidget({
+    super.key,
+    this.draggableMenuController,
+  });
 
   @override
   Widget build(BuildContext context) {

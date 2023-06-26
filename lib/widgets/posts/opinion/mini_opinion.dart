@@ -39,11 +39,20 @@ class MiniOpinion extends StatelessWidget {
                 style: context.styles.text,
               ),
               const SizedBox(height: 4),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  InkButton(amount: 460),
-                  CommentButton(amount: 24),
+                  const InkButton(amount: 460),
+                  CommentButton(
+                    amount: 24,
+                    onPressed: () => DraggableMenu.open(
+                      context,
+                      OpinionPageDraggable(
+                        maxHeight: layoutMaxHeight,
+                        openComment: true,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ],

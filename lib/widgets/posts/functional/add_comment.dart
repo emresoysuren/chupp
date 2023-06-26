@@ -4,19 +4,24 @@ import 'package:chupp/widgets/buttons/single_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class AddOpinion extends StatefulWidget implements PreferredSizeWidget {
+class AddComment extends StatefulWidget implements PreferredSizeWidget {
   final bool autofocus;
+  final Color? backgroundColor;
 
-  const AddOpinion({super.key, this.autofocus = false});
+  const AddComment({
+    super.key,
+    this.autofocus = false,
+    this.backgroundColor,
+  });
 
   @override
   Size get preferredSize => const Size.fromHeight(64);
 
   @override
-  State<AddOpinion> createState() => _AddOpinionState();
+  State<AddComment> createState() => _AddCommentState();
 }
 
-class _AddOpinionState extends State<AddOpinion> with WidgetsBindingObserver {
+class _AddCommentState extends State<AddComment> with WidgetsBindingObserver {
   String text = "";
   final FocusNode focusNode = FocusNode();
   bool showing = false;
@@ -50,7 +55,7 @@ class _AddOpinionState extends State<AddOpinion> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: context.theme.current.primaryBg,
+      color: widget.backgroundColor ?? context.theme.current.primaryBg,
       child: SafeArea(
         child: Padding(
           padding: EdgeInsets.fromLTRB(
