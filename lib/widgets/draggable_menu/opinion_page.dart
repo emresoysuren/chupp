@@ -52,7 +52,7 @@ class _OpinionPageDraggableState extends State<OpinionPageDraggable> {
         addStatusListener: (status, level) {
           if (status == DraggableMenuStatus.closing) {
             _closing = true;
-            PostInherited.of(context)?.changeOffset(0);
+            PostInherited.of(context)?.animateOffset(0);
           }
         },
         child: Padding(

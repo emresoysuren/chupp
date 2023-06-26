@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 
 class PostInherited extends InheritedWidget {
   final double offset;
-  final Function(double value) changeOffset;
+  final void Function(double value) changeOffset;
+  final void Function(double value) animateOffset;
 
   const PostInherited({
     super.key,
     required this.offset,
     required this.changeOffset,
+    required this.animateOffset,
     required Widget child,
   }) : super(child: child);
 

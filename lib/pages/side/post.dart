@@ -20,18 +20,42 @@ class PostPage extends StatefulWidget {
   State<PostPage> createState() => _PostPageState();
 }
 
-class _PostPageState extends State<PostPage> {
+class _PostPageState extends State<PostPage> with TickerProviderStateMixin {
   final GlobalKey _contentKey = GlobalKey();
-  final ScrollController _controller = ScrollController();
   final GlobalKey _navigatorKey = GlobalKey();
+  final ScrollController _controller = ScrollController();
   double _offset = 0;
+  late final AnimationController _animationController = AnimationController(
+    duration: const Duration(milliseconds: 320),
+    vsync: this,
+  );
+  void Function()? _removeLastAnimation;
 
-  void changeOffset(double value) =>
+  void _changeOffset(double value) =>
       setState(() => _offset = value < 0 ? 0 : value);
+
+  void _animateOffset(double value) => setState(() {
+        _removeLastAnimation?.call();
+
+        final double offset = value < 0 ? 0 : value;
+
+        final animation = Tween<double>(begin: _offset, end: offset)
+            .animate(_animationController)
+            .drive(
+              CurveTween(curve: Curves.ease),
+            );
+
+        void callback() => setState(() => _offset = animation.value);
+        _removeLastAnimation = () => animation.removeListener(callback);
+        animation.addListener(callback);
+        _animationController.reset();
+        _animationController.forward();
+      });
 
   @override
   void dispose() {
     _controller.dispose();
+    _animationController.dispose();
     super.dispose();
   }
 
@@ -39,7 +63,8 @@ class _PostPageState extends State<PostPage> {
   Widget build(BuildContext context) {
     return PostInherited(
       offset: _offset,
-      changeOffset: changeOffset,
+      changeOffset: _changeOffset,
+      animateOffset: _animateOffset,
       child: Scaffold(
         backgroundColor: context.theme.current.primaryBg,
         resizeToAvoidBottomInset: false,
