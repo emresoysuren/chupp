@@ -86,7 +86,7 @@ class _OpinionPageDraggableState extends State<OpinionPageDraggable> {
                               draggableMenuController: _controller,
                             ),
                           ),
-                          // Comments - START
+                          // Comments | START
                           Padding(
                             padding: const EdgeInsets.only(top: 32),
                             child: Column(
@@ -105,13 +105,14 @@ class _OpinionPageDraggableState extends State<OpinionPageDraggable> {
                               ],
                             ),
                           ),
-                          // Comments - END
+                          // Comments | END
                         ],
                       ),
                     ),
                   ),
                 ),
               ),
+              // Add Comment | Start
               Container(
                 decoration: BoxDecoration(
                   border: Border(
@@ -132,6 +133,7 @@ class _OpinionPageDraggableState extends State<OpinionPageDraggable> {
                   ),
                 ),
               ),
+              // Add Comment | End
             ],
           ),
         ),

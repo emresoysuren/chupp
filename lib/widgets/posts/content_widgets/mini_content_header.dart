@@ -16,14 +16,14 @@ class MiniContentHeader extends StatelessWidget {
     return Row(
       children: [
         Container(
-          height: 16,
-          width: 16,
+          height: 24,
+          width: 24,
           decoration: const BoxDecoration(
             color: Colors.yellow,
             shape: BoxShape.circle,
           ),
         ),
-        const SizedBox(width: 4),
+        const SizedBox(width: 8),
         Text(
           username,
           style: context.styles.text,

@@ -55,6 +55,7 @@ class _SplashPageState extends State<SplashPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: theme.current.splashBg,
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           Center(

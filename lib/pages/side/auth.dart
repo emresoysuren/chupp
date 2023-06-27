@@ -15,6 +15,7 @@ class AuthPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: context.theme.current.primaryBg,
+      resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
