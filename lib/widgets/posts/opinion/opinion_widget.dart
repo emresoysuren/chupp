@@ -1,7 +1,7 @@
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/custom/ink.dart';
 import 'package:chupp/widgets/buttons/single_button.dart';
-import 'package:chupp/widgets/draggable_menu/opinion_menu.dart';
+import 'package:chupp/pages/draggable_menus/opinion_menu.dart';
 import 'package:chupp/widgets/posts/content_widgets/content_header.dart';
 import 'package:draggable_menu/draggable_menu.dart';
 import 'package:flutter/material.dart';

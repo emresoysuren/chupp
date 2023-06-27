@@ -17,9 +17,10 @@ class Texts {
   static const String postAddYourOpinion = "Add your opinion...";
 
   // Post Content | Menu
-  static const String postMenuViewProfile = "View Creator Profile";
+  static const String postMenuViewProfile = "View Profile";
   static const String postMenuShare = "Share";
-  static const String postMenuReport = "Report";
+  static const String menuReport = "Report";
+  static const String opinionMenuViewProfile = "View Profile";
 
   // Create Post
   static const String createPostTitle = "Create";

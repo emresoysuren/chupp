@@ -2,7 +2,7 @@ import 'package:chupp/pages/side/post/post_content.dart';
 import 'package:chupp/pages/side/post/post_inherited.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/bars/custom/content_bar.dart';
-import 'package:chupp/widgets/draggable_menu/post_menu.dart';
+import 'package:chupp/pages/draggable_menus/post_menu.dart';
 import 'package:draggable_menu/draggable_menu.dart';
 import 'package:flutter/material.dart';
 

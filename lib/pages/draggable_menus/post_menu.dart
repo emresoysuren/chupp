@@ -32,7 +32,7 @@ class PostMenu extends StatelessWidget {
             onTap: () {},
           ),
           ListButton(
-            title: Texts.postMenuReport,
+            title: Texts.menuReport,
             icon: const FaIcon(FontAwesomeIcons.solidFlag).icon,
             iconSize: 20,
             color: context.theme.current.important,

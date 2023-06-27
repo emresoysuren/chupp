@@ -18,14 +18,14 @@ class OpinionMenu extends StatelessWidget {
       child: Column(
         children: [
           ListButton(
-            title: Texts.postMenuViewProfile,
+            title: Texts.opinionMenuViewProfile,
             icon: const FaIcon(FontAwesomeIcons.solidUser).icon,
             iconSize: 20,
             color: context.theme.current.text,
             onTap: () {},
           ),
           ListButton(
-            title: Texts.postMenuReport,
+            title: Texts.menuReport,
             icon: const FaIcon(FontAwesomeIcons.solidFlag).icon,
             iconSize: 20,
             color: context.theme.current.important,

@@ -1,7 +1,7 @@
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/custom/comment.dart';
 import 'package:chupp/widgets/buttons/custom/ink.dart';
-import 'package:chupp/widgets/draggable_menu/opinion_page.dart';
+import 'package:chupp/pages/side/post/opinion_page.dart';
 import 'package:chupp/widgets/expandable_text.dart';
 import 'package:chupp/widgets/posts/content_widgets/content_header.dart';
 import 'package:draggable_menu/draggable_menu.dart';
