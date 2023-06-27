@@ -13,7 +13,14 @@ class SearchQueryPage extends StatefulWidget {
 }
 
 class _SearchQueryPageState extends State<SearchQueryPage> {
-  String _searchText = "";
+  final TextEditingController _controller = TextEditingController();
+  final FocusNode _focusNode = FocusNode();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,17 +32,27 @@ class _SearchQueryPageState extends State<SearchQueryPage> {
           Expanded(
             child: SearchWidget(
               autoFocus: true,
-              onChanged: (value) => setState(() => _searchText = value),
+              controller: _controller,
+              focusNode: _focusNode,
             ),
           ),
         ],
       ),
       body: Builder(builder: (context) {
-        if (_searchText.isNotEmpty) {
+        if (_controller.text.isNotEmpty) {
           return const SearchResultContent();
         }
-        return const SearchHistoryContent();
+        return SearchHistoryContent(
+          search: historySearch,
+        );
       }),
     );
+  }
+
+  void historySearch(String value) {
+    setState(() {
+      _controller.text = value;
+      _focusNode.unfocus();
+    });
   }
 }

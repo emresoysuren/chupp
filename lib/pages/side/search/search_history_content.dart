@@ -7,7 +7,12 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SearchHistoryContent extends StatelessWidget {
-  const SearchHistoryContent({super.key});
+  final void Function(String value)? search;
+
+  const SearchHistoryContent({
+    super.key,
+    this.search,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -47,8 +52,8 @@ class SearchHistoryContent extends StatelessWidget {
               for (int i = 0; i < 7; i++)
                 ListButton(
                   icon: const FaIcon(FontAwesomeIcons.clockRotateLeft).icon,
-                  title: "title",
-                  onTap: () {},
+                  title: "title $i",
+                  onTap: () => search?.call("title $i"),
                 ),
             ],
           ),
