@@ -6,7 +6,7 @@
         <img src="https://img.shields.io/badge/App Trailer Video-%23ff0000?style=flat&logo=youtube">
     </a>
     <a href="">
-        <img src="https://img.shields.io/badge/Download App (.apk)-%23574AE2?style=flat&logo=android">
+        <img src="https://img.shields.io/badge/Download the App (.apk)-%23574AE2?style=flat&logo=android">
     </a>
     <a href="">
         <img src="https://img.shields.io/badge/Miro Backlog Board-%23050038?style=flat&logo=miro">
