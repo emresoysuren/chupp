@@ -27,6 +27,14 @@ class _OpinionPageDraggableState extends State<OpinionPageDraggable> {
   DraggableMenuStatus? _status;
 
   @override
+  void initState() {
+    if (widget.openComment) {
+      Future.delayed(Duration.zero).then((value) => _focusToField());
+    }
+    super.initState();
+  }
+
+  @override
   void dispose() {
     _controller.dispose();
     super.dispose();
