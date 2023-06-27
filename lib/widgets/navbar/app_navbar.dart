@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:chupp/pages/side/create_post.dart';
+import 'package:chupp/pages/main/create_post.dart';
 import 'package:chupp/routes/basic.dart';
 import 'package:chupp/utils/router/app_router.gr.dart';
 import 'package:chupp/utils/router/extensions.dart';

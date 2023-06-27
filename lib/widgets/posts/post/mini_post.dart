@@ -1,4 +1,4 @@
-import 'package:chupp/pages/side/post.dart';
+import 'package:chupp/pages/side/post/post.dart';
 import 'package:chupp/routes/basic.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/custom/comment.dart';

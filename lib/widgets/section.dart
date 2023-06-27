@@ -1,5 +1,5 @@
 import 'package:chupp/config/texts.dart';
-import 'package:chupp/pages/side/see_more.dart';
+import 'package:chupp/pages/func/see_more.dart';
 import 'package:chupp/routes/basic.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/list_button.dart';

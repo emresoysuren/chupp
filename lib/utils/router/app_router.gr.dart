@@ -14,7 +14,7 @@ import 'package:chupp/pages/main/home.dart' as _i2;
 import 'package:chupp/pages/main/inbox.dart' as _i3;
 import 'package:chupp/pages/main/profile.dart' as _i4;
 import 'package:chupp/pages/main/search.dart' as _i5;
-import 'package:chupp/pages/side/auth.dart' as _i6;
+import 'package:chupp/pages/side/auth/auth.dart' as _i6;
 import 'package:flutter/material.dart' as _i8;
 
 abstract class $AppRouter extends _i7.RootStackRouter {
