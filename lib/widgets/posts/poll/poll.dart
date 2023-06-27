@@ -6,54 +6,22 @@ class Poll extends StatelessWidget {
   final String tag2 = "character-2";
   final int vote1 = 352;
   final int vote2 = 192;
+  final double gap;
 
-  const Poll({super.key});
-
-  double get gap => 16;
+  const Poll({
+    super.key,
+    this.gap = 16,
+  });
 
   @override
   Widget build(BuildContext context) {
-    if (tag1.length > 10 || tag2.length > 10) {
-      return Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          PollItem(tag: tag1, vote: vote1),
-          SizedBox(height: gap),
-          PollItem(tag: tag2, vote: vote2, second: true),
-        ],
-      );
-    } else {
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Flexible(
-            child: Padding(
-              padding: EdgeInsets.only(right: gap / 2),
-              child: IntrinsicWidth(
-                child: PollItem(
-                  tag: tag1,
-                  vote: vote1,
-                  minimize: true,
-                ),
-              ),
-            ),
-          ),
-          Flexible(
-            child: Padding(
-              padding: EdgeInsets.only(left: gap / 2),
-              child: IntrinsicWidth(
-                child: PollItem(
-                  tag: tag2,
-                  vote: vote2,
-                  reversed: true,
-                  second: true,
-                  minimize: true,
-                ),
-              ),
-            ),
-          ),
-        ],
-      );
-    }
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        PollItem(tag: tag1, vote: vote1),
+        SizedBox(height: gap),
+        PollItem(tag: tag2, vote: vote2, second: true),
+      ],
+    );
   }
 }
