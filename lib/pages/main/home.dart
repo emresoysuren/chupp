@@ -29,7 +29,6 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: context.theme.current.primaryBg,
       appBar: const Bar(
-        center: true,
         child: SizedBox(
           height: 48,
           width: 120,

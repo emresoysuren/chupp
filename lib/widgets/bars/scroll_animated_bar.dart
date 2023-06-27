@@ -69,7 +69,7 @@ class _ScrollAnimatedBarState extends State<ScrollAnimatedBar> {
     return Bar(
         // key: _barKey,
         pop: true,
-        child: Column(
+        child: Row(
           children: [
             Expanded(
               child: ClipRect(

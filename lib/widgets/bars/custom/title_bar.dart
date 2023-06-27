@@ -15,9 +15,6 @@ class TitleBar extends Bar {
   });
 
   @override
-  bool get center => false;
-
-  @override
   Widget get child => Builder(
         builder: (context) {
           return Row(
