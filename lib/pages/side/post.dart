@@ -25,11 +25,17 @@ class _PostPageState extends State<PostPage> with TickerProviderStateMixin {
   final GlobalKey _navigatorKey = GlobalKey();
   final ScrollController _controller = ScrollController();
   double _offset = 0;
-  late final AnimationController _animationController = AnimationController(
-    duration: const Duration(milliseconds: 320),
-    vsync: this,
-  );
+  late final AnimationController _animationController;
   void Function()? _removeLastAnimation;
+
+  @override
+  void initState() {
+    _animationController = AnimationController(
+      duration: const Duration(milliseconds: 320),
+      vsync: this,
+    );
+    super.initState();
+  }
 
   void _changeOffset(double value) =>
       setState(() => _offset = value < 0 ? 0 : value);
