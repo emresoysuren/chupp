@@ -1,24 +1,34 @@
 import 'package:chupp/config/texts.dart';
+import 'package:chupp/pages/side/see_more.dart';
+import 'package:chupp/routes/basic.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/list_button.dart';
 import 'package:flutter/material.dart';
 
 class Section extends StatelessWidget {
   final String title;
-  final int? itemCount;
-  final Widget Function(BuildContext context, int index)? builder;
+  final int itemCount;
+  final Widget Function(BuildContext context, int index) itemBuilder;
   final double gap;
   final EdgeInsets? padding;
   final bool bottomLine;
 
+  /// You can use this parameter to override the `itemCount` parameter but only for the see more page.
+  final int? seeMoreItemCount;
+
+  /// You can use this parameter to override the `itemBuilder` parameter but only for the see more page.
+  final Widget Function(BuildContext context, int index)? seeMoreItemBuilder;
+
   const Section({
     super.key,
     required this.title,
-    this.itemCount,
-    this.builder,
+    required this.itemCount,
+    required this.itemBuilder,
     this.gap = 16,
     this.padding,
     this.bottomLine = true,
+    this.seeMoreItemCount,
+    this.seeMoreItemBuilder,
   });
 
   @override
@@ -47,12 +57,21 @@ class Section extends StatelessWidget {
               ),
             ),
             SizedBox(height: gap),
-            if (itemCount != null && builder != null)
-              for (int i = 0; i < itemCount!; i++) builder!.call(context, i),
+            for (int i = 0; i < itemCount; i++) itemBuilder.call(context, i),
             ListButton(
               title: Texts.sectionSeeMore,
               color: context.theme.current.notice,
-              onTap: () {},
+              onTap: () => Navigator.push(
+                context,
+                BasicPageRoute(
+                  start: Start.right,
+                  child: SeeMorePage(
+                    title: title,
+                    itemCount: seeMoreItemCount ?? itemCount,
+                    itemBuilder: seeMoreItemBuilder ?? itemBuilder,
+                  ),
+                ),
+              ),
             )
           ],
         ),
