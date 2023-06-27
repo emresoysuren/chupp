@@ -27,7 +27,7 @@ class Section extends StatelessWidget {
     required this.itemCount,
     required this.itemBuilder,
     this.titleGap = 16,
-    this.topGap = 16,
+    this.topGap = 8,
     this.bottomGap = 16,
     this.padding,
     this.bottomLine = true,

@@ -45,6 +45,7 @@ class Texts {
   static const String searchResultPosts = "Posts";
   static const String searchResultPeople = "People";
   static const String searchResultHashtags = "Hashtags";
+  static const String searchContentHistory = "History";
 
   // Hashtags
   static const String hashtagHeaderPrefix = "Mentioned";

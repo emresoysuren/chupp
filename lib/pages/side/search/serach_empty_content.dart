@@ -6,11 +6,14 @@ class SearchEmptyContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.center,
-      child: Text(
-        "There is nothing yet.",
-        style: context.styles.mutted,
+    return Padding(
+      padding: const EdgeInsets.only(top: 24),
+      child: Align(
+        alignment: Alignment.topCenter,
+        child: Text(
+          "There is nothing yet.",
+          style: context.styles.mutted,
+        ),
       ),
     );
   }
