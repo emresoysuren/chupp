@@ -25,6 +25,13 @@ class SearchWidget extends StatefulWidget {
 class _SearchWidgetState extends State<SearchWidget> {
   late final TextEditingController _controller =
       widget.controller ?? TextEditingController();
+  late final FocusNode _focusNode = widget.focusNode ?? FocusNode();
+
+  @override
+  void initState() {
+    _focusNode.addListener(() => setState(() {}));
+    super.initState();
+  }
 
   @override
   void dispose() {
@@ -38,32 +45,28 @@ class _SearchWidgetState extends State<SearchWidget> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: widget.overRide,
-      child: Container(
-        decoration: ShapeDecoration(
-          shape: const StadiumBorder(),
-          color: context.theme.current.secondaryBg,
-        ),
+      child: Material(
+        shape: const StadiumBorder(),
+        color: context.theme.current.secondaryBg,
         child: Stack(
           children: [
-            Expanded(
-              child: TextField(
-                controller: _controller,
-                enabled: widget.overRide == null,
-                focusNode: widget.focusNode,
-                textInputAction: TextInputAction.search,
-                autofocus: widget.autoFocus,
-                style: context.styles.text,
-                decoration: InputDecoration(
-                  contentPadding:
-                      const EdgeInsets.symmetric(vertical: 11, horizontal: 16),
-                  hintText: Texts.searchField,
-                  hintStyle: context.styles.mutted,
-                  border: InputBorder.none,
-                  isDense: true,
-                ),
+            TextField(
+              controller: _controller,
+              enabled: widget.overRide == null,
+              focusNode: _focusNode,
+              textInputAction: TextInputAction.search,
+              autofocus: widget.autoFocus,
+              style: context.styles.text,
+              decoration: InputDecoration(
+                contentPadding:
+                    const EdgeInsets.symmetric(vertical: 11, horizontal: 16),
+                hintText: Texts.searchField,
+                hintStyle: context.styles.mutted,
+                border: InputBorder.none,
+                isDense: true,
               ),
             ),
-            if (_controller.text.isNotEmpty)
+            if (_controller.text.isNotEmpty && _focusNode.hasPrimaryFocus)
               Positioned(
                 right: 0,
                 top: 0,
