@@ -17,6 +17,12 @@ class _SearchQueryPageState extends State<SearchQueryPage> {
   final FocusNode _focusNode = FocusNode();
 
   @override
+  void initState() {
+    _controller.addListener(() => setState(() {}));
+    super.initState();
+  }
+
+  @override
   void dispose() {
     _controller.dispose();
     super.dispose();

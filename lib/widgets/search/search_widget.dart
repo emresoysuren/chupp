@@ -1,11 +1,12 @@
 import 'package:chupp/config/texts.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
+import 'package:chupp/widgets/buttons/single_button.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class SearchWidget extends StatelessWidget {
+class SearchWidget extends StatefulWidget {
   final Function()? overRide;
   final bool autoFocus;
-  final ValueChanged<String>? onChanged;
   final TextEditingController? controller;
   final FocusNode? focusNode;
 
@@ -13,36 +14,78 @@ class SearchWidget extends StatelessWidget {
     super.key,
     this.overRide,
     this.autoFocus = false,
-    this.onChanged,
     this.controller,
     this.focusNode,
   });
 
   @override
+  State<SearchWidget> createState() => _SearchWidgetState();
+}
+
+class _SearchWidgetState extends State<SearchWidget> {
+  late final TextEditingController _controller =
+      widget.controller ?? TextEditingController();
+
+  @override
+  void dispose() {
+    if (widget.controller == null) {
+      _controller.dispose();
+    }
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: overRide,
+      onTap: widget.overRide,
       child: Container(
         decoration: ShapeDecoration(
           shape: const StadiumBorder(),
           color: context.theme.current.secondaryBg,
         ),
-        child: TextField(
-          onChanged: onChanged,
-          controller: controller,
-          enabled: overRide == null,
-          focusNode: focusNode,
-          textInputAction: TextInputAction.search,
-          autofocus: autoFocus,
-          style: context.styles.text,
-          decoration: InputDecoration(
-            contentPadding:
-                const EdgeInsets.symmetric(vertical: 11, horizontal: 16),
-            hintText: Texts.searchField,
-            hintStyle: context.styles.mutted,
-            border: InputBorder.none,
-            isDense: true,
-          ),
+        child: Stack(
+          children: [
+            Expanded(
+              child: TextField(
+                controller: _controller,
+                enabled: widget.overRide == null,
+                focusNode: widget.focusNode,
+                textInputAction: TextInputAction.search,
+                autofocus: widget.autoFocus,
+                style: context.styles.text,
+                decoration: InputDecoration(
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 11, horizontal: 16),
+                  hintText: Texts.searchField,
+                  hintStyle: context.styles.mutted,
+                  border: InputBorder.none,
+                  isDense: true,
+                ),
+              ),
+            ),
+            if (_controller.text.isNotEmpty)
+              Positioned(
+                right: 0,
+                top: 0,
+                bottom: 0,
+                child: LayoutBuilder(builder: (context, c) {
+                  return SizedBox.square(
+                    dimension: c.maxHeight,
+                    child: SingleButton(
+                      onPressed: () => _controller.clear(),
+                      padding: const EdgeInsets.all(0),
+                      child: Center(
+                        child: FaIcon(
+                          FontAwesomeIcons.xmark,
+                          size: 20,
+                          color: context.theme.current.primaryBtn,
+                        ),
+                      ),
+                    ),
+                  );
+                }),
+              ),
+          ],
         ),
       ),
     );
