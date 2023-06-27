@@ -67,35 +67,36 @@ class _ScrollAnimatedBarState extends State<ScrollAnimatedBar> {
   @override
   Widget build(BuildContext context) {
     return Bar(
-      // key: _barKey,
-      pop: true,
-      children: [
-        Expanded(
-          child: ClipRect(
-            child: AnimatedSlide(
-              offset: Offset(0, 1 - offset),
-              duration: Duration.zero,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  if (widget.title != null)
-                    Text(
-                      widget.title!,
-                      style: context.styles.title3,
-                      overflow: TextOverflow.fade,
-                      softWrap: false,
-                      maxLines: 1,
-                    ),
-                  if (widget.bottom != null) const SizedBox(height: 4),
-                  if (widget.bottom != null) Row(children: widget.bottom!),
-                ],
+        // key: _barKey,
+        pop: true,
+        child: Column(
+          children: [
+            Expanded(
+              child: ClipRect(
+                child: AnimatedSlide(
+                  offset: Offset(0, 1 - offset),
+                  duration: Duration.zero,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      if (widget.title != null)
+                        Text(
+                          widget.title!,
+                          style: context.styles.title3,
+                          overflow: TextOverflow.fade,
+                          softWrap: false,
+                          maxLines: 1,
+                        ),
+                      if (widget.bottom != null) const SizedBox(height: 4),
+                      if (widget.bottom != null) Row(children: widget.bottom!),
+                    ],
+                  ),
+                ),
               ),
             ),
-          ),
-        ),
-        ...?widget.aside
-      ],
-    );
+            ...?widget.aside
+          ],
+        ));
   }
 }

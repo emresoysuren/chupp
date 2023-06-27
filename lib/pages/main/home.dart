@@ -30,16 +30,14 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: context.theme.current.primaryBg,
       appBar: const Bar(
         center: true,
-        children: [
-          SizedBox(
-            height: 48,
-            width: 120,
-            child: RiveAnimation.asset(
-              "assets/chupp-blue.riv",
-              fit: BoxFit.fitHeight,
-            ),
-          )
-        ],
+        child: SizedBox(
+          height: 48,
+          width: 120,
+          child: RiveAnimation.asset(
+            "assets/chupp-blue.riv",
+            fit: BoxFit.fitHeight,
+          ),
+        ),
       ),
       body: DisableScrollBehavior(
         child: ListView.builder(

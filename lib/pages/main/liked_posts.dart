@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
-import 'package:chupp/widgets/bars/bar.dart';
+import 'package:chupp/widgets/bars/custom/title_bar.dart';
 import 'package:chupp/widgets/disable_scroll_behavior.dart';
 import 'package:chupp/widgets/navbar/app_navbar.dart';
 import 'package:chupp/widgets/posts/post/mini_post.dart';
@@ -13,14 +13,7 @@ class LikedPostsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Bar(
-        children: [
-          Text(
-            "Liked Posts",
-            style: context.styles.title2,
-          ),
-        ],
-      ),
+      appBar: const TitleBar(title: "Liked Posts"),
       backgroundColor: context.theme.current.primaryBg,
       bottomNavigationBar: const AppNavBar(current: 2),
       body: DisableScrollBehavior(

@@ -2,7 +2,7 @@ import 'package:chupp/config/texts.dart';
 import 'package:chupp/routes/card.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/add_hastags.dart/add_hastags.dart';
-import 'package:chupp/widgets/bars/bar.dart';
+import 'package:chupp/widgets/bars/custom/title_bar.dart';
 import 'package:chupp/widgets/buttons/single_plain_text_button.dart';
 import 'package:chupp/widgets/cards/create_post.dart';
 import 'package:flutter/material.dart';
@@ -42,15 +42,11 @@ class _CreatePostPageState extends State<CreatePostPage> {
       },
       child: Scaffold(
         backgroundColor: context.theme.current.primaryBg,
-        appBar: Bar(
+        appBar: TitleBar(
           pop: true,
           popXmark: true,
-          children: [
-            Text(
-              Texts.createPostTitle,
-              style: context.styles.title2,
-            ),
-            const Spacer(),
+          title: Texts.createPostTitle,
+          items: [
             SinglePlainTextButton(
               icon: const FaIcon(FontAwesomeIcons.hashtag).icon,
               label: Texts.createPostAddHashtag,
@@ -67,7 +63,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
               label: Texts.createPostPublish,
               color: context.theme.current.important,
               onPressed: () {},
-            )
+            ),
           ],
         ),
         body: Padding(

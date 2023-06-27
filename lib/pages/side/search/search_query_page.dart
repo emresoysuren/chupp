@@ -34,15 +34,11 @@ class _SearchQueryPageState extends State<SearchQueryPage> {
       backgroundColor: context.theme.current.primaryBg,
       appBar: Bar(
         pop: true,
-        children: [
-          Expanded(
-            child: SearchWidget(
-              autoFocus: true,
-              controller: _controller,
-              focusNode: _focusNode,
-            ),
-          ),
-        ],
+        child: SearchWidget(
+          autoFocus: true,
+          controller: _controller,
+          focusNode: _focusNode,
+        ),
       ),
       body: Builder(builder: (context) {
         if (_controller.text.isNotEmpty) {

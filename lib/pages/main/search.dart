@@ -34,18 +34,14 @@ class _SearchPageState extends State<SearchPage> {
     return Scaffold(
       backgroundColor: context.theme.current.primaryBg,
       appBar: Bar(
-        children: [
-          Expanded(
-            child: SearchWidget(
-              overRide: () => Navigator.push(
-                context,
-                NonAnimatedPageRoute(
-                  child: const SearchQueryPage(),
-                ),
-              ),
+        child: SearchWidget(
+          overRide: () => Navigator.push(
+            context,
+            NonAnimatedPageRoute(
+              child: const SearchQueryPage(),
             ),
           ),
-        ],
+        ),
       ),
       body: DisableScrollBehavior(
         child: SingleChildScrollView(

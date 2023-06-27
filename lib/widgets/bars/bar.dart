@@ -3,14 +3,14 @@ import 'package:chupp/widgets/buttons/pop_button.dart';
 import 'package:flutter/material.dart';
 
 class Bar extends StatelessWidget implements PreferredSizeWidget {
-  final List<Widget>? children;
+  final Widget? child;
   final bool center;
   final bool pop;
   final bool popXmark;
 
   const Bar({
     super.key,
-    this.children,
+    this.child,
     this.center = false,
     this.pop = false,
     this.popXmark = false,
@@ -35,7 +35,7 @@ class Bar extends StatelessWidget implements PreferredSizeWidget {
                   PopButton(
                     xmark: popXmark,
                   ),
-                if (children != null) ...children!,
+                if (child != null) Expanded(child: child!),
               ],
             ),
           ),
