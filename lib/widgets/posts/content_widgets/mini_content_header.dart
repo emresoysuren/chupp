@@ -31,7 +31,7 @@ class MiniContentHeader extends StatelessWidget {
         const SizedBox(width: 8),
         Text(
           time,
-          style: context.styles.subText,
+          style: context.styles.mutted,
         )
       ],
     );

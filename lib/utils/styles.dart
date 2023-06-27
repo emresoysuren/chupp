@@ -60,13 +60,23 @@ class Styles {
         fontWeight: FontWeight.bold,
       );
 
-  TextStyle get subText => GoogleFonts.ubuntu(
+  TextStyle get mutted => GoogleFonts.ubuntu(
         color: theme.current.subText,
         fontSize: 16,
       );
 
-  TextStyle get itemSubText => GoogleFonts.ubuntu(
+  TextStyle get itemMutted => GoogleFonts.ubuntu(
         color: theme.current.subText,
         fontSize: 16,
+      );
+
+  TextStyle get subText => GoogleFonts.ubuntu(
+        color: theme.current.subText,
+        fontSize: 14,
+      );
+
+  TextStyle get itemSubText => GoogleFonts.ubuntu(
+        color: theme.current.subText,
+        fontSize: 14,
       );
 }

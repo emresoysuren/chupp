@@ -19,6 +19,12 @@ class _HomePageState extends State<HomePage> {
   final ScrollController _controller = ScrollController();
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: context.theme.current.primaryBg,

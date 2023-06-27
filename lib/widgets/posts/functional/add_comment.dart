@@ -80,7 +80,7 @@ class _AddCommentState extends State<AddComment> with WidgetsBindingObserver {
                     style: context.styles.text,
                     decoration: InputDecoration(
                       hintText: Texts.postAddYourOpinion,
-                      hintStyle: context.styles.subText,
+                      hintStyle: context.styles.mutted,
                       border: InputBorder.none,
                       isDense: true,
                       contentPadding: const EdgeInsets.all(0),

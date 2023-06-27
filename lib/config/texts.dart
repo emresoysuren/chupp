@@ -7,6 +7,7 @@ class Texts {
   // Main
   static const String title = "chupp";
   static const String expandableTextMore = "See More";
+  static const String sectionSeeMore = "See more";
 
   // Post Content
   static const String postOpinionsTitle = "Opinions:";
@@ -33,4 +34,13 @@ class Texts {
       "All changes that you make will be lost. Are you still want to proceed with this progress?";
   static const String createPostCardDiscardButton = "Discard";
   static const String createPostCardKeepButton = "Keep";
+
+  // Search Page
+  static const String searchField = "Search";
+  static const String trending = "Trending";
+  static const String popularPosts = "Popular Posts";
+
+  // Hashtags
+  static const String hashtagHeaderPrefix = "Mentioned";
+  static const String hashtagHeaderSuffix = "times";
 }

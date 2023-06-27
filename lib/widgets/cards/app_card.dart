@@ -1,5 +1,5 @@
 import 'package:chupp/utils/utils/context_extension.dart';
-import 'package:chupp/widgets/draggable_menu/draggable_button.dart';
+import 'package:chupp/widgets/buttons/list_button.dart';
 import 'package:flutter/material.dart';
 
 class AppCard extends StatelessWidget {

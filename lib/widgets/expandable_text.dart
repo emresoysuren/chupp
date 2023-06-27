@@ -57,7 +57,7 @@ class _ExpandableTextState extends State<ExpandableText> {
               if (!expanded)
                 TextSpan(
                   text: " ${Texts.expandableTextMore}",
-                  style: context.styles.subText,
+                  style: context.styles.mutted,
                 ),
             ],
           ),

@@ -48,7 +48,7 @@ class ContentHeader extends StatelessWidget {
                         if (option != null)
                           TextSpan(
                             text: " ${Texts.postUserOpinionFor} ",
-                            style: context.styles.subText,
+                            style: context.styles.mutted,
                           ),
                         if (option != null) TextSpan(text: option),
                       ],
@@ -56,7 +56,7 @@ class ContentHeader extends StatelessWidget {
                   ),
                   Text(
                     time,
-                    style: context.styles.subText,
+                    style: context.styles.mutted,
                   ),
                 ],
               ),

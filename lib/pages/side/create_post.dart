@@ -112,7 +112,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
                   style: context.styles.text,
                   decoration: InputDecoration(
                     hintText: Texts.createPostwriteDescription,
-                    hintStyle: context.styles.subText,
+                    hintStyle: context.styles.mutted,
                     border: InputBorder.none,
                     isDense: true,
                     contentPadding: const EdgeInsets.all(0),

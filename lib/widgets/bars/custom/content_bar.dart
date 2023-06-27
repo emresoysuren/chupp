@@ -51,7 +51,7 @@ class ContentBar extends StatelessWidget implements PreferredSizeWidget {
         if (time != null)
           Text(
             time!,
-            style: context.styles.subText,
+            style: context.styles.mutted,
           ),
       ],
       aside: [

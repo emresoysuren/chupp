@@ -131,7 +131,7 @@ class _AddHastagsState extends State<AddHastags> with WidgetsBindingObserver {
                       style: context.styles.text,
                       decoration: InputDecoration(
                         hintText: Texts.addHastagsField,
-                        hintStyle: context.styles.subText,
+                        hintStyle: context.styles.mutted,
                         border: InputBorder.none,
                         isDense: true,
                         contentPadding: const EdgeInsets.all(0),
