@@ -48,10 +48,10 @@ class AppNavBar extends StatelessWidget {
             activeTap: activeTap,
           ),
           NavItem(
-            icon: const FaIcon(FontAwesomeIcons.inbox).icon,
+            icon: const FaIcon(FontAwesomeIcons.solidHeart).icon,
             size: 26,
             active: current == 2,
-            passiveTap: () => router.open(const InboxRoute()),
+            passiveTap: () => router.open(const LikedPostsRoute()),
             activeTap: activeTap,
           ),
           NavItem(

@@ -25,7 +25,7 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
           transitionsBuilder: TransitionsBuilders.noTransition,
         ),
         CustomRoute(
-          page: InboxRoute.page,
+          page: LikedPostsRoute.page,
           transitionsBuilder: TransitionsBuilders.noTransition,
         ),
         CustomRoute(
