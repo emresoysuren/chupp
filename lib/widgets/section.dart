@@ -9,7 +9,9 @@ class Section extends StatelessWidget {
   final String title;
   final int itemCount;
   final Widget Function(BuildContext context, int index) itemBuilder;
-  final double gap;
+  final double titleGap;
+  final double topGap;
+  final double bottomGap;
   final EdgeInsets? padding;
   final bool bottomLine;
 
@@ -24,7 +26,9 @@ class Section extends StatelessWidget {
     required this.title,
     required this.itemCount,
     required this.itemBuilder,
-    this.gap = 16,
+    this.titleGap = 16,
+    this.topGap = 16,
+    this.bottomGap = 16,
     this.padding,
     this.bottomLine = true,
     this.seeMoreItemCount,
@@ -34,6 +38,8 @@ class Section extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: !bottomLine ? null : EdgeInsets.only(bottom: bottomGap),
+      padding: EdgeInsets.only(top: topGap),
       decoration: BoxDecoration(
         border: Border(
           bottom: !bottomLine
@@ -44,37 +50,34 @@ class Section extends StatelessWidget {
                 ),
         ),
       ),
-      child: Padding(
-        padding: padding ?? const EdgeInsets.only(top: 16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Text(
-                title,
-                style: context.styles.title2,
-              ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Text(
+              title,
+              style: context.styles.title2,
             ),
-            SizedBox(height: gap),
-            for (int i = 0; i < itemCount; i++) itemBuilder.call(context, i),
-            ListButton(
-              title: Texts.sectionSeeMore,
-              color: context.theme.current.notice,
-              onTap: () => Navigator.push(
-                context,
-                BasicPageRoute(
-                  start: Start.right,
-                  child: SeeMorePage(
-                    title: title,
-                    itemCount: seeMoreItemCount ?? itemCount,
-                    itemBuilder: seeMoreItemBuilder ?? itemBuilder,
-                  ),
+          ),
+          SizedBox(height: titleGap),
+          for (int i = 0; i < itemCount; i++) itemBuilder.call(context, i),
+          ListButton(
+            title: Texts.sectionSeeMore,
+            color: context.theme.current.notice,
+            onTap: () => Navigator.push(
+              context,
+              BasicPageRoute(
+                start: Start.right,
+                child: SeeMorePage(
+                  title: title,
+                  itemCount: seeMoreItemCount ?? itemCount,
+                  itemBuilder: seeMoreItemBuilder ?? itemBuilder,
                 ),
               ),
-            )
-          ],
-        ),
+            ),
+          )
+        ],
       ),
     );
   }

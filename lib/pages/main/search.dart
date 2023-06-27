@@ -54,17 +54,17 @@ class _SearchPageState extends State<SearchPage> {
             children: [
               Section(
                 title: Texts.trending,
-                gap: 8,
+                titleGap: 8,
                 itemCount: 3,
                 itemBuilder: (context, index) => const MiniHashtag(),
               ),
               Section(
                 title: Texts.popularPosts,
                 bottomLine: false,
-                gap: 0,
+                titleGap: 0,
                 itemCount: 3,
                 itemBuilder: (context, index) => const MiniPost(),
-              )
+              ),
             ],
           ),
         ),

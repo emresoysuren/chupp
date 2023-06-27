@@ -6,10 +6,13 @@ class SearchWidget extends StatelessWidget {
   final Function()? overRide;
   final bool autoFocus;
 
+  final ValueChanged<String>? onChanged;
+
   const SearchWidget({
     super.key,
     this.overRide,
     this.autoFocus = false,
+    this.onChanged,
   });
 
   @override
@@ -22,6 +25,7 @@ class SearchWidget extends StatelessWidget {
           color: context.theme.current.secondaryBg,
         ),
         child: TextField(
+          onChanged: onChanged,
           enabled: overRide == null,
           textInputAction: TextInputAction.search,
           autofocus: autoFocus,

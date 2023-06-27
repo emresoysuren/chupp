@@ -8,6 +8,7 @@ class Texts {
   static const String title = "chupp";
   static const String expandableTextMore = "See More";
   static const String sectionSeeMore = "See more";
+  static const String createdPostsSuffix = "posts";
 
   // Post Content
   static const String postOpinionsTitle = "Opinions:";
@@ -39,6 +40,11 @@ class Texts {
   static const String searchField = "Search";
   static const String trending = "Trending";
   static const String popularPosts = "Popular Posts";
+
+  // Search Result
+  static const String searchResultPosts = "Posts";
+  static const String searchResultPeople = "People";
+  static const String searchResultHashtags = "Hashtags";
 
   // Hashtags
   static const String hashtagHeaderPrefix = "Mentioned";
