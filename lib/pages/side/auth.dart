@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:chupp/pages/func/loading.dart';
 import 'package:chupp/services/data_service.dart';
+import 'package:chupp/utils/ui_manager.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/button.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +35,10 @@ class AuthPage extends StatelessWidget {
   }
 
   Future<void> signInAnonymously(BuildContext context) async {
-    await animateAndLoad(context, () => DataService.signInAnonymously());
+    await UiManager.animateAndLoad(
+      context,
+      () => DataService.signInAnonymously(),
+    );
     onLogin?.call(true);
   }
 }

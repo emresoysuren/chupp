@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:chupp/routes/blured.dart';
 import 'package:chupp/widgets/loading_animation.dart';
 import 'package:flutter/material.dart';
 
@@ -35,14 +34,3 @@ class _LoadingPageState extends State<LoadingPage> {
     );
   }
 }
-
-Future animateAndLoad(BuildContext context, Future Function() run) =>
-    Navigator.push(
-      context,
-      BluredRoute(
-        barrierDismissible: false,
-        child: LoadingPage(
-          run: () => run(),
-        ),
-      ),
-    );
