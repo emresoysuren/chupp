@@ -9,9 +9,11 @@ class ContentBar extends StatelessWidget implements PreferredSizeWidget {
   final GlobalKey? contentKey;
   final String? title;
   final String? time;
-  final String? ink;
+  final int? ink;
   final Function()? onButtonTap;
   final double? offset;
+  final int? like;
+  final int? comment;
 
   const ContentBar({
     super.key,
@@ -22,6 +24,8 @@ class ContentBar extends StatelessWidget implements PreferredSizeWidget {
     this.ink,
     this.onButtonTap,
     this.offset,
+    this.like,
+    this.comment,
   });
 
   @override
@@ -35,24 +39,51 @@ class ContentBar extends StatelessWidget implements PreferredSizeWidget {
       contentKey: contentKey,
       controller: controller,
       bottom: [
-        if (ink != null)
+        if (ink != null) ...[
           FaIcon(
             FontAwesomeIcons.droplet,
             color: context.theme.current.text,
             size: 16,
           ),
-        if (ink != null) const SizedBox(width: 4),
-        if (ink != null)
+          const SizedBox(width: 4),
           Text(
-            ink!,
+            ink.toString(),
             style: context.styles.text,
           ),
-        if (time != null) const SizedBox(width: 8),
-        if (time != null)
+        ],
+        if (comment != null) ...[
+          const SizedBox(width: 16),
+          FaIcon(
+            FontAwesomeIcons.solidMessage,
+            color: context.theme.current.text,
+            size: 16,
+          ),
+          const SizedBox(width: 4),
+          Text(
+            comment.toString(),
+            style: context.styles.text,
+          ),
+        ],
+        if (like != null) ...[
+          const SizedBox(width: 16),
+          FaIcon(
+            FontAwesomeIcons.solidHeart,
+            color: context.theme.current.text,
+            size: 16,
+          ),
+          const SizedBox(width: 4),
+          Text(
+            like.toString(),
+            style: context.styles.text,
+          ),
+        ],
+        if (time != null) ...[
+          const SizedBox(width: 8),
           Text(
             time!,
             style: context.styles.mutted,
           ),
+        ],
       ],
       aside: [
         if (onButtonTap != null)

@@ -18,6 +18,12 @@ class _LikedPostsPageState extends State<LikedPostsPage> {
   final ScrollController _controller = ScrollController();
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const TitleBar(title: "Liked Posts"),

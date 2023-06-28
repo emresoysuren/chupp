@@ -1,4 +1,6 @@
 import 'package:chupp/config/texts.dart';
+import 'package:chupp/pages/side/hashtag/hashtag.dart';
+import 'package:chupp/routes/basic.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -13,14 +15,13 @@ class MiniHashtag extends StatelessWidget {
       child: InkWell(
         enableFeedback: false,
         highlightColor: Colors.transparent,
-        // onTap: () => Navigator.push(
-        //   context,
-        //   BasicPageRoute(
-        //     start: Start.right,
-        //     child: const HashtahPage(),
-        //   ),
-        // ),
-        onTap: () {},
+        onTap: () => Navigator.push(
+          context,
+          BasicPageRoute(
+            start: Start.right,
+            child: const HashtagPage(),
+          ),
+        ),
         child: Padding(
           padding: const EdgeInsets.symmetric(
             vertical: 8,
@@ -60,6 +61,17 @@ class MiniHashtag extends StatelessWidget {
                   const SizedBox(width: 4),
                   Text(
                     "4.6k",
+                    style: context.styles.mutted,
+                  ),
+                  const SizedBox(width: 16),
+                  FaIcon(
+                    FontAwesomeIcons.solidMessage,
+                    color: context.theme.current.subText,
+                    size: 14,
+                  ),
+                  const SizedBox(width: 4),
+                  Text(
+                    "308",
                     style: context.styles.mutted,
                   ),
                 ],
