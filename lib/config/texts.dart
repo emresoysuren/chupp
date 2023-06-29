@@ -51,4 +51,5 @@ class Texts {
   // Hashtags
   static const String hashtagHeaderPrefix = "Mentioned";
   static const String hashtagHeaderSuffix = "times";
+  static const String hashtagFollow = "Follow";
 }

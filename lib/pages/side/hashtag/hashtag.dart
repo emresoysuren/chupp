@@ -48,7 +48,7 @@ class _HashtagPageState extends State<HashtagPage> {
             SliverPersistentHeader(
               delegate: CustomSliverPersistentHeaderDelegate(
                 PreferredSize(
-                  preferredSize: const Size.fromHeight(86),
+                  preferredSize: const Size.fromHeight(120),
                   child: HashtagHeader(
                     key: _contentKey,
                     title: "#hashtag",
