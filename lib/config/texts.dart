@@ -52,4 +52,11 @@ class Texts {
   static const String hashtagHeaderPrefix = "Mentioned";
   static const String hashtagHeaderSuffix = "times";
   static const String hashtagFollow = "Follow";
+  static const String hashtagNewest = "Newest";
+  static const String hashtagTrending = "Trending";
+  static const String hashtagMostLiked = "Most Liked";
+
+  // Profile
+  static const String profilePosts = "Posts";
+  static const String profileComments = "Comments";
 }

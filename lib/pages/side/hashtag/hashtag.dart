@@ -1,3 +1,4 @@
+import 'package:chupp/config/texts.dart';
 import 'package:chupp/pages/draggable_menus/content_menu.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/bars/custom/content_bar.dart';
@@ -64,7 +65,11 @@ class _HashtagPageState extends State<HashtagPage> {
             SliverPersistentHeader(
               delegate: CustomSliverPersistentHeaderDelegate(
                 PageCategory(
-                  pages: const ["Newest", "Trending", "Most Liked"],
+                  pages: const [
+                    Texts.hashtagNewest,
+                    Texts.hashtagTrending,
+                    Texts.hashtagMostLiked,
+                  ],
                   controller: _pageController,
                 ),
               ),

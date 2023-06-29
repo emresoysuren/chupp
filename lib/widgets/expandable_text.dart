@@ -32,6 +32,10 @@ class _ExpandableTextState extends State<ExpandableText> {
 
   int get maxCharacters => widget.characterThresold ?? 100;
 
+  bool get _minimized => !expanded && _enoughLenght;
+
+  bool get _enoughLenght => widget.text.length > maxCharacters;
+
   @override
   Widget build(BuildContext context) {
     return AnimatedSize(
@@ -41,20 +45,21 @@ class _ExpandableTextState extends State<ExpandableText> {
         behavior: HitTestBehavior.opaque,
         onTap: widget.onTap ??
             ((!widget.active ||
-                    (!widget.reuseable && expanded == !widget.expanded))
+                    (!widget.reuseable && expanded == !widget.expanded) ||
+                    !_enoughLenght)
                 ? null
                 : () => setState(() => expanded = !expanded)),
         child: RichText(
           text: TextSpan(
             children: [
               TextSpan(
-                text: expanded
+                text: _minimized
                     ? widget.text
-                    : widget.text
-                        .substring(0, min(widget.text.length, maxCharacters)),
+                        .substring(0, min(widget.text.length, maxCharacters))
+                    : widget.text,
                 style: widget.style ?? context.styles.text,
               ),
-              if (!expanded)
+              if (_minimized)
                 TextSpan(
                   text: " ${Texts.expandableTextMore}",
                   style: context.styles.mutted,
