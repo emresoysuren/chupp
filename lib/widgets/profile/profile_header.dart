@@ -10,6 +10,7 @@ class ProfileHeader extends StatelessWidget {
   final int? follower;
   final int? ink;
   final int? comment;
+  final bool isOwner;
 
   const ProfileHeader({
     super.key,
@@ -17,6 +18,7 @@ class ProfileHeader extends StatelessWidget {
     this.follower,
     this.ink,
     this.comment,
+    this.isOwner = false,
   });
 
   @override
@@ -98,10 +100,15 @@ class ProfileHeader extends StatelessWidget {
             const SizedBox(height: 16),
             SizedBox(
               width: double.infinity,
-              child: MiniButton(
-                label: Texts.hashtagFollow,
-                onPressed: () {},
-              ),
+              child: isOwner
+                  ? MiniButton(
+                      label: Texts.profileEditProfile,
+                      onPressed: () {},
+                    )
+                  : MiniButton(
+                      label: Texts.profileFollow,
+                      onPressed: () {},
+                    ),
             ),
           ],
         ),

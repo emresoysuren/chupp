@@ -59,4 +59,6 @@ class Texts {
   // Profile
   static const String profilePosts = "Posts";
   static const String profileComments = "Comments";
+  static const String profileFollow = "Follow";
+  static const String profileEditProfile = "Edit Profile";
 }

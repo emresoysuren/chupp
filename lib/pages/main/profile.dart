@@ -63,6 +63,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   preferredSize: const Size.fromHeight(192),
                   child: ProfileHeader(
                     key: _contentKey,
+                    isOwner: true,
                     title: "username",
                     follower: 210,
                     ink: 460,
