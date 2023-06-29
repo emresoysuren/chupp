@@ -9,9 +9,9 @@ class ContentBar extends StatelessWidget implements PreferredSizeWidget {
   final GlobalKey? contentKey;
   final String? title;
   final String? time;
-  final int? ink;
   final Function()? onButtonTap;
   final double? offset;
+  final int? ink;
   final int? like;
   final int? comment;
 

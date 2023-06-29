@@ -1,3 +1,5 @@
+import 'package:chupp/pages/side/hashtag/hashtag.dart';
+import 'package:chupp/routes/basic.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/single_plain_text_button.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +24,9 @@ class HashtagChip extends StatelessWidget {
           : const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
       color: context.theme.current.btnText,
       backgroundColor: context.theme.current.primaryBtn,
-      onPressed: () {},
+      onPressed: () => Navigator.of(context, rootNavigator: true).push(
+        BasicPageRoute(start: Start.right, child: const HashtagPage()),
+      ),
     );
   }
 }
