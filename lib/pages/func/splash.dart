@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:chupp/utils/router/app_router.gr.dart';
 import 'package:chupp/utils/router/guards/auth_state_notifier.dart';
 import 'package:chupp/utils/theme/config/app_theme_mode.dart';
+import 'package:chupp/utils/theme/repo/theme.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -19,6 +20,8 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
+  late AppTheme theme;
+
   @override
   void initState() {
     // Using the load method due to initState can't work with async
@@ -30,9 +33,9 @@ class _SplashPageState extends State<SplashPage> {
   Duration get _minWaittingDuration => const Duration(seconds: 3);
 
   String get riveAnimation {
-    if (context.theme.mode == AppThemeMode.light) {
+    if (theme.mode == AppThemeMode.light) {
       return "assets/rive/chupp-title/white.riv";
-    } else if (context.theme.mode == AppThemeMode.dark) {
+    } else if (theme.mode == AppThemeMode.dark) {
       return "assets/rive/chupp-title/blue.riv";
     }
     return "assets/rive/chupp-title/white.riv";
@@ -40,9 +43,10 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   void didChangeDependencies() {
+    theme = context.theme;
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
-        systemNavigationBarColor: context.theme.current.splashBg,
+        systemNavigationBarColor: theme.current.splashBg,
       ),
     );
     super.didChangeDependencies();
@@ -50,14 +54,14 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   void dispose() {
-    context.theme.resetNavColor();
+    theme.resetNavColor();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: context.theme.current.splashBg,
+      backgroundColor: theme.current.splashBg,
       resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
@@ -73,7 +77,7 @@ class _SplashPageState extends State<SplashPage> {
             right: 0,
             child: Center(
               child: LoadingAnimationWidget.horizontalRotatingDots(
-                color: context.theme.current.splashItem,
+                color: theme.current.splashItem,
                 size: 36,
               ),
             ),

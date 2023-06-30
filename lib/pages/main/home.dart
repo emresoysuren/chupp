@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
           height: 48,
           width: 120,
           child: RiveAnimation.asset(
-            "assets/chupp-blue.riv",
+            "assets/rive/chupp-title/blue.riv",
             fit: BoxFit.fitHeight,
           ),
         ),
