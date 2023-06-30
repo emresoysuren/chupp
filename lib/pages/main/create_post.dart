@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:chupp/config/texts.dart';
 import 'package:chupp/routes/card.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
@@ -9,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+@RoutePage()
 class CreatePostPage extends StatefulWidget implements PreferredSizeWidget {
   const CreatePostPage({super.key});
 

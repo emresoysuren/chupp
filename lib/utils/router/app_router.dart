@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:chupp/routes/basic.dart';
 import 'package:chupp/utils/router/guards/auth.dart';
-
 import 'app_router.gr.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Page,Route')
@@ -13,6 +13,15 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
           transitionsBuilder: TransitionsBuilders.noTransition,
         ),
         CustomRoute(
+          page: SettingsRoute.page,
+          customRouteBuilder: <CreatePostRoute>(context, child, page) =>
+              BasicPageRoute<CreatePostRoute>(
+            start: Start.right,
+            settings: page,
+            child: child,
+          ),
+        ),
+        CustomRoute(
           page: AuthRoute.page,
           transitionsBuilder: TransitionsBuilders.noTransition,
         ),
@@ -23,6 +32,15 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
         CustomRoute(
           page: SearchRoute.page,
           transitionsBuilder: TransitionsBuilders.noTransition,
+        ),
+        CustomRoute(
+          page: CreatePostRoute.page,
+          customRouteBuilder: <CreatePostRoute>(context, child, page) =>
+              BasicPageRoute<CreatePostRoute>(
+            start: Start.bottom,
+            settings: page,
+            child: child,
+          ),
         ),
         CustomRoute(
           page: LikedPostsRoute.page,

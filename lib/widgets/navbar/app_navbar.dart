@@ -1,6 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:chupp/pages/main/create_post.dart';
-import 'package:chupp/routes/basic.dart';
 import 'package:chupp/utils/router/app_router.gr.dart';
 import 'package:chupp/utils/router/extensions.dart';
 import 'package:flutter/material.dart';
@@ -38,13 +36,7 @@ class AppNavBar extends StatelessWidget {
           NavItem(
             icon: const FaIcon(FontAwesomeIcons.solidSquarePlus).icon,
             size: 26,
-            passiveTap: () => Navigator.push(
-              context,
-              BasicPageRoute(
-                start: Start.bottom,
-                child: const CreatePostPage(),
-              ),
-            ),
+            passiveTap: () => router.open(const CreatePostRoute()),
             activeTap: activeTap,
           ),
           NavItem(

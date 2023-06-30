@@ -19,21 +19,21 @@ class PostMenu extends StatelessWidget {
         children: [
           ListButton(
             title: Texts.postMenuViewProfile,
-            icon: const FaIcon(FontAwesomeIcons.solidUser).icon,
+            icon: FontAwesomeIcons.solidUser,
             iconSize: 20,
             color: context.theme.current.text,
             onTap: () {},
           ),
           ListButton(
             title: Texts.postMenuShare,
-            icon: const FaIcon(FontAwesomeIcons.arrowUpRightFromSquare).icon,
+            icon: FontAwesomeIcons.arrowUpRightFromSquare,
             iconSize: 20,
             color: context.theme.current.text,
             onTap: () {},
           ),
           ListButton(
             title: Texts.menuReport,
-            icon: const FaIcon(FontAwesomeIcons.solidFlag).icon,
+            icon: FontAwesomeIcons.solidFlag,
             iconSize: 20,
             color: context.theme.current.important,
             onTap: () {},

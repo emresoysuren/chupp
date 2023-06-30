@@ -8,7 +8,9 @@ class BasicPageRoute<T> extends PageRouteBuilder<T> {
     Duration? duration,
     Color? barrierColor,
     bool? barrierDismissible,
+    RouteSettings? settings,
   }) : super(
+          settings: settings,
           pageBuilder: (context, animation, secondaryAnimation) => child,
           transitionDuration: duration ?? const Duration(milliseconds: 320),
           reverseTransitionDuration:

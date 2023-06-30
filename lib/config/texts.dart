@@ -62,4 +62,12 @@ class Texts {
   static const String profileFollow = "Follow";
   static const String profileEditProfile = "Edit Profile";
   static const String profileSettings = "Settings";
+
+  // Settings
+  static const String settings = "Settings";
+  static const String theme = "Theme";
+  static const String faq = "FAQ";
+  static const String account = "Account";
+  static const String help = "Help";
+  static const String report = "Report";
 }

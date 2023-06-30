@@ -19,7 +19,7 @@ class ContentMenu extends StatelessWidget {
         children: [
           ListButton(
             title: Texts.menuReport,
-            icon: const FaIcon(FontAwesomeIcons.solidFlag).icon,
+            icon: FontAwesomeIcons.solidFlag,
             iconSize: 20,
             color: context.theme.current.important,
             onTap: () {},
