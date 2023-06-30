@@ -33,7 +33,6 @@ class AppTheme extends ChangeNotifier with WidgetsBindingObserver {
   Future<void> init() async {
     WidgetsBinding.instance.addObserver(this);
     await changeMode(await LocalData.getTheme());
-    resetNavColor();
     notifyListeners();
   }
 
@@ -46,7 +45,6 @@ class AppTheme extends ChangeNotifier with WidgetsBindingObserver {
   @override
   didChangePlatformBrightness() async {
     await changeMode(await LocalData.getTheme());
-    resetNavColor();
     notifyListeners();
     super.didChangePlatformBrightness();
   }
@@ -71,6 +69,7 @@ class AppTheme extends ChangeNotifier with WidgetsBindingObserver {
         _current = AppThemes.dark;
         break;
     }
+    resetNavColor();
     notifyListeners();
   }
 }
