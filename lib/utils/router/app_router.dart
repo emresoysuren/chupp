@@ -14,8 +14,7 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
         ),
         CustomRoute(
           page: SettingsRoute.page,
-          customRouteBuilder: <CreatePostRoute>(context, child, page) =>
-              BasicPageRoute<CreatePostRoute>(
+          customRouteBuilder: <T>(context, child, page) => BasicPageRoute<T>(
             start: Start.right,
             settings: page,
             child: child,
@@ -35,8 +34,7 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
         ),
         CustomRoute(
           page: CreatePostRoute.page,
-          customRouteBuilder: <CreatePostRoute>(context, child, page) =>
-              BasicPageRoute<CreatePostRoute>(
+          customRouteBuilder: <T>(context, child, page) => BasicPageRoute<T>(
             start: Start.bottom,
             settings: page,
             child: child,

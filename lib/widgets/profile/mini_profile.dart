@@ -1,4 +1,5 @@
 import 'package:chupp/config/texts.dart';
+import 'package:chupp/utils/ui_manager.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -59,12 +60,12 @@ class MiniProfile extends StatelessWidget {
                       ),
                       const SizedBox(width: 4),
                       Text(
-                        "4.6k",
+                        UiManager.numFormat(4600),
                         style: context.styles.mutted,
                       ),
                       const SizedBox(width: 16),
                       Text(
-                        "12 ${Texts.createdPostsSuffix}",
+                        "${UiManager.numFormat(12)} ${Texts.createdPostsSuffix}",
                         style: context.styles.mutted,
                       ),
                     ],
