@@ -1,6 +1,7 @@
 import 'package:chupp/config/texts.dart';
 import 'package:chupp/pages/side/hashtag/hashtag.dart';
 import 'package:chupp/routes/basic.dart';
+import 'package:chupp/utils/ui_manager.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -31,7 +32,7 @@ class MiniHashtag extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "${Texts.hashtagHeaderPrefix} 34k ${Texts.hashtagHeaderSuffix}",
+                "${Texts.hashtagHeaderPrefix} ${UiManager.numFormat(34000)} ${Texts.hashtagHeaderSuffix}",
                 style: context.styles.mutted,
               ),
               const SizedBox(height: 4),
@@ -49,7 +50,7 @@ class MiniHashtag extends StatelessWidget {
                   ),
                   const SizedBox(width: 4),
                   Text(
-                    "1.6k",
+                    UiManager.numFormat(1600),
                     style: context.styles.mutted,
                   ),
                   const SizedBox(width: 16),
@@ -60,7 +61,7 @@ class MiniHashtag extends StatelessWidget {
                   ),
                   const SizedBox(width: 4),
                   Text(
-                    "4.6k",
+                    UiManager.numFormat(4600),
                     style: context.styles.mutted,
                   ),
                   const SizedBox(width: 16),
@@ -71,7 +72,7 @@ class MiniHashtag extends StatelessWidget {
                   ),
                   const SizedBox(width: 4),
                   Text(
-                    "308",
+                    UiManager.numFormat(308),
                     style: context.styles.mutted,
                   ),
                 ],

@@ -1,4 +1,5 @@
 import 'package:chupp/config/texts.dart';
+import 'package:chupp/utils/ui_manager.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/custom/mini_button.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +43,7 @@ class HashtagHeader extends StatelessWidget {
                 ),
                 const SizedBox(width: 4),
                 Text(
-                  (ink ?? 0).toString(),
+                  UiManager.numFormat(ink),
                   style: context.styles.text,
                 ),
                 const SizedBox(width: 16),
@@ -53,7 +54,7 @@ class HashtagHeader extends StatelessWidget {
                 ),
                 const SizedBox(width: 4),
                 Text(
-                  (comment ?? 0).toString(),
+                  UiManager.numFormat(comment),
                   style: context.styles.text,
                 ),
                 const SizedBox(width: 16),
@@ -64,7 +65,7 @@ class HashtagHeader extends StatelessWidget {
                 ),
                 const SizedBox(width: 4),
                 Text(
-                  (like ?? 0).toString(),
+                  UiManager.numFormat(like),
                   style: context.styles.text,
                 ),
               ],

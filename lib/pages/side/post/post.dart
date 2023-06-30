@@ -76,7 +76,7 @@ class _PostPageState extends State<PostPage> with TickerProviderStateMixin {
           controller: _controller,
           contentKey: _contentKey,
           offset: _offset,
-          ink: 460,
+          ink: 380,
           time: "5/30/14 19:26",
           onButtonTap: () => DraggableMenu.open(
             context,

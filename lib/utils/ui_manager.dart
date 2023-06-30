@@ -3,6 +3,7 @@ import 'package:chupp/pages/func/loading.dart';
 import 'package:chupp/routes/blured.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class UiManager {
   UiManager._();
@@ -41,4 +42,9 @@ class UiManager {
         forwardAnimationCurve: Curves.ease,
         duration: const Duration(seconds: 2),
       ).show(context);
+
+  static String numFormat(int? number) {
+    final formater = NumberFormat.compact();
+    return formater.format(number ?? 0);
+  }
 }

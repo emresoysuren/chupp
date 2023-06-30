@@ -1,3 +1,4 @@
+import 'package:chupp/utils/ui_manager.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/bars/scroll_animated_bar.dart';
 import 'package:chupp/widgets/buttons/single_button.dart';
@@ -58,7 +59,7 @@ class ContentBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           const SizedBox(width: 4),
           Text(
-            ink.toString(),
+            UiManager.numFormat(ink),
             style: context.styles.text,
           ),
         ],
@@ -71,7 +72,7 @@ class ContentBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           const SizedBox(width: 4),
           Text(
-            comment.toString(),
+            UiManager.numFormat(comment),
             style: context.styles.text,
           ),
         ],
@@ -84,7 +85,7 @@ class ContentBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           const SizedBox(width: 4),
           Text(
-            like.toString(),
+            UiManager.numFormat(like),
             style: context.styles.text,
           ),
         ],

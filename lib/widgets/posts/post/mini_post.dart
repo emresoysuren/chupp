@@ -64,7 +64,7 @@ class MiniPost extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   InkButton(
-                    amount: 460,
+                    amount: 4600,
                     onPressed: () => Navigator.push(
                       context,
                       BasicPageRoute(
@@ -83,7 +83,7 @@ class MiniPost extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const LikeButton(amount: 120),
+                  const LikeButton(amount: 1200),
                 ],
               ),
             ],

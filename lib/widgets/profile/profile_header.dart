@@ -1,4 +1,5 @@
 import 'package:chupp/config/texts.dart';
+import 'package:chupp/utils/ui_manager.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/custom/mini_button.dart';
 import 'package:chupp/widgets/expandable_text.dart';
@@ -60,7 +61,7 @@ class ProfileHeader extends StatelessWidget {
                         ),
                         const SizedBox(width: 4),
                         Text(
-                          (follower ?? 0).toString(),
+                          UiManager.numFormat(follower),
                           style: context.styles.text,
                         ),
                         const SizedBox(width: 16),
@@ -71,7 +72,7 @@ class ProfileHeader extends StatelessWidget {
                         ),
                         const SizedBox(width: 4),
                         Text(
-                          (ink ?? 0).toString(),
+                          UiManager.numFormat(ink),
                           style: context.styles.text,
                         ),
                         const SizedBox(width: 16),
@@ -82,7 +83,7 @@ class ProfileHeader extends StatelessWidget {
                         ),
                         const SizedBox(width: 4),
                         Text(
-                          (comment ?? 0).toString(),
+                          UiManager.numFormat(comment),
                           style: context.styles.text,
                         ),
                       ],
