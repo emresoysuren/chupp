@@ -1,4 +1,6 @@
 import 'package:chupp/config/texts.dart';
+import 'package:chupp/pages/main/profile.dart';
+import 'package:chupp/routes/basic.dart';
 import 'package:chupp/utils/ui_manager.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:flutter/material.dart';
@@ -14,14 +16,13 @@ class MiniProfile extends StatelessWidget {
       child: InkWell(
         enableFeedback: false,
         highlightColor: Colors.transparent,
-        // onTap: () => Navigator.push(
-        //   context,
-        //   BasicPageRoute(
-        //     start: Start.right,
-        //     child: const ProfilePage(),
-        //   ),
-        // ),
-        onTap: () {},
+        onTap: () => Navigator.push(
+          context,
+          BasicPageRoute(
+            start: Start.right,
+            child: const ProfilePage(),
+          ),
+        ),
         child: Padding(
           padding: const EdgeInsets.symmetric(
             vertical: 8,

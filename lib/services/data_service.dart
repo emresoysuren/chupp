@@ -20,4 +20,6 @@ class DataService {
       FirebaseAuth.instance.currentUser?.isAnonymous;
 
   static bool get loggedIn => FirebaseAuth.instance.currentUser != null;
+
+  static String? get uid => FirebaseAuth.instance.currentUser?.uid;
 }

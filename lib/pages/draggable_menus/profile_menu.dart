@@ -29,7 +29,7 @@ class ProfileMenu extends StatelessWidget {
             onTap: () => context.router.open(const SettingsRoute()),
           ),
           ListButton(
-            title: Texts.postMenuShare,
+            title: Texts.profileMenuShare,
             icon: FontAwesomeIcons.arrowUpRightFromSquare,
             iconSize: 20,
             color: context.theme.current.text,

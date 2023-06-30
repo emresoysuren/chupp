@@ -107,7 +107,7 @@ class ProfileHeader extends StatelessWidget {
                       onPressed: () {},
                     )
                   : MiniButton(
-                      label: Texts.profileFollow,
+                      label: Texts.userFollow,
                       onPressed: () {},
                     ),
             ),

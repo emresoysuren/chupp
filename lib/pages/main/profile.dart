@@ -1,6 +1,8 @@
 import 'package:auto_route/annotations.dart';
 import 'package:chupp/config/texts.dart';
 import 'package:chupp/pages/draggable_menus/profile_menu.dart';
+import 'package:chupp/pages/draggable_menus/user_menu.dart';
+import 'package:chupp/utils/account_manager.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/bars/custom/content_bar.dart';
 import 'package:chupp/widgets/custom_silver_header_delegate.dart';
@@ -44,18 +46,25 @@ class _ProfilePageState extends State<ProfilePage> {
         comment: 38,
         controller: _controller,
         contentKey: _contentKey,
-        pop: false,
+        pop: !AccountManager.isOwner("requestedUser"),
         buttonIcon: FontAwesomeIcons.bars,
-        onButtonTap: () => DraggableMenu.open(context, const ProfileMenu()),
-      ),
-      bottomNavigationBar: AppNavBar(
-        current: 3,
-        activeTap: () => _controller.animateTo(
-          0,
-          duration: const Duration(milliseconds: 320),
-          curve: Curves.ease,
+        onButtonTap: () => DraggableMenu.open(
+          context,
+          AccountManager.isOwner("requestedUser")
+              ? const ProfileMenu()
+              : const UserMenu(),
         ),
       ),
+      bottomNavigationBar: !AccountManager.isOwner("requestedUser")
+          ? null
+          : AppNavBar(
+              current: 3,
+              activeTap: () => _controller.animateTo(
+                0,
+                duration: const Duration(milliseconds: 320),
+                curve: Curves.ease,
+              ),
+            ),
       body: DisableScrollBehavior(
         child: NestedScrollView(
           controller: _controller,
@@ -63,7 +72,7 @@ class _ProfilePageState extends State<ProfilePage> {
             SliverToBoxAdapter(
               child: ProfileHeader(
                 key: _contentKey,
-                isOwner: true,
+                isOwner: AccountManager.isOwner("requestedUser"),
                 title: "username",
                 follower: 2100,
                 ink: 216,
