@@ -24,7 +24,6 @@ class _UtilsScopeState extends State<UtilsScope> {
 
   void _themeInit() {
     AppTheme.instance.addListener(() => setState(() {}));
-    AppTheme.instance.init();
   }
 
   @override

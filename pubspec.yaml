@@ -34,6 +34,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+    - assets/rive/chupp-title/
 
 flutter_launcher_icons:
   android: true
