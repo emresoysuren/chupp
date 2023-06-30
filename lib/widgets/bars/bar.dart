@@ -6,12 +6,14 @@ class Bar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? child;
   final bool pop;
   final bool popXmark;
+  final EdgeInsets? padding;
 
   const Bar({
     super.key,
     this.child,
     this.pop = false,
     this.popXmark = false,
+    this.padding,
   });
 
   @override
@@ -20,9 +22,10 @@ class Bar extends StatelessWidget implements PreferredSizeWidget {
       color: context.theme.current.primaryBg,
       child: SafeArea(
         child: Padding(
-          padding: pop == true
-              ? const EdgeInsets.only(left: 8, right: 16)
-              : const EdgeInsets.symmetric(horizontal: 16),
+          padding: padding ??
+              (pop == true
+                  ? const EdgeInsets.only(left: 8, right: 16)
+                  : const EdgeInsets.symmetric(horizontal: 16)),
           child: Center(
             child: Row(
               children: [

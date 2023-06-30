@@ -14,6 +14,9 @@ class ContentBar extends StatelessWidget implements PreferredSizeWidget {
   final int? ink;
   final int? like;
   final int? comment;
+  final IconData? buttonIcon;
+  final bool pop;
+  final EdgeInsets? padding;
 
   const ContentBar({
     super.key,
@@ -26,6 +29,9 @@ class ContentBar extends StatelessWidget implements PreferredSizeWidget {
     this.offset,
     this.like,
     this.comment,
+    this.buttonIcon,
+    this.pop = true,
+    this.padding,
   });
 
   @override
@@ -38,6 +44,8 @@ class ContentBar extends StatelessWidget implements PreferredSizeWidget {
       title: title,
       contentKey: contentKey,
       controller: controller,
+      pop: pop,
+      padding: padding,
       bottom: [
         if (ink != null) ...[
           FaIcon(
@@ -89,8 +97,8 @@ class ContentBar extends StatelessWidget implements PreferredSizeWidget {
         if (onButtonTap != null)
           SingleButton(
             onPressed: onButtonTap,
-            child: FaIcon(
-              FontAwesomeIcons.ellipsis,
+            child: Icon(
+              buttonIcon ?? FontAwesomeIcons.ellipsis,
               color: context.theme.current.primaryItem,
             ),
           ),

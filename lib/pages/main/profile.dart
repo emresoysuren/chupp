@@ -1,6 +1,6 @@
 import 'package:auto_route/annotations.dart';
 import 'package:chupp/config/texts.dart';
-import 'package:chupp/pages/draggable_menus/content_menu.dart';
+import 'package:chupp/pages/draggable_menus/profile_menu.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/bars/custom/content_bar.dart';
 import 'package:chupp/widgets/custom_silver_header_delegate.dart';
@@ -11,6 +11,7 @@ import 'package:chupp/widgets/posts/post/mini_post.dart';
 import 'package:chupp/widgets/profile/profile_header.dart';
 import 'package:draggable_menu/draggable_menu.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 @RoutePage()
 class ProfilePage extends StatefulWidget {
@@ -43,7 +44,10 @@ class _ProfilePageState extends State<ProfilePage> {
         like: 120,
         controller: _controller,
         contentKey: _contentKey,
-        onButtonTap: () => DraggableMenu.open(context, const ContentMenu()),
+        pop: false,
+        padding: const EdgeInsets.only(left: 16, right: 8),
+        buttonIcon: FontAwesomeIcons.bars,
+        onButtonTap: () => DraggableMenu.open(context, const ProfileMenu()),
       ),
       bottomNavigationBar: AppNavBar(
         current: 3,

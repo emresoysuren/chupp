@@ -10,6 +10,8 @@ class ScrollAnimatedBar extends StatefulWidget implements PreferredSizeWidget {
   final List<Widget>? bottom;
   final List<Widget>? aside;
   final double? offset;
+  final bool pop;
+  final EdgeInsets? padding;
 
   const ScrollAnimatedBar({
     super.key,
@@ -19,6 +21,8 @@ class ScrollAnimatedBar extends StatefulWidget implements PreferredSizeWidget {
     this.bottom,
     this.aside,
     this.offset,
+    this.pop = false,
+    this.padding,
   });
 
   @override
@@ -67,36 +71,38 @@ class _ScrollAnimatedBarState extends State<ScrollAnimatedBar> {
   @override
   Widget build(BuildContext context) {
     return Bar(
-        // key: _barKey,
-        pop: true,
-        child: Row(
-          children: [
-            Expanded(
-              child: ClipRect(
-                child: AnimatedSlide(
-                  offset: Offset(0, 1 - offset),
-                  duration: Duration.zero,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      if (widget.title != null)
-                        Text(
-                          widget.title!,
-                          style: context.styles.title3,
-                          overflow: TextOverflow.fade,
-                          softWrap: false,
-                          maxLines: 1,
-                        ),
-                      if (widget.bottom != null) const SizedBox(height: 4),
-                      if (widget.bottom != null) Row(children: widget.bottom!),
-                    ],
-                  ),
+      // key: _barKey,
+      pop: widget.pop,
+      padding: widget.padding,
+      child: Row(
+        children: [
+          Expanded(
+            child: ClipRect(
+              child: AnimatedSlide(
+                offset: Offset(0, 1 - offset),
+                duration: Duration.zero,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    if (widget.title != null)
+                      Text(
+                        widget.title!,
+                        style: context.styles.title3,
+                        overflow: TextOverflow.fade,
+                        softWrap: false,
+                        maxLines: 1,
+                      ),
+                    if (widget.bottom != null) const SizedBox(height: 4),
+                    if (widget.bottom != null) Row(children: widget.bottom!),
+                  ],
                 ),
               ),
             ),
-            ...?widget.aside
-          ],
-        ));
+          ),
+          ...?widget.aside
+        ],
+      ),
+    );
   }
 }
