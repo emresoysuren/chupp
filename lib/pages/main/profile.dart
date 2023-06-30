@@ -9,6 +9,7 @@ import 'package:chupp/widgets/custom_silver_header_delegate.dart';
 import 'package:chupp/widgets/disable_scroll_behavior.dart';
 import 'package:chupp/widgets/navbar/app_navbar.dart';
 import 'package:chupp/widgets/page_category/page_category.dart';
+import 'package:chupp/widgets/posts/opinion/mini_opinion.dart';
 import 'package:chupp/widgets/posts/post/mini_post.dart';
 import 'package:chupp/widgets/profile/profile_header.dart';
 import 'package:draggable_menu/draggable_menu.dart';
@@ -85,7 +86,7 @@ class _ProfilePageState extends State<ProfilePage> {
             SliverPersistentHeader(
               delegate: CustomSliverPersistentHeaderDelegate(
                 PageCategory(
-                  pages: const [Texts.profilePosts, Texts.profileComments],
+                  pages: const [Texts.profilePosts, Texts.profileOpinions],
                   controller: _pageController,
                 ),
               ),
@@ -106,7 +107,7 @@ class _ProfilePageState extends State<ProfilePage> {
               SingleChildScrollView(
                 child: Column(
                   children: [
-                    for (int i = 0; i < 6; i++) const MiniPost(),
+                    for (int i = 0; i < 6; i++) const MiniOpinion(on: true),
                   ],
                 ),
               ),

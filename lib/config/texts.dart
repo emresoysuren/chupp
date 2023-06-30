@@ -65,10 +65,11 @@ class Texts {
 
   // Profile
   static const String profilePosts = "Posts";
-  static const String profileComments = "Comments";
+  static const String profileOpinions = "Opinions";
   static const String profileEditProfile = "Edit Profile";
   static const String profileSettings = "Settings";
   static const String profileMenuShare = "Share";
+  static const String opinonOn = "On";
 
   // User
   static const String userMenuShare = "Share";

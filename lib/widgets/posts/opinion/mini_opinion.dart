@@ -1,3 +1,6 @@
+import 'package:chupp/config/texts.dart';
+import 'package:chupp/pages/side/post/post.dart';
+import 'package:chupp/routes/basic.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/custom/comment.dart';
 import 'package:chupp/widgets/buttons/custom/ink.dart';
@@ -8,7 +11,12 @@ import 'package:draggable_menu/draggable_menu.dart';
 import 'package:flutter/material.dart';
 
 class MiniOpinion extends StatelessWidget {
-  const MiniOpinion({super.key});
+  final bool on;
+
+  const MiniOpinion({
+    super.key,
+    this.on = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,12 +25,35 @@ class MiniOpinion extends StatelessWidget {
       child: InkWell(
         enableFeedback: false,
         highlightColor: Colors.transparent,
-        onTap: () => DraggableMenu.open(context, const OpinionPageDraggable()),
+        onTap: () => on
+            ? Navigator.push(
+                context,
+                BasicPageRoute(start: Start.right, child: const PostPage()),
+              )
+            : DraggableMenu.open(context, const OpinionPageDraggable()),
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              if (on) ...[
+                RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: "${Texts.opinonOn} ",
+                        style: context.styles.textImp
+                            .copyWith(color: context.theme.current.notice),
+                      ),
+                      TextSpan(
+                        text: "Which character is more likely to die next?",
+                        style: context.styles.textImp,
+                      )
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 8),
+              ],
               const ContentHeader(
                 username: "username",
                 time: "5/30/14 19:26",
@@ -34,18 +65,21 @@ class MiniOpinion extends StatelessWidget {
                 style: context.styles.text,
               ),
               const SizedBox(height: 4),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  const InkButton(amount: 460),
-                  CommentButton(
-                    amount: 24,
-                    onPressed: () => DraggableMenu.open(
-                      context,
-                      const OpinionPageDraggable(openComment: true),
+              IgnorePointer(
+                ignoring: on,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    const InkButton(amount: 460),
+                    CommentButton(
+                      amount: 24,
+                      onPressed: () => DraggableMenu.open(
+                        context,
+                        const OpinionPageDraggable(openComment: true),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ],
           ),
