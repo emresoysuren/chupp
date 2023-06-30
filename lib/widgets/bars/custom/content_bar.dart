@@ -12,6 +12,7 @@ class ContentBar extends StatelessWidget implements PreferredSizeWidget {
   final String? time;
   final Function()? onButtonTap;
   final double? offset;
+  final int? follower;
   final int? ink;
   final int? like;
   final int? comment;
@@ -25,9 +26,10 @@ class ContentBar extends StatelessWidget implements PreferredSizeWidget {
     this.contentKey,
     this.title,
     this.time,
-    this.ink,
     this.onButtonTap,
     this.offset,
+    this.follower,
+    this.ink,
     this.like,
     this.comment,
     this.buttonIcon,
@@ -40,6 +42,76 @@ class ContentBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<Widget> bottom = [];
+    if (follower != null) {
+      bottom.addAll([
+        if (bottom.isNotEmpty) const SizedBox(width: 16),
+        FaIcon(
+          FontAwesomeIcons.solidUser,
+          color: context.theme.current.text,
+          size: 16,
+        ),
+        const SizedBox(width: 4),
+        Text(
+          UiManager.numFormat(follower),
+          style: context.styles.text,
+        ),
+      ]);
+    }
+    if (ink != null) {
+      bottom.addAll([
+        if (bottom.isNotEmpty) const SizedBox(width: 16),
+        FaIcon(
+          FontAwesomeIcons.droplet,
+          color: context.theme.current.text,
+          size: 16,
+        ),
+        const SizedBox(width: 4),
+        Text(
+          UiManager.numFormat(ink),
+          style: context.styles.text,
+        ),
+      ]);
+    }
+    if (comment != null) {
+      bottom.addAll([
+        if (bottom.isNotEmpty) const SizedBox(width: 16),
+        FaIcon(
+          FontAwesomeIcons.solidMessage,
+          color: context.theme.current.text,
+          size: 16,
+        ),
+        const SizedBox(width: 4),
+        Text(
+          UiManager.numFormat(comment),
+          style: context.styles.text,
+        ),
+      ]);
+    }
+    if (like != null) {
+      bottom.addAll([
+        if (bottom.isNotEmpty) const SizedBox(width: 16),
+        FaIcon(
+          FontAwesomeIcons.solidHeart,
+          color: context.theme.current.text,
+          size: 16,
+        ),
+        const SizedBox(width: 4),
+        Text(
+          UiManager.numFormat(like),
+          style: context.styles.text,
+        ),
+      ]);
+    }
+    if (time != null) {
+      bottom.addAll([
+        if (bottom.isNotEmpty) const SizedBox(width: 8),
+        Text(
+          time!,
+          style: context.styles.mutted,
+        ),
+      ]);
+    }
     return ScrollAnimatedBar(
       offset: offset,
       title: title,
@@ -50,53 +122,7 @@ class ContentBar extends StatelessWidget implements PreferredSizeWidget {
           (onButtonTap == null
               ? null
               : EdgeInsets.only(left: pop ? 8 : 16, right: 8)),
-      bottom: [
-        if (ink != null) ...[
-          FaIcon(
-            FontAwesomeIcons.droplet,
-            color: context.theme.current.text,
-            size: 16,
-          ),
-          const SizedBox(width: 4),
-          Text(
-            UiManager.numFormat(ink),
-            style: context.styles.text,
-          ),
-        ],
-        if (comment != null) ...[
-          const SizedBox(width: 16),
-          FaIcon(
-            FontAwesomeIcons.solidMessage,
-            color: context.theme.current.text,
-            size: 16,
-          ),
-          const SizedBox(width: 4),
-          Text(
-            UiManager.numFormat(comment),
-            style: context.styles.text,
-          ),
-        ],
-        if (like != null) ...[
-          const SizedBox(width: 16),
-          FaIcon(
-            FontAwesomeIcons.solidHeart,
-            color: context.theme.current.text,
-            size: 16,
-          ),
-          const SizedBox(width: 4),
-          Text(
-            UiManager.numFormat(like),
-            style: context.styles.text,
-          ),
-        ],
-        if (time != null) ...[
-          const SizedBox(width: 8),
-          Text(
-            time!,
-            style: context.styles.mutted,
-          ),
-        ],
-      ],
+      bottom: bottom,
       aside: [
         if (onButtonTap != null)
           SingleButton(

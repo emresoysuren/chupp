@@ -39,7 +39,7 @@ class _ProfilePageState extends State<ProfilePage> {
       backgroundColor: context.theme.current.primaryBg,
       appBar: ContentBar(
         title: "username",
-        like: 2100,
+        follower: 2100,
         ink: 216,
         comment: 38,
         controller: _controller,
