@@ -46,21 +46,14 @@ class _HashtagPageState extends State<HashtagPage> {
         child: NestedScrollView(
           controller: _controller,
           headerSliverBuilder: (context, innerBoxIsScrolled) => [
-            SliverPersistentHeader(
-              delegate: CustomSliverPersistentHeaderDelegate(
-                PreferredSize(
-                  preferredSize: const Size.fromHeight(120),
-                  child: HashtagHeader(
-                    key: _contentKey,
-                    title: "#hashtag",
-                    ink: 460,
-                    comment: 308,
-                    like: 120,
-                  ),
-                ),
+            SliverToBoxAdapter(
+              child: HashtagHeader(
+                key: _contentKey,
+                title: "#hashtag",
+                ink: 460,
+                comment: 308,
+                like: 120,
               ),
-              pinned: false,
-              floating: false,
             ),
             SliverPersistentHeader(
               delegate: CustomSliverPersistentHeaderDelegate(

@@ -57,22 +57,15 @@ class _ProfilePageState extends State<ProfilePage> {
         child: NestedScrollView(
           controller: _controller,
           headerSliverBuilder: (context, innerBoxIsScrolled) => [
-            SliverPersistentHeader(
-              delegate: CustomSliverPersistentHeaderDelegate(
-                PreferredSize(
-                  preferredSize: const Size.fromHeight(192),
-                  child: ProfileHeader(
-                    key: _contentKey,
-                    isOwner: true,
-                    title: "username",
-                    follower: 210,
-                    ink: 460,
-                    comment: 308,
-                  ),
-                ),
+            SliverToBoxAdapter(
+              child: ProfileHeader(
+                key: _contentKey,
+                isOwner: true,
+                title: "username",
+                follower: 210,
+                ink: 460,
+                comment: 308,
               ),
-              pinned: false,
-              floating: false,
             ),
             SliverPersistentHeader(
               delegate: CustomSliverPersistentHeaderDelegate(

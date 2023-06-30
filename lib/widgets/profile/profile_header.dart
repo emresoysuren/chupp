@@ -26,7 +26,7 @@ class ProfileHeader extends StatelessWidget {
     return Material(
       color: context.theme.current.primaryBg,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -93,7 +93,7 @@ class ProfileHeader extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             ExpandableText(
-              "Veniam et sint excepteur pariatur cillum quis tempor deserunt commodo enim sunt.",
+              "Cupidatat deserunt nisi nulla Lorem Lorem Lorem pariatur irure cupidatat elit est exercitation sint. Cupidatat deserunt nisi nulla Lorem Lorem Lorem pariatur irure cupidatat elit est exercitation sint.",
               style: context.styles.text,
               reuseable: true,
             ),
