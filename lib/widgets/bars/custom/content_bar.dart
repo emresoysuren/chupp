@@ -45,7 +45,10 @@ class ContentBar extends StatelessWidget implements PreferredSizeWidget {
       contentKey: contentKey,
       controller: controller,
       pop: pop,
-      padding: padding,
+      padding: padding ??
+          (onButtonTap == null
+              ? null
+              : EdgeInsets.only(left: pop ? 8 : 16, right: 8)),
       bottom: [
         if (ink != null) ...[
           FaIcon(

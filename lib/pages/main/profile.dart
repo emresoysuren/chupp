@@ -45,7 +45,6 @@ class _ProfilePageState extends State<ProfilePage> {
         controller: _controller,
         contentKey: _contentKey,
         pop: false,
-        padding: const EdgeInsets.only(left: 16, right: 8),
         buttonIcon: FontAwesomeIcons.bars,
         onButtonTap: () => DraggableMenu.open(context, const ProfileMenu()),
       ),
