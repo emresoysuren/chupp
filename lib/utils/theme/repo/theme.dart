@@ -1,5 +1,6 @@
 import 'package:chupp/services/local_data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import '../config/app_theme_mode.dart';
 import '../config/app_themes.dart';
@@ -14,7 +15,20 @@ class AppTheme extends ChangeNotifier with WidgetsBindingObserver {
   AppThemeModel get current => _current;
 
   AppThemeMode _mode = AppThemeMode.system;
-  AppThemeMode get mode => _mode;
+
+  AppThemeMode get mode {
+    // Won't return AppThemeMode.system
+    // Because it's not that useful
+    if (_mode == AppThemeMode.system) {
+      return SchedulerBinding.instance.platformDispatcher.platformBrightness ==
+              Brightness.dark
+          ? AppThemeMode.dark
+          : AppThemeMode.light;
+    }
+    return _mode;
+  }
+
+  AppThemeMode get rawMode => _mode;
 
   Future<void> init() async {
     WidgetsBinding.instance.addObserver(this);
@@ -45,17 +59,15 @@ class AppTheme extends ChangeNotifier with WidgetsBindingObserver {
 
   Future<void> changeMode(AppThemeMode mode) async {
     await LocalData.changeTheme(mode);
+    _mode = mode;
     switch (mode) {
       case AppThemeMode.system:
-        _mode = AppThemeMode.system;
         _current = AppThemes.system;
         break;
       case AppThemeMode.light:
-        _mode = AppThemeMode.light;
         _current = AppThemes.light;
         break;
       case AppThemeMode.dark:
-        _mode = AppThemeMode.dark;
         _current = AppThemes.dark;
         break;
     }
