@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:chupp/utils/account_manager.dart';
 import 'package:chupp/utils/router/app_router.gr.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthGuard {
   AuthGuard._();
@@ -12,7 +12,7 @@ class AuthGuard {
 
   static void onNavigation(NavigationResolver resolver, StackRouter router) {
     if (!canAccess.any((page) => page == resolver.route.name)) {
-      if (FirebaseAuth.instance.currentUser == null) {
+      if (!AccountManager.loggedIn) {
         resolver.redirect(
           AuthRoute(
             onLogin: (result) => resolver.next(result),

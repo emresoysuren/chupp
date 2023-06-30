@@ -22,9 +22,11 @@ class AccountManager {
   }
 
   static bool get isAnonymous {
-    if (DataService.loggedIn) {
+    if (loggedIn) {
       return DataService.isAnonymous == true;
     }
     return false;
   }
+
+  static bool get loggedIn => DataService.loggedIn;
 }
