@@ -20,7 +20,7 @@ class MiniProfile extends StatelessWidget {
           context,
           BasicPageRoute(
             start: Start.right,
-            child: const ProfilePage(),
+            child: const ProfilePage.uid(uid: "userUid"),
           ),
         ),
         child: Padding(

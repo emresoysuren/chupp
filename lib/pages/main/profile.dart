@@ -17,7 +17,11 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 @RoutePage()
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
+  final String uid;
+
+  const ProfilePage.uid({super.key, required this.uid});
+
+  ProfilePage({super.key}) : uid = AccountManager.ownerUid!;
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
@@ -27,6 +31,7 @@ class _ProfilePageState extends State<ProfilePage> {
   final ScrollController _controller = ScrollController();
   final PageController _pageController = PageController();
   final GlobalKey _contentKey = GlobalKey();
+  late final bool isOwner = AccountManager.isOwner(widget.uid);
 
   @override
   void dispose() {
@@ -46,16 +51,14 @@ class _ProfilePageState extends State<ProfilePage> {
         comment: 38,
         controller: _controller,
         contentKey: _contentKey,
-        pop: !AccountManager.isOwner("requestedUser"),
+        pop: !isOwner,
         buttonIcon: FontAwesomeIcons.bars,
         onButtonTap: () => DraggableMenu.open(
           context,
-          AccountManager.isOwner("requestedUser")
-              ? const ProfileMenu()
-              : const UserMenu(),
+          isOwner ? const ProfileMenu() : const UserMenu(),
         ),
       ),
-      bottomNavigationBar: !AccountManager.isOwner("requestedUser")
+      bottomNavigationBar: !isOwner
           ? null
           : AppNavBar(
               current: 3,
@@ -72,7 +75,7 @@ class _ProfilePageState extends State<ProfilePage> {
             SliverToBoxAdapter(
               child: ProfileHeader(
                 key: _contentKey,
-                isOwner: AccountManager.isOwner("requestedUser"),
+                isOwner: isOwner,
                 title: "username",
                 follower: 2100,
                 ink: 216,

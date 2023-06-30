@@ -30,5 +30,7 @@ class AccountManager {
 
   static bool get loggedIn => DataService.loggedIn;
 
-  static bool isOwner(String uid) => DataService.uid == uid;
+  static bool isOwner(String uid) => ownerUid == uid;
+
+  static String? get ownerUid => DataService.uid;
 }

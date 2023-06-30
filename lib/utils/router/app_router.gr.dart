@@ -49,9 +49,11 @@ abstract class $AppRouter extends _i9.RootStackRouter {
       );
     },
     ProfileRoute.name: (routeData) {
+      final args = routeData.argsAs<ProfileRouteArgs>(
+          orElse: () => const ProfileRouteArgs());
       return _i9.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i5.ProfilePage(),
+        child: _i5.ProfilePage(key: args.key),
       );
     },
     SearchRoute.name: (routeData) {
@@ -138,16 +140,31 @@ class LikedPostsRoute extends _i9.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i5.ProfilePage]
-class ProfileRoute extends _i9.PageRouteInfo<void> {
-  const ProfileRoute({List<_i9.PageRouteInfo>? children})
-      : super(
+class ProfileRoute extends _i9.PageRouteInfo<ProfileRouteArgs> {
+  ProfileRoute({
+    _i10.Key? key,
+    List<_i9.PageRouteInfo>? children,
+  }) : super(
           ProfileRoute.name,
+          args: ProfileRouteArgs(key: key),
           initialChildren: children,
         );
 
   static const String name = 'ProfileRoute';
 
-  static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
+  static const _i9.PageInfo<ProfileRouteArgs> page =
+      _i9.PageInfo<ProfileRouteArgs>(name);
+}
+
+class ProfileRouteArgs {
+  const ProfileRouteArgs({this.key});
+
+  final _i10.Key? key;
+
+  @override
+  String toString() {
+    return 'ProfileRouteArgs{key: $key}';
+  }
 }
 
 /// generated route for

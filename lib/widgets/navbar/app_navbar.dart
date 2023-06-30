@@ -50,7 +50,7 @@ class AppNavBar extends StatelessWidget {
             icon: const FaIcon(FontAwesomeIcons.solidCircleUser).icon,
             size: 26,
             active: current == 3,
-            passiveTap: () => router.open(const ProfileRoute()),
+            passiveTap: () => router.open(ProfileRoute()),
             activeTap: activeTap,
           ),
         ],
