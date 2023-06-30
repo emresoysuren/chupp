@@ -18,7 +18,7 @@ class CommentButton extends StatelessWidget {
     return SinglePlainTextButton(
       icon: const FaIcon(FontAwesomeIcons.solidMessage).icon,
       iconSize: 16,
-      label: UiManager.numFormat(amount),
+      label: AppManager.numFormat(amount),
       onPressed: onPressed ?? () {},
     );
   }

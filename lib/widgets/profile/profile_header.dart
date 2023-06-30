@@ -61,7 +61,7 @@ class ProfileHeader extends StatelessWidget {
                         ),
                         const SizedBox(width: 4),
                         Text(
-                          UiManager.numFormat(follower),
+                          AppManager.numFormat(follower),
                           style: context.styles.text,
                         ),
                         const SizedBox(width: 16),
@@ -72,7 +72,7 @@ class ProfileHeader extends StatelessWidget {
                         ),
                         const SizedBox(width: 4),
                         Text(
-                          UiManager.numFormat(ink),
+                          AppManager.numFormat(ink),
                           style: context.styles.text,
                         ),
                         const SizedBox(width: 16),
@@ -83,7 +83,7 @@ class ProfileHeader extends StatelessWidget {
                         ),
                         const SizedBox(width: 4),
                         Text(
-                          UiManager.numFormat(comment),
+                          AppManager.numFormat(comment),
                           style: context.styles.text,
                         ),
                       ],

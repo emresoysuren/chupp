@@ -19,7 +19,7 @@ class InkButton extends StatelessWidget {
       icon: const FaIcon(FontAwesomeIcons.droplet).icon,
       iconSize: 16,
       gap: 4,
-      label: UiManager.numFormat(amount),
+      label: AppManager.numFormat(amount),
       onPressed: onPressed ?? () {},
     );
   }

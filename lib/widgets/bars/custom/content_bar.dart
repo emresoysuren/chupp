@@ -53,7 +53,7 @@ class ContentBar extends StatelessWidget implements PreferredSizeWidget {
         ),
         const SizedBox(width: 4),
         Text(
-          UiManager.numFormat(follower),
+          AppManager.numFormat(follower),
           style: context.styles.text,
         ),
       ]);
@@ -68,7 +68,7 @@ class ContentBar extends StatelessWidget implements PreferredSizeWidget {
         ),
         const SizedBox(width: 4),
         Text(
-          UiManager.numFormat(ink),
+          AppManager.numFormat(ink),
           style: context.styles.text,
         ),
       ]);
@@ -83,7 +83,7 @@ class ContentBar extends StatelessWidget implements PreferredSizeWidget {
         ),
         const SizedBox(width: 4),
         Text(
-          UiManager.numFormat(comment),
+          AppManager.numFormat(comment),
           style: context.styles.text,
         ),
       ]);
@@ -98,7 +98,7 @@ class ContentBar extends StatelessWidget implements PreferredSizeWidget {
         ),
         const SizedBox(width: 4),
         Text(
-          UiManager.numFormat(like),
+          AppManager.numFormat(like),
           style: context.styles.text,
         ),
       ]);

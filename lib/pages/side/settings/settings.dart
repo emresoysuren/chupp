@@ -1,5 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:chupp/config/texts.dart';
+import 'package:chupp/pages/side/settings/account.dart';
+import 'package:chupp/pages/side/settings/faq.dart';
+import 'package:chupp/pages/side/settings/help.dart';
+import 'package:chupp/pages/side/settings/report.dart';
+import 'package:chupp/pages/side/settings/theme.dart';
+import 'package:chupp/routes/basic.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/bars/custom/title_bar.dart';
 import 'package:chupp/widgets/buttons/list_button.dart';
@@ -24,28 +30,43 @@ class SettingsPage extends StatelessWidget {
         children: [
           ListButton(
             icon: FontAwesomeIcons.solidMoon,
-            title: Texts.theme,
-            onTap: () {},
+            title: Texts.settingsTheme,
+            onTap: () => Navigator.push(
+              context,
+              BasicPageRoute(start: Start.right, child: const ThemePage()),
+            ),
           ),
           ListButton(
             icon: FontAwesomeIcons.solidCircleQuestion,
-            title: Texts.faq,
-            onTap: () {},
+            title: Texts.settingsFaq,
+            onTap: () => Navigator.push(
+              context,
+              BasicPageRoute(start: Start.right, child: const FaqPage()),
+            ),
           ),
           ListButton(
             icon: FontAwesomeIcons.solidUser,
-            title: Texts.account,
-            onTap: () {},
+            title: Texts.settingsAccount,
+            onTap: () => Navigator.push(
+              context,
+              BasicPageRoute(start: Start.right, child: const AccountPage()),
+            ),
           ),
           ListButton(
             icon: FontAwesomeIcons.headset,
-            title: Texts.help,
-            onTap: () {},
+            title: Texts.settingsHelp,
+            onTap: () => Navigator.push(
+              context,
+              BasicPageRoute(start: Start.right, child: const HelpPage()),
+            ),
           ),
           ListButton(
             icon: FontAwesomeIcons.solidFlag,
-            title: Texts.report,
-            onTap: () {},
+            title: Texts.settingsReport,
+            onTap: () => Navigator.push(
+              context,
+              BasicPageRoute(start: Start.right, child: const ReportPage()),
+            ),
           ),
         ],
       )),

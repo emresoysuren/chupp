@@ -43,7 +43,7 @@ class HashtagHeader extends StatelessWidget {
                 ),
                 const SizedBox(width: 4),
                 Text(
-                  UiManager.numFormat(ink),
+                  AppManager.numFormat(ink),
                   style: context.styles.text,
                 ),
                 const SizedBox(width: 16),
@@ -54,7 +54,7 @@ class HashtagHeader extends StatelessWidget {
                 ),
                 const SizedBox(width: 4),
                 Text(
-                  UiManager.numFormat(comment),
+                  AppManager.numFormat(comment),
                   style: context.styles.text,
                 ),
                 const SizedBox(width: 16),
@@ -65,7 +65,7 @@ class HashtagHeader extends StatelessWidget {
                 ),
                 const SizedBox(width: 4),
                 Text(
-                  UiManager.numFormat(like),
+                  AppManager.numFormat(like),
                   style: context.styles.text,
                 ),
               ],

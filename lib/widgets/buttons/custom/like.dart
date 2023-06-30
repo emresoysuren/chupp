@@ -18,7 +18,7 @@ class LikeButton extends StatelessWidget {
     return SinglePlainTextButton(
       icon: const FaIcon(FontAwesomeIcons.solidHeart).icon,
       iconSize: 18,
-      label: UiManager.numFormat(amount),
+      label: AppManager.numFormat(amount),
       gap: 4,
       onPressed: onPressed ?? () {},
     );

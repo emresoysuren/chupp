@@ -35,7 +35,7 @@ class AuthPage extends StatelessWidget {
   }
 
   Future<void> signInAnonymously(BuildContext context) async {
-    await UiManager.animateAndLoad(
+    await AppManager.animateAndLoad(
       context,
       () => DataService.signInAnonymously(),
     );

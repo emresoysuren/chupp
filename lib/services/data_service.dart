@@ -11,4 +11,8 @@ class DataService {
 
   static Stream<User?> get authStateChanges =>
       FirebaseAuth.instance.authStateChanges();
+
+  static Future<void> signOut() async {
+    await FirebaseAuth.instance.signOut();
+  }
 }

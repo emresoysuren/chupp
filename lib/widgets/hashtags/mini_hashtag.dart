@@ -32,7 +32,7 @@ class MiniHashtag extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "${Texts.hashtagHeaderPrefix} ${UiManager.numFormat(34000)} ${Texts.hashtagHeaderSuffix}",
+                "${Texts.hashtagHeaderPrefix} ${AppManager.numFormat(34000)} ${Texts.hashtagHeaderSuffix}",
                 style: context.styles.mutted,
               ),
               const SizedBox(height: 4),
@@ -50,7 +50,7 @@ class MiniHashtag extends StatelessWidget {
                   ),
                   const SizedBox(width: 4),
                   Text(
-                    UiManager.numFormat(1600),
+                    AppManager.numFormat(1600),
                     style: context.styles.mutted,
                   ),
                   const SizedBox(width: 16),
@@ -61,7 +61,7 @@ class MiniHashtag extends StatelessWidget {
                   ),
                   const SizedBox(width: 4),
                   Text(
-                    UiManager.numFormat(4600),
+                    AppManager.numFormat(4600),
                     style: context.styles.mutted,
                   ),
                   const SizedBox(width: 16),
@@ -72,7 +72,7 @@ class MiniHashtag extends StatelessWidget {
                   ),
                   const SizedBox(width: 4),
                   Text(
-                    UiManager.numFormat(308),
+                    AppManager.numFormat(308),
                     style: context.styles.mutted,
                   ),
                 ],

@@ -60,12 +60,12 @@ class MiniProfile extends StatelessWidget {
                       ),
                       const SizedBox(width: 4),
                       Text(
-                        UiManager.numFormat(4600),
+                        AppManager.numFormat(4600),
                         style: context.styles.mutted,
                       ),
                       const SizedBox(width: 16),
                       Text(
-                        "${UiManager.numFormat(12)} ${Texts.createdPostsSuffix}",
+                        "${AppManager.numFormat(12)} ${Texts.createdPostsSuffix}",
                         style: context.styles.mutted,
                       ),
                     ],

@@ -5,8 +5,8 @@ import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class UiManager {
-  UiManager._();
+class AppManager {
+  AppManager._();
 
   static Future animateAndLoad(BuildContext context, Future Function() run) =>
       Navigator.push(

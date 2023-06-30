@@ -10,6 +10,13 @@ class Texts {
   static const String sectionSeeMore = "See more";
   static const String createdPostsSuffix = "posts";
 
+  // Account
+  static const String signOut = "Sign Out";
+  static const String signOutDialogue =
+      "Do you want to continue signing out from your account?";
+  static const String signOutCardContinue = "Continue";
+  static const String signOutCardCancel = "Cancel";
+
   // Post Content
   static const String postOpinionsTitle = "Opinions:";
   static const String opinionCommentsTitle = "Comments:";
@@ -65,9 +72,9 @@ class Texts {
 
   // Settings
   static const String settings = "Settings";
-  static const String theme = "Theme";
-  static const String faq = "FAQ";
-  static const String account = "Account";
-  static const String help = "Help";
-  static const String report = "Report";
+  static const String settingsReport = "Report";
+  static const String settingsTheme = "Theme";
+  static const String settingsHelp = "Help";
+  static const String settingsFaq = "FAQ";
+  static const String settingsAccount = "Account";
 }
