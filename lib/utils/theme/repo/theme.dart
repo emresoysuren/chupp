@@ -11,8 +11,10 @@ class AppTheme extends ChangeNotifier with WidgetsBindingObserver {
   AppTheme._();
 
   AppThemeModel _current = AppThemes.system;
-
   AppThemeModel get current => _current;
+
+  AppThemeMode _mode = AppThemeMode.system;
+  AppThemeMode get mode => _mode;
 
   Future<void> init() async {
     WidgetsBinding.instance.addObserver(this);
@@ -45,12 +47,15 @@ class AppTheme extends ChangeNotifier with WidgetsBindingObserver {
     await LocalData.changeTheme(mode);
     switch (mode) {
       case AppThemeMode.system:
+        _mode = AppThemeMode.system;
         _current = AppThemes.system;
         break;
       case AppThemeMode.light:
+        _mode = AppThemeMode.light;
         _current = AppThemes.light;
         break;
       case AppThemeMode.dark:
+        _mode = AppThemeMode.dark;
         _current = AppThemes.dark;
         break;
     }

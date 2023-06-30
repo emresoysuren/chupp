@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:chupp/config/color_palette.dart';
 import 'package:chupp/utils/router/app_router.gr.dart';
 import 'package:chupp/utils/router/guards/auth_state_notifier.dart';
+import 'package:chupp/utils/theme/config/app_theme_mode.dart';
 import 'package:chupp/utils/theme/repo/theme.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/firebase_options.dart';
@@ -32,7 +32,7 @@ class _SplashPageState extends State<SplashPage> {
 
   Duration get _minWaittingDuration => const Duration(seconds: 3);
 
-  String get riveAnimation => theme.current.splashItem == ColorPalette.white
+  String get riveAnimation => context.theme.mode == AppThemeMode.light
       ? "assets/chupp.riv"
       : "assets/chupp-blue.riv";
 
