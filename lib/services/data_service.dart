@@ -15,4 +15,9 @@ class DataService {
   static Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
   }
+
+  static bool? get isAnonymous =>
+      FirebaseAuth.instance.currentUser?.isAnonymous;
+
+  static bool get loggedIn => FirebaseAuth.instance.currentUser != null;
 }

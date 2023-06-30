@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:chupp/config/texts.dart';
-import 'package:chupp/utils/account.dart';
+import 'package:chupp/utils/account_manager.dart';
 import 'package:chupp/utils/router/app_router.gr.dart';
 import 'package:chupp/utils/router/extensions.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
@@ -35,13 +35,14 @@ class ProfileMenu extends StatelessWidget {
             color: context.theme.current.text,
             onTap: () {},
           ),
-          ListButton(
-            title: Texts.signOut,
-            icon: FontAwesomeIcons.rightFromBracket,
-            iconSize: 20,
-            color: context.theme.current.important,
-            onTap: () => AccountManager.signOut(context),
-          ),
+          if (!AccountManager.isAnonymous)
+            ListButton(
+              title: Texts.signOut,
+              icon: FontAwesomeIcons.rightFromBracket,
+              iconSize: 20,
+              color: context.theme.current.important,
+              onTap: () => AccountManager.signOut(context),
+            ),
         ],
       ),
     );

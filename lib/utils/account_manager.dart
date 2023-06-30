@@ -8,6 +8,7 @@ class AccountManager {
   AccountManager._();
 
   static Future<void> signOut(BuildContext context) async {
+    if (isAnonymous) return;
     final bool? result = await Navigator.push<bool>(
       context,
       CardRoute(
@@ -18,5 +19,12 @@ class AccountManager {
     if (context.mounted) {
       await AppManager.animateAndLoad(context, () => DataService.signOut());
     }
+  }
+
+  static bool get isAnonymous {
+    if (DataService.loggedIn) {
+      return DataService.isAnonymous == true;
+    }
+    return false;
   }
 }
