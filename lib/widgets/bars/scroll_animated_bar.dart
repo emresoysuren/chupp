@@ -1,28 +1,33 @@
 import 'dart:math';
-import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/bars/bar.dart';
 import 'package:flutter/material.dart';
 
 class ScrollAnimatedBar extends StatefulWidget implements PreferredSizeWidget {
   final ScrollController? controller;
   final GlobalKey? contentKey;
-  final String? title;
-  final List<Widget>? bottom;
-  final List<Widget>? aside;
+  final List<Widget>? end;
+  final List<Widget>? start;
   final double? offset;
   final bool pop;
   final EdgeInsets? padding;
+  final bool popXmark;
+  final Widget? child;
+  final Color? backgroundColor;
+  final Color? popColor;
 
   const ScrollAnimatedBar({
     super.key,
     this.controller,
     this.contentKey,
-    this.title,
-    this.bottom,
-    this.aside,
     this.offset,
     this.pop = false,
     this.padding,
+    this.popXmark = false,
+    this.start,
+    this.child,
+    this.end,
+    this.backgroundColor,
+    this.popColor,
   });
 
   @override
@@ -72,35 +77,24 @@ class _ScrollAnimatedBarState extends State<ScrollAnimatedBar> {
   Widget build(BuildContext context) {
     return Bar(
       // key: _barKey,
+      backgroundColor: widget.backgroundColor,
       pop: widget.pop,
+      popXmark: widget.popXmark,
+      popColor: widget.popColor,
       padding: widget.padding,
       child: Row(
         children: [
+          ...?widget.start,
           Expanded(
             child: ClipRect(
               child: AnimatedSlide(
                 offset: Offset(0, 1 - offset),
                 duration: Duration.zero,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    if (widget.title != null)
-                      Text(
-                        widget.title!,
-                        style: context.styles.title3,
-                        overflow: TextOverflow.fade,
-                        softWrap: false,
-                        maxLines: 1,
-                      ),
-                    if (widget.bottom != null) const SizedBox(height: 4),
-                    if (widget.bottom != null) Row(children: widget.bottom!),
-                  ],
-                ),
+                child: widget.child,
               ),
             ),
           ),
-          ...?widget.aside
+          ...?widget.end
         ],
       ),
     );

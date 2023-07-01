@@ -71,6 +71,11 @@ class Texts {
   static const String profileMenuShare = "Share";
   static const String opinonOn = "On";
 
+  // Edit Profile
+  static const String editProfileSaveChanges = "Save Changes";
+  static const String editProfileUsernameHint = "Enter a username";
+  static const String editProfileAboutHint = "Tell us about yourself";
+
   // User
   static const String userMenuShare = "Share";
   static const String userFollow = "Follow";

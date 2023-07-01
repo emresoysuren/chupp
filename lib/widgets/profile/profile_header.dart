@@ -1,4 +1,6 @@
 import 'package:chupp/config/texts.dart';
+import 'package:chupp/pages/side/profile/edit_profile.dart';
+import 'package:chupp/routes/basic.dart';
 import 'package:chupp/utils/ui_manager.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/custom/mini_button.dart';
@@ -104,7 +106,13 @@ class ProfileHeader extends StatelessWidget {
               child: isOwner
                   ? MiniButton(
                       label: Texts.profileEditProfile,
-                      onPressed: () {},
+                      onPressed: () => Navigator.push(
+                        context,
+                        BasicPageRoute(
+                          start: Start.bottom,
+                          child: const EditProfilePage(),
+                        ),
+                      ),
                     )
                   : MiniButton(
                       label: Texts.userFollow,

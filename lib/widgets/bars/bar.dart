@@ -7,6 +7,8 @@ class Bar extends StatelessWidget implements PreferredSizeWidget {
   final bool pop;
   final bool popXmark;
   final EdgeInsets? padding;
+  final Color? backgroundColor;
+  final Color? popColor;
 
   const Bar({
     super.key,
@@ -14,12 +16,14 @@ class Bar extends StatelessWidget implements PreferredSizeWidget {
     this.pop = false,
     this.popXmark = false,
     this.padding,
+    this.backgroundColor,
+    this.popColor,
   });
 
   @override
   Widget build(BuildContext context) {
     return ColoredBox(
-      color: context.theme.current.primaryBg,
+      color: backgroundColor ?? context.theme.current.primaryBg,
       child: SafeArea(
         child: Padding(
           padding: padding ??
@@ -32,6 +36,7 @@ class Bar extends StatelessWidget implements PreferredSizeWidget {
                 if (pop)
                   PopButton(
                     xmark: popXmark,
+                    color: popColor,
                   ),
                 if (child != null) Expanded(child: child!),
               ],
