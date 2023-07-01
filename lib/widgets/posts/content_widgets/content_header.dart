@@ -1,5 +1,6 @@
 import 'package:chupp/config/texts.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
+import 'package:chupp/widgets/profile/profile_photo.dart';
 import 'package:flutter/material.dart';
 
 class ContentHeader extends StatelessWidget {
@@ -22,13 +23,9 @@ class ContentHeader extends StatelessWidget {
       children: [
         Row(
           children: [
-            Container(
-              height: 36,
-              width: 36,
-              decoration: const BoxDecoration(
-                color: Colors.yellow,
-                shape: BoxShape.circle,
-              ),
+            const ProfilePhoto(
+              radius: 18,
+              image: NetworkImage("https://picsum.photos/1920/1080"),
             ),
             const SizedBox(width: 16),
             Column(

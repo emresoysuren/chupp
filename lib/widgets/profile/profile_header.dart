@@ -5,6 +5,7 @@ import 'package:chupp/utils/ui_manager.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/button.dart';
 import 'package:chupp/widgets/expandable_text.dart';
+import 'package:chupp/widgets/profile/profile_photo.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -35,13 +36,9 @@ class ProfileHeader extends StatelessWidget {
           children: [
             Row(
               children: [
-                Container(
-                  height: 64,
-                  width: 64,
-                  decoration: const BoxDecoration(
-                    color: Colors.yellow,
-                    shape: BoxShape.circle,
-                  ),
+                const ProfilePhoto(
+                  radius: 32,
+                  image: NetworkImage("https://picsum.photos/1920/1080"),
                 ),
                 const SizedBox(width: 16),
                 Column(

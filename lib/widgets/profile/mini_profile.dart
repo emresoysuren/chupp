@@ -3,6 +3,7 @@ import 'package:chupp/pages/main/profile.dart';
 import 'package:chupp/routes/basic.dart';
 import 'package:chupp/utils/ui_manager.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
+import 'package:chupp/widgets/profile/profile_photo.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -30,13 +31,9 @@ class MiniProfile extends StatelessWidget {
           ),
           child: Row(
             children: [
-              Container(
-                height: 48,
-                width: 48,
-                decoration: const BoxDecoration(
-                  color: Colors.yellow,
-                  shape: BoxShape.circle,
-                ),
+              const ProfilePhoto(
+                radius: 24,
+                image: NetworkImage("https://picsum.photos/1920/1080"),
               ),
               const SizedBox(width: 16),
               Column(

@@ -5,6 +5,7 @@ import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/bars/scroll_animated_bar.dart';
 import 'package:chupp/widgets/buttons/button.dart';
 import 'package:chupp/widgets/disable_scroll_behavior.dart';
+import 'package:chupp/widgets/profile/edit_profile_photo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -77,13 +78,11 @@ class _EditProfilePageState extends State<EditProfilePage> {
                         child: Padding(
                           padding: const EdgeInsets.only(top: 64, bottom: 48),
                           child: Center(
-                            child: Container(
+                            child: EditProfilePhoto(
                               key: _photoKey,
-                              height: 128,
-                              width: 128,
-                              decoration: const BoxDecoration(
-                                color: Colors.yellow,
-                                shape: BoxShape.circle,
+                              radius: 64,
+                              image: const NetworkImage(
+                                "https://picsum.photos/1920/1080",
                               ),
                             ),
                           ),
