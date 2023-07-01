@@ -21,43 +21,38 @@ class SearchHistoryContent extends StatelessWidget {
     //   return const SearchEmptyContent();
     // }
     return DisableScrollBehavior(
-      child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      Texts.searchContentHistory,
-                      style: context.styles.title2,
-                    ),
-                    SingleButton(
-                      onPressed: () {},
-                      child: FaIcon(
-                        FontAwesomeIcons.solidTrashCan,
-                        size: 18,
-                        color: context.theme.current.secondaryItem,
-                      ),
-                    ),
-                  ],
+      child: ListView(
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  Texts.searchContentHistory,
+                  style: context.styles.title2,
                 ),
-              ),
-              const SizedBox(height: 8),
-              for (int i = 0; i < 7; i++)
-                ListButton(
-                  icon: const FaIcon(FontAwesomeIcons.clockRotateLeft).icon,
-                  title: "title $i",
-                  onTap: () => search?.call("title $i"),
+                SingleButton(
+                  onPressed: () {},
+                  child: FaIcon(
+                    FontAwesomeIcons.solidTrashCan,
+                    size: 18,
+                    color: context.theme.current.secondaryItem,
+                  ),
                 ),
-            ],
+              ],
+            ),
           ),
-        ),
+          const SizedBox(height: 8),
+          for (int i = 0; i < 7; i++)
+            ListButton(
+              icon: const FaIcon(FontAwesomeIcons.clockRotateLeft).icon,
+              title: "title $i",
+              onTap: () => search?.call("title $i"),
+            ),
+        ],
       ),
     );
   }

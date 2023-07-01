@@ -44,25 +44,23 @@ class _SearchPageState extends State<SearchPage> {
         ),
       ),
       body: DisableScrollBehavior(
-        child: SingleChildScrollView(
+        child: ListView(
           controller: _controller,
-          child: Column(
-            children: [
-              Section(
-                title: Texts.trending,
-                titleGap: 8,
-                itemCount: 3,
-                itemBuilder: (context, index) => const MiniHashtag(),
-              ),
-              Section(
-                title: Texts.popularPosts,
-                bottomLine: false,
-                titleGap: 0,
-                itemCount: 3,
-                itemBuilder: (context, index) => const MiniPost(),
-              ),
-            ],
-          ),
+          children: [
+            Section(
+              title: Texts.trending,
+              titleGap: 8,
+              itemCount: 3,
+              itemBuilder: (context, index) => const MiniHashtag(),
+            ),
+            Section(
+              title: Texts.popularPosts,
+              bottomLine: false,
+              titleGap: 0,
+              itemCount: 3,
+              itemBuilder: (context, index) => const MiniPost(),
+            ),
+          ],
         ),
       ),
       bottomNavigationBar: AppNavBar(

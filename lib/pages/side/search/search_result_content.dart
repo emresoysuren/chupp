@@ -12,27 +12,25 @@ class SearchResultContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DisableScrollBehavior(
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            Section(
-              title: Texts.searchResultHashtags,
-              itemCount: 3,
-              itemBuilder: (context, index) => const MiniHashtag(),
-            ),
-            Section(
-              title: Texts.searchResultPeople,
-              itemCount: 3,
-              itemBuilder: (context, index) => const MiniProfile(),
-            ),
-            Section(
-              title: Texts.searchResultPosts,
-              bottomLine: false,
-              itemCount: 3,
-              itemBuilder: (context, index) => const MiniPost(),
-            ),
-          ],
-        ),
+      child: ListView(
+        children: [
+          Section(
+            title: Texts.searchResultHashtags,
+            itemCount: 3,
+            itemBuilder: (context, index) => const MiniHashtag(),
+          ),
+          Section(
+            title: Texts.searchResultPeople,
+            itemCount: 3,
+            itemBuilder: (context, index) => const MiniProfile(),
+          ),
+          Section(
+            title: Texts.searchResultPosts,
+            bottomLine: false,
+            itemCount: 3,
+            itemBuilder: (context, index) => const MiniPost(),
+          ),
+        ],
       ),
     );
   }

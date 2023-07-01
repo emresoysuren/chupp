@@ -41,7 +41,7 @@ class _SearchQueryPageState extends State<SearchQueryPage> {
         ),
       ),
       body: Builder(builder: (context) {
-        if (_controller.text.isNotEmpty) {
+        if (_controller.text.isNotEmpty && !_focusNode.hasFocus) {
           return const SearchResultContent();
         }
         return SearchHistoryContent(
