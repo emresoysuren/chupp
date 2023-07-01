@@ -24,6 +24,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
   @override
   void didChangeDependencies() {
+    // To listen to the MediaQuery
+    MediaQuery.of(context);
+    // To be able to dispose it later
     theme = context.theme;
     SystemChrome.setSystemUIOverlayStyle(
       // Sets the System UI Overlay to static value
@@ -46,6 +49,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: context.theme.current.primaryBg,
+      // resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           DisableScrollBehavior(
@@ -89,7 +93,10 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 32, 16, 64),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 32,
+                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
