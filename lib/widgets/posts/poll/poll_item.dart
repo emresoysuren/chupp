@@ -1,4 +1,5 @@
 import 'package:chupp/config/color_palette.dart';
+import 'package:chupp/utils/ui_manager.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:flutter/material.dart';
 
@@ -88,7 +89,7 @@ class _PollItemState extends State<PollItem> {
             padding: _padding,
             child: Center(
               child: Text(
-                widget.vote.toString(),
+                AppManager.numFormat(widget.vote),
                 maxLines: 1,
                 style:
                     context.styles.button.copyWith(color: ColorPalette.white),
