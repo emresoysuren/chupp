@@ -1,70 +1,34 @@
 import 'package:chupp/utils/utils/context_extension.dart';
+import 'package:chupp/widgets/buttons/single_plain_text_button.dart';
 import 'package:flutter/material.dart';
 
 class Button extends StatelessWidget {
   final String label;
-  final void Function()? onPressed;
-  final bool? secondary;
+  final Color? backgroundColor;
   final Color? color;
-  final Color? passiveColor;
-  final Color? labelColor;
-  final double? elevation;
-  final Alignment? alignment;
-  final TextStyle? labelStyle;
+  final EdgeInsets? padding;
+  final Function()? onPressed;
+  final bool large;
 
   const Button({
     super.key,
     required this.label,
-    this.onPressed,
-    this.secondary,
+    this.backgroundColor,
     this.color,
-    this.passiveColor,
-    this.labelColor,
-    this.elevation,
-    this.labelStyle,
-    this.alignment,
+    this.padding,
+    this.onPressed,
+    this.large = false,
   });
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
+    return SinglePlainTextButton(
+      label: label,
+      backgroundColor: backgroundColor ?? context.theme.current.primaryItem,
+      color: color ?? context.theme.current.itemText,
+      padding: padding ??
+          EdgeInsets.symmetric(horizontal: 16, vertical: large ? 16 : 8),
       onPressed: onPressed,
-      style: ButtonStyle(
-        elevation: MaterialStatePropertyAll(elevation),
-        enableFeedback: false,
-        backgroundColor: MaterialStatePropertyAll(
-          secondary == true
-              ? Colors.transparent
-              : onPressed == null
-                  // Default Passive Color will be added later
-                  ? passiveColor ?? color ?? context.theme.current.primaryBtn
-                  : color ?? context.theme.current.primaryBtn,
-        ),
-        alignment: alignment,
-        shape: MaterialStatePropertyAll(
-          secondary != true
-              ? const StadiumBorder()
-              : StadiumBorder(
-                  side: BorderSide(
-                    color: onPressed == null
-                        // Default Passive Color will be added later
-                        ? passiveColor ??
-                            color ??
-                            context.theme.current.primaryItem
-                        : color ?? context.theme.current.primaryItem,
-                    width: 2,
-                  ),
-                ),
-        ),
-        padding: const MaterialStatePropertyAll(EdgeInsets.all(16)),
-      ),
-      child: Text(
-        label,
-        style: labelStyle ??
-            (secondary != true
-                ? context.styles.button
-                : context.styles.textImp),
-      ),
     );
   }
 }

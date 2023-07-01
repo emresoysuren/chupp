@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:chupp/config/color_palette.dart';
 import 'package:chupp/config/texts.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
@@ -145,6 +144,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Button(
+            large: true,
             label: Texts.editProfileSaveChanges,
             onPressed: () {},
           ),

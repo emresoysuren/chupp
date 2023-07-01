@@ -22,9 +22,13 @@ class AuthPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Button(label: "Log In or Sign Up"),
+            const Button(
+              large: true,
+              label: "Log In or Sign Up",
+            ),
             const SizedBox(height: 16),
             Button(
+              large: true,
               label: "Continue without Loging In",
               onPressed: () => signInAnonymously(context),
             ),

@@ -3,7 +3,7 @@ import 'package:chupp/pages/side/profile/edit_profile.dart';
 import 'package:chupp/routes/basic.dart';
 import 'package:chupp/utils/ui_manager.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
-import 'package:chupp/widgets/buttons/custom/mini_button.dart';
+import 'package:chupp/widgets/buttons/button.dart';
 import 'package:chupp/widgets/expandable_text.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -104,7 +104,7 @@ class ProfileHeader extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: isOwner
-                  ? MiniButton(
+                  ? Button(
                       label: Texts.profileEditProfile,
                       onPressed: () => Navigator.push(
                         context,
@@ -114,7 +114,7 @@ class ProfileHeader extends StatelessWidget {
                         ),
                       ),
                     )
-                  : MiniButton(
+                  : Button(
                       label: Texts.userFollow,
                       onPressed: () {},
                     ),
