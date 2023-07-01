@@ -36,11 +36,16 @@ class _EditProfilePageState extends State<EditProfilePage> {
                         fit: BoxFit.cover,
                       ),
                     ),
+                    Positioned.fill(
+                      child: ColoredBox(
+                        color: ColorPalette.black.withOpacity(0.36),
+                      ),
+                    ),
                     BackdropFilter(
                       filter: ImageFilter.blur(sigmaX: 16, sigmaY: 16),
                       child: SafeArea(
                         child: Padding(
-                          padding: const EdgeInsets.only(top: 64, bottom: 32),
+                          padding: const EdgeInsets.only(top: 64, bottom: 48),
                           child: Center(
                             child: Container(
                               key: _photoKey,
@@ -58,8 +63,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   ],
                 ),
                 Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
+                  padding: const EdgeInsets.fromLTRB(16, 32, 16, 64),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
