@@ -25,8 +25,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
   String username = "";
   PickerResult? image;
 
-  get _profilePhoto {
-    if (image == null) {
+  ImageProvider? get _profilePhoto {
+    if (image == null || image?.reset == true) {
       return const NetworkImage("https://picsum.photos/1920/1080");
     } else {
       if (image!.bytes == null) {
@@ -116,7 +116,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Username",
+                        Texts.editProfileUsername,
                         style: context.styles.title3,
                       ),
                       TextFormField(
@@ -135,7 +135,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       ),
                       const SizedBox(height: 16),
                       Text(
-                        "About",
+                        Texts.editProfileAbout,
                         style: context.styles.title3,
                       ),
                       TextFormField(

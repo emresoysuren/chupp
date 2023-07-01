@@ -56,9 +56,13 @@ class _EditProfilePhotoState extends State<EditProfilePhoto> {
   }
 
   void change(PickerResult pickerResult) {
-    final Uint8List? bytes = pickerResult.bytes;
-    final newImage = bytes == null ? null : MemoryImage(bytes);
-    setState(() => image = newImage);
+    if (pickerResult.reset) {
+      image = widget.image;
+    } else {
+      final Uint8List? bytes = pickerResult.bytes;
+      final newImage = bytes == null ? null : MemoryImage(bytes);
+      setState(() => image = newImage);
+    }
     widget.onChanged?.call(pickerResult);
   }
 }

@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import 'package:chupp/config/texts.dart';
 import 'package:chupp/models/picker_result.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/list_button.dart';
@@ -14,6 +15,9 @@ class EditProfilePhotoMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DraggableMenu(
+      ui: ClassicDraggableMenu(
+        color: context.theme.current.secondaryBg,
+      ),
       allowToShrink: true,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -21,24 +25,31 @@ class EditProfilePhotoMenu extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Text(
-              "Choose a Photo",
+              Texts.editProfilePhotoMenuTitle,
               style: context.styles.title3,
             ),
           ),
           const SizedBox(height: 4),
           ListButton(
             icon: FontAwesomeIcons.solidImages,
-            title: "Gallery",
+            title: Texts.editProfilePhotoMenuGallery,
             onTap: () => pick(context, ImageSource.gallery),
           ),
           ListButton(
             icon: FontAwesomeIcons.camera,
-            title: "Camera",
+            title: Texts.editProfilePhotoMenuCamera,
             onTap: () => pick(context, ImageSource.camera),
           ),
           ListButton(
+            icon: FontAwesomeIcons.arrowRotateLeft,
+            title: Texts.editProfilePhotoMenuReset,
+            color: context.theme.current.notice,
+            onTap: () =>
+                Navigator.pop<PickerResult>(context, PickerResult(reset: true)),
+          ),
+          ListButton(
             icon: FontAwesomeIcons.solidTrashCan,
-            title: "Delete the photo",
+            title: Texts.editProfilePhotoMenuDelete,
             color: context.theme.current.important,
             onTap: () => Navigator.pop<PickerResult>(context, PickerResult()),
           ),

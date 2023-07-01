@@ -76,6 +76,13 @@ class Texts {
   static const String editProfileSaveChanges = "Save Changes";
   static const String editProfileUsernameHint = "Enter a username";
   static const String editProfileAboutHint = "Tell us about yourself";
+  static const String editProfileUsername = "Username";
+  static const String editProfileAbout = "About";
+  static const String editProfilePhotoMenuTitle = "Choose a Photo";
+  static const String editProfilePhotoMenuGallery = "Gallery";
+  static const String editProfilePhotoMenuCamera = "Camera";
+  static const String editProfilePhotoMenuDelete = "Delete the photo";
+  static const String editProfilePhotoMenuReset = "Reset to old one";
 
   // User
   static const String userMenuShare = "Share";
