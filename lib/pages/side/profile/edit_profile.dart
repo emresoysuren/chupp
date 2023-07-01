@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:chupp/config/texts.dart';
+import 'package:chupp/models/picker_result.dart';
 import 'package:chupp/utils/theme/repo/theme.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/bars/scroll_animated_bar.dart';
@@ -22,6 +23,19 @@ class _EditProfilePageState extends State<EditProfilePage> {
   final ScrollController _controller = ScrollController();
   String about = "";
   String username = "";
+  PickerResult? image;
+
+  get _profilePhoto {
+    if (image == null) {
+      return const NetworkImage("https://picsum.photos/1920/1080");
+    } else {
+      if (image!.bytes == null) {
+        return null;
+      } else {
+        return MemoryImage(image!.bytes!);
+      }
+    }
+  }
 
   @override
   void didChangeDependencies() {
@@ -60,8 +74,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 Stack(
                   children: [
                     Positioned.fill(
-                      child: Image.network(
-                        "https://picsum.photos/1920/1080",
+                      child: Image(
+                        image: _profilePhoto ??
+                            const AssetImage("assets/user-avatar.png"),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -80,6 +95,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             child: EditProfilePhoto(
                               key: _photoKey,
                               radius: 64,
+                              onChanged: (result) =>
+                                  setState(() => image = result),
                               image: const NetworkImage(
                                 "https://picsum.photos/1920/1080",
                               ),
