@@ -50,7 +50,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: context.theme.current.primaryBg,
-      // resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           DisableScrollBehavior(
