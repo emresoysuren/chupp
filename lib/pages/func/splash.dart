@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:chupp/config/color_palette.dart';
 import 'package:chupp/utils/router/app_router.gr.dart';
 import 'package:chupp/utils/router/guards/auth_state_notifier.dart';
 import 'package:chupp/utils/theme/config/app_theme_mode.dart';
@@ -44,9 +45,16 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void didChangeDependencies() {
     theme = context.theme;
+    final SystemUiOverlayStyle style;
+    if (theme.current.splashItem == ColorPalette.white) {
+      style = SystemUiOverlayStyle.light;
+    } else {
+      style = SystemUiOverlayStyle.dark;
+    }
     SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(
+      style.copyWith(
         systemNavigationBarColor: theme.current.splashBg,
+        statusBarColor: Colors.transparent,
       ),
     );
     super.didChangeDependencies();
@@ -54,7 +62,7 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   void dispose() {
-    theme.resetNavColor();
+    theme.resetSystemUiColor();
     super.dispose();
   }
 

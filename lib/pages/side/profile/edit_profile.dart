@@ -1,11 +1,13 @@
 import 'dart:ui';
 import 'package:chupp/config/color_palette.dart';
 import 'package:chupp/config/texts.dart';
+import 'package:chupp/utils/theme/repo/theme.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/bars/scroll_animated_bar.dart';
 import 'package:chupp/widgets/buttons/button.dart';
 import 'package:chupp/widgets/disable_scroll_behavior.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class EditProfilePage extends StatefulWidget {
   const EditProfilePage({super.key});
@@ -15,7 +17,28 @@ class EditProfilePage extends StatefulWidget {
 }
 
 class _EditProfilePageState extends State<EditProfilePage> {
+  late AppTheme theme;
   final GlobalKey _photoKey = GlobalKey();
+
+  @override
+  void didChangeDependencies() {
+    theme = context.theme;
+    SystemChrome.setSystemUIOverlayStyle(
+      // Sets the System UI Overlay to static value
+      // This can be bad for responsive design
+      SystemUiOverlayStyle.light.copyWith(
+        statusBarColor: Colors.transparent,
+        systemNavigationBarColor: theme.current.primaryBg,
+      ),
+    );
+    super.didChangeDependencies();
+  }
+
+  @override
+  void dispose() {
+    theme.resetSystemUiColor();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +96,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       TextFormField(
                         initialValue: "username",
                         style: context.styles.text,
-                        textInputAction: TextInputAction.done,
+                        textInputAction: TextInputAction.next,
                         decoration: InputDecoration(
                           hintText: Texts.editProfileUsernameHint,
                           hintStyle: context.styles.mutted,

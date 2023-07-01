@@ -11,8 +11,14 @@ class AppTheme extends ChangeNotifier with WidgetsBindingObserver {
 
   AppTheme._();
 
+  // Theme Getter | Start
+
   AppThemeModel _current = AppThemes.system;
   AppThemeModel get current => _current;
+
+  // Theme Getter | End
+
+  // Theme Modes | Start
 
   AppThemeMode _mode = AppThemeMode.system;
 
@@ -30,9 +36,12 @@ class AppTheme extends ChangeNotifier with WidgetsBindingObserver {
 
   AppThemeMode get rawMode => _mode;
 
+  // Theme Modes | End
+
+  // Used before the app runs
   Future<void> init() async {
     WidgetsBinding.instance.addObserver(this);
-    await changeMode(await LocalData.getTheme());
+    await changeMode(await LocalData.getTheme(), false);
     notifyListeners();
   }
 
@@ -44,19 +53,33 @@ class AppTheme extends ChangeNotifier with WidgetsBindingObserver {
 
   @override
   didChangePlatformBrightness() async {
-    await changeMode(await LocalData.getTheme());
+    await changeMode(await LocalData.getTheme(), false);
     notifyListeners();
     super.didChangePlatformBrightness();
   }
 
-  void resetNavColor() {
-    SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(systemNavigationBarColor: current.primaryBg),
+  // System UI Overlay | Start
+
+  void resetSystemUiColor() {
+    SystemChrome.setSystemUIOverlayStyle(_defaultSystemUIOverlay);
+  }
+
+  // Has Custom Nav
+  SystemUiOverlayStyle get _defaultSystemUIOverlay {
+    final style =
+        SchedulerBinding.instance.platformDispatcher.platformBrightness ==
+                Brightness.dark
+            ? SystemUiOverlayStyle.light
+            : SystemUiOverlayStyle.dark;
+    return style.copyWith(
+      systemNavigationBarColor: current.primaryBg,
     );
   }
 
-  Future<void> changeMode(AppThemeMode mode) async {
-    await LocalData.changeTheme(mode);
+  // System UI Overlay | End
+
+  Future<void> changeMode(AppThemeMode mode, [changeData = true]) async {
+    if (changeData) await LocalData.changeTheme(mode);
     _mode = mode;
     switch (mode) {
       case AppThemeMode.system:
@@ -69,7 +92,7 @@ class AppTheme extends ChangeNotifier with WidgetsBindingObserver {
         _current = AppThemes.dark;
         break;
     }
-    resetNavColor();
+    resetSystemUiColor();
     notifyListeners();
   }
 }
