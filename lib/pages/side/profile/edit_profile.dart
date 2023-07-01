@@ -1,5 +1,4 @@
 import 'dart:ui';
-import 'package:chupp/config/color_palette.dart';
 import 'package:chupp/config/texts.dart';
 import 'package:chupp/utils/theme/repo/theme.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
@@ -19,6 +18,9 @@ class EditProfilePage extends StatefulWidget {
 class _EditProfilePageState extends State<EditProfilePage> {
   late AppTheme theme;
   final GlobalKey _photoKey = GlobalKey();
+  final ScrollController _controller = ScrollController();
+  String about = "";
+  String username = "";
 
   @override
   void didChangeDependencies() {
@@ -26,9 +28,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
     SystemChrome.setSystemUIOverlayStyle(
       // Sets the System UI Overlay to static value
       // This can be bad for responsive design
-      SystemUiOverlayStyle.light.copyWith(
+      context.theme.defaultSystemUIOverlay.copyWith(
         statusBarColor: Colors.transparent,
-        systemNavigationBarColor: theme.current.primaryBg,
       ),
     );
     super.didChangeDependencies();
@@ -37,6 +38,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
   @override
   void dispose() {
     theme.resetSystemUiColor();
+    _controller.dispose();
     super.dispose();
   }
 
@@ -49,6 +51,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
           DisableScrollBehavior(
             child: ListView(
               padding: const EdgeInsets.all(0),
+              controller: _controller,
               children: [
                 Stack(
                   children: [
@@ -60,7 +63,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     ),
                     Positioned.fill(
                       child: ColoredBox(
-                        color: ColorPalette.black.withOpacity(0.36),
+                        color:
+                            context.theme.current.primaryBg.withOpacity(0.36),
                       ),
                     ),
                     BackdropFilter(
@@ -96,6 +100,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       TextFormField(
                         initialValue: "username",
                         style: context.styles.text,
+                        onChanged: (value) => setState(() => username = value),
                         textInputAction: TextInputAction.next,
                         decoration: InputDecoration(
                           hintText: Texts.editProfileUsernameHint,
@@ -114,6 +119,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       TextFormField(
                         initialValue: "About",
                         style: context.styles.text,
+                        onChanged: (value) => setState(() => about = value),
                         keyboardType: TextInputType.multiline,
                         minLines: 1,
                         maxLines: 4,
@@ -137,27 +143,20 @@ class _EditProfilePageState extends State<EditProfilePage> {
             left: 0,
             right: 0,
             child: ScrollAnimatedBar(
-              backgroundColor: Colors.transparent,
-              popColor: ColorPalette.white,
+              backgroundColor: context.theme.current.primaryBg,
+              backgroundAnimation: true,
+              fixedLenght: 92,
               start: [
                 Text(
-                  "Edit Profile",
-                  style:
-                      context.styles.title2.copyWith(color: ColorPalette.white),
+                  Texts.editProfile,
+                  style: context.styles.title2,
                 ),
                 const Spacer(),
               ],
               contentKey: _photoKey,
+              controller: _controller,
               pop: true,
               popXmark: true,
-              child: Container(
-                height: 36,
-                width: 36,
-                decoration: const BoxDecoration(
-                  color: Colors.yellow,
-                  shape: BoxShape.circle,
-                ),
-              ),
             ),
           ),
         ],

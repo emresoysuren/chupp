@@ -8,7 +8,7 @@
     <a href="">
         <img src="https://img.shields.io/badge/Download the App (.apk)-%23574AE2?style=flat&logo=android">
     </a>
-    <a href="">
+    <a href="https://miro.com/app/board/uXjVM5kBq7E=/">
         <img src="https://img.shields.io/badge/Miro Backlog Board-%23050038?style=flat&logo=miro">
     </a>
 </div>
@@ -21,11 +21,7 @@
 
 
 ## Ekip ve Görev Dağılımları:
-- **Zehra Demirtaş** | Scrum Master, Developer
-- **Emre Soysüren** | Product Owner, Developer
-- **Dursun Kurt** | Developer
-- **Melike Tunç** | Developer
-- **Burak Cerşit** | Developer
+- **Emre Soysüren** | Product Owner, Scrum Master, Developer
 
 
 # Ürün
@@ -95,16 +91,16 @@ Kısaca hangi filmi izleyeceğinize veya hangi bilgisiyarı alacağınıza karar
 # Proje Yönetimi
 
 ## Product Backlog
-[Miro Backlog Board](https://miro.com/app/board/uXjVM9p4DIU=/)
+[Miro Backlog Board](https://miro.com/app/board/uXjVM5kBq7E=/)
 
 ## Toplantı Notları:
-[Toplantı Notları Linki](https://docs.google.com/document/d/17wM8kd4T5dqFnukeRFZhSBDeSGBXV7l3MJZ3LQO2WdE/edit)
+[Toplantı Notları Linki]()
 
 ## Sprintler
 
 ### Sprint 1:
 
-**Sprint Notları:** *Sprint Notlarına [Toplantı Notları Linki](https://docs.google.com/document/d/17wM8kd4T5dqFnukeRFZhSBDeSGBXV7l3MJZ3LQO2WdE/edit)'nden erişilebilir.*
+**Sprint Notları:** *Sprint Notlarına [Toplantı Notları Linki]()'nden erişilebilir.*
 
 **Sprint içinde tamamlanması tahmin edilen puan:** 100 Puan
 

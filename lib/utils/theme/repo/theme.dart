@@ -61,11 +61,11 @@ class AppTheme extends ChangeNotifier with WidgetsBindingObserver {
   // System UI Overlay | Start
 
   void resetSystemUiColor() {
-    SystemChrome.setSystemUIOverlayStyle(_defaultSystemUIOverlay);
+    SystemChrome.setSystemUIOverlayStyle(defaultSystemUIOverlay);
   }
 
   // Has Custom Nav
-  SystemUiOverlayStyle get _defaultSystemUIOverlay {
+  SystemUiOverlayStyle get defaultSystemUIOverlay {
     final style =
         SchedulerBinding.instance.platformDispatcher.platformBrightness ==
                 Brightness.dark

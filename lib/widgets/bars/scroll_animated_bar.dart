@@ -14,6 +14,8 @@ class ScrollAnimatedBar extends StatefulWidget implements PreferredSizeWidget {
   final Widget? child;
   final Color? backgroundColor;
   final Color? popColor;
+  final bool backgroundAnimation;
+  final double? fixedLenght;
 
   const ScrollAnimatedBar({
     super.key,
@@ -28,6 +30,8 @@ class ScrollAnimatedBar extends StatefulWidget implements PreferredSizeWidget {
     this.end,
     this.backgroundColor,
     this.popColor,
+    this.backgroundAnimation = false,
+    this.fixedLenght,
   });
 
   @override
@@ -59,10 +63,11 @@ class _ScrollAnimatedBarState extends State<ScrollAnimatedBar> {
       return 0;
     }
     final postion = widget.controller!.position.pixels;
-    final value = postion - (contentHeight! - barHeight!);
-    if (value > 0 && value < barHeight!) {
-      return value / barHeight!;
-    } else if (value >= barHeight!) {
+    final after = widget.fixedLenght != null ? 0 : contentHeight! - barHeight!;
+    final value = postion - after;
+    if (value > 0 && value < (widget.fixedLenght ?? barHeight!)) {
+      return value / (widget.fixedLenght ?? barHeight!);
+    } else if (value >= (widget.fixedLenght ?? barHeight!)) {
       return 1;
     } else {
       return 0;
@@ -77,7 +82,9 @@ class _ScrollAnimatedBarState extends State<ScrollAnimatedBar> {
   Widget build(BuildContext context) {
     return Bar(
       // key: _barKey,
-      backgroundColor: widget.backgroundColor,
+      backgroundColor: widget.backgroundAnimation
+          ? widget.backgroundColor?.withOpacity(offset)
+          : widget.backgroundColor,
       pop: widget.pop,
       popXmark: widget.popXmark,
       popColor: widget.popColor,

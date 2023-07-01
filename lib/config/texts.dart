@@ -72,6 +72,7 @@ class Texts {
   static const String opinonOn = "On";
 
   // Edit Profile
+  static String editProfile = "Edit Profile";
   static const String editProfileSaveChanges = "Save Changes";
   static const String editProfileUsernameHint = "Enter a username";
   static const String editProfileAboutHint = "Tell us about yourself";
