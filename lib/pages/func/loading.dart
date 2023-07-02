@@ -12,8 +12,6 @@ class LoadingPage extends StatefulWidget {
 }
 
 class _LoadingPageState extends State<LoadingPage> {
-  final Completer completer = Completer();
-
   @override
   void initState() {
     widget.run().then(
@@ -26,10 +24,13 @@ class _LoadingPageState extends State<LoadingPage> {
 
   @override
   Widget build(BuildContext context) {
-    return const Material(
-      color: Colors.transparent,
-      child: Center(
-        child: LoadingAnimation(),
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: const Material(
+        color: Colors.transparent,
+        child: Center(
+          child: LoadingAnimation(),
+        ),
       ),
     );
   }
