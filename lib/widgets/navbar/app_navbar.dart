@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:chupp/utils/router/app_router.gr.dart';
 import 'package:chupp/utils/router/extensions.dart';
+import 'package:chupp/utils/utils/context_extension.dart';
+import 'package:chupp/widgets/profile/profile_photo.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'src/navbar.dart';
@@ -20,38 +22,52 @@ class AppNavBar extends StatelessWidget {
       child: NavBar(
         children: [
           NavItem(
-            icon: const FaIcon(FontAwesomeIcons.house).icon,
+            icon: FontAwesomeIcons.house,
             size: 22,
             active: current == 0,
             passiveTap: () => router.openBase(const HomeRoute()),
             activeTap: activeTap,
           ),
           NavItem(
-            icon: const FaIcon(FontAwesomeIcons.magnifyingGlass).icon,
+            icon: FontAwesomeIcons.magnifyingGlass,
             size: 24,
             active: current == 1,
             passiveTap: () => router.open(const SearchRoute()),
             activeTap: activeTap,
           ),
           NavItem(
-            icon: const FaIcon(FontAwesomeIcons.solidSquarePlus).icon,
+            icon: FontAwesomeIcons.solidSquarePlus,
             size: 26,
             passiveTap: () => router.open(const CreatePostRoute()),
             activeTap: activeTap,
           ),
           NavItem(
-            icon: const FaIcon(FontAwesomeIcons.solidHeart).icon,
+            icon: FontAwesomeIcons.solidHeart,
             size: 26,
             active: current == 2,
             passiveTap: () => router.open(const LikedPostsRoute()),
             activeTap: activeTap,
           ),
           NavItem(
-            icon: const FaIcon(FontAwesomeIcons.solidCircleUser).icon,
-            size: 26,
             active: current == 3,
             passiveTap: () => router.open(ProfileRoute()),
             activeTap: activeTap,
+            child: Container(
+              decoration: ShapeDecoration(
+                shape: OvalBorder(
+                  side: current != 3
+                      ? BorderSide.none
+                      : BorderSide(
+                          color: context.theme.current.primaryItem,
+                          width: 2,
+                        ),
+                ),
+              ),
+              child: const ProfilePhoto(
+                radius: 13,
+                image: NetworkImage("https://picsum.photos/1920/1080"),
+              ),
+            ),
           ),
         ],
       ),
