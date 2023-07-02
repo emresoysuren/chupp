@@ -1,8 +1,10 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:chupp/pages/draggable_menus/profile_menu.dart';
 import 'package:chupp/utils/router/app_router.gr.dart';
 import 'package:chupp/utils/router/extensions.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/profile/profile_photo.dart';
+import 'package:draggable_menu/draggable_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'src/navbar.dart';
@@ -52,6 +54,10 @@ class AppNavBar extends StatelessWidget {
             active: current == 3,
             passiveTap: () => router.open(ProfileRoute()),
             activeTap: activeTap,
+            passiveLPress: () => DraggableMenu.open(
+              context,
+              const ProfileMenu(),
+            ),
             child: Container(
               decoration: ShapeDecoration(
                 shape: OvalBorder(
