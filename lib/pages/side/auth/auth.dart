@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:chupp/config/texts.dart';
 import 'package:chupp/services/data_service.dart';
 import 'package:chupp/utils/router/app_router.gr.dart';
 import 'package:chupp/utils/router/extensions.dart';
@@ -45,7 +46,7 @@ class _AuthPageState extends State<AuthPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Login to",
+                        Texts.authLoginTo,
                         style: context.styles.title,
                       ),
                       const SizedBox(
@@ -61,48 +62,52 @@ class _AuthPageState extends State<AuthPage> {
                 ),
                 const SizedBox(height: 16),
                 AuthField(
-                  label: "Email",
+                  label: Texts.authEmail,
                   onChanged: (value) => setState(() => email = value),
                 ),
                 const SizedBox(height: 16),
                 AuthField(
-                  label: "Password",
+                  label: Texts.authPassword,
                   password: true,
                   onChanged: (value) => setState(() => password = value),
                 ),
                 const SizedBox(height: 16),
-                const Button(
+                Button(
                   large: true,
-                  label: "Login",
+                  label: Texts.authLogin,
+                  onPressed: () {},
                 ),
                 const SizedBox(height: 16),
-                const Row(
+                Row(
                   children: [
                     Expanded(
                       child: Button(
                         large: true,
                         secondary: true,
-                        label: "Google",
+                        label: Texts.authGoogleLogin,
                         icon: FontAwesomeIcons.google,
                         iconSize: 18,
+                        onPressed: () {},
                       ),
                     ),
-                    SizedBox(width: 16),
+                    const SizedBox(width: 16),
                     Expanded(
                       child: Button(
                         large: true,
                         secondary: true,
-                        label: "Apple",
+                        label: Texts.authAppleLogin,
                         icon: FontAwesomeIcons.apple,
                         iconSize: 18,
+                        onPressed: () {},
                       ),
                     ),
                   ],
                 ),
                 const SizedBox(height: 16),
-                const Center(
+                Center(
                   child: SinglePlainTextButton(
-                    label: "Do you need help?",
+                    label: Texts.authHelp,
+                    onPressed: () {},
                   ),
                 )
               ],
@@ -122,7 +127,7 @@ class _AuthPageState extends State<AuthPage> {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Text(
-                    "or",
+                    Texts.authOrDivider,
                     style: context.styles.title3
                         .copyWith(color: context.theme.current.subText),
                   ),
@@ -135,16 +140,17 @@ class _AuthPageState extends State<AuthPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const Button(
+                Button(
                   large: true,
                   secondary: true,
-                  label: "Register",
+                  label: Texts.authRegister,
+                  onPressed: () {},
                 ),
                 const SizedBox(height: 16),
                 Button(
                   large: true,
                   secondary: true,
-                  label: "Continue without Loging In",
+                  label: Texts.authWithoutLogin,
                   onPressed: () => signInAnonymously(context),
                 ),
               ],

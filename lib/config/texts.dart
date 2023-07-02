@@ -10,6 +10,18 @@ class Texts {
   static const String sectionSeeMore = "See more";
   static const String createdPostsSuffix = "posts";
 
+  // Auth
+  static const String authRegister = "Register";
+  static const String authWithoutLogin = "Continue without Loging In";
+  static const String authOrDivider = "or";
+  static const String authHelp = "Do you need help?";
+  static const String authAppleLogin = "Apple";
+  static const String authGoogleLogin = "Google";
+  static const String authLogin = "Login";
+  static const String authPassword = "Password";
+  static const String authEmail = "Email";
+  static const String authLoginTo = "Login to";
+
   // Account
   static const String signOut = "Sign Out";
   static const String signOutDialogue =
