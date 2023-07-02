@@ -42,6 +42,14 @@ class ProfileMenu extends StatelessWidget {
               iconSize: 20,
               color: context.theme.current.important,
               onTap: () => AccountManager.signOut(context),
+            )
+          else
+            ListButton(
+              title: Texts.profileMenuAnonymousLoginOrRegister,
+              icon: FontAwesomeIcons.rightToBracket,
+              iconSize: 20,
+              color: context.theme.current.notice,
+              // onTap: () => context.router.open(),
             ),
         ],
       ),

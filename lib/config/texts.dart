@@ -38,11 +38,11 @@ class Texts {
       "Write a description for your post...";
   static const String addHastagsField = "Add hashtags (First two are options.)";
   static String addHastagsFieldLabel = "Choose to add:";
-  static const String createPostCardTitle = "Discard Changes";
-  static const String createPostCardDS =
+  static const String discardChangesCardTitle = "Discard Changes";
+  static const String discardChangesCardDescription =
       "All changes that you make will be lost. Are you still want to proceed with this progress?";
-  static const String createPostCardDiscardButton = "Discard";
-  static const String createPostCardKeepButton = "Keep";
+  static const String discardChangesCardDiscard = "Discard";
+  static const String discardChangesCardKeep = "Keep";
 
   // Search Page
   static const String searchField = "Search";
@@ -70,6 +70,7 @@ class Texts {
   static const String profileSettings = "Settings";
   static const String profileMenuShare = "Share";
   static const String opinonOn = "On";
+  static const String profileMenuAnonymousLoginOrRegister = "Login or Register";
 
   // Edit Profile
   static String editProfile = "Edit Profile";
@@ -82,7 +83,7 @@ class Texts {
   static const String editProfilePhotoMenuGallery = "Gallery";
   static const String editProfilePhotoMenuCamera = "Camera";
   static const String editProfilePhotoMenuDelete = "Delete the photo";
-  static const String editProfilePhotoMenuReset = "Reset to old one";
+  static const String editProfilePhotoMenuReset = "Reset to the old one";
 
   // User
   static const String userMenuShare = "Share";

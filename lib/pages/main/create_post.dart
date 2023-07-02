@@ -5,7 +5,7 @@ import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/add_hastags.dart/add_hastags.dart';
 import 'package:chupp/widgets/bars/custom/title_bar.dart';
 import 'package:chupp/widgets/buttons/single_plain_text_button.dart';
-import 'package:chupp/widgets/cards/create_post.dart';
+import 'package:chupp/widgets/cards/discard_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -37,7 +37,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
         final bool? result = await Navigator.push<bool>(
           context,
           CardRoute(
-            child: const CreatePostCard(),
+            child: const DiscardChangesCard(),
           ),
         );
         return result == true;

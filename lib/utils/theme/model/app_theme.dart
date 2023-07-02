@@ -55,6 +55,9 @@ class AppThemeModel {
   /// Color for not important but should be noticed
   final Color notice;
 
+  /// Color to encourage the user
+  final Color success;
+
   AppThemeModel({
     required this.primaryBg,
     required this.secondaryBg,
@@ -74,5 +77,6 @@ class AppThemeModel {
     required this.itemSubText,
     required this.important,
     required this.notice,
+    required this.success,
   });
 }

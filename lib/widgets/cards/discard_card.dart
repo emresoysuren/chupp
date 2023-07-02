@@ -5,24 +5,24 @@ import 'package:chupp/widgets/buttons/list_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class CreatePostCard extends StatelessWidget {
-  const CreatePostCard({super.key});
+class DiscardChangesCard extends StatelessWidget {
+  const DiscardChangesCard({super.key});
 
   @override
   Widget build(BuildContext context) {
     return AppCard(
-      title: Texts.createPostCardTitle,
-      description: Texts.createPostCardDS,
+      title: Texts.discardChangesCardTitle,
+      description: Texts.discardChangesCardDescription,
       children: [
         ListButton(
-          title: Texts.createPostCardDiscardButton,
+          title: Texts.discardChangesCardDiscard,
           icon: FontAwesomeIcons.trash,
           color: context.theme.current.important,
           iconSize: 22,
           onTap: () => Navigator.pop<bool>(context, true),
         ),
         ListButton(
-          title: Texts.createPostCardKeepButton,
+          title: Texts.discardChangesCardKeep,
           icon: FontAwesomeIcons.xmark,
           onTap: () => Navigator.pop<bool>(context, false),
         ),
