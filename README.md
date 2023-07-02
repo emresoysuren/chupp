@@ -2,10 +2,10 @@
 <img alt="chupp-cover" src="https://github.com/emresoysuren/chupp/blob/readme-assets/chupp-cover.png?raw=true">
 
 <div align=center>
-    <a href="">
-        <img src="https://img.shields.io/badge/App Trailer Video-%23ff0000?style=flat&logo=youtube">
+    <a href="https://drive.google.com/file/d/1K7P1wb_QwW64PaGb9OwQiVJmIHUB1Neg/preview">
+        <img src="https://img.shields.io/badge/App Sprint 2 Video-%23ff0000?style=flat&logo=youtube">
     </a>
-    <a href="">
+    <a href="https://github.com/emresoysuren/chupp/raw/readme-assets/sprints/sprint-2/app-release.apk">
         <img src="https://img.shields.io/badge/Download the App (.apk)-%23574AE2?style=flat&logo=android">
     </a>
     <a href="https://miro.com/app/board/uXjVM5kBq7E=/">
@@ -21,7 +21,7 @@
 
 
 ## Ekip ve Görev Dağılımları:
-- **Emre Soysüren** | Product Owner, Scrum Master, Developer
+- **Emre Soysüren** | Product Owner, Scrum Master, Developer, Designer
 
 
 # Ürün
@@ -30,9 +30,9 @@
 
 
 ## İlgili Bağlantılar:
-- **Uygulamayı Apk Olarak İndir:** İndirme bağlantısı henüz oluşturulmadı.
+- **Uygulamayı Apk Olarak İndir:** Son sprinte ait indirme bağlantısı henüz oluşturulmadı.
 
-- **Uygulama Videosu:** Uygulama videosu bağlantısı henüz eklenmedi.
+- **Uygulama Tanıtım Videosu:** Uygulama tanıtım videosu bağlantısı henüz eklenmedi.
 
 
 ## Ürün Amacı ve Açıklaması:
@@ -94,13 +94,13 @@ Kısaca hangi filmi izleyeceğinize veya hangi bilgisiyarı alacağınıza karar
 [Miro Backlog Board](https://miro.com/app/board/uXjVM5kBq7E=/)
 
 ## Toplantı Notları:
-[Toplantı Notları Linki]()
+[Toplantı Notları Linki](https://docs.google.com/document/d/1R_9zcB8wI4KdhB9u-oKAGD28G7BBiBgIPGagkUzapnM/edit?usp=sharing)
 
 ## Sprintler
 
 ### Sprint 1:
 
-**Sprint Notları:** *Sprint Notlarına [Toplantı Notları Linki]()'nden erişilebilir.*
+**Sprint Notları:** *Sprint Notlarına [Toplantı Notları Linki](https://docs.google.com/document/d/1R_9zcB8wI4KdhB9u-oKAGD28G7BBiBgIPGagkUzapnM/edit?usp=sharing)'nden erişilebilir.*
 
 **Sprint içinde tamamlanması tahmin edilen puan:** 100 Puan
 
@@ -131,3 +131,80 @@ Kısaca hangi filmi izleyeceğinize veya hangi bilgisiyarı alacağınıza karar
 **Uygulama Durumu Ekran Görüntüleri:**
 
 <img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-1/chupp-splash.gif?raw=true" width="360">
+
+
+### Sprint 2:
+
+**Sprint Notları:** *Sprint Notlarına [Toplantı Notları Linki](https://docs.google.com/document/d/1R_9zcB8wI4KdhB9u-oKAGD28G7BBiBgIPGagkUzapnM/edit?usp=sharing)'nden erişilebilir.*
+
+**Sprint Sonu Ürünü:** [Uygulama'nın APK Dosyasını İndirme Linki](https://github.com/emresoysuren/chupp/raw/readme-assets/sprints/sprint-2/app-release.apk)
+
+**Sprint içinde tamamlanması tahmin edilen puan:** 200 Puan
+
+**Puan tamamlama mantığı:** İlk sprintten sonra projede tamamlanması gereken toplam 400 puanlık backlog kalmıştır. Uygulamanın UI kısmına ağırlık verilen bu sprintte, sprinte 200 puan verilmesine karar verilmiştir.
+
+**Daily Scrum:** Takımın katılımı sağlanamadığı için daily scrumlar yapılamadı.
+
+**Sprint Review:** Sprint boyunca uygulamanın UI kısmına odaklanıldı, bu kısmın görsel olarak bütünlüğü sağlayacak ve uygulamadan beklenen özellikleri en kolay şekilde sunacak şekilde tasarlanmasına özen gösterildi. Tasarlanan kısımların Flutter tarafında kodlanarak yaratılması, fonksiyonelite kazndırılması ve animasyonlar ile kullanıcıya görsel olarak daha güçlü hale getirilmesi sağlandı. Uygulamanın içinde arayüz için gerekli sistemlerin (örn. Navigasyon(AutoRouter kullanıldı.)) kurulması sağlandı.
+
+**Sprint Retrospective:**
+- Takımla sürece nasıl devam edileceği kararlaştırıldı.
+
+**Sprint Board Durumu:**
+
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/kanban/kanban-1.jpg?raw=true" width= 920>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/kanban/kanban-2.jpg?raw=true" width= 920>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/kanban/kanban-3.jpg?raw=true" width= 920>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/kanban/kanban-4.jpg?raw=true" width= 920>
+
+**Figma Ekran Görüntüleri:**
+
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/figma/figma-pages.png?raw=true" width= 920>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/figma/figma-components.png?raw=true" width= 920>
+
+**Uygulama Durumu Videosu:**
+
+<iframe src="https://drive.google.com/file/d/1K7P1wb_QwW64PaGb9OwQiVJmIHUB1Neg/preview" width="640" height="480" allow="autoplay"></iframe>
+
+**Uygulama Durumu Ekran Görüntüleri:**
+
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/1.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/2.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/3.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/4.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/5.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/6.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/7.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/8.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/9.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/10.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/11.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/12.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/13.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/14.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/15.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/16.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/17.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/18.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/19.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/20.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/21.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/22.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/23.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/24.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/25.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/26.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/27.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/28.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/29.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/30.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/31.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/32.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/33.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/34.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/35.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/36.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/37.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/38.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/39.jpg?raw=true" width= 200>
+<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/40.jpg?raw=true" width= 200>
