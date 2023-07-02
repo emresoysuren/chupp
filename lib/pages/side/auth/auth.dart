@@ -168,6 +168,10 @@ class _AuthPageState extends State<AuthPage> {
         () => DataService.signInAnonymously(),
       );
     }
+    direct();
+  }
+
+  void direct() {
     if (widget.onLogin != null) {
       widget.onLogin?.call(true);
     } else {

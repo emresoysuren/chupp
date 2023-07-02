@@ -12,6 +12,7 @@ class AppManager {
       Navigator.push(
         context,
         BluredRoute(
+          context,
           barrierDismissible: false,
           child: LoadingPage(
             run: () => run(),

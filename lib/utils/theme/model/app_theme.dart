@@ -58,6 +58,9 @@ class AppThemeModel {
   /// Color to encourage the user
   final Color success;
 
+  // Barrier Color
+  final Color barrierColor;
+
   AppThemeModel({
     required this.primaryBg,
     required this.secondaryBg,
@@ -78,5 +81,6 @@ class AppThemeModel {
     required this.important,
     required this.notice,
     required this.success,
+    required this.barrierColor,
   });
 }

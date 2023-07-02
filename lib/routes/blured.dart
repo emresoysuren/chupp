@@ -1,10 +1,12 @@
 import 'dart:ui';
+import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:flutter/material.dart';
 
 class BluredRoute<T> extends PageRouteBuilder<T> {
   final double? blur;
 
-  BluredRoute({
+  BluredRoute(
+    BuildContext context, {
     required Widget child,
     this.blur,
     Color? barrierColor,
@@ -17,7 +19,7 @@ class BluredRoute<T> extends PageRouteBuilder<T> {
               duration ?? const Duration(milliseconds: 480),
           opaque: false,
           barrierDismissible: barrierDismissible ?? true,
-          barrierColor: barrierColor ?? const Color(0x80000000),
+          barrierColor: barrierColor ?? context.theme.current.barrierColor,
         );
 
   @override

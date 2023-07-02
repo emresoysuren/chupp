@@ -32,6 +32,7 @@ class AppThemes {
         important: ColorPalette.red,
         notice: ColorPalette.blue,
         success: ColorPalette.green,
+        barrierColor: ColorPalette.white.withOpacity(0.36),
       );
 
   static AppThemeModel get dark => AppThemeModel(
@@ -56,5 +57,6 @@ class AppThemes {
         important: ColorPalette.red,
         notice: ColorPalette.yellow,
         success: ColorPalette.green,
+        barrierColor: ColorPalette.black.withOpacity(0.36),
       );
 }
