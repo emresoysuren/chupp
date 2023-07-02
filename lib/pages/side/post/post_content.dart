@@ -36,7 +36,9 @@ class PostContent extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 16, vertical: 4),
+                        horizontal: 16,
+                        vertical: 4,
+                      ),
                       child: PostWidget(
                         openDescription: openDescription,
                         contentKey: contentKey,

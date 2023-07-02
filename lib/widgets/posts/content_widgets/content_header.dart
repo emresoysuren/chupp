@@ -1,4 +1,7 @@
 import 'package:chupp/config/texts.dart';
+import 'package:chupp/pages/main/profile.dart';
+import 'package:chupp/pages/side/hashtag/hashtag.dart';
+import 'package:chupp/routes/basic.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/profile/profile_photo.dart';
 import 'package:flutter/material.dart';
@@ -23,28 +26,35 @@ class ContentHeader extends StatelessWidget {
       children: [
         Row(
           children: [
-            const ProfilePhoto(
-              radius: 18,
-              image: NetworkImage("https://picsum.photos/1920/1080"),
+            GestureDetector(
+              onTap: () => directToUser(context),
+              child: const ProfilePhoto(
+                radius: 18,
+                image: NetworkImage("https://picsum.photos/1920/1080"),
+              ),
             ),
             const SizedBox(width: 16),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                RichText(
-                  text: TextSpan(
-                    style: context.styles.text,
-                    children: [
-                      TextSpan(text: username),
-                      if (option != null)
-                        TextSpan(
-                          text: " ${Texts.postUserOpinionFor} ",
-                          style: context.styles.mutted,
-                        ),
-                      if (option != null) TextSpan(text: option),
+                Row(
+                  children: [
+                    GestureDetector(
+                      onTap: () => directToUser(context),
+                      child: Text(username, style: context.styles.text),
+                    ),
+                    if (option != null) ...[
+                      Text(
+                        " ${Texts.postUserOpinionFor} ",
+                        style: context.styles.mutted,
+                      ),
+                      GestureDetector(
+                        onTap: () => directToHashtag(context),
+                        child: Text(option!, style: context.styles.text),
+                      ),
                     ],
-                  ),
+                  ],
                 ),
                 Text(
                   time,
@@ -59,4 +69,20 @@ class ContentHeader extends StatelessWidget {
       ],
     );
   }
+
+  Future<T?> directToUser<T extends Object?>(BuildContext context) =>
+      Navigator.of(context, rootNavigator: true).push<T>(
+        BasicPageRoute(
+          start: Start.right,
+          child: const ProfilePage.uid(uid: "userUid"),
+        ),
+      );
+
+  Future<T?> directToHashtag<T extends Object?>(BuildContext context) =>
+      Navigator.of(context, rootNavigator: true).push<T>(
+        BasicPageRoute(
+          start: Start.right,
+          child: const HashtagPage(),
+        ),
+      );
 }
