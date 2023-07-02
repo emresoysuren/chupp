@@ -13,10 +13,10 @@ class SinglePlainTextButton extends StatelessWidget {
   /// Color of the text styles will be overridden
   final TextStyle? textStyle;
   final Alignment? alignment;
-  final BorderRadius? borderRadius;
   final Color? backgroundColor;
   final double? gap;
   final double? iconSize;
+  final ShapeBorder? customBorder;
 
   const SinglePlainTextButton({
     super.key,
@@ -28,10 +28,10 @@ class SinglePlainTextButton extends StatelessWidget {
     this.padding,
     this.textStyle,
     this.alignment,
-    this.borderRadius,
     this.backgroundColor,
     this.gap,
     this.iconSize,
+    this.customBorder,
   });
 
   @override
@@ -56,7 +56,7 @@ class SinglePlainTextButton extends StatelessWidget {
     return SingleButton(
       color: backgroundColor,
       padding: padding ?? const EdgeInsets.all(8),
-      customBorder: const StadiumBorder(),
+      customBorder: customBorder ?? const StadiumBorder(),
       onPressed: onPressed,
       child: Align(
         heightFactor: 1,

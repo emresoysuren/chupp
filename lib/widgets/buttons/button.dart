@@ -7,8 +7,12 @@ class Button extends StatelessWidget {
   final Color? backgroundColor;
   final Color? color;
   final EdgeInsets? padding;
+  final bool secondary;
   final Function()? onPressed;
   final bool large;
+  final IconData? icon;
+  final double? iconSize;
+  final double? gap;
 
   const Button({
     super.key,
@@ -18,14 +22,34 @@ class Button extends StatelessWidget {
     this.padding,
     this.onPressed,
     this.large = false,
+    this.secondary = false,
+    this.icon,
+    this.iconSize,
+    this.gap,
   });
 
   @override
   Widget build(BuildContext context) {
     return SinglePlainTextButton(
       label: label,
-      backgroundColor: backgroundColor ?? context.theme.current.primaryItem,
-      color: color ?? context.theme.current.itemText,
+      icon: icon,
+      iconSize: iconSize,
+      gap: gap,
+      customBorder: !secondary
+          ? null
+          : StadiumBorder(
+              side: BorderSide(
+                width: 2,
+                color: context.theme.current.primaryItem,
+              ),
+            ),
+      backgroundColor: secondary
+          ? Colors.transparent
+          : (backgroundColor ?? context.theme.current.primaryItem),
+      color: color ??
+          (secondary
+              ? context.theme.current.primaryItem
+              : context.theme.current.itemText),
       padding: padding ??
           EdgeInsets.symmetric(horizontal: 16, vertical: large ? 16 : 8),
       onPressed: onPressed,
