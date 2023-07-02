@@ -163,48 +163,23 @@ Kısaca hangi filmi izleyeceğinize veya hangi bilgisiyarı alacağınıza karar
 <img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/figma/figma-components.png?raw=true" width= 920>
 
 **Uygulama Durumu Videosu:**
+[Sprint 2 Uygulama Durumu Videosu Linki](https://drive.google.com/file/d/1K7P1wb_QwW64PaGb9OwQiVJmIHUB1Neg/preview)
 
-<iframe src="https://drive.google.com/file/d/1K7P1wb_QwW64PaGb9OwQiVJmIHUB1Neg/preview" width="640" height="480" allow="autoplay"></iframe>
 
 **Uygulama Durumu Ekran Görüntüleri:**
-
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/1.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/2.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/3.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/4.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/5.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/6.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/7.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/8.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/9.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/10.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/11.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/12.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/13.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/14.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/15.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/16.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/17.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/18.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/19.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/20.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/21.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/22.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/23.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/24.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/25.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/26.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/27.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/28.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/29.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/30.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/31.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/32.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/33.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/34.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/35.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/36.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/37.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/38.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/39.jpg?raw=true" width= 200>
-<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/40.jpg?raw=true" width= 200>
+| | | |
+|---|---|---|
+|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/1.jpg?raw=true" width= 200>|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/2.jpg?raw=true" width= 200>|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/3.jpg?raw=true" width= 200>|
+|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/4.jpg?raw=true" width= 200>|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/5.jpg?raw=true" width= 200>|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/6.jpg?raw=true" width= 200>|
+|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/7.jpg?raw=true" width= 200>|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/8.jpg?raw=true" width= 200>|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/9.jpg?raw=true" width= 200>|
+|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/10.jpg?raw=true" width= 200>|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/11.jpg?raw=true" width= 200>|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/12.jpg?raw=true" width= 200>|
+|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/13.jpg?raw=true" width= 200>|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/14.jpg?raw=true" width= 200>|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/15.jpg?raw=true" width= 200>|
+|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/16.jpg?raw=true" width= 200>|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/17.jpg?raw=true" width= 200>|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/18.jpg?raw=true" width= 200>|
+|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/19.jpg?raw=true" width= 200>|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/20.jpg?raw=true" width= 200>|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/21.jpg?raw=true" width= 200>|
+|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/22.jpg?raw=true" width= 200>|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/23.jpg?raw=true" width= 200>|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/24.jpg?raw=true" width= 200>|
+|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/25.jpg?raw=true" width= 200>|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/26.jpg?raw=true" width= 200>|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/27.jpg?raw=true" width= 200>|
+|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/28.jpg?raw=true" width= 200>|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/29.jpg?raw=true" width= 200>|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/30.jpg?raw=true" width= 200>|
+|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/31.jpg?raw=true" width= 200>|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/32.jpg?raw=true" width= 200>|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/33.jpg?raw=true" width= 200>|
+|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/34.jpg?raw=true" width= 200>|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/35.jpg?raw=true" width= 200>|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/36.jpg?raw=true" width= 200>|
+|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/37.jpg?raw=true" width= 200>|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/38.jpg?raw=true" width= 200>|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/39.jpg?raw=true" width= 200>|
+|<img src="https://github.com/emresoysuren/chupp/blob/readme-assets/sprints/sprint-2/chupp-screenshots/40.jpg?raw=true" width= 200>|
