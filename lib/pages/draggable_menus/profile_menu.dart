@@ -49,7 +49,7 @@ class ProfileMenu extends StatelessWidget {
               icon: FontAwesomeIcons.rightToBracket,
               iconSize: 20,
               color: context.theme.current.notice,
-              onTap: () => context.router.open(AuthRoute()),
+              onTap: () => context.router.openBase(AuthRoute()),
             ),
         ],
       ),
