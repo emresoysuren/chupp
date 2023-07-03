@@ -37,6 +37,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
         final bool? result = await Navigator.push<bool>(
           context,
           CardRoute(
+            context,
             child: const DiscardChangesCard(),
           ),
         );

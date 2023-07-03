@@ -81,6 +81,7 @@ class _PostPageState extends State<PostPage> with TickerProviderStateMixin {
           onButtonTap: () => DraggableMenu.open(
             context,
             const PostMenu(),
+            barrierColor: context.theme.current.barrierColor,
           ),
         ),
         body: WillPopScope(

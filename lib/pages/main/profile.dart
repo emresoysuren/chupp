@@ -57,6 +57,7 @@ class _ProfilePageState extends State<ProfilePage> {
         onButtonTap: () => DraggableMenu.open(
           context,
           isOwner ? const ProfileMenu() : const UserMenu(),
+          barrierColor: context.theme.current.barrierColor,
         ),
       ),
       bottomNavigationBar: !isOwner

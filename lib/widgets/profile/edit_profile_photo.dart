@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 import 'package:chupp/models/picker_result.dart';
 import 'package:chupp/pages/draggable_menus/edit_profile_photo_menu.dart';
+import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/profile/profile_photo.dart';
 import 'package:draggable_menu/draggable_menu.dart';
 import 'package:flutter/material.dart';
@@ -50,7 +51,10 @@ class _EditProfilePhotoState extends State<EditProfilePhoto> {
 
   editPP(BuildContext context) async {
     final PickerResult? pickerResult = await DraggableMenu.open<PickerResult>(
-        context, const EditProfilePhotoMenu());
+      context,
+      const EditProfilePhotoMenu(),
+      barrierColor: context.theme.current.barrierColor,
+    );
     if (pickerResult == null) return;
     change(pickerResult);
   }

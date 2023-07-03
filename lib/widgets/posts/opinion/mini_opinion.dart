@@ -30,7 +30,11 @@ class MiniOpinion extends StatelessWidget {
                 context,
                 BasicPageRoute(start: Start.right, child: const PostPage()),
               )
-            : DraggableMenu.open(context, const OpinionPageDraggable()),
+            : DraggableMenu.open(
+                context,
+                const OpinionPageDraggable(),
+                barrierColor: context.theme.current.barrierColor,
+              ),
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
@@ -76,6 +80,7 @@ class MiniOpinion extends StatelessWidget {
                       onPressed: () => DraggableMenu.open(
                         context,
                         const OpinionPageDraggable(openComment: true),
+                        barrierColor: context.theme.current.barrierColor,
                       ),
                     ),
                   ],

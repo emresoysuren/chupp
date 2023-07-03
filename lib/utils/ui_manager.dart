@@ -26,7 +26,7 @@ class AppManager {
     required String message,
   }) =>
       Flushbar(
-        backgroundColor: const Color(0x80000000),
+        backgroundColor: context.theme.current.barrierColor,
         borderRadius: BorderRadius.circular(16),
         margin: const EdgeInsets.all(16),
         padding: const EdgeInsets.all(16),

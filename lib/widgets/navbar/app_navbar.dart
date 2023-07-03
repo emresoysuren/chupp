@@ -57,6 +57,7 @@ class AppNavBar extends StatelessWidget {
             passiveLPress: () => DraggableMenu.open(
               context,
               const ProfileMenu(),
+              barrierColor: context.theme.current.barrierColor,
             ),
             child: Container(
               decoration: ShapeDecoration(

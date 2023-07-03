@@ -40,7 +40,11 @@ class _HashtagPageState extends State<HashtagPage> {
         like: 120,
         controller: _controller,
         contentKey: _contentKey,
-        onButtonTap: () => DraggableMenu.open(context, const ContentMenu()),
+        onButtonTap: () => DraggableMenu.open(
+          context,
+          const ContentMenu(),
+          barrierColor: context.theme.current.barrierColor,
+        ),
       ),
       body: DisableScrollBehavior(
         child: NestedScrollView(

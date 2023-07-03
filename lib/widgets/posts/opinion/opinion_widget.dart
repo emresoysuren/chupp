@@ -32,6 +32,7 @@ class OpinionWidget extends StatelessWidget {
                 return DraggableMenu.open(
                   context,
                   const OpinionMenu(),
+                  barrierColor: context.theme.current.barrierColor,
                 );
               },
               child: FaIcon(
