@@ -5,8 +5,15 @@ import 'package:flutter/material.dart';
 
 class AddHastags extends StatefulWidget {
   final Function() onUnFocused;
+  final Function(String hashtag)? onAdd;
+  final Set<String>? hashtags;
 
-  const AddHastags({super.key, required this.onUnFocused});
+  const AddHastags({
+    super.key,
+    required this.onUnFocused,
+    this.onAdd,
+    this.hashtags,
+  });
 
   @override
   State<AddHastags> createState() => _AddHastagsState();
@@ -98,6 +105,7 @@ class _AddHastagsState extends State<AddHastags> with WidgetsBindingObserver {
                               HashtagChip(
                                 tag: text,
                                 large: true,
+                                onTap: () => widget.onAdd?.call(text),
                               ),
                             ],
                           ),

@@ -7,11 +7,13 @@ import 'package:flutter/material.dart';
 class HashtagChip extends StatelessWidget {
   final String tag;
   final bool large;
+  final void Function()? onTap;
 
   const HashtagChip({
     super.key,
     required this.tag,
     this.large = false,
+    this.onTap,
   });
 
   @override
@@ -24,9 +26,10 @@ class HashtagChip extends StatelessWidget {
           : const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
       color: context.theme.current.btnText,
       backgroundColor: context.theme.current.primaryBtn,
-      onPressed: () => Navigator.of(context, rootNavigator: true).push(
-        BasicPageRoute(start: Start.right, child: const HashtagPage()),
-      ),
+      onPressed: onTap ??
+          () => Navigator.of(context, rootNavigator: true).push(
+                BasicPageRoute(start: Start.right, child: const HashtagPage()),
+              ),
     );
   }
 }

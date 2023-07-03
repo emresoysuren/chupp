@@ -6,6 +6,7 @@ import 'package:chupp/widgets/add_hastags.dart/add_hastags.dart';
 import 'package:chupp/widgets/bars/custom/title_bar.dart';
 import 'package:chupp/widgets/buttons/single_plain_text_button.dart';
 import 'package:chupp/widgets/cards/discard_card.dart';
+import 'package:chupp/widgets/tag_chip.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -24,14 +25,14 @@ class CreatePostPage extends StatefulWidget implements PreferredSizeWidget {
 class _CreatePostPageState extends State<CreatePostPage> {
   String title = "";
   String description = "";
-  List<String> hastags = [];
+  Set<String> hashtags = {};
   bool showHashtags = false;
 
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        if (title.isEmpty && description.isEmpty && hastags.isEmpty) {
+        if (title.isEmpty && description.isEmpty && hashtags.isEmpty) {
           return true;
         }
         final bool? result = await Navigator.push<bool>(
@@ -72,7 +73,22 @@ class _CreatePostPageState extends State<CreatePostPage> {
         body: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              if (hashtags.isNotEmpty) ...[
+                Wrap(
+                  runSpacing: 8,
+                  spacing: 8,
+                  children: [
+                    for (String tag in hashtags)
+                      HashtagChip(
+                        tag: tag,
+                        onTap: () => setState(() => hashtags.remove(tag)),
+                      ),
+                  ],
+                ),
+                const SizedBox(height: 16),
+              ],
               TextField(
                 // focusNode: focusNode,
                 onChanged: (value) {
@@ -124,7 +140,9 @@ class _CreatePostPageState extends State<CreatePostPage> {
         bottomNavigationBar: !showHashtags
             ? null
             : AddHastags(
+                hashtags: hashtags,
                 onUnFocused: () => setState(() => showHashtags = false),
+                onAdd: (hashtag) => setState(() => hashtags.add(hashtag)),
               ),
       ),
     );
