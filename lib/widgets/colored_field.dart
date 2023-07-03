@@ -3,29 +3,29 @@ import 'package:chupp/widgets/buttons/single_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class AuthField extends StatefulWidget {
+class ColoredField extends StatefulWidget {
   final String? label;
   final Function(String value)? onChanged;
-  final bool password;
+  final FieldType type;
   final TextEditingController? controller;
   final FocusNode? focusNode;
 
-  const AuthField({
+  const ColoredField({
     super.key,
     this.label,
     this.onChanged,
-    this.password = false,
+    this.type = FieldType.text,
     this.controller,
     this.focusNode,
   });
 
   @override
-  State<AuthField> createState() => _AuthFieldState();
+  State<ColoredField> createState() => _ColoredFieldState();
 }
 
-class _AuthFieldState extends State<AuthField> {
+class _ColoredFieldState extends State<ColoredField> {
   late final FocusNode _focusNode = widget.focusNode ?? FocusNode();
-  late bool obscureText = widget.password;
+  late bool obscureText = widget.type == FieldType.password;
   bool hasValue = false;
 
   @override
@@ -51,9 +51,11 @@ class _AuthFieldState extends State<AuthField> {
               widget.onChanged?.call(value);
             },
             obscureText: obscureText,
-            keyboardType: widget.password
+            keyboardType: widget.type == FieldType.password
                 ? TextInputType.visiblePassword
-                : TextInputType.emailAddress,
+                : (widget.type == FieldType.email
+                    ? TextInputType.emailAddress
+                    : TextInputType.text),
             controller: widget.controller,
             decoration: InputDecoration(
               isDense: true,
@@ -63,7 +65,9 @@ class _AuthFieldState extends State<AuthField> {
               hintStyle: context.styles.subText,
             ),
           ),
-          if (widget.password && _focusNode.hasPrimaryFocus && hasValue)
+          if (widget.type == FieldType.password &&
+              _focusNode.hasPrimaryFocus &&
+              hasValue)
             Positioned(
               top: 0,
               bottom: 0,
@@ -98,4 +102,10 @@ class _AuthFieldState extends State<AuthField> {
       ),
     );
   }
+}
+
+enum FieldType {
+  text,
+  email,
+  password,
 }

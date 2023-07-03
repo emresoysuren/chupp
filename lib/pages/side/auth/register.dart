@@ -2,7 +2,7 @@ import 'package:chupp/config/texts.dart';
 import 'package:chupp/utils/account_manager.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/auth/auth_base.dart';
-import 'package:chupp/widgets/auth/field.dart';
+import 'package:chupp/widgets/colored_field.dart';
 import 'package:chupp/widgets/buttons/button.dart';
 import 'package:chupp/widgets/buttons/single_plain_text_button.dart';
 import 'package:flutter/material.dart';
@@ -45,20 +45,20 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
         ),
         const SizedBox(height: 16),
-        AuthField(
-          label: Texts.registerEmail,
+        ColoredField(
+          type: FieldType.email,
           onChanged: (value) => setState(() => email = value),
         ),
         const SizedBox(height: 16),
-        AuthField(
+        ColoredField(
           label: Texts.registerPassword,
-          password: true,
+          type: FieldType.password,
           onChanged: (value) => setState(() => password = value),
         ),
         const SizedBox(height: 16),
-        AuthField(
+        ColoredField(
           label: Texts.registerPasswordCheck,
-          password: true,
+          type: FieldType.password,
           onChanged: (value) => setState(() => passwordCheck = value),
         ),
         const SizedBox(height: 16),

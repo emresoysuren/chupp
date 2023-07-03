@@ -8,6 +8,7 @@ class AuthGuard {
   static final List<String> canAccess = [
     SplashRoute.name,
     AuthRoute.name,
+    ProfileRegisterRoute.name
   ];
 
   static void onNavigation(NavigationResolver resolver, StackRouter router) {
@@ -15,6 +16,13 @@ class AuthGuard {
       if (!AccountManager.loggedIn) {
         resolver.redirect(
           AuthRoute(
+            onLogin: (result) => resolver.next(result),
+          ),
+        );
+        return;
+      } else if (!AccountManager.registered && !AccountManager.isAnonymous) {
+        resolver.redirect(
+          ProfileRegisterRoute(
             onLogin: (result) => resolver.next(result),
           ),
         );

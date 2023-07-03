@@ -25,6 +25,10 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
           transitionsBuilder: TransitionsBuilders.noTransition,
         ),
         CustomRoute(
+          page: ProfileRegisterRoute.page,
+          transitionsBuilder: TransitionsBuilders.noTransition,
+        ),
+        CustomRoute(
           page: HomeRoute.page,
           transitionsBuilder: TransitionsBuilders.noTransition,
         ),

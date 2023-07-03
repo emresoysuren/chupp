@@ -2,6 +2,13 @@
 ///
 /// By this way we can easily see all the text inside the app and edit them.
 class Texts {
+  static const String profileRegisterOptional = "Optional";
+
+  static const String profileRegisterSide1Details =
+      "Okay, this part is not mandatory, but you can fill this in to give others an opinion on who you are.";
+
+  static const String profileRegisterSide1 = "Profile Details";
+
   Texts._();
 
   // Main
@@ -35,6 +42,10 @@ class Texts {
   static const String registerPasswordCheck = "Re-enter password";
   static const String registerTo = "Register to";
   static const String registerLogin = "Have an account? Login.";
+
+  // Profile Register
+  static const String profileRegisterHeader = "Register";
+  static const String profileRegisterHeaderDivider = "of";
 
   // Account
   static const String signOut = "Sign Out";
