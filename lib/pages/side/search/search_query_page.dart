@@ -18,6 +18,7 @@ class _SearchQueryPageState extends State<SearchQueryPage> {
 
   @override
   void initState() {
+    _focusNode.addListener(() => setState(() {}));
     _controller.addListener(() => setState(() {}));
     super.initState();
   }
