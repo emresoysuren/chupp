@@ -22,4 +22,16 @@ class DataService {
   static bool get loggedIn => FirebaseAuth.instance.currentUser != null;
 
   static String? get uid => FirebaseAuth.instance.currentUser?.uid;
+
+  static Future<UserCredential> emailRegister(String email, String password) =>
+      FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+  static Future<UserCredential> emailLogin(String email, String password) =>
+      FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
 }

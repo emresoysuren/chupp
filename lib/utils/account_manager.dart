@@ -1,7 +1,9 @@
+import 'package:chupp/config/texts.dart';
 import 'package:chupp/routes/card.dart';
 import 'package:chupp/services/data_service.dart';
-import 'package:chupp/utils/ui_manager.dart';
+import 'package:chupp/utils/app_manager.dart';
 import 'package:chupp/widgets/cards/signout_card.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class AccountManager {
@@ -34,4 +36,93 @@ class AccountManager {
   static bool isOwner(String uid) => ownerUid == uid;
 
   static String? get ownerUid => DataService.uid;
+
+  static Future<bool> emailRegister(
+    BuildContext context,
+    String email,
+    String password,
+    String passwordCheck,
+  ) async {
+    if (email.isEmpty || password.isEmpty || passwordCheck.isEmpty) {
+      AppManager.flushBarShow(
+        context,
+        title: Texts.registerFailTitle,
+        message: "Fill the all fields and try again.",
+      );
+      return false;
+    }
+    if (password != passwordCheck) {
+      AppManager.flushBarShow(
+        context,
+        title: Texts.registerFailTitle,
+        message: "The passwords you entered don't match.",
+      );
+      return false;
+    }
+    try {
+      await AppManager.animateAndLoad(
+        context,
+        () => DataService.emailRegister(email, password),
+      );
+      return true;
+    } catch (e) {
+      _handleException(context, Texts.registerFailTitle, e);
+      return false;
+    }
+  }
+
+  static Future<bool> emailLogin(
+    BuildContext context,
+    String email,
+    String password,
+  ) async {
+    if (email.isEmpty || password.isEmpty) {
+      AppManager.flushBarShow(
+        context,
+        title: Texts.loginFailTitle,
+        message: "Fill the all fields and try again.",
+      );
+      return false;
+    }
+    try {
+      await AppManager.animateAndLoad(
+        context,
+        () => DataService.emailLogin(email, password),
+      );
+      return true;
+    } catch (e) {
+      _handleException(context, Texts.loginFailTitle, e);
+      return false;
+    }
+  }
+
+  static Future<bool> signInAnonymously(BuildContext context) async {
+    try {
+      await AppManager.animateAndLoad(
+        context,
+        () => DataService.signInAnonymously(),
+      );
+      return true;
+    } catch (e) {
+      _handleException(context, Texts.loginFailTitle, e);
+      return false;
+    }
+  }
+
+  static void _handleException(BuildContext context, String title, e,
+      [String? unknownExceptionMessage]) {
+    if (e == FirebaseAuthException) {
+      AppManager.flushBarShow(
+        context,
+        title: title,
+        message: e.message ?? unknownExceptionMessage ?? Texts.unknownException,
+      );
+    } else {
+      AppManager.flushBarShow(
+        context,
+        title: title,
+        message: unknownExceptionMessage ?? Texts.unknownException,
+      );
+    }
+  }
 }

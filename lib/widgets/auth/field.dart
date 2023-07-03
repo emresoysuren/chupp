@@ -51,6 +51,9 @@ class _AuthFieldState extends State<AuthField> {
               widget.onChanged?.call(value);
             },
             obscureText: obscureText,
+            keyboardType: widget.password
+                ? TextInputType.visiblePassword
+                : TextInputType.emailAddress,
             controller: widget.controller,
             decoration: InputDecoration(
               isDense: true,

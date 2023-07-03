@@ -1,7 +1,7 @@
 import 'package:chupp/config/texts.dart';
 import 'package:chupp/pages/side/profile/edit_profile.dart';
 import 'package:chupp/routes/basic.dart';
-import 'package:chupp/utils/ui_manager.dart';
+import 'package:chupp/utils/app_manager.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/button.dart';
 import 'package:chupp/widgets/expandable_text.dart';

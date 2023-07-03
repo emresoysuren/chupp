@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class NonAnimatedPageRoute extends PageRouteBuilder {
+class NonAnimatedPageRoute<T> extends PageRouteBuilder<T> {
   NonAnimatedPageRoute({
     required Widget child,
   }) : super(

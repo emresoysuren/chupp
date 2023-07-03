@@ -1,4 +1,4 @@
-import 'package:chupp/utils/ui_manager.dart';
+import 'package:chupp/utils/app_manager.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/bars/double_line_scroll_bar.dart';
 import 'package:chupp/widgets/buttons/single_button.dart';

@@ -1,7 +1,7 @@
 import 'package:chupp/config/texts.dart';
 import 'package:chupp/pages/side/hashtag/hashtag.dart';
 import 'package:chupp/routes/basic.dart';
-import 'package:chupp/utils/ui_manager.dart';
+import 'package:chupp/utils/app_manager.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

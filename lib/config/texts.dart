@@ -2,6 +2,12 @@
 ///
 /// By this way we can easily see all the text inside the app and edit them.
 class Texts {
+  static const String registerLogin = "Have an account? Login.";
+  static const String registerFailTitle = "Registration Failed";
+  static const String unknownException = "Wait a moment and try again.";
+  static const String loginFailTitle = "Login Failed";
+  static const String registerTo = "Register to";
+
   Texts._();
 
   // Main
@@ -21,6 +27,13 @@ class Texts {
   static const String authPassword = "Password";
   static const String authEmail = "Email";
   static const String authLoginTo = "Login to";
+
+  // Register
+  static const String register = "Register";
+  static const String registerHelp = "Do you need help?";
+  static const String registerEmail = "Email";
+  static const String registerPassword = "Password";
+  static const String registerPasswordCheck = "Re-enter password";
 
   // Account
   static const String signOut = "Sign Out";

@@ -1,7 +1,7 @@
 import 'package:chupp/config/texts.dart';
 import 'package:chupp/pages/main/profile.dart';
 import 'package:chupp/routes/basic.dart';
-import 'package:chupp/utils/ui_manager.dart';
+import 'package:chupp/utils/app_manager.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/profile/profile_photo.dart';
 import 'package:flutter/material.dart';

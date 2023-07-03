@@ -1,5 +1,5 @@
 import 'package:chupp/config/color_palette.dart';
-import 'package:chupp/utils/ui_manager.dart';
+import 'package:chupp/utils/app_manager.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:flutter/material.dart';
 

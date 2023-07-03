@@ -8,17 +8,29 @@ import 'package:intl/intl.dart';
 class AppManager {
   AppManager._();
 
-  static Future animateAndLoad(BuildContext context, Future Function() run) =>
-      Navigator.push(
+  static Future<void> animateAndLoad(
+    BuildContext context,
+    Future Function() run,
+  ) async {
+    dynamic error;
+    await Navigator.push(
+      context,
+      BluredRoute(
         context,
-        BluredRoute(
-          context,
-          barrierDismissible: false,
-          child: LoadingPage(
-            run: () => run(),
-          ),
+        barrierDismissible: false,
+        child: LoadingPage(
+          run: () async {
+            try {
+              await run();
+            } catch (e) {
+              error = e;
+            }
+          },
         ),
-      );
+      ),
+    );
+    if (error != null) throw error;
+  }
 
   static Future flushBarShow(
     BuildContext context, {
