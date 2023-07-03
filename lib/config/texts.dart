@@ -2,12 +2,6 @@
 ///
 /// By this way we can easily see all the text inside the app and edit them.
 class Texts {
-  static const String registerLogin = "Have an account? Login.";
-  static const String registerFailTitle = "Registration Failed";
-  static const String unknownException = "Wait a moment and try again.";
-  static const String loginFailTitle = "Login Failed";
-  static const String registerTo = "Register to";
-
   Texts._();
 
   // Main
@@ -15,6 +9,11 @@ class Texts {
   static const String expandableTextMore = "See More";
   static const String sectionSeeMore = "See more";
   static const String createdPostsSuffix = "posts";
+
+  // Exceptions
+  static const String registerFailTitle = "Registration Failed";
+  static const String unknownException = "Wait a moment and try again.";
+  static const String loginFailTitle = "Login Failed";
 
   // Auth
   static const String authRegister = "Register";
@@ -34,6 +33,8 @@ class Texts {
   static const String registerEmail = "Email";
   static const String registerPassword = "Password";
   static const String registerPasswordCheck = "Re-enter password";
+  static const String registerTo = "Register to";
+  static const String registerLogin = "Have an account? Login.";
 
   // Account
   static const String signOut = "Sign Out";

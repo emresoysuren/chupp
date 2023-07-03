@@ -1,4 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class DataService {
   DataService._();
@@ -34,4 +36,28 @@ class DataService {
         email: email,
         password: password,
       );
+
+  static Future<UserCredential> googleLogin() async {
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+    final GoogleSignInAuthentication? googleAuth =
+        await googleUser?.authentication;
+
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+
+    return await FirebaseAuth.instance.signInWithCredential(credential);
+  }
+
+  // It won't work due to the Apple Developer Program
+  static Future<UserCredential> appleLogin() async {
+    final appleProvider = AppleAuthProvider();
+    if (kIsWeb) {
+      return await FirebaseAuth.instance.signInWithPopup(appleProvider);
+    } else {
+      return await FirebaseAuth.instance.signInWithProvider(appleProvider);
+    }
+  }
 }

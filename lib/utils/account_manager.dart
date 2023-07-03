@@ -109,6 +109,32 @@ class AccountManager {
     }
   }
 
+  static Future<bool> googleLogin(BuildContext context) async {
+    try {
+      await AppManager.animateAndLoad(
+        context,
+        () => DataService.googleLogin(),
+      );
+      return true;
+    } catch (e) {
+      _handleException(context, Texts.loginFailTitle, e);
+      return false;
+    }
+  }
+
+  static Future<bool> appleLogin(BuildContext context) async {
+    try {
+      await AppManager.animateAndLoad(
+        context,
+        () => DataService.appleLogin(),
+      );
+      return true;
+    } catch (e) {
+      _handleException(context, Texts.loginFailTitle, e);
+      return false;
+    }
+  }
+
   static void _handleException(BuildContext context, String title, e,
       [String? unknownExceptionMessage]) {
     if (e == FirebaseAuthException) {

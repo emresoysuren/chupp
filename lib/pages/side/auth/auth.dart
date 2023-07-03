@@ -80,7 +80,7 @@ class _AuthPageState extends State<AuthPage> {
                 label: Texts.authGoogleLogin,
                 icon: FontAwesomeIcons.google,
                 iconSize: 18,
-                onPressed: () {},
+                onPressed: () => googleLogin(),
               ),
             ),
             const SizedBox(width: 16),
@@ -91,7 +91,7 @@ class _AuthPageState extends State<AuthPage> {
                 label: Texts.authAppleLogin,
                 icon: FontAwesomeIcons.apple,
                 iconSize: 18,
-                onPressed: () {},
+                onPressed: () => appleLogin(),
               ),
             ),
           ],
@@ -133,6 +133,16 @@ class _AuthPageState extends State<AuthPage> {
   Future<void> login() async {
     final bool result =
         await AccountManager.emailLogin(context, email, password);
+    if (result) _direct();
+  }
+
+  Future<void> googleLogin() async {
+    final bool result = await AccountManager.googleLogin(context);
+    if (result) _direct();
+  }
+
+  Future<void> appleLogin() async {
+    final bool result = await AccountManager.appleLogin(context);
     if (result) _direct();
   }
 
