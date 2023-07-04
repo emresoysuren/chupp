@@ -20,17 +20,17 @@ class ThemePage extends StatelessWidget {
         child: ListView(
           children: [
             RadioListButton(
-              title: "Dark",
+              title: context.lang.current.settingsThemeDark,
               active: context.theme.rawMode == AppThemeMode.dark,
               onTap: () => context.theme.changeMode(AppThemeMode.dark),
             ),
             RadioListButton(
-              title: "Light",
+              title: context.lang.current.settingsThemeLight,
               active: context.theme.rawMode == AppThemeMode.light,
               onTap: () => context.theme.changeMode(AppThemeMode.light),
             ),
             RadioListButton(
-              title: "System",
+              title: context.lang.current.settingsThemeSystem,
               active: context.theme.rawMode == AppThemeMode.system,
               onTap: () => context.theme.changeMode(AppThemeMode.system),
             ),

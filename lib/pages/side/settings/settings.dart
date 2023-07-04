@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:chupp/pages/side/settings/account.dart';
 import 'package:chupp/pages/side/settings/faq.dart';
 import 'package:chupp/pages/side/settings/help.dart';
+import 'package:chupp/pages/side/settings/language.dart';
 import 'package:chupp/pages/side/settings/report.dart';
 import 'package:chupp/pages/side/settings/theme.dart';
 import 'package:chupp/routes/basic.dart';
@@ -33,6 +34,14 @@ class SettingsPage extends StatelessWidget {
             onTap: () => Navigator.push(
               context,
               BasicPageRoute(start: Start.right, child: const ThemePage()),
+            ),
+          ),
+          ListButton(
+            icon: FontAwesomeIcons.globe,
+            title: context.lang.current.settingsLanguage,
+            onTap: () => Navigator.push(
+              context,
+              BasicPageRoute(start: Start.right, child: const LanguagePage()),
             ),
           ),
           ListButton(

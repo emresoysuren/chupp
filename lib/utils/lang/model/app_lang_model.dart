@@ -99,6 +99,14 @@ class AppLangModel {
   final String settingsHelp;
   final String settingsFaq;
   final String settingsAccount;
+  final String settingsLanguage;
+  final String settingsThemeSystem;
+  final String settingsThemeLight;
+  final String settingsThemeDark;
+  final String settingsLangEng;
+  final String settingsLangTurkish;
+  final String settingsLangSystem;
+  final String likedPosts;
 
   AppLangModel({
     required this.title,
@@ -201,5 +209,13 @@ class AppLangModel {
     required this.settingsHelp,
     required this.settingsFaq,
     required this.settingsAccount,
+    required this.settingsLanguage,
+    required this.settingsThemeSystem,
+    required this.settingsThemeLight,
+    required this.settingsThemeDark,
+    required this.settingsLangEng,
+    required this.settingsLangTurkish,
+    required this.settingsLangSystem,
+    required this.likedPosts,
   });
 }

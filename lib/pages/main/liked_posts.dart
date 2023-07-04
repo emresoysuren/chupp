@@ -26,7 +26,7 @@ class _LikedPostsPageState extends State<LikedPostsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const TitleBar(title: "Liked Posts"),
+      appBar: TitleBar(title: context.lang.current.likedPosts),
       backgroundColor: context.theme.current.primaryBg,
       bottomNavigationBar: AppNavBar(
         current: 2,
