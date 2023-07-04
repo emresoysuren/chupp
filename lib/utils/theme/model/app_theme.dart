@@ -40,8 +40,11 @@ class AppThemeModel {
   /// Text Color for the item colors.
   final Color itemText;
 
-  /// Text Color for the button colors.
-  final Color btnText;
+  /// Text Color for the primary button colors.
+  final Color primaryBtnText;
+
+  /// Text Color for the secondary button colors.
+  final Color secondaryBtnText;
 
   /// Sub Text Color for the background colors.
   final Color subText;
@@ -75,7 +78,8 @@ class AppThemeModel {
     required this.itemTitle,
     required this.text,
     required this.itemText,
-    required this.btnText,
+    required this.primaryBtnText,
+    required this.secondaryBtnText,
     required this.subText,
     required this.itemSubText,
     required this.important,

@@ -55,7 +55,7 @@ class Styles {
       );
 
   TextStyle get button => GoogleFonts.ubuntu(
-        color: theme.current.btnText,
+        color: theme.current.primaryBtnText,
         fontSize: 16,
         fontWeight: FontWeight.bold,
       );

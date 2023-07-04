@@ -103,6 +103,9 @@ class _AddHastagsState extends State<AddHastags> with WidgetsBindingObserver {
                             children: [
                               HashtagChip(
                                 tag: text,
+                                backgroundColor:
+                                    context.theme.current.secondaryBtn,
+                                color: context.theme.current.secondaryBtnText,
                                 large: true,
                                 onTap: () => widget.onAdd?.call(text),
                               ),
