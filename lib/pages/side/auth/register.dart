@@ -46,6 +46,7 @@ class _RegisterPageState extends State<RegisterPage> {
         ),
         const SizedBox(height: 16),
         ColoredField(
+          label: Texts.registerEmail,
           type: TextInputType.emailAddress,
           onChanged: (value) => setState(() => email = value),
         ),
