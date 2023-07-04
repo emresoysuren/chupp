@@ -46,19 +46,19 @@ class _RegisterPageState extends State<RegisterPage> {
         ),
         const SizedBox(height: 16),
         ColoredField(
-          type: FieldType.email,
+          type: TextInputType.emailAddress,
           onChanged: (value) => setState(() => email = value),
         ),
         const SizedBox(height: 16),
         ColoredField(
           label: Texts.registerPassword,
-          type: FieldType.password,
+          type: TextInputType.visiblePassword,
           onChanged: (value) => setState(() => password = value),
         ),
         const SizedBox(height: 16),
         ColoredField(
           label: Texts.registerPasswordCheck,
-          type: FieldType.password,
+          type: TextInputType.visiblePassword,
           onChanged: (value) => setState(() => passwordCheck = value),
         ),
         const SizedBox(height: 16),

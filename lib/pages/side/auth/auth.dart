@@ -56,13 +56,13 @@ class _AuthPageState extends State<AuthPage> {
         const SizedBox(height: 16),
         ColoredField(
           label: Texts.authEmail,
-          type: FieldType.email,
+          type: TextInputType.emailAddress,
           onChanged: (value) => setState(() => email = value),
         ),
         const SizedBox(height: 16),
         ColoredField(
           label: Texts.authPassword,
-          type: FieldType.password,
+          type: TextInputType.visiblePassword,
           onChanged: (value) => setState(() => password = value),
         ),
         const SizedBox(height: 16),

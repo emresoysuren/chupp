@@ -6,17 +6,23 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class ColoredField extends StatefulWidget {
   final String? label;
   final Function(String value)? onChanged;
-  final FieldType type;
+  final TextInputType type;
   final TextEditingController? controller;
   final FocusNode? focusNode;
+  final bool next;
+  final String? initialValue;
+  final TextInputAction? textInputAction;
 
   const ColoredField({
     super.key,
     this.label,
     this.onChanged,
-    this.type = FieldType.text,
+    this.type = TextInputType.text,
     this.controller,
     this.focusNode,
+    this.next = false,
+    this.initialValue,
+    this.textInputAction,
   });
 
   @override
@@ -25,8 +31,14 @@ class ColoredField extends StatefulWidget {
 
 class _ColoredFieldState extends State<ColoredField> {
   late final FocusNode _focusNode = widget.focusNode ?? FocusNode();
-  late bool obscureText = widget.type == FieldType.password;
+  late bool obscureText = widget.type == TextInputType.visiblePassword;
   bool hasValue = false;
+
+  int get maxLines => widget.type == TextInputType.multiline ? 3 : 1;
+
+  get borderShape => widget.type == TextInputType.multiline
+      ? RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))
+      : const StadiumBorder();
 
   @override
   void initState() {
@@ -38,25 +50,24 @@ class _ColoredFieldState extends State<ColoredField> {
   Widget build(BuildContext context) {
     return Container(
       decoration: ShapeDecoration(
-        shape: const StadiumBorder(),
+        shape: borderShape,
         color: context.theme.current.secondaryBg,
       ),
       child: Stack(
         children: [
-          TextField(
+          TextFormField(
             style: context.styles.text,
             focusNode: _focusNode,
             onChanged: (value) {
               setState(() => hasValue = value.isNotEmpty);
               widget.onChanged?.call(value);
             },
+            initialValue: widget.initialValue,
             obscureText: obscureText,
-            keyboardType: widget.type == FieldType.password
-                ? TextInputType.visiblePassword
-                : (widget.type == FieldType.email
-                    ? TextInputType.emailAddress
-                    : TextInputType.text),
+            keyboardType: widget.type,
+            textInputAction: widget.textInputAction,
             controller: widget.controller,
+            maxLines: maxLines,
             decoration: InputDecoration(
               isDense: true,
               contentPadding: const EdgeInsets.all(16),
@@ -65,7 +76,7 @@ class _ColoredFieldState extends State<ColoredField> {
               hintStyle: context.styles.subText,
             ),
           ),
-          if (widget.type == FieldType.password &&
+          if (widget.type == TextInputType.visiblePassword &&
               _focusNode.hasPrimaryFocus &&
               hasValue)
             Positioned(
@@ -102,10 +113,4 @@ class _ColoredFieldState extends State<ColoredField> {
       ),
     );
   }
-}
-
-enum FieldType {
-  text,
-  email,
-  password,
 }

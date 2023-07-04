@@ -28,10 +28,7 @@ class PopButton extends StatelessWidget {
       onPressed: () => Navigator.of(context).maybePop(),
       padding: padding != null ? EdgeInsets.all(padding!) : null,
       child: Icon(
-        icon ??
-            (xmark
-                ? const FaIcon(FontAwesomeIcons.xmark).icon
-                : const FaIcon(FontAwesomeIcons.angleLeft).icon),
+        icon ?? (xmark ? FontAwesomeIcons.xmark : FontAwesomeIcons.angleLeft),
         size: size ?? 24,
         color: color ?? context.theme.current.primaryItem,
       ),

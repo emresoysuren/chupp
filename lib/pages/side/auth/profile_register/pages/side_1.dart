@@ -12,8 +12,9 @@ class ProfileRegisterSide1 extends ProfileRegisterSideBase {
           title: Texts.profileRegisterSide1,
           details: Texts.profileRegisterSide1Details,
           child: ColoredField(
-            label: "Username",
+            label: Texts.profileRegisterSide1Field,
             onChanged: onChanged,
+            next: true,
           ),
         );
 }

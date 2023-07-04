@@ -40,7 +40,7 @@ class ProfileRegisterSideBase extends StatelessWidget {
             details,
             style: context.styles.text,
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 32),
           Flexible(
             child: child,
           )

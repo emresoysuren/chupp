@@ -39,7 +39,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
     }
   }
 
-  bool get _isImageNotChanged => image == null || image?.reset == true;
+  bool get _isImageNotChanged => image?.reset != false;
 
   @override
   void initState() {

@@ -10,7 +10,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 
 class EditProfilePhotoMenu extends StatelessWidget {
-  const EditProfilePhotoMenu({super.key});
+  final bool allowReset;
+
+  const EditProfilePhotoMenu({
+    super.key,
+    this.allowReset = true,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -40,13 +45,16 @@ class EditProfilePhotoMenu extends StatelessWidget {
             title: Texts.editProfilePhotoMenuCamera,
             onTap: () => pick(context, ImageSource.camera),
           ),
-          ListButton(
-            icon: FontAwesomeIcons.arrowRotateLeft,
-            title: Texts.editProfilePhotoMenuReset,
-            color: context.theme.current.notice,
-            onTap: () =>
-                Navigator.pop<PickerResult>(context, PickerResult(reset: true)),
-          ),
+          if (allowReset)
+            ListButton(
+              icon: FontAwesomeIcons.arrowRotateLeft,
+              title: Texts.editProfilePhotoMenuReset,
+              color: context.theme.current.notice,
+              onTap: () => Navigator.pop<PickerResult>(
+                context,
+                PickerResult(reset: true),
+              ),
+            ),
           ListButton(
             icon: FontAwesomeIcons.solidTrashCan,
             title: Texts.editProfilePhotoMenuDelete,

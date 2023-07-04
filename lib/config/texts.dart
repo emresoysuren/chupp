@@ -2,13 +2,6 @@
 ///
 /// By this way we can easily see all the text inside the app and edit them.
 class Texts {
-  static const String profileRegisterOptional = "Optional";
-
-  static const String profileRegisterSide1Details =
-      "Okay, this part is not mandatory, but you can fill this in to give others an opinion on who you are.";
-
-  static const String profileRegisterSide1 = "Profile Details";
-
   Texts._();
 
   // Main
@@ -46,6 +39,21 @@ class Texts {
   // Profile Register
   static const String profileRegisterHeader = "Register";
   static const String profileRegisterHeaderDivider = "of";
+  static const String profileRegisterOptional = "Optional";
+  static const String profileRegisterSide1Details =
+      "Okay, this part is not mandatory, but you can fill this in to give others an opinion on who you are.";
+  static const String profileRegisterSide1 = "Profile Details";
+  static const String profileRegisterSide1Field = "Username";
+  static const String profileRegisterSide2 = "ProfileDetails";
+  static const String profileRegisterSide2Details =
+      "Okay, this part is not mandatory, but you can fill this in to give others an opinion on who you are.";
+  static const String profileRegisterSide2Field = "About";
+  static const String profileRegisterSide3 = "Profile Photo";
+  static const String profileRegisterSide3Details =
+      "This part is not mandatory as well, but again you can pick a profile photo to give others an opinion on who you are.";
+
+  static const String pageNavNext = "Next";
+  static const String pageNavDone = "Let's chupp";
 
   // Account
   static const String signOut = "Sign Out";

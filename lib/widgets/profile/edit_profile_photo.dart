@@ -10,12 +10,14 @@ class EditProfilePhoto extends StatefulWidget {
   final double? radius;
   final ImageProvider? image;
   final Function(PickerResult result)? onChanged;
+  final bool allowReset;
 
   const EditProfilePhoto({
     super.key,
     this.radius,
     this.image,
     this.onChanged,
+    this.allowReset = true,
   });
 
   @override
@@ -24,6 +26,13 @@ class EditProfilePhoto extends StatefulWidget {
 
 class _EditProfilePhotoState extends State<EditProfilePhoto> {
   late ImageProvider? image = widget.image;
+
+  bool get allowReset {
+    if (!widget.allowReset || widget.image == null || image == widget.image) {
+      return false;
+    }
+    return true;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +61,7 @@ class _EditProfilePhotoState extends State<EditProfilePhoto> {
   editPP(BuildContext context) async {
     final PickerResult? pickerResult = await DraggableMenu.open<PickerResult>(
       context,
-      const EditProfilePhotoMenu(),
+      EditProfilePhotoMenu(allowReset: allowReset),
       barrierColor: context.theme.current.barrierColor,
     );
     if (pickerResult == null) return;
