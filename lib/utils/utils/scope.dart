@@ -1,3 +1,4 @@
+import 'package:chupp/utils/lang/repo/lang.dart';
 import 'package:chupp/utils/styles.dart';
 import 'package:chupp/utils/theme/repo/theme.dart';
 import 'package:chupp/utils/utils/inherited.dart';
@@ -19,6 +20,7 @@ class _UtilsScopeState extends State<UtilsScope> {
   @override
   void initState() {
     _themeInit();
+    _langInit();
     super.initState();
   }
 
@@ -26,11 +28,16 @@ class _UtilsScopeState extends State<UtilsScope> {
     AppTheme.instance.addListener(() => setState(() {}));
   }
 
+  void _langInit() {
+    AppLang.instance.addListener(() => setState(() {}));
+  }
+
   @override
   Widget build(BuildContext context) {
     return UtilsInherited(
       theme: AppTheme.instance,
       styles: Styles(theme: AppTheme.instance),
+      lang: AppLang.instance,
       child: widget.child,
     );
   }

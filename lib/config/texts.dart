@@ -82,7 +82,7 @@ class Texts {
   static const String createPostwriteDescription =
       "Write a description for your post...";
   static const String addHastagsField = "Add hashtags (First two are options.)";
-  static String addHastagsFieldLabel = "Choose to add:";
+  static const String addHastagsFieldLabel = "Choose to add:";
   static const String discardChangesCardTitle = "Discard Changes";
   static const String discardChangesCardDescription =
       "All changes that you make will be lost. Are you still want to proceed with this progress?";
@@ -118,7 +118,7 @@ class Texts {
   static const String profileMenuAnonymousLoginOrRegister = "Login or Register";
 
   // Edit Profile
-  static String editProfile = "Edit Profile";
+  static const String editProfile = "Edit Profile";
   static const String editProfileSaveChanges = "Save Changes";
   static const String editProfileUsernameHint = "Enter a username";
   static const String editProfileAboutHint = "Tell us about yourself";
