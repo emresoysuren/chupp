@@ -7,7 +7,12 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ProfileRegisterMenu extends StatelessWidget {
-  const ProfileRegisterMenu({super.key});
+  final void Function()? validate;
+
+  const ProfileRegisterMenu({
+    super.key,
+    this.validate,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +35,10 @@ class ProfileRegisterMenu extends StatelessWidget {
             icon: FontAwesomeIcons.rightFromBracket,
             iconSize: 20,
             color: context.theme.current.important,
-            onTap: () => AccountManager.signOut(context),
+            onTap: () async {
+              await AccountManager.signOut(context);
+              validate?.call();
+            },
           ),
         ],
       ),

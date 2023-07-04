@@ -17,9 +17,12 @@ import 'package:rive/rive.dart';
 
 @RoutePage()
 class AuthPage extends StatefulWidget {
-  final Function(bool result)? onLogin;
+  final void Function()? validate;
 
-  const AuthPage({super.key, this.onLogin});
+  const AuthPage({
+    super.key,
+    this.validate,
+  });
 
   @override
   State<AuthPage> createState() => _AuthPageState();
@@ -156,8 +159,8 @@ class _AuthPageState extends State<AuthPage> {
   }
 
   void _direct() {
-    if (widget.onLogin != null) {
-      widget.onLogin?.call(true);
+    if (widget.validate != null) {
+      widget.validate?.call();
     } else {
       if (context.mounted) context.router.openBase(const HomeRoute());
     }

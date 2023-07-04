@@ -71,7 +71,7 @@ abstract class $AppRouter extends _i10.RootStackRouter {
         routeData: routeData,
         child: _i7.AuthPage(
           key: args.key,
-          onLogin: args.onLogin,
+          validate: args.validate,
         ),
       );
     },
@@ -88,7 +88,7 @@ abstract class $AppRouter extends _i10.RootStackRouter {
         routeData: routeData,
         child: _i9.ProfileRegisterPage(
           key: args.key,
-          onLogin: args.onLogin,
+          validate: args.validate,
         ),
       );
     },
@@ -199,13 +199,13 @@ class SearchRoute extends _i10.PageRouteInfo<void> {
 class AuthRoute extends _i10.PageRouteInfo<AuthRouteArgs> {
   AuthRoute({
     _i11.Key? key,
-    dynamic Function(bool)? onLogin,
+    void Function()? validate,
     List<_i10.PageRouteInfo>? children,
   }) : super(
           AuthRoute.name,
           args: AuthRouteArgs(
             key: key,
-            onLogin: onLogin,
+            validate: validate,
           ),
           initialChildren: children,
         );
@@ -219,16 +219,16 @@ class AuthRoute extends _i10.PageRouteInfo<AuthRouteArgs> {
 class AuthRouteArgs {
   const AuthRouteArgs({
     this.key,
-    this.onLogin,
+    this.validate,
   });
 
   final _i11.Key? key;
 
-  final dynamic Function(bool)? onLogin;
+  final void Function()? validate;
 
   @override
   String toString() {
-    return 'AuthRouteArgs{key: $key, onLogin: $onLogin}';
+    return 'AuthRouteArgs{key: $key, validate: $validate}';
   }
 }
 
@@ -252,13 +252,13 @@ class ProfileRegisterRoute
     extends _i10.PageRouteInfo<ProfileRegisterRouteArgs> {
   ProfileRegisterRoute({
     _i11.Key? key,
-    dynamic Function(bool)? onLogin,
+    void Function()? validate,
     List<_i10.PageRouteInfo>? children,
   }) : super(
           ProfileRegisterRoute.name,
           args: ProfileRegisterRouteArgs(
             key: key,
-            onLogin: onLogin,
+            validate: validate,
           ),
           initialChildren: children,
         );
@@ -272,15 +272,15 @@ class ProfileRegisterRoute
 class ProfileRegisterRouteArgs {
   const ProfileRegisterRouteArgs({
     this.key,
-    this.onLogin,
+    this.validate,
   });
 
   final _i11.Key? key;
 
-  final dynamic Function(bool)? onLogin;
+  final void Function()? validate;
 
   @override
   String toString() {
-    return 'ProfileRegisterRouteArgs{key: $key, onLogin: $onLogin}';
+    return 'ProfileRegisterRouteArgs{key: $key, validate: $validate}';
   }
 }

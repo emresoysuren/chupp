@@ -12,11 +12,11 @@ import 'package:flutter/material.dart';
 
 @RoutePage()
 class ProfileRegisterPage extends StatefulWidget {
-  final Function(bool result)? onLogin;
+  final void Function()? validate;
 
   const ProfileRegisterPage({
     super.key,
-    this.onLogin,
+    this.validate,
   });
 
   @override
@@ -60,6 +60,7 @@ class _ProfileRegisterPageState extends State<ProfileRegisterPage> {
       appBar: RegisterHeader(
         current: currentPage + 1,
         total: pages.length,
+        validate: widget.validate,
       ),
       body: DisableScrollBehavior(
         child: PageView(

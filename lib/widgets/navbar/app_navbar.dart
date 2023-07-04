@@ -54,11 +54,8 @@ class AppNavBar extends StatelessWidget {
             active: current == 3,
             passiveTap: () => router.open(ProfileRoute()),
             activeTap: activeTap,
-            passiveLPress: () => DraggableMenu.open(
-              context,
-              const ProfileMenu(),
-              barrierColor: context.theme.current.barrierColor,
-            ),
+            passiveLPress: () => _openProfileMenu(context),
+            activeLPress: () => _openProfileMenu(context),
             child: Container(
               decoration: ShapeDecoration(
                 shape: OvalBorder(
@@ -80,4 +77,10 @@ class AppNavBar extends StatelessWidget {
       ),
     );
   }
+
+  Future<Object?> _openProfileMenu(BuildContext context) => DraggableMenu.open(
+        context,
+        const ProfileMenu(),
+        barrierColor: context.theme.current.barrierColor,
+      );
 }

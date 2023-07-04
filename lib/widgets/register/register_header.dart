@@ -10,11 +10,13 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class RegisterHeader extends StatelessWidget implements PreferredSizeWidget {
   final int total;
   final int current;
+  final void Function()? validate;
 
   const RegisterHeader({
     super.key,
     required this.total,
     required this.current,
+    this.validate,
   });
 
   @override
@@ -41,7 +43,9 @@ class RegisterHeader extends StatelessWidget implements PreferredSizeWidget {
                   child: SingleButton(
                     onPressed: () => DraggableMenu.open(
                       context,
-                      const ProfileRegisterMenu(),
+                      ProfileRegisterMenu(
+                        validate: validate,
+                      ),
                     ),
                     padding: const EdgeInsets.all(12),
                     child: FaIcon(

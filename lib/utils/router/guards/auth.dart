@@ -5,30 +5,45 @@ import 'package:chupp/utils/router/app_router.gr.dart';
 class AuthGuard {
   AuthGuard._();
 
-  static final List<String> canAccess = [
+  static final List<String> noLogin = [
     SplashRoute.name,
     AuthRoute.name,
+  ];
+
+  static final List<String> noRegister = [
+    ...noLogin,
     ProfileRegisterRoute.name
   ];
 
   static void onNavigation(NavigationResolver resolver, StackRouter router) {
-    if (!canAccess.any((page) => page == resolver.route.name)) {
-      if (!AccountManager.loggedIn) {
-        resolver.redirect(
-          AuthRoute(
-            onLogin: (result) => resolver.next(result),
-          ),
-        );
-        return;
-      } else if (!AccountManager.registered && !AccountManager.isAnonymous) {
+    if (!noLogin.any((page) => page == resolver.route.name)) {
+      _validate(resolver);
+      return;
+    }
+    return resolver.next(true);
+  }
+
+  static void _validate(NavigationResolver resolver) {
+    if (!AccountManager.loggedIn) {
+      resolver.redirect(
+        AuthRoute(
+          validate: () => _validate(resolver),
+        ),
+      );
+      // Stop until the _validate is called again
+      return;
+    }
+    if (!noRegister.any((page) => page == resolver.route.name)) {
+      if (!AccountManager.registered && !AccountManager.isAnonymous) {
         resolver.redirect(
           ProfileRegisterRoute(
-            onLogin: (result) => resolver.next(result),
+            validate: () => _validate(resolver),
           ),
         );
+        // Stop until the _validate is called again
         return;
       }
     }
-    return resolver.next(true);
+    resolver.next(true);
   }
 }

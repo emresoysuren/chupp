@@ -4,7 +4,7 @@ import 'package:chupp/utils/utils/scope.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
-  final _appRouter = AppRouter();
+  final AppRouter _appRouter = AppRouter();
 
   App({super.key});
 
