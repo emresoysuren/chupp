@@ -1,4 +1,3 @@
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/utils/account_manager.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/list_button.dart';
@@ -24,14 +23,14 @@ class ProfileRegisterMenu extends StatelessWidget {
       child: Column(
         children: [
           ListButton(
-            title: Texts.profileSettings,
+            title: context.lang.current.profileSettings,
             icon: FontAwesomeIcons.gear,
             iconSize: 20,
             color: context.theme.current.text,
             // onTap: () => context.router.open(const SettingsRoute()),
           ),
           ListButton(
-            title: Texts.signOut,
+            title: context.lang.current.signOut,
             icon: FontAwesomeIcons.rightFromBracket,
             iconSize: 20,
             color: context.theme.current.important,

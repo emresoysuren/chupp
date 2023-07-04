@@ -1,4 +1,3 @@
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/list_button.dart';
 import 'package:chupp/widgets/buttons/single_button.dart';
@@ -31,7 +30,7 @@ class SearchHistoryContent extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  Texts.searchContentHistory,
+                  context.lang.current.searchContentHistory,
                   style: context.styles.title2,
                 ),
                 SingleButton(

@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/routes/card.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/add_hastags.dart/add_hastags.dart';
@@ -49,11 +48,11 @@ class _CreatePostPageState extends State<CreatePostPage> {
         appBar: TitleBar(
           pop: true,
           popXmark: true,
-          title: Texts.createPostTitle,
+          title: context.lang.current.createPostTitle,
           items: [
             SinglePlainTextButton(
               icon: const FaIcon(FontAwesomeIcons.hashtag).icon,
-              label: Texts.createPostAddHashtag,
+              label: context.lang.current.createPostAddHashtag,
               color: context.theme.current.notice,
               onPressed: () {
                 setState(() {
@@ -64,7 +63,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
             SinglePlainTextButton(
               icon: const FaIcon(FontAwesomeIcons.solidPaperPlane).icon,
               iconSize: 18,
-              label: Texts.createPostPublish,
+              label: context.lang.current.createPostPublish,
               color: context.theme.current.important,
               onPressed: () {},
             ),
@@ -103,7 +102,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
                 maxLines: null,
                 style: context.styles.title2,
                 decoration: InputDecoration(
-                  hintText: Texts.createTitle,
+                  hintText: context.lang.current.createTitle,
                   hintStyle: context.styles.title2.copyWith(
                     color: context.theme.current.subText,
                   ),
@@ -126,7 +125,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
                   maxLines: null,
                   style: context.styles.text,
                   decoration: InputDecoration(
-                    hintText: Texts.createPostwriteDescription,
+                    hintText: context.lang.current.createPostwriteDescription,
                     hintStyle: context.styles.mutted,
                     border: InputBorder.none,
                     isDense: true,

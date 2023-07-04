@@ -1,5 +1,4 @@
 import 'dart:math';
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:flutter/material.dart';
 
@@ -61,7 +60,7 @@ class _ExpandableTextState extends State<ExpandableText> {
               ),
               if (_minimized)
                 TextSpan(
-                  text: " ${Texts.expandableTextMore}",
+                  text: " ${context.lang.current.expandableTextMore}",
                   style: context.styles.mutted,
                 ),
             ],

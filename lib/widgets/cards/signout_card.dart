@@ -1,4 +1,3 @@
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/list_button.dart';
 import 'package:chupp/widgets/cards/app_card.dart';
@@ -11,16 +10,16 @@ class SignOutCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppCard(
-      title: Texts.signOut,
-      description: Texts.signOutDialogue,
+      title: context.lang.current.signOut,
+      description: context.lang.current.signOutDialogue,
       children: [
         ListButton(
-          title: Texts.signOutCardContinue,
+          title: context.lang.current.signOutCardContinue,
           icon: FontAwesomeIcons.check,
           onTap: () => Navigator.pop<bool>(context, true),
         ),
         ListButton(
-          title: Texts.signOutCardCancel,
+          title: context.lang.current.signOutCardCancel,
           icon: FontAwesomeIcons.xmark,
           color: context.theme.current.important,
           onTap: () => Navigator.pop<bool>(context, false),

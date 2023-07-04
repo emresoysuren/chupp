@@ -1,4 +1,3 @@
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/pages/side/post/post.dart';
 import 'package:chupp/routes/basic.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
@@ -45,7 +44,7 @@ class MiniOpinion extends StatelessWidget {
                   text: TextSpan(
                     children: [
                       TextSpan(
-                        text: "${Texts.opinonOn} ",
+                        text: "${context.lang.current.opinonOn} ",
                         style: context.styles.textImp
                             .copyWith(color: context.theme.current.notice),
                       ),

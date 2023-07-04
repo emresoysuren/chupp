@@ -1,4 +1,3 @@
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/pages/side/profile/edit_profile.dart';
 import 'package:chupp/routes/basic.dart';
 import 'package:chupp/utils/app_manager.dart';
@@ -102,7 +101,7 @@ class ProfileHeader extends StatelessWidget {
               width: double.infinity,
               child: isOwner
                   ? Button(
-                      label: Texts.profileEditProfile,
+                      label: context.lang.current.profileEditProfile,
                       onPressed: () => Navigator.push(
                         context,
                         BasicPageRoute(
@@ -112,7 +111,7 @@ class ProfileHeader extends StatelessWidget {
                       ),
                     )
                   : Button(
-                      label: Texts.userFollow,
+                      label: context.lang.current.userFollow,
                       onPressed: () {},
                     ),
             ),

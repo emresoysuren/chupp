@@ -1,4 +1,3 @@
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/pages/draggable_menus/profile_register_menu.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/single_button.dart';
@@ -33,7 +32,7 @@ class RegisterHeader extends StatelessWidget implements PreferredSizeWidget {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 16),
                   child: Text(
-                    Texts.profileRegisterHeader,
+                    context.lang.current.profileRegisterHeader,
                     style: context.styles.title2,
                   ),
                 ),
@@ -58,7 +57,7 @@ class RegisterHeader extends StatelessWidget implements PreferredSizeWidget {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 16),
                   child: Text(
-                    "$current ${Texts.profileRegisterHeaderDivider} $total",
+                    "$current ${context.lang.current.profileRegisterHeaderDivider} $total",
                     style: context.styles.textImp,
                   ),
                 ),

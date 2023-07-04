@@ -1,5 +1,4 @@
 import 'package:auto_route/annotations.dart';
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/pages/side/search/search_query_page.dart';
 import 'package:chupp/routes/non_animated.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
@@ -48,13 +47,13 @@ class _SearchPageState extends State<SearchPage> {
           controller: _controller,
           children: [
             Section(
-              title: Texts.trending,
+              title: context.lang.current.trending,
               titleGap: 8,
               itemCount: 3,
               itemBuilder: (context, index) => const MiniHashtag(),
             ),
             Section(
-              title: Texts.popularPosts,
+              title: context.lang.current.popularPosts,
               bottomLine: false,
               titleGap: 0,
               itemCount: 3,

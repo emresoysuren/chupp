@@ -1,4 +1,3 @@
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/bars/custom/title_bar.dart';
 import 'package:flutter/material.dart';
@@ -10,8 +9,8 @@ class FaqPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: context.theme.current.primaryBg,
-      appBar: const TitleBar(
-        title: Texts.settingsFaq,
+      appBar: TitleBar(
+        title: context.lang.current.settingsFaq,
         pop: true,
       ),
     );

@@ -1,4 +1,3 @@
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/single_button.dart';
 import 'package:flutter/material.dart';
@@ -60,7 +59,7 @@ class _SearchWidgetState extends State<SearchWidget> {
               decoration: InputDecoration(
                 contentPadding:
                     const EdgeInsets.symmetric(vertical: 11, horizontal: 16),
-                hintText: Texts.searchField,
+                hintText: context.lang.current.searchField,
                 hintStyle: context.styles.mutted,
                 border: InputBorder.none,
                 isDense: true,

@@ -1,4 +1,3 @@
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/pages/side/post/post_inherited.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/disable_scroll_behavior.dart';
@@ -103,7 +102,7 @@ class _OpinionPageDraggableState extends State<OpinionPageDraggable> {
                                 Padding(
                                   padding: const EdgeInsets.only(left: 16),
                                   child: Text(
-                                    Texts.opinionCommentsTitle,
+                                    context.lang.current.opinionCommentsTitle,
                                     style: context.styles.title3,
                                   ),
                                 ),

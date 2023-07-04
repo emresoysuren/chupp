@@ -1,4 +1,3 @@
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/list_button.dart';
 import 'package:draggable_menu/draggable_menu.dart';
@@ -18,21 +17,21 @@ class PostMenu extends StatelessWidget {
       child: Column(
         children: [
           ListButton(
-            title: Texts.postMenuViewProfile,
+            title: context.lang.current.postMenuViewProfile,
             icon: FontAwesomeIcons.solidUser,
             iconSize: 20,
             color: context.theme.current.text,
             onTap: () {},
           ),
           ListButton(
-            title: Texts.postMenuShare,
+            title: context.lang.current.postMenuShare,
             icon: FontAwesomeIcons.arrowUpRightFromSquare,
             iconSize: 20,
             color: context.theme.current.text,
             onTap: () {},
           ),
           ListButton(
-            title: Texts.menuReport,
+            title: context.lang.current.menuReport,
             icon: FontAwesomeIcons.solidFlag,
             iconSize: 20,
             color: context.theme.current.important,

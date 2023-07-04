@@ -1,4 +1,3 @@
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:flutter/material.dart';
 
@@ -30,7 +29,7 @@ class ProfileRegisterSideBase extends StatelessWidget {
           const SizedBox(height: 8),
           if (optional) ...[
             Text(
-              Texts.profileRegisterOptional,
+              context.lang.current.profileRegisterOptional,
               style: context.styles.textImp
                   .copyWith(color: context.theme.current.notice),
             ),

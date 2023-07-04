@@ -1,4 +1,3 @@
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/utils/account_manager.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/auth/auth_base.dart';
@@ -30,7 +29,7 @@ class _RegisterPageState extends State<RegisterPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                Texts.registerTo,
+                context.lang.current.registerTo,
                 style: context.styles.title,
               ),
               const SizedBox(
@@ -46,32 +45,32 @@ class _RegisterPageState extends State<RegisterPage> {
         ),
         const SizedBox(height: 16),
         ColoredField(
-          label: Texts.registerEmail,
+          label: context.lang.current.registerEmail,
           type: TextInputType.emailAddress,
           onChanged: (value) => setState(() => email = value),
         ),
         const SizedBox(height: 16),
         ColoredField(
-          label: Texts.registerPassword,
+          label: context.lang.current.registerPassword,
           type: TextInputType.visiblePassword,
           onChanged: (value) => setState(() => password = value),
         ),
         const SizedBox(height: 16),
         ColoredField(
-          label: Texts.registerPasswordCheck,
+          label: context.lang.current.registerPasswordCheck,
           type: TextInputType.visiblePassword,
           onChanged: (value) => setState(() => passwordCheck = value),
         ),
         const SizedBox(height: 16),
         Button(
           large: true,
-          label: Texts.register,
+          label: context.lang.current.register,
           onPressed: () => register(),
         ),
         const SizedBox(height: 16),
         Center(
           child: SinglePlainTextButton(
-            label: Texts.registerHelp,
+            label: context.lang.current.registerHelp,
             onPressed: () {},
           ),
         ),
@@ -80,7 +79,7 @@ class _RegisterPageState extends State<RegisterPage> {
         Button(
           large: true,
           secondary: true,
-          label: Texts.registerLogin,
+          label: context.lang.current.registerLogin,
           onPressed: () => Navigator.maybePop(context),
         ),
       ],

@@ -1,4 +1,3 @@
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:flutter/material.dart';
 
@@ -55,7 +54,7 @@ class _AuthBaseState extends State<AuthBase> {
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: Text(
-                            Texts.authOrDivider,
+                            context.lang.current.authOrDivider,
                             style: context.styles.title3
                                 .copyWith(color: context.theme.current.subText),
                           ),

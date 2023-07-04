@@ -1,3 +1,4 @@
+import 'package:chupp/utils/lang/repo/lang.dart';
 import 'package:chupp/utils/styles.dart';
 import 'package:chupp/utils/theme/repo/theme.dart';
 import 'package:chupp/utils/utils/inherited.dart';
@@ -9,4 +10,6 @@ extension Utils on BuildContext {
   AppTheme get theme => utils.theme;
 
   Styles get styles => utils.styles;
+
+  AppLang get lang => utils.lang;
 }

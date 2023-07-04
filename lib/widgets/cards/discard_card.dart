@@ -1,4 +1,3 @@
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/cards/app_card.dart';
 import 'package:chupp/widgets/buttons/list_button.dart';
@@ -11,18 +10,18 @@ class DiscardChangesCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppCard(
-      title: Texts.discardChangesCardTitle,
-      description: Texts.discardChangesCardDescription,
+      title: context.lang.current.discardChangesCardTitle,
+      description: context.lang.current.discardChangesCardDescription,
       children: [
         ListButton(
-          title: Texts.discardChangesCardDiscard,
+          title: context.lang.current.discardChangesCardDiscard,
           icon: FontAwesomeIcons.trash,
           color: context.theme.current.important,
           iconSize: 22,
           onTap: () => Navigator.pop<bool>(context, true),
         ),
         ListButton(
-          title: Texts.discardChangesCardKeep,
+          title: context.lang.current.discardChangesCardKeep,
           icon: FontAwesomeIcons.xmark,
           onTap: () => Navigator.pop<bool>(context, false),
         ),

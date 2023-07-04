@@ -1,4 +1,3 @@
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/button.dart';
 import 'package:chupp/widgets/buttons/single_button.dart';
@@ -56,7 +55,7 @@ class PageNav extends StatelessWidget {
               child: current < lastIndex
                   ? Button(
                       large: true,
-                      label: Texts.pageNavNext,
+                      label: context.lang.current.pageNavNext,
                       onPressed: () => controller.nextPage(
                         duration: animationDuration,
                         curve: animationCurve,
@@ -64,7 +63,7 @@ class PageNav extends StatelessWidget {
                     )
                   : Button(
                       large: true,
-                      label: Texts.pageNavDone,
+                      label: context.lang.current.pageNavDone,
                       onPressed: doneCall,
                     ),
             ),

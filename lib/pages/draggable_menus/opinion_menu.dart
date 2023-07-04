@@ -1,4 +1,3 @@
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/list_button.dart';
 import 'package:draggable_menu/draggable_menu.dart';
@@ -18,14 +17,14 @@ class OpinionMenu extends StatelessWidget {
       child: Column(
         children: [
           ListButton(
-            title: Texts.opinionMenuViewProfile,
+            title: context.lang.current.opinionMenuViewProfile,
             icon: FontAwesomeIcons.solidUser,
             iconSize: 20,
             color: context.theme.current.text,
             onTap: () {},
           ),
           ListButton(
-            title: Texts.menuReport,
+            title: context.lang.current.menuReport,
             icon: FontAwesomeIcons.solidFlag,
             iconSize: 20,
             color: context.theme.current.important,

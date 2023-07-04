@@ -1,4 +1,3 @@
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/utils/app_manager.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/button.dart';
@@ -72,7 +71,7 @@ class HashtagHeader extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Button(
-              label: Texts.hashtagFollow,
+              label: context.lang.current.hashtagFollow,
               onPressed: () {},
             ),
           ],

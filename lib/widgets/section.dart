@@ -1,4 +1,3 @@
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/pages/func/see_more.dart';
 import 'package:chupp/routes/basic.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
@@ -63,7 +62,7 @@ class Section extends StatelessWidget {
           SizedBox(height: titleGap),
           for (int i = 0; i < itemCount; i++) itemBuilder.call(context, i),
           ListButton(
-            title: Texts.sectionSeeMore,
+            title: context.lang.current.sectionSeeMore,
             color: context.theme.current.notice,
             onTap: () => Navigator.push(
               context,

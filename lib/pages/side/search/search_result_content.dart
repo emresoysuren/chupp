@@ -1,4 +1,4 @@
-import 'package:chupp/config/texts.dart';
+import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/disable_scroll_behavior.dart';
 import 'package:chupp/widgets/hashtags/mini_hashtag.dart';
 import 'package:chupp/widgets/posts/post/mini_post.dart';
@@ -15,17 +15,17 @@ class SearchResultContent extends StatelessWidget {
       child: ListView(
         children: [
           Section(
-            title: Texts.searchResultHashtags,
+            title: context.lang.current.searchResultHashtags,
             itemCount: 3,
             itemBuilder: (context, index) => const MiniHashtag(),
           ),
           Section(
-            title: Texts.searchResultPeople,
+            title: context.lang.current.searchResultPeople,
             itemCount: 3,
             itemBuilder: (context, index) => const MiniProfile(),
           ),
           Section(
-            title: Texts.searchResultPosts,
+            title: context.lang.current.searchResultPosts,
             bottomLine: false,
             itemCount: 3,
             itemBuilder: (context, index) => const MiniPost(),

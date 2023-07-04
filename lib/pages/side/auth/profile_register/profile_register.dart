@@ -29,12 +29,15 @@ class _ProfileRegisterPageState extends State<ProfileRegisterPage> {
 
   List<ProfileRegisterSideBase> get pages => [
         ProfileRegisterSide1(
+          context,
           onChanged: (value) => username = value,
         ),
         ProfileRegisterSide2(
+          context,
           onChanged: (value) => about = value,
         ),
         ProfileRegisterSide3(
+          context,
           onChanged: (result) {
             pickerResult = result;
           },

@@ -1,4 +1,3 @@
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/pages/side/hashtag/hashtag.dart';
 import 'package:chupp/routes/basic.dart';
 import 'package:chupp/utils/app_manager.dart';
@@ -32,7 +31,7 @@ class MiniHashtag extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "${Texts.hashtagHeaderPrefix} ${AppManager.numFormat(34000)} ${Texts.hashtagHeaderSuffix}",
+                "${context.lang.current.hashtagHeaderPrefix} ${AppManager.numFormat(34000)} ${context.lang.current.hashtagHeaderSuffix}",
                 style: context.styles.mutted,
               ),
               const SizedBox(height: 4),

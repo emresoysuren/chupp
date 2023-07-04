@@ -1,4 +1,3 @@
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/pages/main/profile.dart';
 import 'package:chupp/routes/basic.dart';
 import 'package:chupp/utils/app_manager.dart';
@@ -63,7 +62,7 @@ class MiniProfile extends StatelessWidget {
                       ),
                       const SizedBox(width: 16),
                       Text(
-                        "${AppManager.numFormat(12)} ${Texts.createdPostsSuffix}",
+                        "${AppManager.numFormat(12)} ${context.lang.current.createdPostsSuffix}",
                         style: context.styles.mutted,
                       ),
                     ],

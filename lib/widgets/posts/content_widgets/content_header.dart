@@ -1,4 +1,3 @@
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/pages/main/profile.dart';
 import 'package:chupp/pages/side/hashtag/hashtag.dart';
 import 'package:chupp/routes/basic.dart';
@@ -46,7 +45,7 @@ class ContentHeader extends StatelessWidget {
                     ),
                     if (option != null) ...[
                       Text(
-                        " ${Texts.postUserOpinionFor} ",
+                        " ${context.lang.current.postUserOpinionFor} ",
                         style: context.styles.mutted,
                       ),
                       GestureDetector(

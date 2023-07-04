@@ -1,7 +1,7 @@
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/routes/card.dart';
 import 'package:chupp/services/data_service.dart';
 import 'package:chupp/utils/app_manager.dart';
+import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/cards/signout_card.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -48,7 +48,7 @@ class AccountManager {
     if (email.isEmpty || password.isEmpty || passwordCheck.isEmpty) {
       AppManager.flushBarShow(
         context,
-        title: Texts.registerFailTitle,
+        title: context.lang.current.registerFailTitle,
         message: "Fill the all fields and try again.",
       );
       return false;
@@ -56,7 +56,7 @@ class AccountManager {
     if (password != passwordCheck) {
       AppManager.flushBarShow(
         context,
-        title: Texts.registerFailTitle,
+        title: context.lang.current.registerFailTitle,
         message: "The passwords you entered don't match.",
       );
       return false;
@@ -68,7 +68,7 @@ class AccountManager {
       );
       return true;
     } catch (e) {
-      _handleException(context, Texts.registerFailTitle, e);
+      _handleException(context, context.lang.current.registerFailTitle, e);
       return false;
     }
   }
@@ -81,7 +81,7 @@ class AccountManager {
     if (email.isEmpty || password.isEmpty) {
       AppManager.flushBarShow(
         context,
-        title: Texts.loginFailTitle,
+        title: context.lang.current.loginFailTitle,
         message: "Fill the all fields and try again.",
       );
       return false;
@@ -93,7 +93,7 @@ class AccountManager {
       );
       return true;
     } catch (e) {
-      _handleException(context, Texts.loginFailTitle, e);
+      _handleException(context, context.lang.current.loginFailTitle, e);
       return false;
     }
   }
@@ -106,7 +106,7 @@ class AccountManager {
       );
       return true;
     } catch (e) {
-      _handleException(context, Texts.loginFailTitle, e);
+      _handleException(context, context.lang.current.loginFailTitle, e);
       return false;
     }
   }
@@ -119,7 +119,7 @@ class AccountManager {
       );
       return true;
     } catch (e) {
-      _handleException(context, Texts.loginFailTitle, e);
+      _handleException(context, context.lang.current.loginFailTitle, e);
       return false;
     }
   }
@@ -132,7 +132,7 @@ class AccountManager {
       );
       return true;
     } catch (e) {
-      _handleException(context, Texts.loginFailTitle, e);
+      _handleException(context, context.lang.current.loginFailTitle, e);
       return false;
     }
   }
@@ -143,13 +143,16 @@ class AccountManager {
       AppManager.flushBarShow(
         context,
         title: title,
-        message: e.message ?? unknownExceptionMessage ?? Texts.unknownException,
+        message: e.message ??
+            unknownExceptionMessage ??
+            context.lang.current.unknownException,
       );
     } else {
       AppManager.flushBarShow(
         context,
         title: title,
-        message: unknownExceptionMessage ?? Texts.unknownException,
+        message:
+            unknownExceptionMessage ?? context.lang.current.unknownException,
       );
     }
   }

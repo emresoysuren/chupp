@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/pages/side/auth/register.dart';
 import 'package:chupp/routes/non_animated.dart';
 import 'package:chupp/services/data_service.dart';
@@ -42,7 +41,7 @@ class _AuthPageState extends State<AuthPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                Texts.authLoginTo,
+                context.lang.current.authLoginTo,
                 style: context.styles.title,
               ),
               const SizedBox(
@@ -58,20 +57,20 @@ class _AuthPageState extends State<AuthPage> {
         ),
         const SizedBox(height: 16),
         ColoredField(
-          label: Texts.authEmail,
+          label: context.lang.current.authEmail,
           type: TextInputType.emailAddress,
           onChanged: (value) => setState(() => email = value),
         ),
         const SizedBox(height: 16),
         ColoredField(
-          label: Texts.authPassword,
+          label: context.lang.current.authPassword,
           type: TextInputType.visiblePassword,
           onChanged: (value) => setState(() => password = value),
         ),
         const SizedBox(height: 16),
         Button(
           large: true,
-          label: Texts.authLogin,
+          label: context.lang.current.authLogin,
           onPressed: () => login(),
         ),
         const SizedBox(height: 16),
@@ -81,7 +80,7 @@ class _AuthPageState extends State<AuthPage> {
               child: Button(
                 large: true,
                 secondary: true,
-                label: Texts.authGoogleLogin,
+                label: context.lang.current.authGoogleLogin,
                 icon: FontAwesomeIcons.google,
                 iconSize: 18,
                 onPressed: () => googleLogin(),
@@ -92,7 +91,7 @@ class _AuthPageState extends State<AuthPage> {
               child: Button(
                 large: true,
                 secondary: true,
-                label: Texts.authAppleLogin,
+                label: context.lang.current.authAppleLogin,
                 icon: FontAwesomeIcons.apple,
                 iconSize: 18,
                 onPressed: () => appleLogin(),
@@ -103,7 +102,7 @@ class _AuthPageState extends State<AuthPage> {
         const SizedBox(height: 16),
         Center(
           child: SinglePlainTextButton(
-            label: Texts.authHelp,
+            label: context.lang.current.authHelp,
             onPressed: () {},
           ),
         ),
@@ -112,14 +111,14 @@ class _AuthPageState extends State<AuthPage> {
         Button(
           large: true,
           secondary: true,
-          label: Texts.authRegister,
+          label: context.lang.current.authRegister,
           onPressed: () => register(),
         ),
         const SizedBox(height: 16),
         Button(
           large: true,
           secondary: true,
-          label: Texts.authWithoutLogin,
+          label: context.lang.current.authWithoutLogin,
           onPressed: () => signInAnonymously(context),
         ),
       ],

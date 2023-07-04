@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/utils/account_manager.dart';
 import 'package:chupp/utils/router/app_router.gr.dart';
 import 'package:chupp/utils/router/extensions.dart';
@@ -22,14 +21,14 @@ class ProfileMenu extends StatelessWidget {
       child: Column(
         children: [
           ListButton(
-            title: Texts.profileSettings,
+            title: context.lang.current.profileSettings,
             icon: FontAwesomeIcons.gear,
             iconSize: 20,
             color: context.theme.current.text,
             onTap: () => context.router.open(const SettingsRoute()),
           ),
           ListButton(
-            title: Texts.profileMenuShare,
+            title: context.lang.current.profileMenuShare,
             icon: FontAwesomeIcons.arrowUpRightFromSquare,
             iconSize: 20,
             color: context.theme.current.text,
@@ -37,7 +36,7 @@ class ProfileMenu extends StatelessWidget {
           ),
           if (!AccountManager.isAnonymous)
             ListButton(
-              title: Texts.signOut,
+              title: context.lang.current.signOut,
               icon: FontAwesomeIcons.rightFromBracket,
               iconSize: 20,
               color: context.theme.current.important,
@@ -45,7 +44,7 @@ class ProfileMenu extends StatelessWidget {
             )
           else
             ListButton(
-              title: Texts.profileMenuAnonymousLoginOrRegister,
+              title: context.lang.current.profileMenuAnonymousLoginOrRegister,
               icon: FontAwesomeIcons.rightToBracket,
               iconSize: 20,
               color: context.theme.current.notice,

@@ -1,4 +1,3 @@
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/single_button.dart';
 import 'package:flutter/material.dart';
@@ -79,7 +78,7 @@ class _AddCommentState extends State<AddComment> with WidgetsBindingObserver {
                     maxLines: 3,
                     style: context.styles.text,
                     decoration: InputDecoration(
-                      hintText: Texts.postAddYourOpinion,
+                      hintText: context.lang.current.postAddYourOpinion,
                       hintStyle: context.styles.mutted,
                       border: InputBorder.none,
                       isDense: true,

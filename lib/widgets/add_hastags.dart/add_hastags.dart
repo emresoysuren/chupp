@@ -1,4 +1,3 @@
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/tag_chip.dart';
 import 'package:flutter/material.dart';
@@ -87,7 +86,7 @@ class _AddHastagsState extends State<AddHastags> with WidgetsBindingObserver {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: Text(
-                            Texts.addHastagsFieldLabel,
+                            context.lang.current.addHastagsFieldLabel,
                             style: context.styles.textImp.copyWith(
                               color: context.theme.current.notice,
                             ),
@@ -138,7 +137,7 @@ class _AddHastagsState extends State<AddHastags> with WidgetsBindingObserver {
                       maxLines: 1,
                       style: context.styles.text,
                       decoration: InputDecoration(
-                        hintText: Texts.addHastagsField,
+                        hintText: context.lang.current.addHastagsField,
                         hintStyle: context.styles.mutted,
                         border: InputBorder.none,
                         isDense: true,

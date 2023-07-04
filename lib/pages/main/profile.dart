@@ -1,5 +1,4 @@
 import 'package:auto_route/annotations.dart';
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/pages/draggable_menus/profile_menu.dart';
 import 'package:chupp/pages/draggable_menus/user_menu.dart';
 import 'package:chupp/utils/account_manager.dart';
@@ -87,7 +86,10 @@ class _ProfilePageState extends State<ProfilePage> {
             SliverPersistentHeader(
               delegate: CustomSliverPersistentHeaderDelegate(
                 PageCategory(
-                  pages: const [Texts.profilePosts, Texts.profileOpinions],
+                  pages: [
+                    context.lang.current.profilePosts,
+                    context.lang.current.profileOpinions,
+                  ],
                   controller: _pageController,
                 ),
               ),

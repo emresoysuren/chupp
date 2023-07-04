@@ -1,4 +1,3 @@
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/disable_scroll_behavior.dart';
 import 'package:chupp/widgets/posts/functional/add_comment.dart';
@@ -53,7 +52,7 @@ class PostContent extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.only(left: 16),
                             child: Text(
-                              Texts.postOpinionsTitle,
+                              context.lang.current.postOpinionsTitle,
                               style: context.styles.title3,
                             ),
                           ),

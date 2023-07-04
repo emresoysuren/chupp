@@ -1,4 +1,3 @@
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/utils/theme/config/app_theme_mode.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/bars/custom/title_bar.dart';
@@ -13,8 +12,8 @@ class ThemePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: context.theme.current.primaryBg,
-      appBar: const TitleBar(
-        title: Texts.settingsTheme,
+      appBar: TitleBar(
+        title: context.lang.current.settingsTheme,
         pop: true,
       ),
       body: DisableScrollBehavior(

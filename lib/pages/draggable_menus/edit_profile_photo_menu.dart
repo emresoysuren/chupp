@@ -1,6 +1,4 @@
 import 'dart:typed_data';
-
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/models/picker_result.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/buttons/list_button.dart';
@@ -30,25 +28,25 @@ class EditProfilePhotoMenu extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Text(
-              Texts.editProfilePhotoMenuTitle,
+              context.lang.current.editProfilePhotoMenuTitle,
               style: context.styles.title3,
             ),
           ),
           const SizedBox(height: 4),
           ListButton(
             icon: FontAwesomeIcons.solidImages,
-            title: Texts.editProfilePhotoMenuGallery,
+            title: context.lang.current.editProfilePhotoMenuGallery,
             onTap: () => pick(context, ImageSource.gallery),
           ),
           ListButton(
             icon: FontAwesomeIcons.camera,
-            title: Texts.editProfilePhotoMenuCamera,
+            title: context.lang.current.editProfilePhotoMenuCamera,
             onTap: () => pick(context, ImageSource.camera),
           ),
           if (allowReset)
             ListButton(
               icon: FontAwesomeIcons.arrowRotateLeft,
-              title: Texts.editProfilePhotoMenuReset,
+              title: context.lang.current.editProfilePhotoMenuReset,
               color: context.theme.current.notice,
               onTap: () => Navigator.pop<PickerResult>(
                 context,
@@ -57,7 +55,7 @@ class EditProfilePhotoMenu extends StatelessWidget {
             ),
           ListButton(
             icon: FontAwesomeIcons.solidTrashCan,
-            title: Texts.editProfilePhotoMenuDelete,
+            title: context.lang.current.editProfilePhotoMenuDelete,
             color: context.theme.current.important,
             onTap: () => Navigator.pop<PickerResult>(context, PickerResult()),
           ),

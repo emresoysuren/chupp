@@ -1,5 +1,4 @@
 import 'dart:ui';
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/models/picker_result.dart';
 import 'package:chupp/routes/card.dart';
 import 'package:chupp/utils/theme/repo/theme.dart';
@@ -141,7 +140,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          Texts.editProfileUsername,
+                          context.lang.current.editProfileUsername,
                           style: context.styles.title3,
                         ),
                         TextFormField(
@@ -151,7 +150,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
                               setState(() => username = value),
                           textInputAction: TextInputAction.next,
                           decoration: InputDecoration(
-                            hintText: Texts.editProfileUsernameHint,
+                            hintText:
+                                context.lang.current.editProfileUsernameHint,
                             hintStyle: context.styles.mutted,
                             isDense: true,
                             contentPadding:
@@ -161,7 +161,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                         ),
                         const SizedBox(height: 16),
                         Text(
-                          Texts.editProfileAbout,
+                          context.lang.current.editProfileAbout,
                           style: context.styles.title3,
                         ),
                         TextFormField(
@@ -172,7 +172,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           minLines: 1,
                           maxLines: 4,
                           decoration: InputDecoration(
-                            hintText: Texts.editProfileAboutHint,
+                            hintText: context.lang.current.editProfileAboutHint,
                             hintStyle: context.styles.mutted,
                             isDense: true,
                             contentPadding:
@@ -196,7 +196,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 fixedLenght: 92,
                 start: [
                   Text(
-                    Texts.editProfile,
+                    context.lang.current.editProfile,
                     style: context.styles.title2,
                   ),
                   const Spacer(),
@@ -215,7 +215,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
             padding: const EdgeInsets.all(16),
             child: Button(
               large: true,
-              label: Texts.editProfileSaveChanges,
+              label: context.lang.current.editProfileSaveChanges,
               onPressed: () {},
             ),
           ),

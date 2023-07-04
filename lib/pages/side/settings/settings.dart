@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:chupp/config/texts.dart';
 import 'package:chupp/pages/side/settings/account.dart';
 import 'package:chupp/pages/side/settings/faq.dart';
 import 'package:chupp/pages/side/settings/help.dart';
@@ -21,8 +20,8 @@ class SettingsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: context.theme.current.primaryBg,
-      appBar: const TitleBar(
-        title: Texts.settings,
+      appBar: TitleBar(
+        title: context.lang.current.settings,
         pop: true,
       ),
       body: DisableScrollBehavior(
@@ -30,7 +29,7 @@ class SettingsPage extends StatelessWidget {
         children: [
           ListButton(
             icon: FontAwesomeIcons.solidMoon,
-            title: Texts.settingsTheme,
+            title: context.lang.current.settingsTheme,
             onTap: () => Navigator.push(
               context,
               BasicPageRoute(start: Start.right, child: const ThemePage()),
@@ -38,7 +37,7 @@ class SettingsPage extends StatelessWidget {
           ),
           ListButton(
             icon: FontAwesomeIcons.solidCircleQuestion,
-            title: Texts.settingsFaq,
+            title: context.lang.current.settingsFaq,
             onTap: () => Navigator.push(
               context,
               BasicPageRoute(start: Start.right, child: const FaqPage()),
@@ -46,7 +45,7 @@ class SettingsPage extends StatelessWidget {
           ),
           ListButton(
             icon: FontAwesomeIcons.solidUser,
-            title: Texts.settingsAccount,
+            title: context.lang.current.settingsAccount,
             onTap: () => Navigator.push(
               context,
               BasicPageRoute(start: Start.right, child: const AccountPage()),
@@ -54,7 +53,7 @@ class SettingsPage extends StatelessWidget {
           ),
           ListButton(
             icon: FontAwesomeIcons.headset,
-            title: Texts.settingsHelp,
+            title: context.lang.current.settingsHelp,
             onTap: () => Navigator.push(
               context,
               BasicPageRoute(start: Start.right, child: const HelpPage()),
@@ -62,7 +61,7 @@ class SettingsPage extends StatelessWidget {
           ),
           ListButton(
             icon: FontAwesomeIcons.solidFlag,
-            title: Texts.settingsReport,
+            title: context.lang.current.settingsReport,
             onTap: () => Navigator.push(
               context,
               BasicPageRoute(start: Start.right, child: const ReportPage()),
