@@ -47,47 +47,45 @@ class _SearchWidgetState extends State<SearchWidget> {
       child: Material(
         shape: const StadiumBorder(),
         color: context.theme.current.secondaryBg,
-        child: Stack(
-          children: [
-            TextField(
-              controller: _controller,
-              enabled: widget.overRide == null,
-              focusNode: _focusNode,
-              textInputAction: TextInputAction.search,
-              autofocus: widget.autoFocus,
-              style: context.styles.text,
-              decoration: InputDecoration(
-                contentPadding:
-                    const EdgeInsets.symmetric(vertical: 11, horizontal: 16),
-                hintText: context.lang.current.searchField,
-                hintStyle: context.styles.mutted,
-                border: InputBorder.none,
-                isDense: true,
+        child: IntrinsicHeight(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Expanded(
+                child: TextField(
+                  controller: _controller,
+                  enabled: widget.overRide == null,
+                  focusNode: _focusNode,
+                  textInputAction: TextInputAction.search,
+                  autofocus: widget.autoFocus,
+                  style: context.styles.text,
+                  decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 11, horizontal: 16),
+                    hintText: context.lang.current.searchField,
+                    hintStyle: context.styles.mutted,
+                    border: InputBorder.none,
+                    isDense: true,
+                  ),
+                ),
               ),
-            ),
-            if (_controller.text.isNotEmpty && _focusNode.hasPrimaryFocus)
-              Positioned(
-                right: 0,
-                top: 0,
-                bottom: 0,
-                child: LayoutBuilder(builder: (context, c) {
-                  return SizedBox.square(
-                    dimension: c.maxHeight,
-                    child: SingleButton(
-                      onPressed: () => _controller.clear(),
-                      padding: const EdgeInsets.all(0),
-                      child: Center(
-                        child: FaIcon(
-                          FontAwesomeIcons.xmark,
-                          size: 20,
-                          color: context.theme.current.primaryBtn,
-                        ),
+              if (_controller.text.isNotEmpty && _focusNode.hasPrimaryFocus)
+                AspectRatio(
+                  aspectRatio: 1,
+                  child: SingleButton(
+                    onPressed: () => _controller.clear(),
+                    padding: const EdgeInsets.all(0),
+                    child: Center(
+                      child: FaIcon(
+                        FontAwesomeIcons.xmark,
+                        size: 20,
+                        color: context.theme.current.primaryBtn,
                       ),
                     ),
-                  );
-                }),
-              ),
-          ],
+                  ),
+                ),
+            ],
+          ),
         ),
       ),
     );

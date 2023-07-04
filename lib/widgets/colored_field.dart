@@ -53,63 +53,58 @@ class _ColoredFieldState extends State<ColoredField> {
         shape: borderShape,
         color: context.theme.current.secondaryBg,
       ),
-      child: Stack(
-        children: [
-          TextFormField(
-            style: context.styles.text,
-            focusNode: _focusNode,
-            onChanged: (value) {
-              setState(() => hasValue = value.isNotEmpty);
-              widget.onChanged?.call(value);
-            },
-            initialValue: widget.initialValue,
-            obscureText: obscureText,
-            keyboardType: widget.type,
-            textInputAction: widget.textInputAction,
-            controller: widget.controller,
-            maxLines: maxLines,
-            decoration: InputDecoration(
-              isDense: true,
-              contentPadding: const EdgeInsets.all(16),
-              border: InputBorder.none,
-              hintText: widget.label,
-              hintStyle: context.styles.subText,
-            ),
-          ),
-          if (widget.type == TextInputType.visiblePassword &&
-              _focusNode.hasPrimaryFocus &&
-              hasValue)
-            Positioned(
-              top: 0,
-              bottom: 0,
-              right: 0,
-              child: LayoutBuilder(
-                builder: (context, c) {
-                  return SizedBox.square(
-                    dimension: c.maxHeight,
-                    child: SingleButton(
-                      onPressed: () =>
-                          setState(() => obscureText = !obscureText),
-                      padding: const EdgeInsets.all(0),
-                      child: Center(
-                        child: obscureText
-                            ? FaIcon(
-                                FontAwesomeIcons.solidEyeSlash,
-                                color: context.theme.current.secondaryItem,
-                                size: 20,
-                              )
-                            : FaIcon(
-                                FontAwesomeIcons.solidEye,
-                                color: context.theme.current.primaryItem,
-                                size: 20,
-                              ),
-                      ),
-                    ),
-                  );
+      child: IntrinsicHeight(
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(
+              child: TextFormField(
+                style: context.styles.text,
+                focusNode: _focusNode,
+                onChanged: (value) {
+                  setState(() => hasValue = value.isNotEmpty);
+                  widget.onChanged?.call(value);
                 },
+                initialValue: widget.initialValue,
+                obscureText: obscureText,
+                keyboardType: widget.type,
+                textInputAction: widget.textInputAction,
+                controller: widget.controller,
+                maxLines: maxLines,
+                decoration: InputDecoration(
+                  isDense: true,
+                  contentPadding: const EdgeInsets.all(16),
+                  border: InputBorder.none,
+                  hintText: widget.label,
+                  hintStyle: context.styles.subText,
+                ),
               ),
             ),
-        ],
+            if (widget.type == TextInputType.visiblePassword &&
+                _focusNode.hasPrimaryFocus &&
+                hasValue)
+              AspectRatio(
+                aspectRatio: 1,
+                child: SingleButton(
+                  onPressed: () => setState(() => obscureText = !obscureText),
+                  padding: const EdgeInsets.all(0),
+                  child: Center(
+                    child: obscureText
+                        ? FaIcon(
+                            FontAwesomeIcons.solidEyeSlash,
+                            color: context.theme.current.secondaryItem,
+                            size: 20,
+                          )
+                        : FaIcon(
+                            FontAwesomeIcons.solidEye,
+                            color: context.theme.current.primaryItem,
+                            size: 20,
+                          ),
+                  ),
+                ),
+              ),
+          ],
+        ),
       ),
     );
   }
