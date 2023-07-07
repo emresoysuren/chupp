@@ -61,7 +61,9 @@ class _SearchWidgetState extends State<SearchWidget> {
                   style: context.styles.text,
                   decoration: InputDecoration(
                     contentPadding: const EdgeInsets.symmetric(
-                        vertical: 11, horizontal: 16),
+                      vertical: 11,
+                      horizontal: 16,
+                    ),
                     hintText: context.lang.current.searchField,
                     hintStyle: context.styles.mutted,
                     border: InputBorder.none,

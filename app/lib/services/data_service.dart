@@ -1,3 +1,4 @@
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -59,5 +60,13 @@ class DataService {
     } else {
       return await FirebaseAuth.instance.signInWithProvider(appleProvider);
     }
+  }
+
+  static Future<void> userRegister(String username, String about) async {
+    final Map<String, dynamic> data = {
+      "username": username,
+      "about": about,
+    };
+    await FirebaseFunctions.instance.httpsCallable("register_user").call(data);
   }
 }

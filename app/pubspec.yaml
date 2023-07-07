@@ -24,6 +24,9 @@ dependencies:
   intl: ^0.18.1
   image_picker: ^1.0.0
   google_sign_in: ^6.1.4
+  cloud_firestore: ^4.8.2
+  cloud_functions: ^4.3.3
+  firebase_app_check: ^0.1.5
 
 dev_dependencies:
   flutter_test:

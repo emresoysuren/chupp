@@ -14,7 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "977624219918-p0fnvhkmhogbibiff5mud1fi4uipoace.apps.googleusercontent.com",
+          "client_id": "977624219918-95bdqdqpohjear45j731b81jirl381a9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chupp",
+            "certificate_hash": "e1d2b4941fe21372dcf1bc83ed5e02e71fb9ac73"
+          }
+        },
+        {
+          "client_id": "977624219918-53lmn2opc55q71juom2nvfrfjsp4vd7b.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -27,8 +35,15 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "977624219918-p0fnvhkmhogbibiff5mud1fi4uipoace.apps.googleusercontent.com",
+              "client_id": "977624219918-53lmn2opc55q71juom2nvfrfjsp4vd7b.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "977624219918-6j5qe560mmtpi7tnfhaeq825nt6l0o6v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.chupp"
+              }
             }
           ]
         }

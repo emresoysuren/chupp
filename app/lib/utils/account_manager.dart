@@ -3,26 +3,12 @@ import 'package:chupp/services/data_service.dart';
 import 'package:chupp/utils/app_manager.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/cards/signout_card.dart';
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class AccountManager {
   AccountManager._();
-
-  static Future<void> signOut(BuildContext context) async {
-    if (isAnonymous) return;
-    final bool? result = await Navigator.push<bool>(
-      context,
-      CardRoute(
-        context,
-        child: const SignOutCard(),
-      ),
-    );
-    if (result != true) return;
-    if (context.mounted) {
-      await AppManager.animateAndLoad(context, () => DataService.signOut());
-    }
-  }
 
   static bool get isAnonymous {
     if (loggedIn) {
@@ -38,6 +24,23 @@ class AccountManager {
   static bool isOwner(String uid) => ownerUid == uid;
 
   static String? get ownerUid => DataService.uid;
+
+  // Firebase Auth | Start
+
+  static Future<void> signOut(BuildContext context) async {
+    if (isAnonymous) return;
+    final bool? result = await Navigator.push<bool>(
+      context,
+      CardRoute(
+        context,
+        child: const SignOutCard(),
+      ),
+    );
+    if (result != true) return;
+    if (context.mounted) {
+      await AppManager.animateAndLoad(context, () => DataService.signOut());
+    }
+  }
 
   static Future<bool> emailRegister(
     BuildContext context,
@@ -61,16 +64,11 @@ class AccountManager {
       );
       return false;
     }
-    try {
-      await AppManager.animateAndLoad(
-        context,
-        () => DataService.emailRegister(email, password),
-      );
-      return true;
-    } catch (e) {
-      _handleException(context, context.lang.current.registerFailTitle, e);
-      return false;
-    }
+    return await _load(
+      context,
+      run: () => DataService.emailRegister(email, password),
+      errorTitle: context.lang.current.registerFailTitle,
+    );
   }
 
   static Future<bool> emailLogin(
@@ -86,53 +84,46 @@ class AccountManager {
       );
       return false;
     }
-    try {
-      await AppManager.animateAndLoad(
-        context,
-        () => DataService.emailLogin(email, password),
-      );
-      return true;
-    } catch (e) {
-      _handleException(context, context.lang.current.loginFailTitle, e);
-      return false;
-    }
+    return await _load(
+      context,
+      run: () => DataService.emailLogin(email, password),
+      errorTitle: context.lang.current.loginFailTitle,
+    );
   }
 
-  static Future<bool> signInAnonymously(BuildContext context) async {
-    try {
-      await AppManager.animateAndLoad(
+  static Future<bool> signInAnonymously(BuildContext context) => _load(
         context,
-        () => DataService.signInAnonymously(),
+        run: () => DataService.signInAnonymously(),
+        errorTitle: context.lang.current.loginFailTitle,
       );
-      return true;
-    } catch (e) {
-      _handleException(context, context.lang.current.loginFailTitle, e);
-      return false;
-    }
-  }
 
-  static Future<bool> googleLogin(BuildContext context) async {
-    try {
-      await AppManager.animateAndLoad(
+  static Future<bool> googleLogin(BuildContext context) => _load(
         context,
-        () => DataService.googleLogin(),
+        run: () => DataService.googleLogin(),
+        errorTitle: context.lang.current.loginFailTitle,
       );
-      return true;
-    } catch (e) {
-      _handleException(context, context.lang.current.loginFailTitle, e);
-      return false;
-    }
-  }
 
-  static Future<bool> appleLogin(BuildContext context) async {
+  static Future<bool> appleLogin(BuildContext context) => _load(
+        context,
+        run: () => DataService.appleLogin(),
+        errorTitle: context.lang.current.loginFailTitle,
+      );
+
+  // Firebase Auth | End
+
+  static Future<bool> _load(
+    context, {
+    required Future Function() run,
+    required String errorTitle,
+  }) async {
     try {
       await AppManager.animateAndLoad(
         context,
-        () => DataService.appleLogin(),
+        run,
       );
       return true;
     } catch (e) {
-      _handleException(context, context.lang.current.loginFailTitle, e);
+      _handleException(context, errorTitle, e);
       return false;
     }
   }
@@ -143,7 +134,15 @@ class AccountManager {
       AppManager.flushBarShow(
         context,
         title: title,
-        message: e.message ??
+        message: (e as FirebaseAuthException).message ??
+            unknownExceptionMessage ??
+            context.lang.current.unknownException,
+      );
+    } else if (e.runtimeType == FirebaseFunctionsException) {
+      AppManager.flushBarShow(
+        context,
+        title: title,
+        message: (e as FirebaseFunctionsException).message ??
             unknownExceptionMessage ??
             context.lang.current.unknownException,
       );
@@ -155,5 +154,44 @@ class AccountManager {
             unknownExceptionMessage ?? context.lang.current.unknownException,
       );
     }
+  }
+
+  static Future<bool> userRegister(
+    BuildContext context, {
+    required String username,
+    required String about,
+  }) async {
+    if (username.length < 4) {
+      AppManager.flushBarShow(
+        context,
+        title: context.lang.current.registerFailTitle,
+        message: "Pick a longer username than 3 characters.",
+      );
+      return false;
+    }
+    if (registered) {
+      AppManager.flushBarShow(
+        context,
+        title: context.lang.current.registerFailTitle,
+        message: "The user has been registered already.",
+      );
+      return false;
+    }
+    if (!loggedIn) {
+      AppManager.flushBarShow(
+        context,
+        title: context.lang.current.registerFailTitle,
+        message: "The user isn't logged in.",
+      );
+      return false;
+    }
+    return await _load(
+      context,
+      run: () => DataService.userRegister(
+        username,
+        about,
+      ),
+      errorTitle: context.lang.current.registerFailTitle,
+    );
   }
 }

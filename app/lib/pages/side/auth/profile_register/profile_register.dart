@@ -4,6 +4,7 @@ import 'package:chupp/pages/side/auth/profile_register/pages/side_1.dart';
 import 'package:chupp/pages/side/auth/profile_register/pages/side_2.dart';
 import 'package:chupp/pages/side/auth/profile_register/pages/side_3.dart';
 import 'package:chupp/pages/side/auth/profile_register/profile_register_side_base.dart';
+import 'package:chupp/utils/account_manager.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/disable_scroll_behavior.dart';
 import 'package:chupp/widgets/register/page_nav.dart';
@@ -45,6 +46,16 @@ class _ProfileRegisterPageState extends State<ProfileRegisterPage> {
       ];
 
   @override
+  void initState() {
+    _controller.addListener(() {
+      if ((currentPage - (_controller.page ?? 0)).abs() > 0.5) {
+        FocusManager.instance.primaryFocus?.unfocus();
+      }
+    });
+    super.initState();
+  }
+
+  @override
   void dispose() {
     _controller.dispose();
     super.dispose();
@@ -59,6 +70,7 @@ class _ProfileRegisterPageState extends State<ProfileRegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: context.theme.current.primaryBg,
       appBar: RegisterHeader(
         current: currentPage + 1,
@@ -76,8 +88,17 @@ class _ProfileRegisterPageState extends State<ProfileRegisterPage> {
         current: currentPage,
         total: pages.length,
         controller: _controller,
-        doneCall: () {},
+        doneCall: () => _register(),
       ),
     );
+  }
+
+  Future<void> _register() async {
+    final bool result = await AccountManager.userRegister(
+      context,
+      username: username,
+      about: about,
+    );
+    if (result) widget.validate?.call();
   }
 }
