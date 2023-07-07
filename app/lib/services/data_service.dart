@@ -1,3 +1,6 @@
+import 'package:chupp/models/profile/owner_profile.dart';
+import 'package:chupp/models/profile/user_profile.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
@@ -68,5 +71,44 @@ class DataService {
       "about": about,
     };
     await FirebaseFunctions.instance.httpsCallable("register_user").call(data);
+  }
+
+  // User Profile Methods
+
+  static Future<UserProfile?> getUser(String uid) async {
+    final DocumentReference<Map<String, dynamic>> userRef =
+        FirebaseFirestore.instance.collection("users").doc(uid);
+
+    final DocumentSnapshot<Map<String, dynamic>> userDoc = await userRef.get();
+
+    final Map<String, dynamic>? userData = userDoc.data();
+
+    if (userData?.containsKey("username") != true) return null;
+
+    return UserProfile.fromMap(userData!);
+  }
+
+  // Owner Profile Method
+
+  static Future<OwnerProfile?> getOwner() async {
+    if (!loggedIn) return null;
+    final String uid = FirebaseAuth.instance.currentUser!.uid;
+    final profileRef = FirebaseFirestore.instance.collection("users").doc(uid);
+    final followingRef = profileRef.collection("details").doc("following");
+
+    final profileDoc = await profileRef.get();
+    final followingDoc = await followingRef.get();
+
+    final profileData = profileDoc.data();
+    final followingData = followingDoc.data();
+
+    if (profileData?.containsKey("username") != true) return null;
+
+    final Map<String, dynamic> ownerData = {
+      ...profileData!,
+      ...followingData!,
+    };
+
+    return OwnerProfile.fromMap(ownerData);
   }
 }

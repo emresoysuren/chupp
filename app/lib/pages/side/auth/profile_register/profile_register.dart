@@ -10,9 +10,10 @@ import 'package:chupp/widgets/disable_scroll_behavior.dart';
 import 'package:chupp/widgets/register/page_nav.dart';
 import 'package:chupp/widgets/register/register_header.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 @RoutePage()
-class ProfileRegisterPage extends StatefulWidget {
+class ProfileRegisterPage extends ConsumerStatefulWidget {
   final void Function()? validate;
 
   const ProfileRegisterPage({
@@ -21,10 +22,11 @@ class ProfileRegisterPage extends StatefulWidget {
   });
 
   @override
-  State<ProfileRegisterPage> createState() => _ProfileRegisterPageState();
+  ConsumerState<ProfileRegisterPage> createState() =>
+      _ProfileRegisterPageState();
 }
 
-class _ProfileRegisterPageState extends State<ProfileRegisterPage> {
+class _ProfileRegisterPageState extends ConsumerState<ProfileRegisterPage> {
   final PageController _controller = PageController();
   int currentPage = 0;
 
@@ -96,6 +98,7 @@ class _ProfileRegisterPageState extends State<ProfileRegisterPage> {
   Future<void> _register() async {
     final bool result = await AccountManager.userRegister(
       context,
+      ref,
       username: username,
       about: about,
     );

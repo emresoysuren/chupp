@@ -2,12 +2,14 @@
 from firebase_functions import https_fn, options
 
 # The Firebase Admin SDK to access Cloud Firestore.
-from firebase_admin import credentials, initialize_app, firestore
+import firebase_admin
+from firebase_admin import credentials, firestore
+from firebase_admin import auth as fbauth
 
 import google.cloud.firestore
 
 cred = credentials.Certificate("firebase-adminsdk.json")
-app = initialize_app(cred)
+app = firebase_admin.initialize_app(cred)
 
 
 db = firestore.client()
@@ -17,7 +19,7 @@ options.set_global_options(max_instances=10)
 
 @https_fn.on_call()
 def register_user(req: https_fn.CallableRequest) -> None:
-    uid = get_uid(req.auth)
+    uid = get_uid(req.auth, block_anonymous=True)
 
     data: dict = req.data
 
@@ -92,9 +94,22 @@ def register_user(req: https_fn.CallableRequest) -> None:
         merge=True,
     )
 
+    # Set user's details first. Because if something wrong happens, the user will be able to register again.
+
+    user_details_ref = user_ref.collection("details")
+
+    user_details_ref.document("followers").set({
+        "followers": [],
+    })
+
+    user_details_ref.document("following").set({
+        "following": [],
+    })
+
     profile_data: dict = {
         "username": username,
         "about": about,
+        "followers": 0,
     }
 
     user_ref.set(profile_data)
@@ -102,15 +117,26 @@ def register_user(req: https_fn.CallableRequest) -> None:
     # Register the User | End
 
 
-def get_uid(auth: https_fn.AuthData) -> str:
+def get_uid(auth: https_fn.AuthData, block_anonymous=False) -> str:
     """ 
         Throws an error if the user hasn't signed yet.
         And return the users uid.
     """
+
     if not auth:
         raise https_fn.HttpsError(
             code=https_fn.FunctionsErrorCode.FAILED_PRECONDITION,
             message="The function must be called while authenticated.",
         )
 
+    if block_anonymous and is_anonymous(fbauth.get_user(auth.uid)):
+        raise https_fn.HttpsError(
+            code=https_fn.FunctionsErrorCode.FAILED_PRECONDITION,
+            message="The function can't be called by anonymous accounts.",
+        )
+
     return auth.uid
+
+
+def is_anonymous(user_record: fbauth.UserRecord):
+    return not (user_record.email or user_record.phone_number or user_record.photo_url or user_record.display_name or user_record.provider_id)

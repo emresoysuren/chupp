@@ -1,3 +1,4 @@
+import 'package:chupp/repo/owner.dart';
 import 'package:chupp/routes/card.dart';
 import 'package:chupp/services/data_service.dart';
 import 'package:chupp/utils/app_manager.dart';
@@ -6,6 +7,7 @@ import 'package:chupp/widgets/cards/signout_card.dart';
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class AccountManager {
   AccountManager._();
@@ -19,7 +21,7 @@ class AccountManager {
 
   static bool get loggedIn => DataService.loggedIn;
 
-  static bool get registered => false;
+  static bool get registered => OwnerProvider.isRegistered;
 
   static bool isOwner(String uid) => ownerUid == uid;
 
@@ -157,7 +159,8 @@ class AccountManager {
   }
 
   static Future<bool> userRegister(
-    BuildContext context, {
+    BuildContext context,
+    WidgetRef ref, {
     required String username,
     required String about,
   }) async {
@@ -187,10 +190,13 @@ class AccountManager {
     }
     return await _load(
       context,
-      run: () => DataService.userRegister(
-        username,
-        about,
-      ),
+      run: () async {
+        await DataService.userRegister(
+          username,
+          about,
+        );
+        await ref.read(ownerProvider).getOwner();
+      },
       errorTitle: context.lang.current.registerFailTitle,
     );
   }
