@@ -5,9 +5,6 @@ import 'package:chupp/utils/router/guards/auth_state_notifier.dart';
 import 'package:chupp/utils/theme/config/app_theme_mode.dart';
 import 'package:chupp/utils/theme/repo/theme.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
-import 'package:chupp/firebase_options.dart';
-import 'package:firebase_app_check/firebase_app_check.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
@@ -99,12 +96,6 @@ class _SplashPageState extends State<SplashPage> {
   Future<void> load() async {
     // Load something in here
     final Future waitMin = Future.delayed(_minWaittingDuration);
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
-    await FirebaseAppCheck.instance.activate(
-      androidProvider: AndroidProvider.playIntegrity,
-    );
     AuthStateNotifier.instance.init();
     await waitMin;
     // Direct to somewhere

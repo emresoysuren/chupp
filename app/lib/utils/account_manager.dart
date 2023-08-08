@@ -4,8 +4,6 @@ import 'package:chupp/services/data_service.dart';
 import 'package:chupp/utils/app_manager.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/cards/signout_card.dart';
-import 'package:cloud_functions/cloud_functions.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -132,30 +130,11 @@ class AccountManager {
 
   static void _handleException(BuildContext context, String title, e,
       [String? unknownExceptionMessage]) {
-    if (e == FirebaseAuthException) {
-      AppManager.flushBarShow(
-        context,
-        title: title,
-        message: (e as FirebaseAuthException).message ??
-            unknownExceptionMessage ??
-            context.lang.current.unknownException,
-      );
-    } else if (e.runtimeType == FirebaseFunctionsException) {
-      AppManager.flushBarShow(
-        context,
-        title: title,
-        message: (e as FirebaseFunctionsException).message ??
-            unknownExceptionMessage ??
-            context.lang.current.unknownException,
-      );
-    } else {
-      AppManager.flushBarShow(
-        context,
-        title: title,
-        message:
-            unknownExceptionMessage ?? context.lang.current.unknownException,
-      );
-    }
+    AppManager.flushBarShow(
+      context,
+      title: title,
+      message: unknownExceptionMessage ?? context.lang.current.unknownException,
+    );
   }
 
   static Future<bool> userRegister(
