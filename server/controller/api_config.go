@@ -1,7 +1,12 @@
 package controller
 
-import "github.com/emresoysuren/chupp/server/internal/database"
+import (
+	"time"
+
+	"github.com/emresoysuren/chupp/server/internal/database"
+)
 
 type ApiConfig struct {
-	DB *database.Queries
+	DB      *database.Queries
+	AuthExp time.Duration
 }

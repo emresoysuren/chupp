@@ -4,7 +4,6 @@ import (
 	"net/http"
 
 	"github.com/emresoysuren/chupp/server/internal/database"
-	"github.com/emresoysuren/chupp/server/utils"
 	"github.com/gofiber/fiber/v2"
 	"github.com/google/uuid"
 	"golang.org/x/crypto/bcrypt"
@@ -67,7 +66,17 @@ func (apiCfg *ApiConfig) Login(c *fiber.Ctx) error {
 		return err
 	}
 
-	tokenString, err := utils.CreateAuthToken(apiCfg.DB, user.ID)
+	userAuth, err := apiCfg.DB.GetAuth(c.Context(), user.ID)
+	if err != nil {
+		return err
+	}
+
+	err = bcrypt.CompareHashAndPassword([]byte(userAuth.Password), []byte(body.Password))
+	if err != nil {
+		return c.SendStatus(http.StatusNotAcceptable)
+	}
+
+	tokenString, err := apiCfg.createAuthToken(c.Context(), user.ID)
 	if err != nil {
 		return err
 	}
@@ -75,7 +84,7 @@ func (apiCfg *ApiConfig) Login(c *fiber.Ctx) error {
 	c.Cookie(&fiber.Cookie{
 		Name:        "Authorization",
 		Value:       tokenString,
-		MaxAge:      3600 * 24 * 30,
+		MaxAge:      int(apiCfg.AuthExp.Seconds()),
 		Secure:      true,
 		HTTPOnly:    true,
 		SessionOnly: false,

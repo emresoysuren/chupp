@@ -1,8 +1,6 @@
 package main
 
 import (
-	"errors"
-
 	"github.com/emresoysuren/chupp/server/initializers"
 	"github.com/emresoysuren/chupp/server/utils"
 	"github.com/gofiber/fiber/v2"
@@ -17,12 +15,10 @@ func main() {
 
 	app := fiber.New()
 
-	app.Post("/login", apiCfg.Login)
 	app.Post("/register", apiCfg.Register)
+	app.Post("/login", apiCfg.Login)
 
-	app.Get("/", func(c *fiber.Ctx) error {
-		return errors.New("text")
-	})
+	app.Get("/health", apiCfg.HealthHandler)
 
 	app.Listen(utils.GetAddr())
 }
