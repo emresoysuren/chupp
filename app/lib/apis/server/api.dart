@@ -1,0 +1,119 @@
+import 'dart:convert';
+
+import 'package:chupp/apis/server/models/current_user.dart';
+import 'package:http/http.dart' as http;
+
+import 'api_config.dart';
+import 'messages/errors.dart';
+
+class ServerApi {
+  static final instence = ServerApi._();
+  final http.Client _client = http.Client();
+  final CurrentUser currentUser = CurrentUser();
+
+  ServerApi._();
+
+  String get serverUrl => ApiConfig.serverUrl;
+
+  Uri toUrl(String path) => Uri.parse(serverUrl + path);
+
+  /// Checks the response status and returns from the function if the status is 2XX.
+  ///
+  /// If the status is not 2XX, throws an error.
+  ///
+  /// The error message can be specified in the responde,
+  /// but if it's not the error message will be the corresponding
+  /// error type's (4XX, 5XX) default message.
+  void _statusChecker(http.Response response) {
+    final int code = response.statusCode;
+    final int type = code ~/ 100;
+
+    // If the responde is OK return.
+    if (type == 2) return;
+
+    // If the responde is not OK, check if there is a error sent.
+    final json = jsonDecode(response.body);
+    if (json is Map<String, dynamic>) {
+      final error = json["error"];
+      if (error is String) {
+        throw error;
+      }
+    }
+
+    // If couldn't find an error message return the default
+    // error message for the api.
+    switch (type) {
+      case 1:
+        throw ApiErrorMessages.error1XX;
+      case 3:
+        throw ApiErrorMessages.error3XX;
+      case 4:
+        throw ApiErrorMessages.error4XX;
+      case 5:
+        throw ApiErrorMessages.error5XX;
+      default:
+        throw ApiErrorMessages.errorUnknown;
+    }
+  }
+
+  /// Login the user with the given email and password.
+  ///
+  /// Can throw an error due to the server's respond.
+  Future<void> login(String email, String password) async {
+    final http.Response response = await _client.post(
+      toUrl("/login"),
+      body: <String, String>{
+        "email": email,
+        "password": password,
+      },
+    );
+
+    _statusChecker(response);
+  }
+
+  /// Register a new user with the given parameters.
+  ///
+  /// Can throw an error due to the server's respond.
+  Future<void> register(String username, String email, String password) async {
+    final http.Response response = await _client.post(
+      toUrl("/register"),
+      body: <String, String>{
+        "username": username,
+        "email": email,
+        "password": password,
+      },
+    );
+
+    _statusChecker(response);
+  }
+
+  /// Logout the current user.
+  ///
+  /// Can throw an error due to the server's respond.
+  Future<void> logout(String username, String email, String password) async {
+    if (currentUser.uid == null) {
+      throw ApiErrorMessages.errorUserNotFound;
+    }
+
+    final http.Response response = await _client.post(
+      toUrl("/logout"),
+    );
+
+    _statusChecker(response);
+  }
+
+  /// Returns `true` if the server is currently working.
+  Future<bool> get health async {
+    final http.Response response = await _client.get(
+      toUrl("/health"),
+    );
+
+    try {
+      _statusChecker(response);
+    } catch (_) {
+      return false;
+    }
+
+    return true;
+  }
+}
