@@ -1,4 +1,3 @@
-import 'package:chupp/services/data_service.dart';
 import 'package:flutter/material.dart';
 
 class AuthStateNotifier extends ChangeNotifier {
@@ -6,5 +5,6 @@ class AuthStateNotifier extends ChangeNotifier {
 
   AuthStateNotifier._();
 
-  void init() => DataService.authStateChanges.listen((_) => notifyListeners());
+  void init() {}
+  // void init() => DataService.authStateChanges.listen((_) => notifyListeners());
 }

@@ -1,65 +1,35 @@
+import 'package:chupp/apis/server/api.dart';
 import 'package:chupp/models/profile/owner_profile.dart';
 import 'package:chupp/models/profile/user_profile.dart';
-import 'package:flutter/foundation.dart';
 
 class DataService {
   DataService._();
 
-  static Future<void> signInAnonymously() async {
-    try {
-      await FirebaseAuth.instance.signInAnonymously();
-    } catch (_) {}
-  }
+  // STATUS | May need change
 
-  static Stream<User?> get authStateChanges =>
-      FirebaseAuth.instance.authStateChanges();
+  static bool get loggedIn => ServerApi.instance.currentUser != null;
 
-  static Future<void> signOut() async {
-    await FirebaseAuth.instance.signOut();
-  }
+  static String? get uid => ServerApi.instance.currentUser?.uid;
 
-  static bool? get isAnonymous =>
-      FirebaseAuth.instance.currentUser?.isAnonymous;
+  // STATUS | Auth Methods
 
-  static bool get loggedIn => FirebaseAuth.instance.currentUser != null;
-
-  static String? get uid => FirebaseAuth.instance.currentUser?.uid;
-
-  static Future<UserCredential> emailRegister(String email, String password) =>
-      FirebaseAuth.instance.createUserWithEmailAndPassword(
+  static Future<void> emailRegister(String email, String password) =>
+      ServerApi.instance.register(
         email: email,
         password: password,
       );
 
-  static Future<UserCredential> emailLogin(String email, String password) =>
-      FirebaseAuth.instance.signInWithEmailAndPassword(
+  static Future<void> emailLogin(String email, String password) =>
+      ServerApi.instance.login(
         email: email,
         password: password,
       );
 
-  static Future<UserCredential> googleLogin() async {
-    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+  static Future<void> signOut() => ServerApi.instance.logout();
 
-    final GoogleSignInAuthentication? googleAuth =
-        await googleUser?.authentication;
+  // STATUS | Need change
 
-    final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth?.accessToken,
-      idToken: googleAuth?.idToken,
-    );
-
-    return await FirebaseAuth.instance.signInWithCredential(credential);
-  }
-
-  // It won't work due to the Apple Developer Program
-  static Future<UserCredential> appleLogin() async {
-    final appleProvider = AppleAuthProvider();
-    if (kIsWeb) {
-      return await FirebaseAuth.instance.signInWithPopup(appleProvider);
-    } else {
-      return await FirebaseAuth.instance.signInWithProvider(appleProvider);
-    }
-  }
+  // User Profile Methods
 
   static Future<void> userRegister(String username, String about) async {
     final Map<String, dynamic> data = {
@@ -68,8 +38,6 @@ class DataService {
     };
     await FirebaseFunctions.instance.httpsCallable("register_user").call(data);
   }
-
-  // User Profile Methods
 
   static Future<UserProfile?> getUser(String uid) async {
     final DocumentReference<Map<String, dynamic>> userRef =
@@ -86,7 +54,7 @@ class DataService {
 
   // Owner Profile Method
 
-  static Future<OwnerProfile?> getOwner() async {
+  static Future<OwnerProfile?> getCurrentUser() async {
     if (!loggedIn) return null;
     final String uid = FirebaseAuth.instance.currentUser!.uid;
     final profileRef = FirebaseFirestore.instance.collection("users").doc(uid);
@@ -107,4 +75,14 @@ class DataService {
 
     return OwnerProfile.fromMap(ownerData);
   }
+
+  // STATUS | Temporarily blocked
+
+  static signInAnonymously() => throw "";
+
+  static googleLogin() => throw "";
+
+  static appleLogin() => throw "";
+
+  static bool? get isAnonymous => null;
 }

@@ -13,7 +13,7 @@ class OwnerProvider extends ChangeNotifier {
   OwnerProvider();
 
   Future<void> getOwner() async {
-    profile = await DataService.getOwner();
+    profile = await DataService.getCurrentUser();
     _registered = profile != null;
     notifyListeners();
   }

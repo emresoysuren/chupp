@@ -7,13 +7,14 @@ import 'api_config.dart';
 import 'messages/errors.dart';
 
 class ServerApi {
-  static final instence = ServerApi._();
+  static final instance = ServerApi._();
   final http.Client _client = http.Client();
-  final CurrentUser currentUser = CurrentUser();
+
+  ServerApiCurrentUser? currentUser;
 
   ServerApi._();
 
-  String get serverUrl => ApiConfig.serverUrl;
+  String get serverUrl => ServerApiConfig.serverUrl;
 
   Uri toUrl(String path) => Uri.parse(serverUrl + path);
 
@@ -44,22 +45,25 @@ class ServerApi {
     // error message for the api.
     switch (type) {
       case 1:
-        throw ApiErrorMessages.error1XX;
+        throw ServerApiErrorMessages.error1XX;
       case 3:
-        throw ApiErrorMessages.error3XX;
+        throw ServerApiErrorMessages.error3XX;
       case 4:
-        throw ApiErrorMessages.error4XX;
+        throw ServerApiErrorMessages.error4XX;
       case 5:
-        throw ApiErrorMessages.error5XX;
+        throw ServerApiErrorMessages.error5XX;
       default:
-        throw ApiErrorMessages.errorUnknown;
+        throw ServerApiErrorMessages.errorUnknown;
     }
   }
 
   /// Login the user with the given email and password.
   ///
   /// Can throw an error due to the server's respond.
-  Future<void> login(String email, String password) async {
+  Future<void> login({
+    required String email,
+    required String password,
+  }) async {
     final http.Response response = await _client.post(
       toUrl("/login"),
       body: <String, String>{
@@ -74,11 +78,13 @@ class ServerApi {
   /// Register a new user with the given parameters.
   ///
   /// Can throw an error due to the server's respond.
-  Future<void> register(String username, String email, String password) async {
+  Future<void> register({
+    required String email,
+    required String password,
+  }) async {
     final http.Response response = await _client.post(
       toUrl("/register"),
       body: <String, String>{
-        "username": username,
         "email": email,
         "password": password,
       },
@@ -90,9 +96,9 @@ class ServerApi {
   /// Logout the current user.
   ///
   /// Can throw an error due to the server's respond.
-  Future<void> logout(String username, String email, String password) async {
-    if (currentUser.uid == null) {
-      throw ApiErrorMessages.errorUserNotFound;
+  Future<void> logout() async {
+    if (currentUser == null) {
+      throw ServerApiErrorMessages.errorUserNotFound;
     }
 
     final http.Response response = await _client.post(

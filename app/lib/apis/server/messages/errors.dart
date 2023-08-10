@@ -1,5 +1,5 @@
-class ApiErrorMessages {
-  ApiErrorMessages._();
+class ServerApiErrorMessages {
+  ServerApiErrorMessages._();
 
   static const String error1XX = "";
   static const String error3XX = "";

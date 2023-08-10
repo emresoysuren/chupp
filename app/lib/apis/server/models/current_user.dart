@@ -1,3 +1,3 @@
-class CurrentUser {
+class ServerApiCurrentUser {
   String? uid;
 }
