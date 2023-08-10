@@ -1,10 +1,15 @@
 package controller
 
 import (
+	"errors"
+	"fmt"
 	"net/http"
+	"os"
+	"time"
 
 	"github.com/emresoysuren/chupp/server/internal/database"
 	"github.com/gofiber/fiber/v2"
+	"github.com/golang-jwt/jwt/v5"
 	"github.com/google/uuid"
 	"golang.org/x/crypto/bcrypt"
 )
@@ -91,4 +96,69 @@ func (apiCfg *ApiConfig) Login(c *fiber.Ctx) error {
 	})
 
 	return c.SendStatus(http.StatusAccepted)
+}
+
+func (apiCfg *ApiConfig) Logout(c *fiber.Ctx) error {
+	tokenString := c.Cookies("Authorization")
+	if tokenString == "" {
+		return c.SendStatus(http.StatusUnauthorized)
+	}
+
+	token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
+
+		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
+			return nil, fmt.Errorf("unexpected signing method: %v", token.Header["alg"])
+		}
+
+		secretKey, ok := os.LookupEnv("SECRET_KEY")
+		if !ok {
+			return "", errors.New("couldn't find the SECRET_key variable in the .env")
+		}
+
+		return []byte(secretKey), nil
+	})
+	if err != nil {
+		return c.SendStatus(http.StatusExpectationFailed)
+	}
+
+	claims, ok := token.Claims.(jwt.MapClaims)
+	if !ok {
+		return c.SendStatus(http.StatusNotAcceptable)
+	}
+
+	sessionString, ok := claims["session"].(string)
+	if !ok {
+		return c.SendStatus(http.StatusNotAcceptable)
+	}
+
+	userIDString, ok := claims["user-id"].(string)
+	if !ok {
+		return c.SendStatus(http.StatusNotAcceptable)
+	}
+
+	userID, err := uuid.Parse(userIDString)
+	if err != nil {
+		return c.SendStatus(http.StatusNotAcceptable)
+	}
+
+	exp, ok := claims["exp"].(float64)
+	if !ok {
+		return c.SendStatus(http.StatusNotAcceptable)
+	}
+
+	currentSession, err := apiCfg.getSession(c.Context(), userID)
+	if err != nil {
+		return err
+	}
+
+	if time.Now().Unix() > int64(exp) {
+		return c.SendStatus(http.StatusNotAcceptable)
+	}
+	if sessionString != currentSession.SessionKey {
+		return c.SendStatus(http.StatusNotAcceptable)
+	}
+
+	c.ClearCookie("Authorization")
+
+	return apiCfg.endSession(c.Context(), userID)
 }

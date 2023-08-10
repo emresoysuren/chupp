@@ -10,3 +10,7 @@ RETURNING *;
 -- name: GetSession :one
 SELECT * FROM sessions
 WHERE user_id = $1;
+
+-- name: DeleteSession :exec
+DELETE FROM sessions
+WHERE user_id = $1;

@@ -17,6 +17,7 @@ func main() {
 
 	app.Post("/register", apiCfg.Register)
 	app.Post("/login", apiCfg.Login)
+	app.Post("/logout", apiCfg.Logout)
 
 	app.Get("/health", apiCfg.HealthHandler)
 

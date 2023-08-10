@@ -2,7 +2,8 @@ package controller
 
 import (
 	"context"
-	"log"
+	"errors"
+	"os"
 	"time"
 
 	"github.com/emresoysuren/chupp/server/internal/database"
@@ -19,9 +20,15 @@ func (apiCfg *ApiConfig) createAuthToken(c context.Context, userID uuid.UUID) (s
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
 		"user-id": userID,
 		"exp":     time.Now().Add(apiCfg.AuthExp).Unix(),
+		"session": sessionKey,
 	})
 
-	return token.SignedString([]byte(sessionKey))
+	secretKey, ok := os.LookupEnv("SECRET_KEY")
+	if !ok {
+		return "", errors.New("couldn't find the SECRET_key variable in the .env")
+	}
+
+	return token.SignedString([]byte(secretKey))
 }
 
 func (apiCfg *ApiConfig) createNewSession(c context.Context, userID uuid.UUID) (sessionKey string, err error) {
@@ -35,7 +42,18 @@ func (apiCfg *ApiConfig) createNewSession(c context.Context, userID uuid.UUID) (
 		return "", err
 	}
 
-	log.Println("Created a new seassion:", userID, ":", sessionKey)
-
 	return sessionKey, nil
+}
+
+func (apiCfg *ApiConfig) endSession(c context.Context, userID uuid.UUID) error {
+	return apiCfg.DB.DeleteSession(c, userID)
+}
+
+func (apiCfg *ApiConfig) getSession(c context.Context, userID uuid.UUID) (database.Session, error) {
+	session, err := apiCfg.DB.GetSession(c, userID)
+	if err != nil {
+		return database.Session{}, err
+	}
+
+	return session, nil
 }
