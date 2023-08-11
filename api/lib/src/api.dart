@@ -1,20 +1,20 @@
 import 'dart:convert';
 
-import 'package:chupp/apis/server/models/current_user.dart';
 import 'package:http/http.dart' as http;
 
 import 'api_config.dart';
 import 'messages/errors.dart';
+import 'models/current_user.dart';
 
-class ServerApi {
-  static final instance = ServerApi._();
+class ChuppApi {
+  static final instance = ChuppApi._();
   final http.Client _client = http.Client();
 
   ServerApiCurrentUser? currentUser;
 
-  ServerApi._();
+  ChuppApi._();
 
-  String get serverUrl => ServerApiConfig.serverUrl;
+  String get serverUrl => ChuppApiConfig.serverUrl;
 
   Uri toUrl(String path) => Uri.parse(serverUrl + path);
 
@@ -51,15 +51,15 @@ class ServerApi {
     // error message for the api.
     switch (type) {
       case 1:
-        throw ServerApiErrorMessages.error1XX;
+        throw ChuppApiErrorMessages.error1XX;
       case 3:
-        throw ServerApiErrorMessages.error3XX;
+        throw ChuppApiErrorMessages.error3XX;
       case 4:
-        throw ServerApiErrorMessages.error4XX;
+        throw ChuppApiErrorMessages.error4XX;
       case 5:
-        throw ServerApiErrorMessages.error5XX;
+        throw ChuppApiErrorMessages.error5XX;
       default:
-        throw ServerApiErrorMessages.errorUnknown;
+        throw ChuppApiErrorMessages.errorUnknown;
     }
   }
 
@@ -112,7 +112,7 @@ class ServerApi {
   /// Can throw an error due to the server's respond.
   Future<void> logout() async {
     if (currentUser == null) {
-      throw ServerApiErrorMessages.errorUserNotFound;
+      throw ChuppApiErrorMessages.errorUserNotFound;
     }
 
     final http.Response response = await _client.post(

@@ -1,29 +1,29 @@
-import 'package:chupp/apis/server/api.dart';
+import 'package:chupp_api/api.dart';
 
 class DataService {
   DataService._();
 
   // STATUS | May need change
 
-  static bool get loggedIn => ServerApi.instance.currentUser != null;
+  static bool get loggedIn => ChuppApi.instance.currentUser != null;
 
-  static String? get uid => ServerApi.instance.currentUser?.uid;
+  static String? get uid => ChuppApi.instance.currentUser?.uid;
 
   // STATUS | Auth Methods
 
   static Future<void> register(String email, String password) =>
-      ServerApi.instance.register(
+      ChuppApi.instance.register(
         email: email,
         password: password,
       );
 
   static Future<void> login(String email, String password) =>
-      ServerApi.instance.login(
+      ChuppApi.instance.login(
         email: email,
         password: password,
       );
 
-  static Future<void> signOut() => ServerApi.instance.logout();
+  static Future<void> signOut() => ChuppApi.instance.logout();
 
   // STATUS | Need change
 

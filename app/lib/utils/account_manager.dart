@@ -131,14 +131,14 @@ class AccountManager {
     }
   }
 
-  static void _handleException(BuildContext context, String title, e,
-      [String? unknownExceptionMessage]) {
-    AppManager.flushBarShow(
-      context,
-      title: title,
-      message: unknownExceptionMessage ?? context.lang.current.unknownException,
-    );
-  }
+  static Future _handleException(BuildContext context, String title, e,
+          [String? unknownExceptionMessage]) =>
+      AppManager.flushBarShow(
+        context,
+        title: title,
+        message:
+            unknownExceptionMessage ?? context.lang.current.unknownException,
+      );
 
   static Future<bool> userRegister(
     BuildContext context,
