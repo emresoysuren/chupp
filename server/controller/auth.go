@@ -17,7 +17,6 @@ import (
 func (apiCfg *ApiConfig) Register(c *fiber.Ctx) error {
 
 	body := struct {
-		Username string `json:"username"`
 		Email    string `json:"email"`
 		Password string `json:"password"`
 	}{}
@@ -30,9 +29,8 @@ func (apiCfg *ApiConfig) Register(c *fiber.Ctx) error {
 	id := uuid.New()
 
 	_, err = apiCfg.DB.CreateUser(c.Context(), database.CreateUserParams{
-		ID:       id,
-		Username: body.Username,
-		Email:    body.Email,
+		ID:    id,
+		Email: body.Email,
 	})
 	if err != nil {
 		return err
