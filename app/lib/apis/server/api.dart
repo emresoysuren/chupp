@@ -33,7 +33,13 @@ class ServerApi {
     if (type == 2) return;
 
     // If the responde is not OK, check if there is a error sent.
-    final json = jsonDecode(response.body);
+    dynamic json;
+    try {
+      json = jsonDecode(response.body);
+    } catch (_) {
+      json = jsonDecode(jsonEncode(response.body));
+    }
+
     if (json is Map<String, dynamic>) {
       final error = json["error"];
       if (error is String) {
@@ -73,6 +79,10 @@ class ServerApi {
     );
 
     _statusChecker(response);
+
+    final body = jsonDecode(response.body);
+    final uid = body["user_id"];
+    currentUser = ServerApiCurrentUser(uid: uid);
   }
 
   /// Register a new user with the given parameters.
@@ -91,6 +101,10 @@ class ServerApi {
     );
 
     _statusChecker(response);
+
+    final body = jsonDecode(response.body);
+    final uid = body["user_id"];
+    currentUser = ServerApiCurrentUser(uid: uid);
   }
 
   /// Logout the current user.
@@ -106,6 +120,8 @@ class ServerApi {
     );
 
     _statusChecker(response);
+
+    currentUser = null;
   }
 
   /// Returns `true` if the server is currently working.

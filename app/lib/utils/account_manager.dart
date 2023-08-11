@@ -37,7 +37,11 @@ class AccountManager {
     );
     if (result != true) return;
     if (context.mounted) {
-      await AppManager.animateAndLoad(context, () => DataService.signOut());
+      await _load(
+        context,
+        run: () => DataService.signOut(),
+        errorTitle: context.lang.current.logoutFailTitle,
+      );
     }
   }
 

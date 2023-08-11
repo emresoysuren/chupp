@@ -28,7 +28,7 @@ func (apiCfg *ApiConfig) Register(c *fiber.Ctx) error {
 
 	id := uuid.New()
 
-	_, err = apiCfg.DB.CreateUser(c.Context(), database.CreateUserParams{
+	err = apiCfg.DB.CreateUser(c.Context(), database.CreateUserParams{
 		ID:    id,
 		Email: body.Email,
 	})
@@ -91,6 +91,10 @@ func (apiCfg *ApiConfig) Login(c *fiber.Ctx) error {
 		Secure:      true,
 		HTTPOnly:    true,
 		SessionOnly: false,
+	})
+
+	c.JSON(fiber.Map{
+		"user_id": user.ID,
 	})
 
 	return c.SendStatus(http.StatusAccepted)

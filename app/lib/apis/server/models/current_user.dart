@@ -1,3 +1,5 @@
 class ServerApiCurrentUser {
-  String? uid;
+  final String uid;
+
+  ServerApiCurrentUser({required this.uid});
 }

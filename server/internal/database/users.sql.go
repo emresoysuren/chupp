@@ -11,10 +11,9 @@ import (
 	"github.com/google/uuid"
 )
 
-const createUser = `-- name: CreateUser :one
+const createUser = `-- name: CreateUser :exec
 INSERT INTO users (id, created_at, updated_at, email)
 VALUES ($1, NOW(), NOW(), $2)
-RETURNING id, created_at, updated_at, email
 `
 
 type CreateUserParams struct {
@@ -22,16 +21,9 @@ type CreateUserParams struct {
 	Email string
 }
 
-func (q *Queries) CreateUser(ctx context.Context, arg CreateUserParams) (User, error) {
-	row := q.db.QueryRowContext(ctx, createUser, arg.ID, arg.Email)
-	var i User
-	err := row.Scan(
-		&i.ID,
-		&i.CreatedAt,
-		&i.UpdatedAt,
-		&i.Email,
-	)
-	return i, err
+func (q *Queries) CreateUser(ctx context.Context, arg CreateUserParams) error {
+	_, err := q.db.ExecContext(ctx, createUser, arg.ID, arg.Email)
+	return err
 }
 
 const getUserByEmail = `-- name: GetUserByEmail :one

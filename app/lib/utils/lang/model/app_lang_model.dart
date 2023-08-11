@@ -6,6 +6,7 @@ class AppLangModel {
   final String registerFailTitle;
   final String unknownException;
   final String loginFailTitle;
+  final String logoutFailTitle;
   final String authRegister;
   final String authWithoutLogin;
   final String authOrDivider;
@@ -116,6 +117,7 @@ class AppLangModel {
     required this.registerFailTitle,
     required this.unknownException,
     required this.loginFailTitle,
+    required this.logoutFailTitle,
     required this.authRegister,
     required this.authWithoutLogin,
     required this.authOrDivider,

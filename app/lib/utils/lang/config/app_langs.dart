@@ -128,6 +128,7 @@ class AppLangs {
         settingsThemeLight: "Light",
         settingsThemeSystem: "System",
         likedPosts: "Liked Posts",
+        logoutFailTitle: "Logout Failed",
       );
 
   static AppLangModel get tr => AppLangModel(
@@ -243,5 +244,6 @@ class AppLangs {
         settingsThemeLight: "Aydınlık",
         settingsThemeSystem: "Varsayılan",
         likedPosts: "Beğenilen Gönderiler",
+        logoutFailTitle: "Çıkış Başarısız",
       );
 }
