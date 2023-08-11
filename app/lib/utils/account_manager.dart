@@ -1,4 +1,3 @@
-import 'package:chupp/repo/owner.dart';
 import 'package:chupp/routes/card.dart';
 import 'package:chupp/services/data_service.dart';
 import 'package:chupp/utils/app_manager.dart';
@@ -19,7 +18,7 @@ class AccountManager {
 
   static bool get loggedIn => DataService.loggedIn;
 
-  static bool get registered => OwnerProvider.isRegistered;
+  static bool get registered => false;
 
   static bool isOwner(String uid) => ownerUid == uid;
 
@@ -66,7 +65,7 @@ class AccountManager {
     }
     return await _load(
       context,
-      run: () => DataService.emailRegister(email, password),
+      run: () => DataService.register(email, password),
       errorTitle: context.lang.current.registerFailTitle,
     );
   }
@@ -86,7 +85,7 @@ class AccountManager {
     }
     return await _load(
       context,
-      run: () => DataService.emailLogin(email, password),
+      run: () => DataService.login(email, password),
       errorTitle: context.lang.current.loginFailTitle,
     );
   }
@@ -143,40 +142,41 @@ class AccountManager {
     required String username,
     required String about,
   }) async {
-    if (username.length < 4) {
-      AppManager.flushBarShow(
-        context,
-        title: context.lang.current.registerFailTitle,
-        message: "Pick a longer username than 3 characters.",
-      );
-      return false;
-    }
-    if (registered) {
-      AppManager.flushBarShow(
-        context,
-        title: context.lang.current.registerFailTitle,
-        message: "The user has been registered already.",
-      );
-      return false;
-    }
-    if (!loggedIn) {
-      AppManager.flushBarShow(
-        context,
-        title: context.lang.current.registerFailTitle,
-        message: "The user isn't logged in.",
-      );
-      return false;
-    }
-    return await _load(
-      context,
-      run: () async {
-        await DataService.userRegister(
-          username,
-          about,
-        );
-        await ref.read(ownerProvider).getOwner();
-      },
-      errorTitle: context.lang.current.registerFailTitle,
-    );
+    return false;
+    // if (username.length < 4) {
+    //   AppManager.flushBarShow(
+    //     context,
+    //     title: context.lang.current.registerFailTitle,
+    //     message: "Pick a longer username than 3 characters.",
+    //   );
+    //   return false;
+    // }
+    // if (registered) {
+    //   AppManager.flushBarShow(
+    //     context,
+    //     title: context.lang.current.registerFailTitle,
+    //     message: "The user has been registered already.",
+    //   );
+    //   return false;
+    // }
+    // if (!loggedIn) {
+    //   AppManager.flushBarShow(
+    //     context,
+    //     title: context.lang.current.registerFailTitle,
+    //     message: "The user isn't logged in.",
+    //   );
+    //   return false;
+    // }
+    // return await _load(
+    //   context,
+    //   run: () async {
+    //     await DataService.userRegister(
+    //       username,
+    //       about,
+    //     );
+    //     await ref.read(ownerProvider).getOwner();
+    //   },
+    //   errorTitle: context.lang.current.registerFailTitle,
+    // );
   }
 }
