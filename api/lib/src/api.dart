@@ -1,22 +1,19 @@
 import 'dart:convert';
 
+import 'package:chupp_api/src/session.dart';
 import 'package:http/http.dart' as http;
 
-import 'api_config.dart';
 import 'messages/errors.dart';
 import 'models/current_user.dart';
 
 class ChuppApi {
+  final Session _session = Session();
+
   static final instance = ChuppApi._();
-  final http.Client _client = http.Client();
 
   ServerApiCurrentUser? currentUser;
 
   ChuppApi._();
-
-  String get serverUrl => ChuppApiConfig.serverUrl;
-
-  Uri toUrl(String path) => Uri.parse(serverUrl + path);
 
   /// Checks the response status and returns from the function if the status is 2XX.
   ///
@@ -70,8 +67,8 @@ class ChuppApi {
     required String email,
     required String password,
   }) async {
-    final http.Response response = await _client.post(
-      toUrl("/login"),
+    final http.Response response = await _session.post(
+      "/login",
       body: <String, String>{
         "email": email,
         "password": password,
@@ -92,8 +89,8 @@ class ChuppApi {
     required String email,
     required String password,
   }) async {
-    final http.Response response = await _client.post(
-      toUrl("/register"),
+    final http.Response response = await _session.post(
+      "/register",
       body: <String, String>{
         "email": email,
         "password": password,
@@ -115,8 +112,8 @@ class ChuppApi {
       throw ChuppApiErrorMessages.errorUserNotFound;
     }
 
-    final http.Response response = await _client.post(
-      toUrl("/logout"),
+    final http.Response response = await _session.post(
+      "/logout",
     );
 
     _statusChecker(response);
@@ -126,8 +123,8 @@ class ChuppApi {
 
   /// Returns `true` if the server is currently working.
   Future<bool> get health async {
-    final http.Response response = await _client.get(
-      toUrl("/health"),
+    final http.Response response = await _session.get(
+      "/health",
     );
 
     try {

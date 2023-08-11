@@ -26,8 +26,8 @@ class AccountManager {
 
   // Firebase Auth | Start
 
-  static Future<void> signOut(BuildContext context) async {
-    if (isAnonymous) return;
+  static Future<bool> signOut(BuildContext context) async {
+    if (isAnonymous) return false;
     final bool? result = await Navigator.push<bool>(
       context,
       CardRoute(
@@ -35,14 +35,15 @@ class AccountManager {
         child: const SignOutCard(),
       ),
     );
-    if (result != true) return;
+    if (result != true) return false;
     if (context.mounted) {
-      await _load(
+      return await _load(
         context,
         run: () => DataService.signOut(),
         errorTitle: context.lang.current.logoutFailTitle,
       );
     }
+    return false;
   }
 
   static Future<bool> emailRegister(

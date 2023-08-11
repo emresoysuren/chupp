@@ -35,7 +35,7 @@ class ProfileRegisterMenu extends StatelessWidget {
             iconSize: 20,
             color: context.theme.current.important,
             onTap: () async {
-              await AccountManager.signOut(context);
+              if (await AccountManager.signOut(context) != true) return;
               validate?.call();
             },
           ),
