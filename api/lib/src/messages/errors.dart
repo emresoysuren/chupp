@@ -6,6 +6,7 @@ class ChuppApiErrorMessages {
   static const String error4XX = "ERROR4XX";
   static const String error5XX = "ERROR5XX";
   static const String errorUnknown = "ERROR UNKNOWN";
+  static const String timeout = "TIMEOUT";
 
   static const String errorUserNotFound = "ERRORUSERNOTFOUND";
 }

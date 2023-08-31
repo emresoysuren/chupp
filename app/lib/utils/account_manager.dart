@@ -3,6 +3,7 @@ import 'package:chupp/services/data_service.dart';
 import 'package:chupp/utils/app_manager.dart';
 import 'package:chupp/utils/utils/context_extension.dart';
 import 'package:chupp/widgets/cards/signout_card.dart';
+import 'package:chupp_api/api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -133,13 +134,29 @@ class AccountManager {
   }
 
   static Future _handleException(BuildContext context, String title, e,
-          [String? unknownExceptionMessage]) =>
-      AppManager.flushBarShow(
+      [String? unknownExceptionMessage]) async {
+    if (e is ChuppApiException) {
+      if (e.type == ChuppApiExceptionType.timeout) {
+        return await AppManager.flushBarShow(
+          context,
+          title: title,
+          message: e.message, // Timeout message can be added
+        );
+      }
+
+      return await AppManager.flushBarShow(
         context,
         title: title,
-        message:
-            unknownExceptionMessage ?? context.lang.current.unknownException,
+        message: e.message,
       );
+    }
+
+    return await AppManager.flushBarShow(
+      context,
+      title: title,
+      message: unknownExceptionMessage ?? context.lang.current.unknownException,
+    );
+  }
 
   static Future<bool> userRegister(
     BuildContext context,

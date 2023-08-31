@@ -1,5 +1,5 @@
-class ServerApiCurrentUser {
+class ChuppApiCurrentUser {
   final String uid;
 
-  ServerApiCurrentUser({required this.uid});
+  ChuppApiCurrentUser({required this.uid});
 }
